@@ -1,0 +1,22 @@
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="Corner Software monogram, display">
+  <rect width="240" height="240" fill="#0E0E0E"/>
+
+  <!-- Bone quadrant (the corner) -->
+  <rect width="120" height="120" fill="#F5F1E8"/>
+
+  <!-- Vermillion inset square -->
+  <rect x="30" y="30" width="60" height="60" fill="#D4452C"/>
+
+  <!-- Hairline construction grid, 4% opacity, 12-col blueprint feel -->
+  <g stroke="#A8A39A" stroke-width="0.5" opacity="0.06">
+    <line x1="0" y1="60" x2="240" y2="60"/>
+    <line x1="0" y1="120" x2="240" y2="120"/>
+    <line x1="0" y1="180" x2="240" y2="180"/>
+    <line x1="60" y1="0" x2="60" y2="240"/>
+    <line x1="120" y1="0" x2="120" y2="240"/>
+    <line x1="180" y1="0" x2="180" y2="240"/>
+  </g>
+
+  <!-- Hairline frame, ink-rule color -->
+  <rect x="0.5" y="0.5" width="239" height="239" fill="none" stroke="#2A2825" stroke-width="1"/>
+</svg>
