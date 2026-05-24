@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/brand/monogram.svg", type: "image/svg+xml" },
+      { url: "/brand/favicon.svg", type: "image/svg+xml" },
     ],
   },
 };

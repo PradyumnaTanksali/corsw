@@ -45,8 +45,8 @@ export default function OpengraphImage() {
           >
             <div
               style={{
-                width: 14,
-                height: 14,
+                width: 28,
+                height: 28,
                 background: "#F5F1E8",
                 position: "absolute",
                 top: 0,
@@ -55,12 +55,22 @@ export default function OpengraphImage() {
             />
             <div
               style={{
-                width: 7,
-                height: 7,
+                width: 10,
+                height: 10,
+                background: "#0E0E0E",
+                position: "absolute",
+                top: 0,
+                right: 0,
+              }}
+            />
+            <div
+              style={{
+                width: 9,
+                height: 9,
                 background: "#D4452C",
                 position: "absolute",
-                top: 3.5,
-                left: 3.5,
+                top: 5,
+                left: 5,
               }}
             />
           </div>
