@@ -10,7 +10,7 @@ export function Masthead() {
 
   return (
     <header className="relative pt-12 md:pt-20">
-      <div className="pointer-events-none absolute right-8 top-0 md:right-16">
+      <div className="pointer-events-none absolute right-8 top-0 md:right-16 print:hidden">
         <VermillionLine height="60vh" />
       </div>
 

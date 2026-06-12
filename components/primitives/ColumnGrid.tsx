@@ -2,7 +2,7 @@ export function ColumnGrid() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 hidden md:block"
+      className="pointer-events-none fixed inset-0 z-0 hidden md:block print:hidden"
     >
       <div className="mx-auto h-full w-full max-w-[1200px] px-8 md:px-16">
         <div
