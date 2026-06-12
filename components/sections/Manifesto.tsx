@@ -60,7 +60,7 @@ export function Manifesto() {
                 >
                   {numerals[i]}
                 </span>
-                <span className="text-lg leading-[1.45] text-ink text-balance md:text-xl">
+                <span className="text-lg leading-[1.45] text-ink text-balance">
                   {principle}
                 </span>
               </motion.li>
