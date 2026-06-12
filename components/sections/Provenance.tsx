@@ -40,13 +40,10 @@ export function Provenance() {
           <div className="md:col-span-8 md:col-start-5">
             <div className="max-w-prose space-y-6 text-[15px] leading-[1.6] text-ink md:text-base">
               <p>
-                Corner Software is operated by a small group of{" "}
-                <span className="font-serif italic font-normal text-accent">
-                  people
-                </span>{" "}
-                across Hyderabad, Pune, and Solapur. We are designers,
-                engineers, and one accountant. The company is privately held
-                and has no investors.
+                Corner Software is operated by a small group of people across
+                Hyderabad, Pune, and Solapur. We are designers, engineers, and
+                one accountant. The company is privately held and has no
+                investors.
               </p>
               <p className="text-ink-muted">
                 We are not hiring publicly. The team grows by invitation.
