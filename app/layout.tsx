@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { inter, ebGaramond, jetbrainsMono } from "./fonts";
 import { ColumnGrid } from "@/components/primitives/ColumnGrid";
+import { MotionProvider } from "@/components/primitives/MotionProvider";
 
 export const metadata: Metadata = {
   title: "Corner Software · A holding company for software product divisions.",
@@ -38,7 +39,9 @@ export default function RootLayout({
     >
       <body className="relative min-h-screen bg-bg text-ink antialiased">
         <ColumnGrid />
-        <div className="relative z-10">{children}</div>
+        <div className="relative z-10">
+          <MotionProvider>{children}</MotionProvider>
+        </div>
       </body>
     </html>
   );

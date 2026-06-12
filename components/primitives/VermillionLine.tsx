@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { ease } from "@/lib/motion";
 
 interface VermillionLineProps {
@@ -8,27 +8,18 @@ interface VermillionLineProps {
   height?: string;
 }
 
+/**
+ * Reduced motion is handled by the root <MotionConfig reducedMotion="user">:
+ * height is a positional value, so Framer sets it instantly (full line, no
+ * draw) when the user prefers reduced motion. A manual useReducedMotion()
+ * branch here would render different markup from the server pass and React
+ * does not patch inline-style mismatches on hydration — the line would stay
+ * at 0px for reduced-motion users.
+ */
 export function VermillionLine({
   className,
   height = "60vh",
 }: VermillionLineProps) {
-  const reduce = useReducedMotion();
-
-  if (reduce) {
-    return (
-      <span
-        aria-hidden="true"
-        className={className}
-        style={{
-          display: "block",
-          width: "1px",
-          height,
-          background: "var(--accent)",
-        }}
-      />
-    );
-  }
-
   return (
     <motion.span
       aria-hidden="true"
