@@ -7,9 +7,9 @@ import { DivisionCard } from "@/components/primitives/DivisionCard";
 import { cn } from "@/lib/utils";
 import {
   reveal,
-  revealTransition,
   stagger,
   staggerTransition,
+  useRevealTransition,
   viewport,
 } from "@/lib/motion";
 
@@ -45,6 +45,8 @@ const divisions = [
 ];
 
 export function Divisions() {
+  const revealTransition = useRevealTransition();
+
   return (
     <section className="py-32 md:py-40">
       <Container>

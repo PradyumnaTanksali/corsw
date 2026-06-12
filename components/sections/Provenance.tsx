@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/primitives/Container";
 import { SectionRule } from "@/components/primitives/SectionRule";
-import { reveal, revealTransition, viewport } from "@/lib/motion";
+import { reveal, useRevealTransition, viewport } from "@/lib/motion";
 
 const cities = [
   { name: "Hyderabad", coord: "17.385° N · 78.486° E" },
@@ -12,6 +12,8 @@ const cities = [
 ];
 
 export function Provenance() {
+  const revealTransition = useRevealTransition();
+
   return (
     <section className="py-32 md:py-40">
       <Container>

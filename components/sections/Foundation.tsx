@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/primitives/Container";
 import { SectionRule } from "@/components/primitives/SectionRule";
-import { reveal, revealTransition, viewport } from "@/lib/motion";
+import { reveal, useRevealTransition, viewport } from "@/lib/motion";
 
 export function Foundation() {
+  const revealTransition = useRevealTransition();
+
   return (
     <section className="py-32 md:py-40">
       <Container>

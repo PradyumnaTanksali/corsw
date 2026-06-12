@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/primitives/Container";
-import { reveal, revealTransition, viewport } from "@/lib/motion";
+import { reveal, useRevealTransition, viewport } from "@/lib/motion";
 
 export function Colophon() {
+  const revealTransition = useRevealTransition();
+
   return (
     <footer className="pb-24 pt-20 md:pb-32 md:pt-32">
       <Container>

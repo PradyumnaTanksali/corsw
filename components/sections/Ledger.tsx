@@ -5,9 +5,9 @@ import { Container } from "@/components/primitives/Container";
 import { SectionRule } from "@/components/primitives/SectionRule";
 import {
   reveal,
-  revealTransition,
   stagger,
   staggerTransition,
+  useRevealTransition,
   viewport,
 } from "@/lib/motion";
 
@@ -35,6 +35,8 @@ const rows: Array<{ key: string; label: string; href: string }> = [
 ];
 
 export function Ledger() {
+  const revealTransition = useRevealTransition();
+
   return (
     <section className="py-32 md:py-40">
       <Container>
