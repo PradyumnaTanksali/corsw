@@ -5,8 +5,9 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const SANS_TEXT =
-  "Corner Software builds software so far. · Est. 2024 CORSW MAY 2026 HYDERABAD / PUNE / SOLAPUR";
+  "Corner Software builds software so far. · Est. 2024";
 const SERIF_TEXT = "companies. Two ";
+const MONO_TEXT = "CORSW · MAY 2026 HYDERABAD / PUNE / SOLAPUR";
 
 async function loadGoogleFont(
   family: string,
@@ -29,9 +30,10 @@ async function loadGoogleFont(
 }
 
 export default async function OpengraphImage() {
-  const [inter, ebGaramondItalic] = await Promise.all([
+  const [inter, ebGaramondItalic, jetBrainsMono] = await Promise.all([
     loadGoogleFont("Inter", "wght@500", SANS_TEXT + SANS_TEXT.toUpperCase()),
     loadGoogleFont("EB Garamond", "ital,wght@1,400", SERIF_TEXT),
+    loadGoogleFont("JetBrains Mono", "wght@400", MONO_TEXT),
   ]);
 
   return new ImageResponse(
@@ -158,6 +160,7 @@ export default async function OpengraphImage() {
             marginTop: 64,
             display: "flex",
             justifyContent: "space-between",
+            fontFamily: "JetBrains Mono",
             fontSize: 16,
             letterSpacing: "-0.01em",
             color: "#A8A39A",
@@ -177,6 +180,12 @@ export default async function OpengraphImage() {
           data: ebGaramondItalic,
           weight: 400,
           style: "italic",
+        },
+        {
+          name: "JetBrains Mono",
+          data: jetBrainsMono,
+          weight: 400,
+          style: "normal",
         },
       ],
     },
