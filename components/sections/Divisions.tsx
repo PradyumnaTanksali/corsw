@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Container } from "@/components/primitives/Container";
 import { SectionRule } from "@/components/primitives/SectionRule";
 import { DivisionCard } from "@/components/primitives/DivisionCard";
+import { cn } from "@/lib/utils";
 import {
   reveal,
   revealTransition,
@@ -65,14 +66,19 @@ export function Divisions() {
             whileInView="whileInView"
             viewport={viewport}
             transition={staggerTransition}
-            className="md:col-span-8 md:col-start-5 grid grid-cols-1 gap-px bg-ink-rule md:grid-cols-2"
+            className="md:col-span-8 md:col-start-5 grid grid-cols-1 md:grid-cols-2"
           >
-            {divisions.map((division) => (
+            {divisions.map((division, i) => (
               <motion.div
                 key={division.wordmark}
                 variants={reveal}
                 transition={revealTransition}
-                className="bg-bg"
+                className={cn(
+                  // Overlap adjacent card borders into a single hairline;
+                  // hover:z-10 lets the hovered card's vermillion border win.
+                  "relative hover:z-10",
+                  i > 0 && "-mt-px md:mt-0 md:-ml-px",
+                )}
               >
                 <DivisionCard {...division} />
               </motion.div>
