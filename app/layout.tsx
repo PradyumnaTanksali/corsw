@@ -28,11 +28,8 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  icons: {
-    icon: [
-      { url: "/brand/favicon.svg", type: "image/svg+xml" },
-    ],
-  },
+  // Icons come from the app/icon.png + app/icon.svg file conventions; a manual
+  // `icons` entry here would suppress those generated <link> tags.
 };
 
 export default function RootLayout({
