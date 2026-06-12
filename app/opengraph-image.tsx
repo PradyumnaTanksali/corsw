@@ -1,11 +1,39 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
 export const alt = "Corner Software · A holding company for software product divisions.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpengraphImage() {
+const SANS_TEXT =
+  "Corner Software builds software so far. · Est. 2024 CORSW MAY 2026 HYDERABAD / PUNE / SOLAPUR";
+const SERIF_TEXT = "companies. Two ";
+
+async function loadGoogleFont(
+  family: string,
+  axes: string,
+  text: string,
+): Promise<ArrayBuffer> {
+  const url = `https://fonts.googleapis.com/css2?family=${family.replace(/ /g, "+")}:${axes}&text=${encodeURIComponent(text)}`;
+  const css = await (await fetch(url, { cache: "force-cache" })).text();
+  const resource = css.match(
+    /src: url\((.+?)\) format\('(?:opentype|truetype)'\)/,
+  );
+  if (!resource) {
+    throw new Error(`Could not resolve font face for ${family}`);
+  }
+  const response = await fetch(resource[1], { cache: "force-cache" });
+  if (!response.ok) {
+    throw new Error(`Could not load font data for ${family}`);
+  }
+  return response.arrayBuffer();
+}
+
+export default async function OpengraphImage() {
+  const [inter, ebGaramondItalic] = await Promise.all([
+    loadGoogleFont("Inter", "wght@500", SANS_TEXT + SANS_TEXT.toUpperCase()),
+    loadGoogleFont("EB Garamond", "ital,wght@1,400", SERIF_TEXT),
+  ]);
+
   return new ImageResponse(
     (
       <div
@@ -18,7 +46,7 @@ export default function OpengraphImage() {
           flexDirection: "column",
           padding: "72px",
           position: "relative",
-          fontFamily: "Inter, sans-serif",
+          fontFamily: "Inter",
         }}
       >
         <div
@@ -95,18 +123,32 @@ export default function OpengraphImage() {
             fontWeight: 500,
             lineHeight: 1.0,
             letterSpacing: "-0.02em",
-            maxWidth: 880,
+            maxWidth: 1000,
           }}
         >
           <span>Corner Software builds</span>
           <span>
-            software{" "}
-            <span style={{ fontStyle: "italic", fontWeight: 400 }}>
+            {"software "}
+            <span
+              style={{
+                fontFamily: "EB Garamond",
+                fontStyle: "italic",
+                fontWeight: 400,
+              }}
+            >
               companies.
             </span>
           </span>
           <span>
-            <span style={{ fontStyle: "italic", fontWeight: 400 }}>Two</span>{" "}
+            <span
+              style={{
+                fontFamily: "EB Garamond",
+                fontStyle: "italic",
+                fontWeight: 400,
+              }}
+            >
+              {"Two "}
+            </span>
             so far.
           </span>
         </div>
@@ -119,7 +161,6 @@ export default function OpengraphImage() {
             fontSize: 16,
             letterSpacing: "-0.01em",
             color: "#A8A39A",
-            fontFamily: "monospace",
           }}
         >
           <span>CORSW · MAY 2026</span>
@@ -127,6 +168,17 @@ export default function OpengraphImage() {
         </div>
       </div>
     ),
-    size,
+    {
+      ...size,
+      fonts: [
+        { name: "Inter", data: inter, weight: 500, style: "normal" },
+        {
+          name: "EB Garamond",
+          data: ebGaramondItalic,
+          weight: 400,
+          style: "italic",
+        },
+      ],
+    },
   );
 }
