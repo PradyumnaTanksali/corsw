@@ -17,7 +17,7 @@ export function SectionRule({ n, label, className }: SectionRuleProps) {
     >
       <span
         aria-hidden="true"
-        className="font-accent text-ink-muted normal-case tracking-[0.02em] text-base"
+        className="font-accent text-ink-muted normal-case text-base"
       >
         — <Ordinal n={n} /> —
       </span>

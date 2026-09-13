@@ -1,0 +1,622 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-13T10:28:11.996Z",
+  "title": "Design System: Corner Software",
+  "extensions": {
+    "colorMeta": {
+      "paper-bg": {
+        "role": "neutral",
+        "displayName": "Paper Ground",
+        "canonical": "#0e0e0e",
+        "tonalRamp": [
+          "oklch(15% 0 89.9)",
+          "oklch(26.5% 0 89.9)",
+          "oklch(38% 0 89.9)",
+          "oklch(49.5% 0 89.9)",
+          "oklch(61% 0 89.9)",
+          "oklch(72.5% 0 89.9)",
+          "oklch(84% 0 89.9)",
+          "oklch(95% 0 89.9)"
+        ]
+      },
+      "paper-card": {
+        "role": "neutral",
+        "displayName": "Paper Card",
+        "canonical": "#161513",
+        "tonalRamp": [
+          "oklch(15% 0.004 84.6)",
+          "oklch(26.5% 0.004 84.6)",
+          "oklch(38% 0.004 84.6)",
+          "oklch(49.5% 0.004 84.6)",
+          "oklch(61% 0.004 84.6)",
+          "oklch(72.5% 0.004 84.6)",
+          "oklch(84% 0.004 84.6)",
+          "oklch(95% 0.004 84.6)"
+        ]
+      },
+      "paper-ink": {
+        "role": "neutral",
+        "displayName": "Bone Ink",
+        "canonical": "#f5f1e8",
+        "tonalRamp": [
+          "oklch(15% 0.013 86.8)",
+          "oklch(26.5% 0.013 86.8)",
+          "oklch(38% 0.013 86.8)",
+          "oklch(49.5% 0.013 86.8)",
+          "oklch(61% 0.013 86.8)",
+          "oklch(72.5% 0.013 86.8)",
+          "oklch(84% 0.013 86.8)",
+          "oklch(95% 0.013 86.8)"
+        ]
+      },
+      "paper-ink-muted": {
+        "role": "neutral",
+        "displayName": "Paper Muted Ink",
+        "canonical": "#a8a39a",
+        "tonalRamp": [
+          "oklch(15% 0.014 82.4)",
+          "oklch(26.5% 0.014 82.4)",
+          "oklch(38% 0.014 82.4)",
+          "oklch(49.5% 0.014 82.4)",
+          "oklch(61% 0.014 82.4)",
+          "oklch(72.5% 0.014 82.4)",
+          "oklch(84% 0.014 82.4)",
+          "oklch(95% 0.014 82.4)"
+        ]
+      },
+      "paper-ink-faint": {
+        "role": "neutral",
+        "displayName": "Paper Faint Ink",
+        "canonical": "#847f76",
+        "tonalRamp": [
+          "oklch(15% 0.015 82.4)",
+          "oklch(26.5% 0.015 82.4)",
+          "oklch(38% 0.015 82.4)",
+          "oklch(49.5% 0.015 82.4)",
+          "oklch(61% 0.015 82.4)",
+          "oklch(72.5% 0.015 82.4)",
+          "oklch(84% 0.015 82.4)",
+          "oklch(95% 0.015 82.4)"
+        ]
+      },
+      "paper-rule": {
+        "role": "neutral",
+        "displayName": "Paper Rule",
+        "canonical": "#2a2825",
+        "tonalRamp": [
+          "oklch(15% 0.006 78.2)",
+          "oklch(26.5% 0.006 78.2)",
+          "oklch(38% 0.006 78.2)",
+          "oklch(49.5% 0.006 78.2)",
+          "oklch(61% 0.006 78.2)",
+          "oklch(72.5% 0.006 78.2)",
+          "oklch(84% 0.006 78.2)",
+          "oklch(95% 0.006 78.2)"
+        ]
+      },
+      "paper-vermillion": {
+        "role": "primary",
+        "displayName": "Vermillion",
+        "canonical": "#d7543d",
+        "tonalRamp": [
+          "oklch(15% 0.17 32.1)",
+          "oklch(26.5% 0.17 32.1)",
+          "oklch(38% 0.17 32.1)",
+          "oklch(49.5% 0.17 32.1)",
+          "oklch(61% 0.17 32.1)",
+          "oklch(72.5% 0.17 32.1)",
+          "oklch(84% 0.17 32.1)",
+          "oklch(95% 0.17 32.1)"
+        ]
+      },
+      "schematic-bg": {
+        "role": "neutral",
+        "displayName": "Carbon Ground",
+        "canonical": "#0a0b0f",
+        "tonalRamp": [
+          "oklch(15% 0.009 274.3)",
+          "oklch(26.5% 0.009 274.3)",
+          "oklch(38% 0.009 274.3)",
+          "oklch(49.5% 0.009 274.3)",
+          "oklch(61% 0.009 274.3)",
+          "oklch(72.5% 0.009 274.3)",
+          "oklch(84% 0.009 274.3)",
+          "oklch(95% 0.009 274.3)"
+        ]
+      },
+      "schematic-card": {
+        "role": "neutral",
+        "displayName": "Schematic Card",
+        "canonical": "#111317",
+        "tonalRamp": [
+          "oklch(15% 0.009 264.3)",
+          "oklch(26.5% 0.009 264.3)",
+          "oklch(38% 0.009 264.3)",
+          "oklch(49.5% 0.009 264.3)",
+          "oklch(61% 0.009 264.3)",
+          "oklch(72.5% 0.009 264.3)",
+          "oklch(84% 0.009 264.3)",
+          "oklch(95% 0.009 264.3)"
+        ]
+      },
+      "schematic-ink": {
+        "role": "neutral",
+        "displayName": "Cool Ink",
+        "canonical": "#e8eaed",
+        "tonalRamp": [
+          "oklch(15% 0.005 258.3)",
+          "oklch(26.5% 0.005 258.3)",
+          "oklch(38% 0.005 258.3)",
+          "oklch(49.5% 0.005 258.3)",
+          "oklch(61% 0.005 258.3)",
+          "oklch(72.5% 0.005 258.3)",
+          "oklch(84% 0.005 258.3)",
+          "oklch(95% 0.005 258.3)"
+        ]
+      },
+      "schematic-ink-muted": {
+        "role": "neutral",
+        "displayName": "Schematic Muted Ink",
+        "canonical": "#9ca3af",
+        "tonalRamp": [
+          "oklch(15% 0.019 261.3)",
+          "oklch(26.5% 0.019 261.3)",
+          "oklch(38% 0.019 261.3)",
+          "oklch(49.5% 0.019 261.3)",
+          "oklch(61% 0.019 261.3)",
+          "oklch(72.5% 0.019 261.3)",
+          "oklch(84% 0.019 261.3)",
+          "oklch(95% 0.019 261.3)"
+        ]
+      },
+      "schematic-ink-faint": {
+        "role": "neutral",
+        "displayName": "Schematic Faint Ink",
+        "canonical": "#767d8c",
+        "tonalRamp": [
+          "oklch(15% 0.024 265.6)",
+          "oklch(26.5% 0.024 265.6)",
+          "oklch(38% 0.024 265.6)",
+          "oklch(49.5% 0.024 265.6)",
+          "oklch(61% 0.024 265.6)",
+          "oklch(72.5% 0.024 265.6)",
+          "oklch(84% 0.024 265.6)",
+          "oklch(95% 0.024 265.6)"
+        ]
+      },
+      "schematic-rule": {
+        "role": "neutral",
+        "displayName": "Schematic Rule",
+        "canonical": "#1f2228",
+        "tonalRamp": [
+          "oklch(15% 0.012 264.3)",
+          "oklch(26.5% 0.012 264.3)",
+          "oklch(38% 0.012 264.3)",
+          "oklch(49.5% 0.012 264.3)",
+          "oklch(61% 0.012 264.3)",
+          "oklch(72.5% 0.012 264.3)",
+          "oklch(84% 0.012 264.3)",
+          "oklch(95% 0.012 264.3)"
+        ]
+      },
+      "schematic-blue": {
+        "role": "primary",
+        "displayName": "Electric Blue",
+        "canonical": "#3b82f6",
+        "tonalRamp": [
+          "oklch(15% 0.188 259.8)",
+          "oklch(26.5% 0.188 259.8)",
+          "oklch(38% 0.188 259.8)",
+          "oklch(49.5% 0.188 259.8)",
+          "oklch(61% 0.188 259.8)",
+          "oklch(72.5% 0.188 259.8)",
+          "oklch(84% 0.188 259.8)",
+          "oklch(95% 0.188 259.8)"
+        ]
+      },
+      "signal-operating": {
+        "role": "tertiary",
+        "displayName": "Signal Green",
+        "canonical": "#10b981",
+        "tonalRamp": [
+          "oklch(15% 0.149 162.5)",
+          "oklch(26.5% 0.149 162.5)",
+          "oklch(38% 0.149 162.5)",
+          "oklch(49.5% 0.149 162.5)",
+          "oklch(61% 0.149 162.5)",
+          "oklch(72.5% 0.149 162.5)",
+          "oklch(84% 0.149 162.5)",
+          "oklch(95% 0.149 162.5)"
+        ]
+      },
+      "signal-in-build": {
+        "role": "tertiary",
+        "displayName": "Signal Amber",
+        "canonical": "#f59e0b",
+        "tonalRamp": [
+          "oklch(15% 0.165 70.1)",
+          "oklch(26.5% 0.165 70.1)",
+          "oklch(38% 0.165 70.1)",
+          "oklch(49.5% 0.165 70.1)",
+          "oklch(61% 0.165 70.1)",
+          "oklch(72.5% 0.165 70.1)",
+          "oklch(84% 0.165 70.1)",
+          "oklch(95% 0.165 70.1)"
+        ]
+      },
+      "mark-vermillion": {
+        "role": "primary",
+        "displayName": "Mark Vermillion",
+        "canonical": "#D4452C",
+        "tonalRamp": [
+          "oklch(15% 0.184 32.3)",
+          "oklch(26.5% 0.184 32.3)",
+          "oklch(38% 0.184 32.3)",
+          "oklch(49.5% 0.184 32.3)",
+          "oklch(61% 0.184 32.3)",
+          "oklch(72.5% 0.184 32.3)",
+          "oklch(84% 0.184 32.3)",
+          "oklch(95% 0.184 32.3)"
+        ]
+      },
+      "print-paper": {
+        "role": "neutral",
+        "displayName": "Print Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0 89.9)",
+          "oklch(26.5% 0 89.9)",
+          "oklch(38% 0 89.9)",
+          "oklch(49.5% 0 89.9)",
+          "oklch(61% 0 89.9)",
+          "oklch(72.5% 0 89.9)",
+          "oklch(84% 0 89.9)",
+          "oklch(95% 0 89.9)"
+        ]
+      },
+      "print-ink": {
+        "role": "neutral",
+        "displayName": "Print Ink",
+        "canonical": "#141310",
+        "tonalRamp": [
+          "oklch(15% 0.006 91.7)",
+          "oklch(26.5% 0.006 91.7)",
+          "oklch(38% 0.006 91.7)",
+          "oklch(49.5% 0.006 91.7)",
+          "oklch(61% 0.006 91.7)",
+          "oklch(72.5% 0.006 91.7)",
+          "oklch(84% 0.006 91.7)",
+          "oklch(95% 0.006 91.7)"
+        ]
+      },
+      "print-ink-muted": {
+        "role": "neutral",
+        "displayName": "Print Muted Ink",
+        "canonical": "#45423c",
+        "tonalRamp": [
+          "oklch(15% 0.011 84.6)",
+          "oklch(26.5% 0.011 84.6)",
+          "oklch(38% 0.011 84.6)",
+          "oklch(49.5% 0.011 84.6)",
+          "oklch(61% 0.011 84.6)",
+          "oklch(72.5% 0.011 84.6)",
+          "oklch(84% 0.011 84.6)",
+          "oklch(95% 0.011 84.6)"
+        ]
+      },
+      "print-ink-faint": {
+        "role": "neutral",
+        "displayName": "Print Faint Ink",
+        "canonical": "#6e6a63",
+        "tonalRamp": [
+          "oklch(15% 0.012 81.8)",
+          "oklch(26.5% 0.012 81.8)",
+          "oklch(38% 0.012 81.8)",
+          "oklch(49.5% 0.012 81.8)",
+          "oklch(61% 0.012 81.8)",
+          "oklch(72.5% 0.012 81.8)",
+          "oklch(84% 0.012 81.8)",
+          "oklch(95% 0.012 81.8)"
+        ]
+      },
+      "print-rule": {
+        "role": "neutral",
+        "displayName": "Print Rule",
+        "canonical": "#d8d4cb",
+        "tonalRamp": [
+          "oklch(15% 0.013 86.8)",
+          "oklch(26.5% 0.013 86.8)",
+          "oklch(38% 0.013 86.8)",
+          "oklch(49.5% 0.013 86.8)",
+          "oklch(61% 0.013 86.8)",
+          "oklch(72.5% 0.013 86.8)",
+          "oklch(84% 0.013 86.8)",
+          "oklch(95% 0.013 86.8)"
+        ]
+      },
+      "print-accent": {
+        "role": "primary",
+        "displayName": "Print Accent",
+        "canonical": "#b83a22",
+        "tonalRamp": [
+          "oklch(15% 0.166 32.9)",
+          "oklch(26.5% 0.166 32.9)",
+          "oklch(38% 0.166 32.9)",
+          "oklch(49.5% 0.166 32.9)",
+          "oklch(61% 0.166 32.9)",
+          "oklch(72.5% 0.166 32.9)",
+          "oklch(84% 0.166 32.9)",
+          "oklch(95% 0.166 32.9)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The page h1 only; emphasis words take the accent face."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section h2; exactly one accent word in accent color."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project card tagline."
+      },
+      "body-large": {
+        "displayName": "Body Large",
+        "purpose": "Manifesto principle lines in Ink."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs in Muted Ink; 16px from md; capped at 65ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Section folio label, uppercase."
+      },
+      "mono-caps": {
+        "displayName": "Mono Caps",
+        "purpose": "Nameplate row, theme toggle, copyright line and /demo footer, uppercase."
+      },
+      "mono-data": {
+        "displayName": "Mono Data",
+        "purpose": "Index, Ledger, colophon, dateline and links; 12.5px in project data tables."
+      },
+      "mono-tag": {
+        "displayName": "Mono Tag",
+        "purpose": "Diagram panel header and status badge, uppercase."
+      },
+      "accent-paper": {
+        "displayName": "Accent (Paper)",
+        "purpose": "font-accent on Paper: EB Garamond italic for emphasis words and Roman ordinals."
+      },
+      "accent-schematic": {
+        "displayName": "Accent (Schematic)",
+        "purpose": "font-accent on Schematic: JetBrains Mono 500 at -0.04em for emphasis words and 01. ordinals."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-settle",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "The one easing curve: reveals, link underline, masthead line, diagrams."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity 0→1, translateY 8px→0, 500ms ease-settle, once, viewport margin -120px",
+        "purpose": "Section and list-row entrance."
+      },
+      {
+        "name": "reveal-stagger",
+        "value": "staggerChildren 50ms, delayChildren 50ms",
+        "purpose": "Index, Manifesto and Ledger rows."
+      },
+      {
+        "name": "masthead-rise",
+        "value": "masthead-rise 0.5s cubic-bezier(0.32, 0.72, 0, 1) 0.2s both",
+        "purpose": "Display h1, in CSS so it paints before hydration; motion-safe only."
+      },
+      {
+        "name": "hover-color",
+        "value": "150ms",
+        "purpose": "Color transitions on links, toggle and demo button."
+      },
+      {
+        "name": "link-draw",
+        "value": "transform scaleX(0→1), 200ms ease-settle, origin left",
+        "purpose": "1px accent underline on hover and focus-visible."
+      },
+      {
+        "name": "masthead-line",
+        "value": "height 0→60vh, 1200ms ease-settle, once on load",
+        "purpose": "The 1px accent line at the masthead's right edge."
+      },
+      {
+        "name": "diagram-box",
+        "value": "opacity + translateY 4px, 400ms ease-settle, stagger 60ms",
+        "purpose": "Schematic boxes entering."
+      },
+      {
+        "name": "diagram-draw",
+        "value": "pathLength 0→1, 1000ms ease-settle, delay 400ms + 80ms per connector; tip dots fade 300ms after",
+        "purpose": "Connectors drawing once in view."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation/transition 0.001ms; Framer duration 0",
+        "purpose": "prefers-reduced-motion snaps every motion above."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Demo Button",
+      "kind": "button",
+      "refersTo": "button-demo",
+      "description": "The only bordered button: the /demo call to action. Fills with the accent on hover.",
+      "html": "<a class=\"ds-btn-demo\" href=\"#\">Ask for a demo <span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-btn-demo{display:inline-flex;align-items:center;gap:12px;border:1px solid var(--accent,#d7543d);border-radius:0;padding:12px 20px;background:transparent;color:var(--accent,#d7543d);font-family:var(--font-jetbrains-mono,'JetBrains Mono'),ui-monospace,monospace;font-size:13px;text-decoration:none;transition:background-color 150ms,color 150ms}.ds-btn-demo:hover{background:var(--accent,#d7543d);color:var(--bg,#0e0e0e)}.ds-btn-demo:focus-visible{outline:1px solid var(--accent,#d7543d);outline-offset:2px}"
+    },
+    {
+      "name": "Theme Toggle",
+      "kind": "custom",
+      "refersTo": "theme-toggle",
+      "description": "The site's only control: two mono words; the pressed one is Ink with an accent underline.",
+      "html": "<div class=\"ds-toggle\" role=\"group\" aria-label=\"Theme\"><button type=\"button\" class=\"ds-toggle-btn\" aria-pressed=\"true\">paper</button><span class=\"ds-toggle-sep\" aria-hidden=\"true\">/</span><button type=\"button\" class=\"ds-toggle-btn\" aria-pressed=\"false\">schematic</button></div>",
+      "css": ".ds-toggle{display:flex;align-items:baseline;gap:4px;font-family:var(--font-jetbrains-mono,'JetBrains Mono'),ui-monospace,monospace;font-size:11px}.ds-toggle-sep{color:var(--ink-faint,#847f76)}.ds-toggle-btn{cursor:pointer;border:0;border-radius:0;background:none;padding:8px 4px;font:inherit;text-transform:uppercase;letter-spacing:0.22em;color:var(--ink-faint,#847f76);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px;transition:color 150ms}.ds-toggle-btn:hover{color:var(--ink-muted,#a8a39a)}.ds-toggle-btn[aria-pressed=\"true\"]{color:var(--ink,#f5f1e8);text-decoration-color:var(--accent,#d7543d)}.ds-toggle-btn:focus-visible{outline:1px solid var(--accent,#d7543d);outline-offset:2px}"
+    },
+    {
+      "name": "Section Folio",
+      "kind": "custom",
+      "refersTo": "section-rule",
+      "description": "Hairline, ordinal in the accent face and uppercase section name; opens every numbered section.",
+      "html": "<div class=\"ds-folio\"><span class=\"ds-folio-num\" aria-hidden=\"true\">— II —</span><span>Projects</span></div>",
+      "css": ".ds-folio{display:flex;align-items:center;gap:16px;border-top:1px solid var(--ink-rule,#2a2825);padding-top:24px;font-family:var(--font-inter,Inter),ui-sans-serif,system-ui,sans-serif;font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink-muted,#a8a39a)}.ds-folio-num{font-family:var(--font-accent,'EB Garamond'),Georgia,serif;font-style:var(--accent-style,italic);font-weight:var(--accent-weight,400);letter-spacing:var(--accent-tracking,normal);font-size:16px;letter-spacing:0.02em;text-transform:none}"
+    },
+    {
+      "name": "Drawn Link",
+      "kind": "custom",
+      "refersTo": "link-mono",
+      "description": "Mono link with a trailing arrow; hover and focus draw a 1px accent underline left to right.",
+      "html": "<a class=\"ds-link\" href=\"#\"><span class=\"ds-link-draw\">See a platform running</span><span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-jetbrains-mono,'JetBrains Mono'),ui-monospace,monospace;font-size:13px;color:var(--ink,#f5f1e8);text-decoration:none;transition:color 150ms}.ds-link:hover{color:var(--accent,#d7543d)}.ds-link-draw{position:relative}.ds-link-draw::after{content:\"\";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--accent,#d7543d);transform:scaleX(0);transform-origin:left center;transition:transform 200ms cubic-bezier(0.32,0.72,0,1)}.ds-link:hover .ds-link-draw::after,.ds-link:focus-visible .ds-link-draw::after{transform:scaleX(1)}"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "chip",
+      "refersTo": "status-badge",
+      "description": "Uppercase mono status with a 6px signal square; green operating, amber in build.",
+      "html": "<span class=\"ds-status\"><span class=\"ds-status-sq\" aria-hidden=\"true\"></span>Operating</span><span class=\"ds-status\"><span class=\"ds-status-sq ds-status-sq--build\" aria-hidden=\"true\"></span>In build</span>",
+      "css": ".ds-status{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-jetbrains-mono,'JetBrains Mono'),ui-monospace,monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-muted,#a8a39a)}.ds-status+.ds-status{margin-left:24px}.ds-status-sq{display:inline-block;width:6px;height:6px;background:var(--success,#10b981)}.ds-status-sq--build{background:var(--warning,#f59e0b)}"
+    },
+    {
+      "name": "Data Table",
+      "kind": "custom",
+      "refersTo": "data-row",
+      "description": "Project facts: hairline rows, faint uppercase labels, Ink values, faint reference codes.",
+      "html": "<table class=\"ds-table\"><tbody><tr><th scope=\"row\">Tenants</th><td>1 active · 12 in pipeline</td><td class=\"ds-table-meta\">tnt</td></tr><tr><th scope=\"row\">Languages</th><td>English · Marathi · Hindi</td><td class=\"ds-table-meta\">lng/03</td></tr></tbody></table>",
+      "css": ".ds-table{width:100%;border-collapse:collapse;font-family:var(--font-jetbrains-mono,'JetBrains Mono'),ui-monospace,monospace;font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--ink-muted,#a8a39a)}.ds-table tr{border-top:1px solid var(--ink-rule,#2a2825);vertical-align:top}.ds-table tr:last-child{border-bottom:1px solid var(--ink-rule,#2a2825)}.ds-table th{width:112px;padding:10px 16px 10px 0;text-align:left;font-weight:400;text-transform:uppercase;letter-spacing:0.12em;color:var(--ink-faint,#847f76)}.ds-table td{padding:10px 16px 10px 0;color:var(--ink,#f5f1e8)}.ds-table td.ds-table-meta{width:56px;padding-right:0;text-align:right;white-space:nowrap;color:var(--ink-faint,#847f76)}"
+    },
+    {
+      "name": "System Diagram Panel",
+      "kind": "card",
+      "refersTo": "diagram-panel",
+      "description": "The one framed surface: Card panel, mono header, boxes with a single accent core and drawn accent connectors.",
+      "html": "<figure class=\"ds-diagram\"><div class=\"ds-diagram-head\"><span>System diagram</span><span>arogyam.v2</span></div><svg viewBox=\"0 0 400 76\" role=\"img\" aria-label=\"Web client connects to the API\"><rect class=\"box\" x=\"12\" y=\"12\" width=\"156\" height=\"52\"/><text class=\"lbl\" x=\"24\" y=\"34\">Web</text><text class=\"sub\" x=\"24\" y=\"50\">Next.js</text><path class=\"wire\" pathLength=\"1\" d=\"M168 38 L232 38\"/><circle class=\"tip\" cx=\"232\" cy=\"38\" r=\"1.6\"/><rect class=\"box box--core\" x=\"232\" y=\"12\" width=\"156\" height=\"52\"/><text class=\"lbl\" x=\"244\" y=\"34\">API</text><text class=\"sub\" x=\"244\" y=\"50\">tRPC</text></svg></figure>",
+      "css": ".ds-diagram{margin:0;border:1px solid var(--ink-rule,#2a2825);border-radius:0;background:var(--bg-card,#161513);padding:28px;font-family:var(--font-jetbrains-mono,'JetBrains Mono'),ui-monospace,monospace}.ds-diagram-head{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-faint,#847f76)}.ds-diagram svg{display:block;width:100%;height:auto;margin-top:16px}.ds-diagram .box{fill:var(--bg-card,#161513);stroke:var(--ink-muted,#a8a39a);stroke-width:0.75;stroke-opacity:0.55}.ds-diagram .box--core{stroke:var(--accent,#d7543d);stroke-width:1;stroke-opacity:1}.ds-diagram .lbl{fill:var(--ink,#f5f1e8);font-size:12px;font-weight:500}.ds-diagram .sub{fill:var(--ink-faint,#847f76);font-size:10px;letter-spacing:0.3px}.ds-diagram .wire{fill:none;stroke:var(--accent,#d7543d);stroke-width:1;stroke-linecap:square;stroke-dasharray:1;animation:ds-draw 1s cubic-bezier(0.32,0.72,0,1) 0.4s both}.ds-diagram .tip{fill:var(--accent,#d7543d)}@keyframes ds-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}@media (prefers-reduced-motion:reduce){.ds-diagram .wire{animation:none}}"
+    },
+    {
+      "name": "Principles List",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Manifesto rows: accent ordinal in the accent face beside an 18px Ink line, hairline between rows.",
+      "html": "<ol class=\"ds-principles\"><li><span class=\"ds-ord\" aria-hidden=\"true\">I.</span><span class=\"ds-line\">One company. One person accountable for every project.</span></li><li><span class=\"ds-ord\" aria-hidden=\"true\">II.</span><span class=\"ds-line\">Build it, then run it. Nothing is handed off.</span></li></ol>",
+      "css": ".ds-principles{list-style:none;margin:0;padding:0;max-width:42rem}.ds-principles li{display:grid;grid-template-columns:4rem 1fr;align-items:baseline;gap:24px;padding:24px 0;border-bottom:1px solid var(--ink-rule,#2a2825)}.ds-principles li:last-child{border-bottom:0}.ds-ord{font-family:var(--font-accent,'EB Garamond'),Georgia,serif;font-style:var(--accent-style,italic);font-weight:var(--accent-weight,400);letter-spacing:var(--accent-tracking,normal);font-size:30px;line-height:36px;font-variant-numeric:tabular-nums;color:var(--accent,#d7543d)}.ds-line{font-family:var(--font-inter,Inter),ui-sans-serif,system-ui,sans-serif;font-size:18px;line-height:1.45;color:var(--ink,#f5f1e8)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Issue and the Drawing",
+    "overview": "corsw.in is one company register, printed as a dark issue and offered in two proofs. **Paper** is the issue: warm off-black, bone ink, vermillion, EB Garamond italic slipping into Inter headlines, Roman numerals, and a faint twelve-column hairline grid behind everything. **Schematic** is the engineering drawing of the same pages: carbon, cool ink, electric blue, JetBrains Mono in place of the italic, zero-padded Arabic numerals, and no grid. Layout, copy, spacing and components are identical in both. Only the role tokens and the numeral form change, and the visitor chooses the proof. Neither world was invented for this site: both are incumbent looks the owner kept (`PRODUCT.md`, Brand Commitments).\n\nThe page is sparse and editorial. Sections sit 128–160px apart on a 4/8 split: the section folio and headline on the left, the content on the right. Structure comes from 1px hairlines, not boxes. The one framed surface is the system-diagram panel, because the diagram is the evidence: the architecture as deployed. Anything that is a fact (a figure, a reference code, a stack, an address) is set in mono with tabular figures. Prose is set in Inter.\n\nMotion is quiet. Content fades up at most 8px on one ease curve, diagram connectors draw once, and a 1px accent line grows once down the masthead. Under `prefers-reduced-motion`, all of it snaps. The owner has ruled out rounded corners, gradients, decorative shadows, icon libraries, bold weights, nav menus and sticky headers.",
+    "keyCharacteristics": [
+      "Two dark themes, one token set: role variables under `:root` (Paper) and `[data-theme=\"schematic\"]`.",
+      "One saturated accent per theme. It marks things and never fills surfaces at rest.",
+      "Inter 500 for everything large, JetBrains Mono for everything factual, and a face-swapped accent word through `font-accent`.",
+      "Roman ordinals on Paper and `01.` ordinals on Schematic, both rendered by `<Ordinal>`.",
+      "Square corners, 1px hairlines, flat surfaces, one tonal step for cards.",
+      "A print stylesheet that ignores both themes and sets a white Garamond document."
+    ],
+    "rules": [
+      {
+        "name": "The Role-Name Rule",
+        "body": "A component reads color only through a role (`bg-bg`, `text-ink-muted`, `border-ink-rule`, `var(--accent)`), never through a theme name or a hex value. A component that is right in Paper is right in Schematic because it cannot tell the two apart.",
+        "section": "colors"
+      },
+      {
+        "name": "The Accent Marks, Never Fills Rule",
+        "body": "The accent is a 1px line, a word, a numeral, a code or a border. The only accent areas are the 8px colophon square and the `/demo` button's hover fill.",
+        "section": "colors"
+      },
+      {
+        "name": "The AA Floor Rule",
+        "body": "Faint Ink and the accent sit at the small-text floor on Card (Paper: faint 4.6:1, accent 4.5:1; Schematic: faint 4.5:1, accent 5.1:1, all measured 2026-09-13). Either may be lightened, never darkened. Any token change is re-measured in both themes.",
+        "section": "colors"
+      },
+      {
+        "name": "The Face-Swap Emphasis Rule",
+        "body": "Emphasis is a change of typeface through `font-accent`, never bold, never a plain italic, never `font-serif italic` (Schematic would keep the serif). Upright Garamond does not appear on screen; it is the print body only.",
+        "section": "typography"
+      },
+      {
+        "name": "The Medium Ceiling Rule",
+        "body": "Inter, Garamond and Mono are loaded at 400 and 500 only. Nothing is heavier than 500.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two Numerals Rule",
+        "body": "Every ordinal is `<Ordinal n>`, which renders both a Roman and a zero-padded Arabic form and lets the `schematic:` variant show one. Ordinals are `aria-hidden`, so the adjacent label carries the meaning.",
+        "section": "typography"
+      },
+      {
+        "name": "The Figures Are Mono Rule",
+        "body": "Figures, reference codes, stacks, hostnames and addresses are set in JetBrains Mono with `tabular-nums`. Mono enters a heading only as Schematic's accent word. Headings use `text-balance`.",
+        "section": "typography"
+      },
+      {
+        "name": "The 4/8 Folio Rule",
+        "body": "A section's identity (folio and headline) lives in the first four columns and its substance in the last eight. Content does not cross into the folio column.",
+        "section": "layout"
+      },
+      {
+        "name": "The Hairline Rhythm Rule",
+        "body": "Separation is a 1px `--ink-rule` top border: folios, card boundaries, table rows, list rows, the dateline. Sections are never boxed, and the Manifesto and data rows never alternate background colors.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Page Rule",
+        "body": "No `box-shadow`, `drop-shadow` or glow in either theme. If a surface needs to stand forward, it takes `--bg-card` and a Rule border, and that is the ceiling.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square Rule",
+        "body": "Corners are 0px in every theme, at every size, including focus outlines and the status indicator.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do read every color through a role token (`bg-bg`, `text-ink-faint`, `border-ink-rule`, `var(--accent)`). Hex belongs only in the brand marks and `app/opengraph-image.tsx`.",
+      "Do set emphasis words with `font-accent` and numerals with `<Ordinal>`, and give each section headline exactly one accent word.",
+      "Do check Paper, Schematic and print for every visual change, and re-measure contrast in both themes when a token moves (text under 18px at 4.5:1 or better on `--bg-card`).",
+      "Do separate with 1px `--ink-rule` hairlines and keep every corner at 0px.",
+      "Do put `tabular-nums` on every figure and table and `text-balance` on every heading.",
+      "Do keep reveals to opacity plus at most 8px of rise on `cubic-bezier(0.32, 0.72, 0, 1)`, and make them snap under `prefers-reduced-motion`.",
+      "Do express per-theme content with the `schematic:` variant, rendering both forms in the DOM, so the pre-paint theme never causes a flash or a hydration mismatch.",
+      "Do keep a diagram's mobile stack to edges its desktop schematic actually has."
+    ],
+    "donts": [
+      "Don't use `rounded-*`, gradients (the Paper grid excepted), `box-shadow` or glows.",
+      "Don't set anything heavier than `font-medium`, and don't write `font-serif italic`: Schematic would keep the serif.",
+      "Don't set `mark-vermillion` (#D4452C) on UI text. At 4.3:1 it stays in the marks.",
+      "Don't fill a surface with the accent at rest, and don't turn the status green or amber into a second accent.",
+      "Don't add icons from a library. The arrow is the `→` character, `aria-hidden`, after its label.",
+      "Don't add header chrome: no nav menu, hamburger or sticky header. The nameplate row is the header.",
+      "Don't put a small uppercase label above a heading unless it is the page's nameplate row or a section folio with its ordinal and rule.",
+      "Don't add a texture to Schematic or a second texture to Paper. Paper's is the 4% column grid, and Schematic's surfaces stay bare."
+    ]
+  }
+}

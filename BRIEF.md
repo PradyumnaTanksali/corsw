@@ -2,7 +2,7 @@
 
 > **corsw.in is the one public home of Corner Software (Corsw).** One person, Pradyumna Tanksali, builds and runs four projects; the site shows them, the architecture each one runs on, and one address to write to.
 >
-> Product truth lives in `PRODUCT.md`. The visual system is recorded in `DESIGN.md`. This file holds the information architecture, the copy bank and the hard rules.
+> Product truth lives in `PRODUCT.md`. The visual system is recorded in `DESIGN.md` (sidecar `.impeccable/design.json`). This file holds the information architecture, the copy bank and the hard rules.
 >
 > Supersedes the May 2026 holding-company brief (two divisions, three-brand triangulation). Design record: `docs/superpowers/specs/2026-09-13-one-corsw-design.md`.
 
@@ -61,6 +61,8 @@ Two dark themes, one token set (`app/globals.css`). Paper is the default; the vi
 | `--accent` | `#d7543d` vermillion | `#3b82f6` electric blue |
 | `--success` / `--warning` | `#10b981` / `#f59e0b` | same |
 | `--font-accent` | EB Garamond italic | JetBrains Mono upright |
+| `--accent-weight` | `400` | `500` |
+| `--accent-tracking` | `normal` | `-0.04em` |
 | `--grid-opacity` | `0.04` | `0` |
 
 `--ink-faint` and Paper's `--accent` were lifted from `#5c5852` / `#d4452c` (2.7:1 and 4.3:1) so small text clears 4.5:1. The favicon, monogram and OG image keep `#D4452C`.
@@ -71,7 +73,7 @@ Two dark themes, one token set (`app/globals.css`). Paper is the default; the vi
 - Content that differs per theme uses the `schematic:` variant. The one case today is `<Ordinal n={…} />`: Roman (`II.`) on Paper, zero-padded Arabic (`02.`) on Schematic.
 - Print ignores the theme: white paper, dark ink, Garamond.
 
-**Accent uses (both themes):** the masthead line, ordinals, one emphasis word per section heading, link hovers and the `link-draw` underline, diagram connectors and the accented box, the Index refs, the demo call to action, the colophon square, focus outlines.
+**Accent uses (both themes):** the masthead line, project and manifesto ordinals (section-folio ordinals stay muted), one emphasis word per section heading, link hovers and the `link-draw` underline, diagram connectors and the accented box, the Index refs, the demo call to action, the colophon square, focus outlines.
 
 **Motion:** 8px maximum translate for reveals; diagram connectors draw with `pathLength`; the masthead line grows once. `prefers-reduced-motion` snaps all of it.
 

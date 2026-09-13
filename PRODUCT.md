@@ -37,7 +37,7 @@ Every project on the page runs in production or is on its way there, and is buil
 - Name: Corner Software · Corsw. Line kept from the original site: "Software at every corner."
 - One person: Pradyumna Tanksali. No "Pvt. Ltd.", no team language, no investor claims.
 - Contact address everywhere: `tanksalipradyumna@gmail.com`.
-- The owner likes both incumbent looks and keeps both as switchable themes: corsw's editorial world (warm off-black, bone ink, vermillion, EB Garamond italic) and Modlio's engineered world (carbon, cool ink, electric blue, mono numerals, schematic diagrams).
+- The owner likes both incumbent looks and keeps both as switchable themes: corsw's editorial world (warm off-black, bone ink, vermillion, EB Garamond italic) and Modlio's engineered world (carbon, cool ink, electric blue, mono numerals). Modlio's schematic system diagrams are drawn in both themes.
 - Voice: institutional. Short sentences, periods over commas. No exclamation marks, no emoji, no Hinglish. Never "transform", "innovative", "cutting-edge", "world-class", "next-generation".
 - Square corners. No gradients. No icon library; arrows are `→`. No contact form.
 
