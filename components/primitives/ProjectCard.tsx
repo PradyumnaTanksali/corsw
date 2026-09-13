@@ -20,8 +20,8 @@ export function ProjectCard({ project }: { project: Project }) {
   const Diagram = diagrams[project.diagram];
 
   return (
-    <article className="grid grid-cols-1 gap-y-10 border-t border-ink-rule py-12 md:py-16 lg:grid-cols-12 lg:gap-x-10">
-      <div className="order-2 lg:order-1 lg:col-span-7">
+    <article className="grid grid-cols-1 gap-y-10 border-t border-ink-rule py-12 last:pb-0 md:py-16 md:last:pb-0 lg:grid-cols-12 lg:gap-x-10">
+      <div className="order-2 lg:order-1 lg:col-span-7 lg:sticky lg:top-24 lg:self-start">
         <div className="border border-ink-rule bg-bg-card p-5 md:p-7">
           <div className="flex items-center justify-between font-mono text-[10.5px] uppercase tracking-[0.12em] text-ink-faint">
             <span>System diagram</span>

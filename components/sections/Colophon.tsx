@@ -19,7 +19,8 @@ export function Colophon() {
           className="flex flex-col items-center gap-6 border-t border-ink-rule pt-12 text-center"
         >
           <p className="font-mono text-[13px] leading-[1.7] text-ink-muted tabular-nums">
-            Set in Inter, EB Garamond and JetBrains Mono.
+            Set in Inter, EB Garamond and{" "}
+            <span className="whitespace-nowrap">JetBrains Mono</span>.
             <br />
             Built and run by Pradyumna Tanksali.
             <br />

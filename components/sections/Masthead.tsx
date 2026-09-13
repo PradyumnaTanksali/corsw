@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/primitives/Container";
 import { AccentLine } from "@/components/primitives/AccentLine";
 import { ThemeToggle } from "@/components/primitives/ThemeToggle";
@@ -13,29 +14,38 @@ export function Masthead() {
         <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-muted">
           <p className="flex flex-wrap items-baseline gap-x-3">
             <span>Corner Software</span>
-            <span aria-hidden="true" className="text-ink-faint">·</span>
-            <span>Est. 2024</span>
-            <span aria-hidden="true" className="text-ink-faint">·</span>
-            <span>India</span>
+            <span className="whitespace-nowrap">
+              <span aria-hidden="true" className="mr-3 text-ink-faint">·</span>
+              Est. 2024
+            </span>
+            <span className="whitespace-nowrap">
+              <span aria-hidden="true" className="mr-3 text-ink-faint">·</span>
+              India
+            </span>
           </p>
           <ThemeToggle className="ml-auto md:mr-4" />
         </div>
 
         {/* Fade is CSS (globals.css --animate-masthead-rise); motion-safe skips
-            it under prefers-reduced-motion. */}
+            it under prefers-reduced-motion. The first break is desktop-only so
+            phones don't orphan "builds". */}
         <h1 className="mt-16 max-w-[24ch] text-[clamp(2.5rem,7vw,5.5rem)] font-medium leading-[0.95] tracking-[-0.02em] text-balance motion-safe:animate-masthead-rise md:mt-24">
-          Corner Software builds
+          Corner Software builds{" "}
+          <br className="hidden sm:inline" />
+          software, and <span className="font-accent">runs</span> it.
           <br />
-          software, and{" "}
-          <span className="font-accent font-normal">runs</span> it.
-          <br />
-          <span className="font-accent font-normal">Four</span> so far.
+          <span className="font-accent">Four</span> so far.
         </h1>
 
-        <div className="mt-16 border-t border-ink-rule pt-4 md:mt-24">
-          <span className="font-mono text-[13px] tracking-[-0.01em] text-ink-muted">
-            SEPTEMBER · 2026 / ISSUE 02
-          </span>
+        <div className="mt-16 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 border-t border-ink-rule pt-4 font-mono text-[13px] tracking-[-0.01em] md:mt-24">
+          <span className="text-ink-muted">SEPTEMBER · 2026 / ISSUE 02</span>
+          <Link
+            href="/demo"
+            className="inline-flex items-center gap-2 text-ink transition-colors duration-150 hover:text-accent"
+          >
+            <span className="link-draw">See a platform running</span>
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </Container>
     </header>

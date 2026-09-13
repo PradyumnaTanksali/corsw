@@ -79,11 +79,11 @@ Two dark themes, one token set (`app/globals.css`). Paper is the default; the vi
 
 The shipped components are the copy bank. Change copy there, and keep this list in step.
 
-**Masthead** — eyebrow `Corner Software · Est. 2024 · India`; H1 `Corner Software builds / software, and *runs* it. / *Four* so far.`; dateline `SEPTEMBER · 2026 / ISSUE 02`.
+**Masthead** — eyebrow `Corner Software · Est. 2024 · India`; H1 `Corner Software builds / software, and *runs* it. / *Four* so far.`; dateline `SEPTEMBER · 2026 / ISSUE 02` with `See a platform running →` to `/demo` at its right.
 
 **1 Foundation** — H2 `Corner Software is one company with one *name*.`
 - Every project here is built and run by Corsw. Clinics, factory floors, café counters, a wholesale catalogue. Nothing is handed over and left.
-- Three of the four are multi-tenant platforms with real tenants. The numbers on this page are the ones in production.
+- Three of the four are multi-tenant platforms in service. Every figure here comes from a running system or its own data.
 - Software at every corner. The name is the plan.
 
 **2 Projects** — H2 `Four projects, one *workshop*.` Intro: *Four projects, each with its own users: a clinic, a factory floor, a café counter, a wholesale buyer. The schematic on each card is the architecture as it actually runs.* Project copy, tables and links live in `lib/projects.ts`; schematics in `components/primitives/SystemDiagram.tsx`.
@@ -117,7 +117,7 @@ The shipped components are the copy bank. Change copy there, and keep this list 
 6. No deck. No sales call. The demo is the product running.
 7. Corsw will be here in ten years.
 
-**5 Provenance** — facts `People · One`, `Founded · 2024`, `Based · India`.
+**5 Provenance** — no side facts (the Index already carries them).
 - Corner Software is one person: Pradyumna Tanksali. Design, engineering, deployment and support come from the same desk.
 - Earlier work shipped under two names, Modlio and Scene. Both sites stay up as an archive. Everything new ships as Corsw.
 
@@ -139,7 +139,8 @@ The shipped components are the copy bank. Change copy there, and keep this list 
 - An icon library. Arrows are `→`.
 - `font-bold`. Heaviest weight is `font-medium`.
 - Hex colours in JSX outside the brand marks and the OG image.
-- A fabricated number: uptime, customers, testimonials.
+- A fabricated number or an unevidenced legal claim: uptime, customers, testimonials, "compliant". Arogyam is *built for* DPDP/ABDM, not certified.
+- Mobile diagrams that connect boxes the desktop schematic doesn't.
 
 **Always**
 - Both themes checked for every change; contrast ≥ 4.5:1 for text under 18px.

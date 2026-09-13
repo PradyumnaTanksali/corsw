@@ -26,7 +26,7 @@ export function Foundation() {
           <div className="md:col-span-8 md:col-start-5">
             <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
               Corner Software is one company with one{" "}
-              <span className="font-accent font-normal text-accent">name</span>.
+              <span className="font-accent text-accent">name</span>.
             </h2>
 
             <div className="mt-10 max-w-prose space-y-6 text-[15px] leading-[1.6] text-ink-muted md:text-base">
@@ -36,8 +36,8 @@ export function Foundation() {
                 over and left.
               </p>
               <p>
-                Three of the four are multi-tenant platforms with real tenants.
-                The numbers on this page are the ones in production.
+                Three of the four are multi-tenant platforms in service. Every
+                figure here comes from a running system or its own data.
               </p>
               <p>Software at every corner. The name is the plan.</p>
             </div>

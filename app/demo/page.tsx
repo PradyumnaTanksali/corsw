@@ -42,17 +42,19 @@ export default function DemoPage() {
             <a href={HOME} className="transition-colors duration-150 hover:text-ink">
               Corner Software
             </a>
-            <span aria-hidden="true" className="text-ink-faint">·</span>
-            <span>Demo</span>
+            <span className="whitespace-nowrap">
+              <span aria-hidden="true" className="mr-3 text-ink-faint">·</span>
+              Demo
+            </span>
             <ThemeToggle className="ml-auto" />
           </div>
 
-          <h1 className="mt-16 max-w-[18ch] text-[clamp(2.5rem,7vw,5.5rem)] font-medium leading-[0.95] tracking-[-0.02em] text-balance motion-safe:animate-masthead-rise md:mt-24">
+          <h1 className="mt-16 sm:max-w-[18ch] text-[clamp(2.5rem,7vw,5.5rem)] font-medium leading-[0.95] tracking-[-0.02em] text-balance motion-safe:animate-masthead-rise md:mt-24">
             {operating.length === 3 ? "Three" : operating.length} platforms.
             <br />
             <span className="text-ink-muted">
               All of them in{" "}
-              <span className="font-accent font-normal text-accent">service</span>.
+              <span className="font-accent text-accent">service</span>.
             </span>
           </h1>
 

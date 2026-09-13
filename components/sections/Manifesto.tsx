@@ -33,7 +33,7 @@ export function Manifesto() {
             <SectionRule n={4} label="Manifesto" />
             <h2 className="mt-8 max-w-xs text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
               Seven{" "}
-              <span className="font-accent font-normal text-accent">
+              <span className="font-accent text-accent">
                 principles
               </span>
               .
@@ -58,7 +58,7 @@ export function Manifesto() {
                 <Ordinal
                   n={i + 1}
                   dot
-                  className="text-2xl tracking-[0.02em] text-accent md:text-3xl"
+                  className="text-2xl text-accent md:text-3xl"
                 />
                 <span className="text-lg leading-[1.45] text-ink text-balance">
                   {principle}

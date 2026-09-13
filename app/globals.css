@@ -20,6 +20,8 @@
   --warning: #f59e0b;
   --font-accent: var(--font-eb-garamond);
   --accent-style: italic;
+  --accent-weight: 400;
+  --accent-tracking: normal;
   --grid-opacity: 0.04;
 }
 
@@ -35,6 +37,9 @@
   --accent: #3b82f6;
   --font-accent: var(--font-jetbrains-mono);
   --accent-style: normal;
+  /* Mono beside Inter 500 reads as a fallback at 400 and default spacing. */
+  --accent-weight: 500;
+  --accent-tracking: -0.04em;
   --grid-opacity: 0;
 }
 
@@ -62,6 +67,8 @@
 @utility font-accent {
   font-family: var(--font-accent);
   font-style: var(--accent-style);
+  font-weight: var(--accent-weight);
+  letter-spacing: var(--accent-tracking);
 }
 
 @keyframes masthead-rise {
@@ -146,6 +153,8 @@ a:focus-visible > .link-draw::after {
     --accent: #b83a22;
     --font-accent: var(--font-eb-garamond);
     --accent-style: italic;
+    --accent-weight: 400;
+    --accent-tracking: normal;
   }
 
   body {

@@ -41,7 +41,7 @@ export function IndexSection() {
             <SectionRule n={3} label="Index" />
             <h2 className="mt-8 max-w-xs text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
               The whole company in one{" "}
-              <span className="font-accent font-normal text-accent">table</span>.
+              <span className="font-accent text-accent">table</span>.
             </h2>
           </div>
 
@@ -67,7 +67,7 @@ export function IndexSection() {
                 <dd className="col-span-6 text-ink-muted md:col-span-4">
                   {row.sub}
                 </dd>
-                <dd className="col-span-12 text-accent md:col-span-2 md:text-right">
+                <dd className="hidden text-accent md:col-span-2 md:block md:text-right">
                   {row.ref}
                 </dd>
               </motion.div>

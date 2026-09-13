@@ -23,10 +23,10 @@ export function StatusBadge({
       <span
         aria-hidden="true"
         className={cn(
-          "inline-block size-1.5 ring-[3px]",
+          "inline-block size-1.5",
           status === "operating"
-            ? "bg-success ring-success/20"
-            : "bg-warning ring-warning/20",
+            ? "bg-success"
+            : "bg-warning",
         )}
       />
       <span>{LABEL[status]}</span>

@@ -5,11 +5,6 @@ import { Container } from "@/components/primitives/Container";
 import { SectionRule } from "@/components/primitives/SectionRule";
 import { reveal, useRevealTransition, viewport } from "@/lib/motion";
 
-const facts = [
-  { label: "People", value: "One" },
-  { label: "Founded", value: "2024" },
-  { label: "Based", value: "India" },
-];
 
 export function Provenance() {
   const revealTransition = useRevealTransition();
@@ -27,16 +22,6 @@ export function Provenance() {
         >
           <div className="md:col-span-4">
             <SectionRule n={5} label="Provenance" />
-            <dl className="mt-10 space-y-3 font-mono text-[13px] leading-[1.7] tabular-nums">
-              {facts.map((fact) => (
-                <div key={fact.label}>
-                  <dt className="uppercase tracking-[0.18em] text-ink">
-                    {fact.label}
-                  </dt>
-                  <dd className="text-ink-muted">{fact.value}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
 
           <div className="md:col-span-8 md:col-start-5">

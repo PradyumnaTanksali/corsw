@@ -23,15 +23,15 @@ export const projects: Project[] = [
     status: "operating",
     tagline: "Practice OS for Indian healthcare practitioners.",
     description: [
-      "A multi-tenant platform for Indian doctors and clinics. Bilingual (English + Marathi + Hindi), DPDP Act 2023 compliant from day one, and ABDM-ready for ABHA-linked records.",
-      "Arogyam handles appointment scheduling, patient records, casepapers with versioning, per-doctor RAG chatbots, and WhatsApp-first patient journeys. Currently operating Tenant #1 in Solapur.",
+      "A multi-tenant platform for Indian doctors and clinics, in English, Marathi and Hindi. Built for the DPDP Act 2023, and for ABHA-linked records through the ABDM M2 sandbox.",
+      "Arogyam runs scheduling against per-clinic availability, append-only casepapers, triage questionnaires before the visit, home-recovery programs, and a WhatsApp inbox with one thread per patient. Currently operating one practice in Solapur.",
     ],
     diagram: "arogyam",
     diagramLabel: "arogyam.v2",
     table: [
       { label: "TENANTS", value: "1 active · 12 in pipeline", meta: "tnt" },
       { label: "LANGUAGES", value: "English · Marathi · Hindi", meta: "lng/03" },
-      { label: "COMPLIANCE", value: "DPDP 2023 · ABDM (M2)", meta: "cmp" },
+      { label: "BUILT FOR", value: "DPDP Act 2023 · ABDM M2 sandbox", meta: "cmp" },
       {
         label: "STACK",
         value: "Next.js · Postgres · Rust · Python LangGraph · pgvector",
@@ -46,7 +46,7 @@ export const projects: Project[] = [
     status: "operating",
     tagline: "Quote-to-dispatch ERP for small manufacturers.",
     description: [
-      "A multi-tenant ERP for small manufacturing businesses, rebuilt from a single-machine desktop system into a hosted platform. Every business row belongs to an org and no query runs unscoped — isolation is enforced in Postgres, not in application conditionals.",
+      "A multi-tenant ERP for small manufacturing businesses, rebuilt from a single-machine desktop system into a hosted platform. Every business row belongs to an org and no query runs unscoped. Isolation is enforced in Postgres, not in application conditionals.",
       "StreamLine runs the quote-to-dispatch pipeline: quotations with revisions and PDF delivery, purchase orders that receive into stock in one transaction, and a catalog whose stock levels are derived from an append-only movement ledger. Money is stored as numeric(12,2) and computed in integer paise.",
     ],
     diagram: "streamline",
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     status: "operating",
     tagline: "QR ordering and kitchen display for café counters.",
     description: [
-      "A multi-tenant ordering platform for cafés and small restaurants. Each café is its own subdomain with its own menu and its own row-level security scope — a guest scans the QR on the table, orders from their own phone, and pays before the kitchen is given the ticket.",
+      "A multi-tenant ordering platform for cafés and small restaurants. Each café is its own subdomain with its own menu and its own row-level security scope. A guest scans the QR on the table and orders from their own phone. The kitchen gets the ticket only after checkout.",
       "Ordio runs the counter loop end to end: a menu with variants, add-ons and offers, a PhonePe checkout that gates the KOT, a kitchen display that polls for new tickets, A5 PDF receipts, and a receipt book a guest can reopen with their phone number. Currently operating one café in Solapur.",
     ],
     diagram: "ordio",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     tagline: "Catalogue and quote requests for an Ayurvedic wholesale distributor.",
     description: [
       "A catalogue-led site for Shivam Sales Corporation, a wholesale distributor of Ayurvedic medicines. The catalogue lives in typed files, not a CMS: a product that names a brand or category that does not exist fails the build.",
-      "Buyers search by name, brand or indication, narrow by a faceted rail, and send a quote request that is validated on the server and delivered by email — or open WhatsApp with the product already named. Headline figures are derived from the data, so they cannot drift.",
+      "Buyers search by name, brand or indication, narrow by a faceted rail, and send a quote request that is validated on the server and delivered by email, or open WhatsApp with the product already named. Headline figures are derived from the data, so they cannot drift.",
     ],
     diagram: "ssc",
     diagramLabel: "ssc.v1",

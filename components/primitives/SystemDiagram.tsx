@@ -38,8 +38,6 @@ type Schematic = {
   annotations: Annotation[];
   /** Parallel entry points, rendered side by side at the top of the mobile stack. */
   mobileClients: string[];
-  /** The rest of the system, stacked top-to-bottom below the clients. */
-  mobileChain: string[];
 };
 
 const AROGYAM: Schematic = {
@@ -73,11 +71,10 @@ const AROGYAM: Schematic = {
   ],
   annotations: [
     { x: 310, y: 24, text: "multi-tenant via RLS" },
-    { x: 310, y: 332, text: "bilingual MR / EN / HI" },
-    { x: 532, y: 332, text: "DPDP-native" },
+    { x: 310, y: 332, text: "EN / MR / HI" },
+    { x: 532, y: 332, text: "built for DPDP" },
   ],
   mobileClients: ["web", "wa"],
-  mobileChain: ["api", "pg", "pgv", "ws", "lg", "abdm"],
 };
 
 const STREAMLINE: Schematic = {
@@ -122,7 +119,6 @@ const STREAMLINE: Schematic = {
     { x: 532, y: 332, text: "stock = sum(movements)" },
   ],
   mobileClients: ["web", "auth"],
-  mobileChain: ["act", "pg", "ledger", "doc", "mail", "audit"],
 };
 
 const ORDIO: Schematic = {
@@ -169,7 +165,6 @@ const ORDIO: Schematic = {
     { x: 532, y: 332, text: "no ticket before payment" },
   ],
   mobileClients: ["guest", "kds"],
-  mobileChain: ["act", "pay", "orders", "pg", "pdf", "hand"],
 };
 
 const SSC: Schematic = {
@@ -216,7 +211,6 @@ const SSC: Schematic = {
     { x: 532, y: 332, text: "no lead dropped silently" },
   ],
   mobileClients: ["buyer", "wa"],
-  mobileChain: ["pages", "data", "tax", "facets", "api", "mail"],
 };
 
 function anchor(self: Box, other: Box) {
@@ -380,15 +374,6 @@ function SystemSchematic({ schematic }: { schematic: Schematic }) {
                 {b.sub}
               </text>
             )}
-            {b.accent && (
-              <rect
-                x={b.x + b.w - 6}
-                y={b.y + 4}
-                width={2}
-                height={6}
-                fill="var(--accent)"
-              />
-            )}
           </motion.g>
         ))}
       </svg>
@@ -398,13 +383,13 @@ function SystemSchematic({ schematic }: { schematic: Schematic }) {
   );
 }
 
-function MobileBox({ box }: { box: Box }) {
+function MobileBox({ box, note }: { box: Box; note?: string }) {
   return (
     <div
       className={
         box.accent
-          ? "border border-accent bg-bg-card p-4"
-          : "border border-ink-rule bg-bg-card p-4"
+          ? "border border-accent bg-bg-card p-3"
+          : "border border-ink-rule bg-bg-card p-3"
       }
     >
       <div className="text-[13px] font-medium text-ink">{box.label}</div>
@@ -412,6 +397,9 @@ function MobileBox({ box }: { box: Box }) {
         <div className="mt-1 text-[10.5px] tracking-[0.04em] text-ink-faint">
           {box.sub}
         </div>
+      )}
+      {note && (
+        <div className="mt-2 text-[10.5px] tracking-[0.04em] text-accent">{note}</div>
       )}
     </div>
   );
@@ -428,11 +416,10 @@ function MobileConnector() {
 }
 
 /**
- * BRIEF §3.6 — diagrams collapse to a vertical flow on mobile.
- * Same boxes and annotations as the desktop schematic: the parallel
- * clients side by side, then the chain stacked top-to-bottom with
- * accent connectors. No connector is drawn between the clients, so
- * the stack never asserts an edge the system lacks.
+ * Diagrams collapse on mobile without asserting an edge the system lacks: the
+ * clients side by side, a line into the accented core, a line into the boxes
+ * the core reaches directly, and anything reached second-hand labelled with
+ * the box it goes through.
  */
 function MobileStack({
   schematic,
@@ -441,20 +428,42 @@ function MobileStack({
   schematic: Schematic;
   boxById: (id: string) => Box;
 }) {
+  const { boxes, connectors, mobileClients: clients } = schematic;
+  const core = boxes.find((b) => b.accent);
+  if (!core) throw new Error(`${schematic.title} has no accent box`);
+
+  const direct = connectors
+    .filter((c) => c.from === core.id && !clients.includes(c.to))
+    .map((c) => boxById(c.to));
+  const placed = new Set([core.id, ...clients, ...direct.map((b) => b.id)]);
+  const rest = boxes.filter((b) => !placed.has(b.id));
+  const via = (id: string) => {
+    const c = connectors.find((c) => (c.to === id || c.from === id) && c.from !== core.id);
+    return c ? boxById(c.to === id ? c.from : c.to).label : core.label;
+  };
+
   return (
     <div className="md:hidden flex flex-col font-mono">
       <div className="grid grid-cols-2 gap-2">
-        {schematic.mobileClients.map((id) => (
+        {clients.map((id) => (
           <MobileBox key={id} box={boxById(id)} />
         ))}
       </div>
       <MobileConnector />
-      {schematic.mobileChain.map((id, i) => (
-        <div key={id}>
-          <MobileBox box={boxById(id)} />
-          {i < schematic.mobileChain.length - 1 && <MobileConnector />}
+      <MobileBox box={core} />
+      <MobileConnector />
+      <div className="grid grid-cols-2 gap-2">
+        {direct.map((b) => (
+          <MobileBox key={b.id} box={b} />
+        ))}
+      </div>
+      {rest.length > 0 && (
+        <div className="mt-2 grid grid-cols-2 gap-2">
+          {rest.map((b) => (
+            <MobileBox key={b.id} box={b} note={`via ${via(b.id)}`} />
+          ))}
         </div>
-      ))}
+      )}
 
       <div className="mt-5 flex flex-wrap gap-x-4 gap-y-1 text-[10px] tracking-[0.04em] text-ink-faint">
         {schematic.annotations.map((a) => (

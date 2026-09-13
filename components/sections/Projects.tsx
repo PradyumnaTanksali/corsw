@@ -12,7 +12,7 @@ export function Projects() {
             <SectionRule n={2} label="Projects" />
             <h2 className="mt-8 max-w-xs text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
               Four projects, one{" "}
-              <span className="font-accent font-normal text-accent">
+              <span className="font-accent text-accent">
                 workshop
               </span>
               .
