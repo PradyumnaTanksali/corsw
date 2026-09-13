@@ -4,14 +4,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Container } from "@/components/primitives/Container";
 import { SectionRule } from "@/components/primitives/SectionRule";
-import { NEW_PROJECT_HREF } from "@/lib/projects";
+import { DEMO_EMAIL, NEW_PROJECT_HREF } from "@/lib/projects";
 import { reveal, useRevealTransition, viewport } from "@/lib/motion";
 
-export function Clients() {
+export function Contact() {
   const revealTransition = useRevealTransition();
 
   return (
-    <section id="clients" className="py-32 md:py-40">
+    <section id="contact" className="py-32 md:py-40">
       <Container>
         <motion.div
           variants={reveal}
@@ -22,30 +22,21 @@ export function Clients() {
           className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12 lg:gap-16"
         >
           <div className="md:col-span-4">
-            <SectionRule n={6} label="Next" />
+            <SectionRule n={5} label="Contact" />
             <h2 className="mt-8 max-w-xs text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
-              This is the{" "}
-              <span className="font-accent text-accent">start</span>.
+              Start a <span className="font-accent text-accent">project</span>.
             </h2>
           </div>
 
           <div className="md:col-span-8 md:col-start-5">
-            <p className="max-w-prose text-lg leading-[1.45] text-ink text-balance">
-              Four projects are where Corsw begins, not where it stops. The plan
-              is more clients and more platforms.
+            <p className="max-w-prose text-lg leading-[1.5] text-ink text-balance">
+              Corsw designs, builds and operates software for businesses that
+              rely on it every day.
             </p>
-
-            <div className="mt-8 max-w-prose space-y-6 text-[15px] leading-[1.6] text-ink-muted md:text-base">
-              <p>
-                Corsw is taking on new client work: software a business depends
-                on every day, built to be run rather than handed over. A clinic,
-                a factory floor, a café and a distributor so far.
-              </p>
-              <p>
-                Write with what you run today and where it slows you down. The
-                reply is a straight answer: whether Corsw can build it, and how.
-              </p>
-            </div>
+            <p className="mt-6 max-w-prose text-[15px] leading-[1.6] text-ink-muted md:text-base">
+              Share what you run today and where it slows you down. The reply
+              sets out what can be built, the timeline and the cost.
+            </p>
 
             <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-10">
               <a
@@ -62,6 +53,13 @@ export function Clients() {
                 <span aria-hidden="true">→</span>
               </Link>
             </div>
+
+            <a
+              href={`mailto:${DEMO_EMAIL}`}
+              className="link-draw mt-10 inline-block break-words font-mono text-[13px] tabular-nums text-ink-muted transition-colors duration-150 hover:text-ink"
+            >
+              {DEMO_EMAIL}
+            </a>
           </div>
         </motion.div>
       </Container>

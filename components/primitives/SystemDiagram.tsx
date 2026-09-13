@@ -71,7 +71,7 @@ const AROGYAM: Schematic = {
   ],
   annotations: [
     { x: 310, y: 24, text: "multi-tenant via RLS" },
-    { x: 310, y: 332, text: "EN / MR / HI" },
+    { x: 310, y: 332, text: "EN / MR" },
     { x: 532, y: 332, text: "built for DPDP" },
   ],
   mobileClients: ["web", "wa"],

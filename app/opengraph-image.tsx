@@ -5,9 +5,9 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const SANS_TEXT =
-  "Corner Software builds software, and it. so far. · Est. 2024";
-const SERIF_TEXT = "runs Four ";
-const MONO_TEXT = "CORSW · SEPTEMBER 2026 ONE PERSON · INDIA";
+  "Corner Software builds software, and it. · Est. 2024";
+const SERIF_TEXT = "runs";
+const MONO_TEXT = "CORSW.IN INDIA";
 
 async function loadGoogleFont(
   family: string,
@@ -134,11 +134,6 @@ export default async function OpengraphImage() {
             <span style={{ fontFamily: "EB Garamond", fontStyle: "italic", fontWeight: 400 }}>runs</span>
             <span>it.</span>
           </span>
-          {/* Satori drops whitespace at span edges, so word gaps are flex gaps. */}
-          <span style={{ display: "flex", gap: 22 }}>
-            <span style={{ fontFamily: "EB Garamond", fontStyle: "italic", fontWeight: 400 }}>Four</span>
-            <span>so far.</span>
-          </span>
         </div>
 
         <div
@@ -152,8 +147,8 @@ export default async function OpengraphImage() {
             color: "#A8A39A",
           }}
         >
-          <span>CORSW · SEPTEMBER 2026</span>
-          <span style={{ paddingRight: 48 }}>ONE PERSON · INDIA</span>
+          <span>CORSW.IN</span>
+          <span style={{ paddingRight: 48 }}>INDIA</span>
         </div>
       </div>
     ),

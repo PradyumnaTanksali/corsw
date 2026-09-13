@@ -13,13 +13,10 @@ import {
 } from "@/lib/motion";
 
 const principles = [
-  "One company. Accountable for every project it ships.",
-  "Build it, then run it. Nothing is handed off.",
-  "Small scope first. Real users. Long horizons.",
-  "A number on this page is a number measured.",
-  "Every client gets the same: built properly, run properly.",
-  "No deck. No sales call. The demo is the product running.",
-  "Corsw will be here in ten years.",
+  "Start from how the business actually runs.",
+  "Build for daily use, on the devices people already carry.",
+  "Stay after launch: hosting, updates and support.",
+  "Clear scope and plain communication throughout.",
 ];
 
 export function Manifesto() {
@@ -30,13 +27,9 @@ export function Manifesto() {
       <Container>
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12 lg:gap-16">
           <div className="md:col-span-4">
-            <SectionRule n={4} label="Manifesto" />
+            <SectionRule n={4} label="Approach" />
             <h2 className="mt-8 max-w-xs text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
-              Seven{" "}
-              <span className="font-accent text-accent">
-                principles
-              </span>
-              .
+              How Corsw <span className="font-accent text-accent">works</span>.
             </h2>
           </div>
 
@@ -55,11 +48,7 @@ export function Manifesto() {
                 transition={revealTransition}
                 className="grid grid-cols-[3.5rem_1fr] items-baseline gap-4 border-b border-ink-rule py-6 last:border-b-0 md:grid-cols-[4rem_1fr] md:gap-6"
               >
-                <Ordinal
-                  n={i + 1}
-                  dot
-                  className="text-2xl text-accent md:text-3xl"
-                />
+                <Ordinal n={i + 1} dot className="text-2xl text-accent md:text-3xl" />
                 <span className="text-lg leading-[1.45] text-ink text-balance">
                   {principle}
                 </span>

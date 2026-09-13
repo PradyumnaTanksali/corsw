@@ -4,7 +4,7 @@ import { ProjectCard } from "@/components/primitives/ProjectCard";
 import { ThemeToggle } from "@/components/primitives/ThemeToggle";
 import { DEMO_EMAIL, projects } from "@/lib/projects";
 
-const title = "Corsw · Three platforms in service";
+const title = "Corsw · Platforms in service";
 const description =
   "Arogyam for clinics, StreamLine for manufacturers, Ordio for café counters. Ask to see one running.";
 const demoHref = `mailto:${DEMO_EMAIL}?subject=${encodeURIComponent("Demo request")}`;
@@ -50,13 +50,8 @@ export default function DemoPage() {
           </div>
 
           <h1 className="mt-16 sm:max-w-[18ch] text-[clamp(2.5rem,7vw,5.5rem)] font-medium leading-[0.95] tracking-[-0.02em] text-balance motion-safe:animate-masthead-rise md:mt-24">
-            {operating.length === 3 ? "Three" : operating.length} platforms.
-            <br />
-            <span className="text-ink-muted">
-              All of them{" "}
-              <br className="sm:hidden" />
-              in <span className="font-accent text-accent">service</span>.
-            </span>
+            Platforms in{" "}
+            <span className="font-accent text-accent">service</span>.
           </h1>
 
           <div className="mt-12 flex flex-col gap-6 border-t border-ink-rule pt-8 sm:flex-row sm:items-center sm:gap-10 md:mt-16">
@@ -92,7 +87,7 @@ export default function DemoPage() {
           </h2>
           <p className="mx-auto mt-6 max-w-[52ch] text-[15px] leading-[1.6] text-ink-muted md:text-base">
             A walk through a live tenant: the operator&apos;s screens, not slides.
-            Name the platform in the subject line, or describe what you want built.
+            Name the platform in the subject line, or describe what you would like built.
           </p>
           <a
             href={demoHref}

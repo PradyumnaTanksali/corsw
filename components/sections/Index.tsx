@@ -11,24 +11,12 @@ import {
   viewport,
 } from "@/lib/motion";
 
-const rows: Array<{
-  label: string;
-  value: string;
-  sub: string;
-  ref: string;
-}> = [
-  { label: "Entity", value: "Corner Software", sub: "Corsw", ref: "ent/01" },
-  { label: "Founded", value: "2024", sub: "India", ref: "fnd/01" },
-  { label: "People", value: "One, for now.", sub: "Pradyumna Tanksali", ref: "peo/01" },
-  {
-    label: "Projects",
-    value: "Four",
-    sub: "Arogyam · StreamLine · Ordio · SSC",
-    ref: "prj/04",
-  },
-  { label: "Operating", value: "Three", sub: "One in build", ref: "ops/03" },
-  { label: "Next", value: "Open.", sub: "Taking on new clients", ref: "prj/05" },
-  { label: "Archive", value: "Two sites", sub: "Modlio · Scene", ref: "arc/02" },
+const rows: Array<{ label: string; value: string }> = [
+  { label: "Company", value: "Corner Software (Corsw)" },
+  { label: "Founded", value: "2024" },
+  { label: "Based", value: "India" },
+  { label: "Sectors", value: "Healthcare · Manufacturing · Food service · Distribution" },
+  { label: "Services", value: "Product design · Engineering · Hosting and support" },
 ];
 
 export function IndexSection() {
@@ -39,10 +27,9 @@ export function IndexSection() {
       <Container>
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12 lg:gap-16">
           <div className="md:col-span-4">
-            <SectionRule n={3} label="Index" />
+            <SectionRule n={3} label="Company" />
             <h2 className="mt-8 max-w-xs text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
-              The whole company in one{" "}
-              <span className="font-accent text-accent">table</span>.
+              At a <span className="font-accent text-accent">glance</span>.
             </h2>
           </div>
 
@@ -64,13 +51,7 @@ export function IndexSection() {
                 <dt className="col-span-12 uppercase tracking-[0.18em] text-ink-faint md:col-span-3">
                   {row.label}
                 </dt>
-                <dd className="col-span-6 text-ink md:col-span-3">{row.value}</dd>
-                <dd className="col-span-6 text-ink-muted md:col-span-4">
-                  {row.sub}
-                </dd>
-                <dd className="hidden text-accent md:col-span-2 md:block md:text-right">
-                  {row.ref}
-                </dd>
+                <dd className="col-span-12 text-ink md:col-span-9">{row.value}</dd>
               </motion.div>
             ))}
           </motion.dl>

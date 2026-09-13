@@ -58,30 +58,20 @@ export function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="mt-7">
-          <DataTable
-            caption={`${project.name} at a glance`}
-            rows={project.table}
-          />
+          <DataTable caption={`${project.name} at a glance`} rows={project.table} />
         </div>
 
-        <div className="mt-7 flex flex-wrap items-center justify-end gap-6">
-          {project.status === "operating" && (
+        {project.status === "operating" && (
+          <div className="mt-7 flex justify-end">
             <a
               href={`mailto:${DEMO_EMAIL}?subject=${encodeURIComponent(`Demo request — ${project.name}`)}`}
               className="inline-flex items-center gap-2 font-mono text-[12px] text-accent transition-colors duration-150 hover:text-ink"
             >
-              <span className="link-draw">ask for a demo</span>
+              <span className="link-draw">Request a demo</span>
               <span aria-hidden="true">→</span>
             </a>
-          )}
-          <a
-            href={project.link.href}
-            className="inline-flex items-center gap-2 font-mono text-[12px] text-ink-muted transition-colors duration-150 hover:text-accent"
-          >
-            <span className="link-draw">{project.link.label}</span>
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
+          </div>
+        )}
       </div>
     </article>
   );

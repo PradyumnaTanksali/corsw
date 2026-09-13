@@ -4,9 +4,7 @@ import { Foundation } from "@/components/sections/Foundation";
 import { Projects } from "@/components/sections/Projects";
 import { IndexSection } from "@/components/sections/Index";
 import { Manifesto } from "@/components/sections/Manifesto";
-import { Provenance } from "@/components/sections/Provenance";
-import { Clients } from "@/components/sections/Clients";
-import { Ledger } from "@/components/sections/Ledger";
+import { Contact } from "@/components/sections/Contact";
 import { Colophon } from "@/components/sections/Colophon";
 import { DEMO_EMAIL, projects } from "@/lib/projects";
 
@@ -18,7 +16,7 @@ export const metadata: Metadata = {
 
 const ORG_ID = "https://corsw.in/#organization";
 
-// Only facts stated on the page (Masthead, Projects, Index, Provenance, Ledger).
+// Only facts stated on the page (Masthead, Work, Company, Contact).
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -29,7 +27,7 @@ const jsonLd = {
       alternateName: "Corsw",
       url: "https://corsw.in",
       logo: "https://corsw.in/brand/monogram-dark.svg",
-      description: "Software, built and run. Taking on new clients.",
+      description: "Software, built and run.",
       foundingDate: "2024",
       email: DEMO_EMAIL,
       founder: { "@type": "Person", name: "Pradyumna Tanksali" },
@@ -52,7 +50,6 @@ const jsonLd = {
           "@type": "CreativeWork",
           name: p.name,
           description: p.tagline,
-          url: p.link.href,
           creator: { "@id": ORG_ID },
         },
       })),
@@ -74,9 +71,7 @@ export default function Home() {
       <Projects />
       <IndexSection />
       <Manifesto />
-      <Provenance />
-      <Clients />
-      <Ledger />
+      <Contact />
       <Colophon />
     </main>
   );

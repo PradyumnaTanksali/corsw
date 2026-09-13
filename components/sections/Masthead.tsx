@@ -34,12 +34,9 @@ export function Masthead() {
           Corner Software builds{" "}
           <br className="hidden sm:inline" />
           software, and <span className="font-accent">runs</span> it.
-          <br />
-          <span className="font-accent">Four</span> so far.
         </h1>
 
-        <div className="mt-16 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 border-t border-ink-rule pt-4 font-mono text-[13px] tracking-[-0.01em] md:mt-24">
-          <span className="text-ink-muted">SEPTEMBER · 2026 / ISSUE 02</span>
+        <div className="mt-16 flex flex-wrap items-baseline gap-x-6 gap-y-3 border-t border-ink-rule pt-4 font-mono text-[13px] tracking-[-0.01em] md:mt-24">
           <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
             <a
               href={NEW_PROJECT_HREF}

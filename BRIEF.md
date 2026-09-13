@@ -1,55 +1,51 @@
 # CORSW — Site Brief
 
-> **corsw.in is the one public home of Corner Software (Corsw).** One person, Pradyumna Tanksali, builds and runs four projects; the site shows them, the architecture each one runs on, and one address to write to.
+> **corsw.in is the public home of Corner Software (Corsw)**, a software company that designs, builds and operates the systems businesses run on. The site shows selected work, the architecture behind it, and a direct way to start a project or see a platform running.
 >
 > Product truth lives in `PRODUCT.md`. The visual system is recorded in `DESIGN.md` (sidecar `.impeccable/design.json`). This file holds the information architecture, the copy bank and the hard rules.
->
-> Supersedes the May 2026 holding-company brief (two divisions, three-brand triangulation). Design record: `docs/superpowers/specs/2026-09-13-one-corsw-design.md`.
 
 ---
 
 ## 1. Brand
 
-- **Name:** Corner Software · `corsw`. Etymology kept from the first site: *"Software at every corner."*
-- **Positioning:** one company, one person today, four projects that are built to be run. This is the start: Corsw is expanding and taking on new clients.
-- **One-line:** *Corner Software builds software, and runs it. Four so far.*
+- **Name:** Corner Software · `corsw`. Etymology: *"Software at every corner."*
+- **Positioning:** software for businesses that depend on it every day — designed, built and kept running by Corsw.
+- **One-line:** *Corner Software builds software, and runs it.*
 - **Contact:** `tanksalipradyumna@gmail.com`. The only address, everywhere.
 
 **Tone:**
-- Institutional, not corporate. Short sentences. Periods over commas.
-- Corsw is the subject. No "we" pretending to be a team; the person is named where it matters.
-- No exclamation marks, no emoji, no Hinglish.
-- No metrics theatre. A number on the page is a number measured.
+- Professional and plain. Short sentences. Periods over commas.
+- Corsw is the subject. No headcount, no founder-as-team framing, no "we are small" or "this is just the start" copy.
+- No counts in headlines or prose; numbers live in tables only.
+- No exclamation marks, no emoji, no Hinglish, no dates, issue numbers or version strings.
 - Never: "transform", "innovative", "cutting-edge", "world-class", "next-generation".
 
 ## 2. Information architecture
 
-**`/` — one page, seven numbered sections:**
+**`/` — one page, five numbered sections:**
 
 ```
-Masthead      eyebrow, theme toggle, H1, dateline
-1 Foundation  what Corsw is
-2 Projects    four ProjectCards (system diagram, tagline, description, table, links)
-3 Index       the company in one table
-4 Manifesto   seven principles
-5 Provenance  who runs it
-6 Next        the start, and a way in for new clients
-7 Ledger      links
-Colophon
+Masthead      eyebrow, theme toggle, H1, action row
+1 Foundation  what Corsw does
+2 Work        project cards (system diagram, tagline, description, table, demo link)
+3 Company     at a glance
+4 Approach    four principles
+5 Contact     start a project, see a platform, email
+Footer        one line
 ```
 
-**`/demo`** — the three `operating` projects under a short header, a demo mailto and a closing "See one running." block. Noindex. Every unassigned `*.corsw.in` subdomain shows it at `/`.
+**`/demo`** — the `operating` projects under a short header, a demo mailto and a closing "See one running." block. Noindex. Every unassigned `*.corsw.in` subdomain shows it at `/`.
 
 **`proxy.ts` → `lib/host.ts`** (`pnpm test` covers it):
 - `www.corsw.in` → 308 to `https://corsw.in` + path + query.
 - any other `*.corsw.in` at `/` → rewrite to `/demo`.
 - every host except `corsw.in` → `X-Robots-Tag: noindex`.
 
-No nav menu, no forms, no input fields other than the theme toggle's two buttons.
+Links on the site: the email, `/demo`, and internal navigation only. No external links.
 
 ## 3. Themes
 
-Two dark themes, one token set (`app/globals.css`). Paper is the default; the visitor's choice is stored in `localStorage["corsw-theme"]` and applied by an inline script before first paint.
+Two dark themes, one token set (`app/globals.css`); details in `DESIGN.md`. Paper is the default; the visitor's choice is stored in `localStorage["corsw-theme"]` and applied before first paint.
 
 | Token | Paper | Schematic |
 |---|---|---|
@@ -60,107 +56,72 @@ Two dark themes, one token set (`app/globals.css`). Paper is the default; the vi
 | `--ink-faint` | `#847f76` | `#767d8c` |
 | `--ink-rule` | `#2a2825` | `#1f2228` |
 | `--accent` | `#d7543d` vermillion | `#3b82f6` electric blue |
-| `--success` / `--warning` | `#10b981` / `#f59e0b` | same |
 | `--font-accent` | EB Garamond italic | JetBrains Mono upright |
 | `--accent-weight` | `400` | `500` |
 | `--accent-tracking` | `normal` | `-0.04em` |
 | `--grid-opacity` | `0.04` | `0` |
 
-`--ink-faint` and Paper's `--accent` were lifted from `#5c5852` / `#d4452c` (2.7:1 and 4.3:1) so small text clears 4.5:1. The favicon, monogram and OG image keep `#D4452C`.
-
-**How themes reach components:**
-- Colours only through tokens (`bg-bg`, `text-ink-muted`, `var(--accent)`).
-- Emphasis words and ordinals use `font-accent`, never `font-serif italic`.
-- Content that differs per theme uses the `schematic:` variant. The one case today is `<Ordinal n={…} />`: Roman (`II.`) on Paper, zero-padded Arabic (`02.`) on Schematic.
-- Print ignores the theme: white paper, dark ink, Garamond.
-
-**Accent uses (both themes):** the masthead line, project and manifesto ordinals (section-folio ordinals stay muted), one emphasis word per section heading, link hovers and the `link-draw` underline, diagram connectors and the accented box, the Index refs, the demo call to action, the colophon square, focus outlines.
-
-**Motion:** 8px maximum translate for reveals; diagram connectors draw with `pathLength`; the masthead line grows once. `prefers-reduced-motion` snaps all of it.
+- Colours only through tokens. Emphasis words and ordinals use `font-accent` / `<Ordinal />`; per-theme content uses the `schematic:` variant.
+- Accent uses: the masthead line, project and principle ordinals, one emphasis word per section heading, link hovers and the `link-draw` underline, diagram connectors, call-to-action borders, focus outlines.
+- Motion: 8px maximum translate; diagram connectors draw once; `prefers-reduced-motion` snaps all of it.
 
 ## 4. Copy bank
 
 The shipped components are the copy bank. Change copy there, and keep this list in step.
 
-**Masthead** — eyebrow `Corner Software · Est. 2024 · India`; H1 `Corner Software builds / software, and *runs* it. / *Four* so far.`; dateline `SEPTEMBER · 2026 / ISSUE 02` with `Start a project →` (mailto, subject "New project") and `See a platform running →` (`/demo`) at its right.
+**Masthead** — eyebrow `Corner Software · Est. 2024 · India`; H1 `Corner Software builds / software, and *runs* it.`; ruled action row `Start a project →` (mailto, subject "New project") · `See a platform running →` (`/demo`).
 
-**1 Foundation** — H2 `Corner Software is one company with one *name*.`
-- Every project here is built and run by Corsw. Clinics, factory floors, café counters, a wholesale catalogue. Nothing is handed over and left.
-- Three of the four are multi-tenant platforms in service. Every figure here comes from a running system or its own data.
-- Software at every corner. Four is the start, not the plan.
+**1 Foundation** — H2 `Software at every *corner*.`
+- (lead) Corner Software builds the systems small businesses run on every day. A clinic's front desk. A factory's order book. A café's counter. A distributor's catalogue.
+- Every project is designed, built and kept running by Corsw. Launch is where the work starts, not where it ends.
 
-**2 Projects** — H2 `Four projects, one *workshop*.` Intro: *Four projects so far, each with its own users: a clinic, a factory floor, a café counter, a wholesale buyer. The schematic on each card is the architecture as it actually runs. The next card belongs to a new client.* Project copy, tables and links live in `lib/projects.ts`; schematics in `components/primitives/SystemDiagram.tsx`.
+**2 Work** — H2 `Selected *work*.` Intro: *Software Corsw designs, builds and operates for businesses in healthcare, manufacturing, food service and distribution. Each diagram shows how the system is put together.* Cards come from `lib/projects.ts` (tagline, two short paragraphs, a SECTOR / MODULES / DELIVERY table); schematics from `components/primitives/SystemDiagram.tsx`. `Request a demo →` appears only on operating projects. No tenant names, client counts or live links on cards.
 
-| # | Project | Status | Link |
-|---|---|---|---|
-| 1 | Arogyam | operating | drtanvis.corsw.in |
-| 2 | StreamLine | operating | stream.corsw.in |
-| 3 | Ordio | operating | ordio.corsw.in |
-| 4 | SSC | in build (pre-launch placeholders) | ssc.corsw.in |
+| # | Project | Status |
+|---|---|---|
+| 1 | Arogyam — practice management for clinics | operating |
+| 2 | StreamLine — operations software for small manufacturers | operating |
+| 3 | Ordio — QR ordering and kitchen display | operating |
+| 4 | SSC — catalogue and quote requests for a distributor | in build |
 
-`ask for a demo →` appears only on operating projects.
+**3 Company** — H2 `At a *glance*.` Rows: Company · Corner Software (Corsw); Founded · 2024; Based · India; Sectors · Healthcare · Manufacturing · Food service · Distribution; Services · Product design · Engineering · Hosting and support.
 
-**3 Index** — H2 `The whole company in one *table*.`
+**4 Approach** — H2 `How Corsw *works*.`
+1. Start from how the business actually runs.
+2. Build for daily use, on the devices people already carry.
+3. Stay after launch: hosting, updates and support.
+4. Clear scope and plain communication throughout.
 
-| Label | Value | Sub | Ref |
-|---|---|---|---|
-| Entity | Corner Software | Corsw | ent/01 |
-| Founded | 2024 | India | fnd/01 |
-| People | One, for now. | Pradyumna Tanksali | peo/01 |
-| Projects | Four | Arogyam · StreamLine · Ordio · SSC | prj/04 |
-| Operating | Three | One in build | ops/03 |
-| Next | Open. | Taking on new clients | prj/05 |
-| Archive | Two sites | Modlio · Scene | arc/02 |
+**5 Contact** — H2 `Start a *project*.`
+- (lead) Corsw designs, builds and operates software for businesses that rely on it every day.
+- Share what you run today and where it slows you down. The reply sets out what can be built, the timeline and the cost.
+- `Start a project →` (bordered accent) · `See a platform running →` (`/demo`) · the email address.
 
-**4 Manifesto** — H2 `Seven *principles*.`
-1. One company. Accountable for every project it ships.
-2. Build it, then run it. Nothing is handed off.
-3. Small scope first. Real users. Long horizons.
-4. A number on this page is a number measured.
-5. Every client gets the same: built properly, run properly.
-6. No deck. No sales call. The demo is the product running.
-7. Corsw will be here in ten years.
+**Footer** — `Corner Software` · `© 2024–2026`.
 
-**5 Provenance** — no side facts (the Index already carries them).
-- Corner Software is one person today: Pradyumna Tanksali. Design, engineering, deployment and support come from the same desk.
-- Earlier work shipped under two names, Modlio and Scene. Both sites stay up as an archive. Everything new ships as Corsw.
+**/demo** — eyebrow `Corner Software · Demo`; H1 `Platforms in *service*.`; `Ask for a demo →`; `Everything Corsw builds →`; `See one running.` / *A walk through a live tenant: the operator's screens, not slides. Name the platform in the subject line, or describe what you would like built.*
 
-**6 Next** — H2 `This is the *start*.`
-- (lead) Four projects are where Corsw begins, not where it stops. The plan is more clients and more platforms.
-- Corsw is taking on new client work: software a business depends on every day, built to be run rather than handed over. A clinic, a factory floor, a café and a distributor so far.
-- Write with what you run today and where it slows you down. The reply is a straight answer: whether Corsw can build it, and how.
-- `Start a project →` (bordered accent, mailto subject "New project") · `See a platform running →` (`/demo`).
-
-**7 Ledger** — H2 `External *lines*.` Rows: `tanksalipradyumna@gmail.com · New projects and demos`, `corsw.in/demo · See a platform running`, `github.com/PradyumnaTanksali · Source`, `modlio.corsw.in · Archive · platforms`, `scenestudio.corsw.in · Archive · apps`.
-
-**Colophon** — `Set in Inter, EB Garamond and JetBrains Mono.` / `Built and run by Pradyumna Tanksali.` / `Version 2.0 · September 2026.` / `© Corner Software, 2024–2026.` / accent square.
-
-**/demo** — eyebrow `Corner Software · Demo`; H1 `Three platforms. / All of them in *service*.`; `Ask for a demo →`; `Everything Corsw builds →`; `See one running.` / *A walk through a live tenant: the operator's screens, not slides. Name the platform in the subject line, or describe what you want built.*
-
-**Metadata** — title `Corner Software · Software, built and run.`; JSON-LD `Organization` (founder, email, sameAs GitHub) + `ItemList` of the four projects. No `legalName`.
+**Metadata** — title `Corner Software · Software, built and run.`; JSON-LD `Organization` (founder, email, sameAs GitHub) + `ItemList` of the projects. No `legalName`.
 
 ## 5. Hard rules
 
 **Never**
-- "Pvt. Ltd.", team language ("we are designers…"), investor claims, or a project on the site that isn't shipped or in build.
-- Lokey, Queue, Budgety or Second Brain on this site (owner decision, 2026-09-13).
-- A contact form, a nav menu, a hamburger, a sticky header.
-- Rounded corners, gradients (the column grid's hairline pattern excepted), shadows used as decoration.
-- An icon library. Arrows are `→`.
-- `font-bold`. Heaviest weight is `font-medium`.
-- Hex colours in JSX outside the brand marks and the OG image.
-- A fabricated number or an unevidenced legal claim: uptime, customers, testimonials, "compliant". Arogyam is *built for* DPDP/ABDM, not certified.
+- Headcount ("one person", "People: One"), "Pvt. Ltd.", team or investor claims, "just getting started" framing.
+- Counts, dates, issue numbers or version strings in visible copy (tables excepted for data).
+- External links (the email and `/demo` are the only ways out).
+- A project on the site that isn't shipped or in build; tenant or client names on cards.
+- A contact form, a nav menu, a sticky header.
+- Rounded corners, gradients (the column grid's hairline pattern excepted), decorative shadows, an icon library (arrows are `→`), `font-bold`.
+- A fabricated number or an unevidenced legal claim ("compliant"). Arogyam keeps consent and audit records; it is not certified.
 - Mobile diagrams that connect boxes the desktop schematic doesn't.
 
 **Always**
 - Both themes checked for every change; contrast ≥ 4.5:1 for text under 18px.
-- `tabular-nums` on tables and figures.
-- `text-balance` on headings.
-- `aria-hidden` on decorative ordinals, marks and arrows.
+- `tabular-nums` on tables, `text-balance` on headings, `aria-hidden` on decorative ordinals, marks and arrows.
 - `pnpm typecheck && pnpm lint && pnpm test && pnpm build` before calling anything done.
 
 ## 6. Changing the project list
 
 1. Edit `lib/projects.ts` (and add a schematic in `SystemDiagram.tsx` if it's new).
-2. Update the hand-written counts: Masthead `Four`, Projects heading and intro, Foundation `Three of the four`, Index `Projects` and `Operating` rows, OG image `Four`, metadata description.
+2. Update the Sectors row in `components/sections/Index.tsx`, the Work intro and the metadata description if a new sector appears.
 3. `/demo` lists `operating` projects automatically.

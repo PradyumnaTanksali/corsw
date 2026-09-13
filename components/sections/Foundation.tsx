@@ -25,22 +25,20 @@ export function Foundation() {
 
           <div className="md:col-span-8 md:col-start-5">
             <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
-              Corner Software is one company with one{" "}
-              <span className="font-accent text-accent">name</span>.
+              Software at every{" "}
+              <span className="font-accent text-accent">corner</span>.
             </h2>
 
-            <div className="mt-10 max-w-prose space-y-6 text-[15px] leading-[1.6] text-ink-muted md:text-base">
-              <p>
-                Every project here is built and run by Corsw. Clinics, factory
-                floors, café counters, a wholesale catalogue. Nothing is handed
-                over and left.
-              </p>
-              <p>
-                Three of the four are multi-tenant platforms in service. Every
-                figure here comes from a running system or its own data.
-              </p>
-              <p>Software at every corner. Four is the start, not the plan.</p>
-            </div>
+            <p className="mt-10 max-w-prose text-lg leading-[1.5] text-ink text-balance">
+              Corner Software builds the systems small businesses run on every
+              day. A clinic&apos;s front desk. A factory&apos;s order book. A
+              café&apos;s counter. A distributor&apos;s catalogue.
+            </p>
+
+            <p className="mt-6 max-w-prose text-[15px] leading-[1.6] text-ink-muted md:text-base">
+              Every project is designed, built and kept running by Corsw. Launch
+              is where the work starts, not where it ends.
+            </p>
           </div>
         </motion.div>
       </Container>
