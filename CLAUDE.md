@@ -4,7 +4,7 @@
 
 ## What this is
 
-corsw.in — the single site of Corner Software (Corsw), a one-person company run by Pradyumna Tanksali. Four projects (Arogyam, StreamLine, Ordio, SSC), a `/demo` page that also serves every unassigned `*.corsw.in` subdomain, and two switchable themes: **Paper** (vermillion, Garamond italic) and **Schematic** (electric blue, mono).
+corsw.in — the single site of Corner Software (Corsw), a one-person company run by Pradyumna Tanksali. Four projects so far (Arogyam, StreamLine, Ordio, SSC) and a section inviting new clients, a `/demo` page that also serves every unassigned `*.corsw.in` subdomain, and two switchable themes: **Paper** (vermillion, Garamond italic) and **Schematic** (electric blue, mono).
 
 Modlio (`modlio.corsw.in`) and Scene (`scenestudio.corsw.in`) are archived sites in their own repos. They are not built here and are not divisions.
 
@@ -31,7 +31,7 @@ Modlio (`modlio.corsw.in`) and Scene (`scenestudio.corsw.in`) are archived sites
 - Icons from a library; arrows are `→`.
 - Gradients, rounded corners, `font-bold`.
 - A contact form, nav menu or sticky header.
-- "Pvt. Ltd.", team or investor language, any project beyond the four.
+- "Pvt. Ltd.", team or investor language, or a project on the site that isn't shipped or in build.
 - Hinglish, exclamation marks, emoji.
 - "transform", "innovative", "cutting-edge", "world-class", "next-generation".
 - Translate more than 8px in a reveal.

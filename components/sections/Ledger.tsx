@@ -13,7 +13,7 @@ import {
 } from "@/lib/motion";
 
 const rows: Array<{ key: string; label: string; href: string }> = [
-  { key: DEMO_EMAIL, label: "Direct line", href: `mailto:${DEMO_EMAIL}` },
+  { key: DEMO_EMAIL, label: "New projects and demos", href: `mailto:${DEMO_EMAIL}` },
   { key: "corsw.in/demo", label: "See a platform running", href: "/demo" },
   {
     key: "github.com/PradyumnaTanksali",
@@ -40,7 +40,7 @@ export function Ledger() {
       <Container>
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12 lg:gap-16">
           <div className="md:col-span-4">
-            <SectionRule n={6} label="Ledger" />
+            <SectionRule n={7} label="Ledger" />
             <h2 className="mt-8 max-w-xs text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
               External{" "}
               <span className="font-accent text-accent">lines</span>.

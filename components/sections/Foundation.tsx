@@ -39,7 +39,7 @@ export function Foundation() {
                 Three of the four are multi-tenant platforms in service. Every
                 figure here comes from a running system or its own data.
               </p>
-              <p>Software at every corner. The name is the plan.</p>
+              <p>Software at every corner. Four is the start, not the plan.</p>
             </div>
           </div>
         </motion.div>

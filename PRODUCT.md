@@ -9,15 +9,16 @@ web
 ## Users
 
 - People deciding whether to trust software built by Corsw: clinic owners, small manufacturers, café owners, distributors. They arrive from a project subdomain, a shared link, or an unassigned `*.corsw.in` address, and want to know who builds it and whether it runs. *(inferred from repository evidence; confirmed indirectly by the owner's choice of a demo-led site, 2026-09-13)*
-- Peers and prospective clients judging the builder's work.
+- Businesses looking for someone to build and run software they depend on. Corsw is actively taking on new clients (owner, 2026-09-13).
+- Peers judging the builder's work.
 
 ## Product Purpose
 
-corsw.in is the one public home of Corner Software (Corsw). It shows the four projects Corsw builds and runs, the architecture each one actually runs on, and one way to get in touch. Success: a visitor understands within a minute that one person builds and operates these systems, sees a live one, and writes for a demo.
+corsw.in is the one public home of Corner Software (Corsw). It shows the four projects Corsw builds and runs, the architecture each one actually runs on, and one way to get in touch. Success: a visitor understands within a minute that one person builds and operates these systems, sees a live one, and writes for a demo or to start a project.
 
 ## Positioning
 
-Every project on the page runs in production or is on its way there, and is built and operated by the same person. The system diagrams are the architecture as deployed, not illustration.
+Every project on the page runs in production or is on its way there, and is built and operated by the same person. The system diagrams are the architecture as deployed, not illustration. Four projects are a start, not the ceiling: the owner plans to expand and bring in more clients.
 
 ## Operating Context
 
@@ -28,7 +29,7 @@ Every project on the page runs in production or is on its way there, and is buil
 ## Capabilities and Constraints
 
 - Next.js 16.2.4 (App Router, `proxy.ts`), React 19.2.4, Tailwind CSS 4, framer-motion 12. No other runtime dependencies.
-- Projects on the site (owner decision, 2026-09-13): **Arogyam** (operating), **StreamLine** (operating), **Ordio** (operating; PhonePe merchant KYC pending), **SSC** (in build; phone, WhatsApp and licence placeholders are pre-launch blockers).
+- Projects on the site today (owner decision, 2026-09-13; the list grows as client work ships): **Arogyam** (operating), **StreamLine** (operating), **Ordio** (operating; PhonePe merchant KYC pending), **SSC** (in build; phone, WhatsApp and licence placeholders are pre-launch blockers).
 - Not listed on corsw.in, by owner decision: Lokey, Queue, Budgety, Second Brain.
 - Archive sites stay up unchanged: `modlio.corsw.in`, `scenestudio.corsw.in`.
 
@@ -49,10 +50,10 @@ Every project on the page runs in production or is on its way there, and is buil
 
 ## Product Principles
 
-1. State what runs and who runs it. Nothing larger.
+1. State what runs and who runs it, and say plainly that it is a start.
 2. Show the architecture instead of adjectives.
 3. One company, one contact.
-4. Fewer projects, finished properly.
+4. Every project finished properly, however many there become.
 
 ## Accessibility & Inclusion
 

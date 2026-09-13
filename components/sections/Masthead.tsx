@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/primitives/Container";
 import { AccentLine } from "@/components/primitives/AccentLine";
 import { ThemeToggle } from "@/components/primitives/ThemeToggle";
+import { NEW_PROJECT_HREF } from "@/lib/projects";
 
 export function Masthead() {
   return (
@@ -39,13 +40,22 @@ export function Masthead() {
 
         <div className="mt-16 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 border-t border-ink-rule pt-4 font-mono text-[13px] tracking-[-0.01em] md:mt-24">
           <span className="text-ink-muted">SEPTEMBER · 2026 / ISSUE 02</span>
-          <Link
-            href="/demo"
-            className="inline-flex items-center gap-2 text-ink transition-colors duration-150 hover:text-accent"
-          >
-            <span className="link-draw">See a platform running</span>
-            <span aria-hidden="true">→</span>
-          </Link>
+          <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
+            <a
+              href={NEW_PROJECT_HREF}
+              className="inline-flex items-center gap-2 text-accent transition-colors duration-150 hover:text-ink"
+            >
+              <span className="link-draw">Start a project</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <Link
+              href="/demo"
+              className="inline-flex items-center gap-2 text-ink transition-colors duration-150 hover:text-accent"
+            >
+              <span className="link-draw">See a platform running</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </Container>
     </header>

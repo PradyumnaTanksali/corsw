@@ -92,7 +92,7 @@ export default function DemoPage() {
           </h2>
           <p className="mx-auto mt-6 max-w-[52ch] text-[15px] leading-[1.6] text-ink-muted md:text-base">
             A walk through a live tenant: the operator&apos;s screens, not slides.
-            Name the platform in the subject line.
+            Name the platform in the subject line, or describe what you want built.
           </p>
           <a
             href={demoHref}

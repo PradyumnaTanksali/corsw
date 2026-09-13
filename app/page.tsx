@@ -5,6 +5,7 @@ import { Projects } from "@/components/sections/Projects";
 import { IndexSection } from "@/components/sections/Index";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { Provenance } from "@/components/sections/Provenance";
+import { Clients } from "@/components/sections/Clients";
 import { Ledger } from "@/components/sections/Ledger";
 import { Colophon } from "@/components/sections/Colophon";
 import { DEMO_EMAIL, projects } from "@/lib/projects";
@@ -28,7 +29,7 @@ const jsonLd = {
       alternateName: "Corsw",
       url: "https://corsw.in",
       logo: "https://corsw.in/brand/monogram-dark.svg",
-      description: "Software, built and run.",
+      description: "Software, built and run. Taking on new clients.",
       foundingDate: "2024",
       email: DEMO_EMAIL,
       founder: { "@type": "Person", name: "Pradyumna Tanksali" },
@@ -74,6 +75,7 @@ export default function Home() {
       <IndexSection />
       <Manifesto />
       <Provenance />
+      <Clients />
       <Ledger />
       <Colophon />
     </main>

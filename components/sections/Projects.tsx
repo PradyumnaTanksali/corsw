@@ -20,9 +20,10 @@ export function Projects() {
           </div>
 
           <p className="max-w-prose text-[15px] leading-[1.6] text-ink-muted md:col-span-8 md:col-start-5 md:mt-14 md:text-base">
-            Four projects, each with its own users: a clinic, a factory floor, a
-            café counter, a wholesale buyer. The schematic on each card is the
-            architecture as it actually runs.
+            Four projects so far, each with its own users: a clinic, a factory
+            floor, a café counter, a wholesale buyer. The schematic on each card
+            is the architecture as it actually runs. The next card belongs to a
+            new client.
           </p>
         </div>
 

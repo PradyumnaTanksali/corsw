@@ -10,7 +10,7 @@ const shareDescription = "Software, built and run. Arogyam · StreamLine · Ordi
 // inherit a second <title> and an `index, follow` next to Next's `noindex`.
 export const metadata: Metadata = {
   description:
-    "Corner Software (Corsw) builds and runs software: Arogyam for clinics, StreamLine for manufacturers, Ordio for cafés, and a wholesale catalogue for SSC. Run by Pradyumna Tanksali. Founded 2024.",
+    "Corner Software (Corsw) builds and runs software: Arogyam for clinics, StreamLine for manufacturers, Ordio for cafés, and a wholesale catalogue for SSC. Taking on new clients. Run by Pradyumna Tanksali. Founded 2024.",
   metadataBase: new URL("https://corsw.in"),
   openGraph: {
     title: "Corner Software",

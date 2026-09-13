@@ -1,5 +1,7 @@
-/** Where demo requests go. One address, named once. */
+/** Where demo requests and new projects go. One address, named once. */
 export const DEMO_EMAIL = "tanksalipradyumna@gmail.com";
+
+export const NEW_PROJECT_HREF = `mailto:${DEMO_EMAIL}?subject=${encodeURIComponent("New project")}`;
 
 export type ProjectStatus = "operating" | "in-build";
 

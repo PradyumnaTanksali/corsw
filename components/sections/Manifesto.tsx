@@ -13,11 +13,11 @@ import {
 } from "@/lib/motion";
 
 const principles = [
-  "One company. One person accountable for every project.",
+  "One company. Accountable for every project it ships.",
   "Build it, then run it. Nothing is handed off.",
-  "Small scope. Real users. Long horizons.",
+  "Small scope first. Real users. Long horizons.",
   "A number on this page is a number measured.",
-  "Fewer projects, finished properly.",
+  "Every client gets the same: built properly, run properly.",
   "No deck. No sales call. The demo is the product running.",
   "Corsw will be here in ten years.",
 ];

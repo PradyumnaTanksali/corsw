@@ -11,7 +11,7 @@
 ## 1. Brand
 
 - **Name:** Corner Software · `corsw`. Etymology kept from the first site: *"Software at every corner."*
-- **Positioning:** one company, one person, four projects that are built to be run.
+- **Positioning:** one company, one person today, four projects that are built to be run. This is the start: Corsw is expanding and taking on new clients.
 - **One-line:** *Corner Software builds software, and runs it. Four so far.*
 - **Contact:** `tanksalipradyumna@gmail.com`. The only address, everywhere.
 
@@ -24,7 +24,7 @@
 
 ## 2. Information architecture
 
-**`/` — one page, six numbered sections:**
+**`/` — one page, seven numbered sections:**
 
 ```
 Masthead      eyebrow, theme toggle, H1, dateline
@@ -33,7 +33,8 @@ Masthead      eyebrow, theme toggle, H1, dateline
 3 Index       the company in one table
 4 Manifesto   seven principles
 5 Provenance  who runs it
-6 Ledger      links
+6 Next        the start, and a way in for new clients
+7 Ledger      links
 Colophon
 ```
 
@@ -81,14 +82,14 @@ Two dark themes, one token set (`app/globals.css`). Paper is the default; the vi
 
 The shipped components are the copy bank. Change copy there, and keep this list in step.
 
-**Masthead** — eyebrow `Corner Software · Est. 2024 · India`; H1 `Corner Software builds / software, and *runs* it. / *Four* so far.`; dateline `SEPTEMBER · 2026 / ISSUE 02` with `See a platform running →` to `/demo` at its right.
+**Masthead** — eyebrow `Corner Software · Est. 2024 · India`; H1 `Corner Software builds / software, and *runs* it. / *Four* so far.`; dateline `SEPTEMBER · 2026 / ISSUE 02` with `Start a project →` (mailto, subject "New project") and `See a platform running →` (`/demo`) at its right.
 
 **1 Foundation** — H2 `Corner Software is one company with one *name*.`
 - Every project here is built and run by Corsw. Clinics, factory floors, café counters, a wholesale catalogue. Nothing is handed over and left.
 - Three of the four are multi-tenant platforms in service. Every figure here comes from a running system or its own data.
-- Software at every corner. The name is the plan.
+- Software at every corner. Four is the start, not the plan.
 
-**2 Projects** — H2 `Four projects, one *workshop*.` Intro: *Four projects, each with its own users: a clinic, a factory floor, a café counter, a wholesale buyer. The schematic on each card is the architecture as it actually runs.* Project copy, tables and links live in `lib/projects.ts`; schematics in `components/primitives/SystemDiagram.tsx`.
+**2 Projects** — H2 `Four projects, one *workshop*.` Intro: *Four projects so far, each with its own users: a clinic, a factory floor, a café counter, a wholesale buyer. The schematic on each card is the architecture as it actually runs. The next card belongs to a new client.* Project copy, tables and links live in `lib/projects.ts`; schematics in `components/primitives/SystemDiagram.tsx`.
 
 | # | Project | Status | Link |
 |---|---|---|---|
@@ -105,36 +106,43 @@ The shipped components are the copy bank. Change copy there, and keep this list 
 |---|---|---|---|
 | Entity | Corner Software | Corsw | ent/01 |
 | Founded | 2024 | India | fnd/01 |
-| People | One. | Pradyumna Tanksali | peo/01 |
+| People | One, for now. | Pradyumna Tanksali | peo/01 |
 | Projects | Four | Arogyam · StreamLine · Ordio · SSC | prj/04 |
 | Operating | Three | One in build | ops/03 |
+| Next | Open. | Taking on new clients | prj/05 |
 | Archive | Two sites | Modlio · Scene | arc/02 |
 
 **4 Manifesto** — H2 `Seven *principles*.`
-1. One company. One person accountable for every project.
+1. One company. Accountable for every project it ships.
 2. Build it, then run it. Nothing is handed off.
-3. Small scope. Real users. Long horizons.
+3. Small scope first. Real users. Long horizons.
 4. A number on this page is a number measured.
-5. Fewer projects, finished properly.
+5. Every client gets the same: built properly, run properly.
 6. No deck. No sales call. The demo is the product running.
 7. Corsw will be here in ten years.
 
 **5 Provenance** — no side facts (the Index already carries them).
-- Corner Software is one person: Pradyumna Tanksali. Design, engineering, deployment and support come from the same desk.
+- Corner Software is one person today: Pradyumna Tanksali. Design, engineering, deployment and support come from the same desk.
 - Earlier work shipped under two names, Modlio and Scene. Both sites stay up as an archive. Everything new ships as Corsw.
 
-**6 Ledger** — H2 `External *lines*.` Rows: `tanksalipradyumna@gmail.com · Direct line`, `corsw.in/demo · See a platform running`, `github.com/PradyumnaTanksali · Source`, `modlio.corsw.in · Archive · platforms`, `scenestudio.corsw.in · Archive · apps`.
+**6 Next** — H2 `This is the *start*.`
+- (lead) Four projects are where Corsw begins, not where it stops. The plan is more clients and more platforms.
+- Corsw is taking on new client work: software a business depends on every day, built to be run rather than handed over. A clinic, a factory floor, a café and a distributor so far.
+- Write with what you run today and where it slows you down. The reply is a straight answer: whether Corsw can build it, and how.
+- `Start a project →` (bordered accent, mailto subject "New project") · `See a platform running →` (`/demo`).
+
+**7 Ledger** — H2 `External *lines*.` Rows: `tanksalipradyumna@gmail.com · New projects and demos`, `corsw.in/demo · See a platform running`, `github.com/PradyumnaTanksali · Source`, `modlio.corsw.in · Archive · platforms`, `scenestudio.corsw.in · Archive · apps`.
 
 **Colophon** — `Set in Inter, EB Garamond and JetBrains Mono.` / `Built and run by Pradyumna Tanksali.` / `Version 2.0 · September 2026.` / `© Corner Software, 2024–2026.` / accent square.
 
-**/demo** — eyebrow `Corner Software · Demo`; H1 `Three platforms. / All of them in *service*.`; `Ask for a demo →`; `Everything Corsw builds →`; `See one running.` / *A walk through a live tenant: the operator's screens, not slides. Name the platform in the subject line.*
+**/demo** — eyebrow `Corner Software · Demo`; H1 `Three platforms. / All of them in *service*.`; `Ask for a demo →`; `Everything Corsw builds →`; `See one running.` / *A walk through a live tenant: the operator's screens, not slides. Name the platform in the subject line, or describe what you want built.*
 
 **Metadata** — title `Corner Software · Software, built and run.`; JSON-LD `Organization` (founder, email, sameAs GitHub) + `ItemList` of the four projects. No `legalName`.
 
 ## 5. Hard rules
 
 **Never**
-- "Pvt. Ltd.", team language ("we are designers…"), investor claims, or any project besides the four.
+- "Pvt. Ltd.", team language ("we are designers…"), investor claims, or a project on the site that isn't shipped or in build.
 - Lokey, Queue, Budgety or Second Brain on this site (owner decision, 2026-09-13).
 - A contact form, a nav menu, a hamburger, a sticky header.
 - Rounded corners, gradients (the column grid's hairline pattern excepted), shadows used as decoration.

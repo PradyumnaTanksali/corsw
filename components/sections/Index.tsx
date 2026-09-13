@@ -19,7 +19,7 @@ const rows: Array<{
 }> = [
   { label: "Entity", value: "Corner Software", sub: "Corsw", ref: "ent/01" },
   { label: "Founded", value: "2024", sub: "India", ref: "fnd/01" },
-  { label: "People", value: "One.", sub: "Pradyumna Tanksali", ref: "peo/01" },
+  { label: "People", value: "One, for now.", sub: "Pradyumna Tanksali", ref: "peo/01" },
   {
     label: "Projects",
     value: "Four",
@@ -27,6 +27,7 @@ const rows: Array<{
     ref: "prj/04",
   },
   { label: "Operating", value: "Three", sub: "One in build", ref: "ops/03" },
+  { label: "Next", value: "Open.", sub: "Taking on new clients", ref: "prj/05" },
   { label: "Archive", value: "Two sites", sub: "Modlio · Scene", ref: "arc/02" },
 ];
 

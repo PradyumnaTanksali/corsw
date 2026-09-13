@@ -27,7 +27,7 @@ export function Provenance() {
           <div className="md:col-span-8 md:col-start-5">
             <div className="max-w-prose space-y-6 text-[15px] leading-[1.6] text-ink md:text-base">
               <p>
-                Corner Software is one person: Pradyumna Tanksali. Design,
+                Corner Software is one person today: Pradyumna Tanksali. Design,
                 engineering, deployment and support come from the same desk.
               </p>
               <p className="text-ink-muted">
