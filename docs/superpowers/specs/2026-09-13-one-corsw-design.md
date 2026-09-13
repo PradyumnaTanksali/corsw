@@ -19,6 +19,7 @@ entity: **Corsw**.
 | Demo site | Modlio's `/showcase` becomes `corsw.in/demo`. |
 | Wildcard | `*.corsw.in` moves from the `modlio` Vercel project to `corsw`; unassigned subdomains land on `/demo`. |
 | Sibling sites | `modlio.corsw.in` and `scenestudio.corsw.in` stay up, unchanged except contact email. Revisit later. |
+| Projects | Four on the site: Arogyam, StreamLine, Ordio, SSC. Lokey, Queue, Budgety and Second Brain are not listed. (owner, second review) |
 | Contact | `tanksalipradyumna@gmail.com` is the only contact address across all projects. |
 | Isolation | All edits in worktrees on `rebrand/one-corsw`; the uncommitted SEO pass (`seo/technical-pass`) is carried into the corsw worktree verbatim. |
 
@@ -65,7 +66,7 @@ city "nodes" describe a team that does not exist.
 ```
 Masthead      identity, theme toggle
 I   Foundation   what Corsw is
-II  Products     3 platforms (schematic cards) + apps + research + client work
+II  Projects     four project cards, each with a system diagram
 III Index        the company in one table
 IV  Manifesto    seven principles (rewritten)
 V   Provenance   who runs it
@@ -77,8 +78,8 @@ Plus `/demo` and `proxy.ts` (see §4).
 
 ### Ported from modlio (copied, then de-Modlio'd)
 
-`SystemDiagram`, `PlatformCard`, `StatusBadge`, `DataTable`, `lib/platforms.ts`
-(renamed data stays), `.tnum` + `.link-draw` CSS. `SectionMark` (the MODLIO label
+`SystemDiagram` (plus a new SSC schematic), `PlatformCard`, `StatusBadge`, `DataTable`,
+`lib/platforms.ts` (becomes `lib/projects.ts`), `.tnum` + `.link-draw` CSS. `SectionMark` (the MODLIO label
 on rules) is not ported. No new dependencies — both repos are Next 16.2.4 /
 React 19.2.4 / framer-motion 12 / Tailwind 4.
 
@@ -91,30 +92,36 @@ next-generation". Corsw is the subject; no "we" pretending to be a team.
 ### Masthead
 
 - Eyebrow: `CORNER SOFTWARE · EST. 2024 · INDIA` · toggle at right.
-- H1: `Corner Software builds` / `software, and` *`runs`* `it.` / *`Six`* `so far.`
+- H1: `Corner Software builds` / `software, and` *`runs`* `it.` / *`Four`* `so far.`
 - Dateline: `SEPTEMBER · 2026 / ISSUE 02`
 
 ### I — Foundation
 
 - H2: `Corner Software is one company with one` *`name`*`.`
-- `Every product ships as Corsw. Clinics, factory floors, café counters, a listening room, a budget. Each one reached real users before the next one started.`
+- `Every product ships as Corsw. Clinics, factory floors, café counters, a wholesale catalogue. Each one is built to be run, not handed over.`
 - `Corsw runs what it builds. The platforms are multi-tenant, the tenants are real, and the numbers on this page are the ones in production.`
 - `Software at every corner. The name is the plan.`
 
-### II — Products
+### II — Projects
 
-- H2: `Six products, one` *`workshop`*`.`
-- **Platforms** — three `PlatformCard`s (diagram, tagline, description, table,
-  `ask for a demo →` mailto, live link). Copy is Modlio's `lib/platforms.ts` with
-  "Modlio" removed and StreamLine's table brought up to date from PROJECTS.md
-  (2026-09-03): `OPERATING · Quotations · Invoices · Purchase orders · Work orders · Payroll`;
-  `IN BUILD` row removed.
-- **Apps** — mono ledger rows, status dot, link when live:
-  - `Lokey` — `A listening room for slow R&B. No login, no algorithm.` — Shipped — lokey.corsw.in
-  - `Queue` — `Appointment scheduling for service businesses. Real-time.` — Shipped — queue-roan.vercel.app
-  - `Budgety` — `Personal finance that doesn't lecture.` — Shipped — no public link
-- **Research** — `Second Brain` — `A cross-platform personal OS. Knowledge graph and agent runtime.` — In research
-- **Client work** — `SSC` — `Catalogue and quote requests for an Ayurvedic wholesale distributor.` — Live — ssc.corsw.in
+- H2: `Four projects, one` *`workshop`*`.`
+- Intro: `Four projects, each with its own users: a clinic, a factory floor, a café counter, a wholesale buyer. The schematic on each card is the architecture as it actually runs.`
+- Four `PlatformCard`s (diagram, tagline, description, table, live link). An
+  `ask for a demo →` mailto shows only on `operating` projects.
+  - `01 / AROGYAM`, `02 / STREAMLINE`, `03 / ORDIO` — Modlio's `lib/platforms.ts`
+    copy with "Modlio" removed. StreamLine's table updated from PROJECTS.md
+    (2026-09-03): `OPERATING · Quotations · Invoices · Purchase orders · Work orders · Payroll`;
+    its `IN BUILD` row removed.
+  - `04 / SSC` — status `IN BUILD` (placeholders for phone, WhatsApp, licences are
+    still listed as pre-launch blockers in its README), so no demo link.
+    - Tagline: `Catalogue and quote requests for an Ayurvedic wholesale distributor.`
+    - `A catalogue-led site for Shivam Sales Corporation, a wholesale distributor of Ayurvedic medicines. The catalogue lives in typed files, not a CMS: a product that names a brand or category that does not exist fails the build.`
+    - `Buyers search by name, brand or indication, narrow by a faceted rail, and send a quote request that is validated on the server and delivered by email — or open WhatsApp with the product already named. Headline figures are derived from the data, so they cannot drift.`
+    - Table: `CATALOGUE · 41 product lines · 8 categories` · `BRANDS · 12 stocked` · `REACH · 18 cities · 5 states` · `STACK · Next.js 15 · Tailwind 4 · Resend`
+    - Link: `ssc.corsw.in`
+    - Schematic: Buyer + WhatsApp → Catalogue pages (accent) → Typed catalogue,
+      Brands + taxonomy, Search + facets, Enquiry API → Resend. Annotations:
+      `no CMS, no database` · `figures derived, never typed` · `no lead dropped silently`.
 
 ### III — Index
 
@@ -123,10 +130,8 @@ next-generation". Corsw is the subject; no "we" pretending to be a team.
 | Entity | Corner Software | Corsw | ent/01 |
 | Founded | 2024 | India | fnd/01 |
 | People | One. | Pradyumna Tanksali | peo/01 |
-| Platforms | Three | Arogyam · StreamLine · Ordio | plt/03 |
-| Apps | Three | Lokey · Queue · Budgety | app/03 |
-| Research | One | Second Brain | rsh/01 |
-| Client work | Selective. | SSC | cli/01 |
+| Projects | Four | Arogyam · StreamLine · Ordio · SSC | prj/04 |
+| Operating | Three | One in build | ops/03 |
 | Archive | Two sites | Modlio · Scene | arc/02 |
 
 H2: `The whole company in one` *`table`*`.`
@@ -139,7 +144,7 @@ H2: `Seven` *`principles`*`.`
 2. `Build it, then run it. Nothing is handed off.`
 3. `Small scope. Real users. Long horizons.`
 4. `A number on this page is a number measured.`
-5. `Client work is taken when it makes the products better.`
+5. `Fewer projects, finished properly.`
 6. `No deck. No sales call. The demo is the product running.`
 7. `Corsw will be here in ten years.`
 
@@ -172,16 +177,16 @@ H2: `External` *`lines`*`.`
 ### Metadata
 
 - Title: `Corner Software · Software, built and run.`
-- Description: `Corner Software (Corsw) builds and runs software: Arogyam for clinics, StreamLine for manufacturers, Ordio for cafés, plus Lokey, Queue and Budgety. Run by Pradyumna Tanksali. Founded 2024.`
+- Description: `Corner Software (Corsw) builds and runs software: Arogyam for clinics, StreamLine for manufacturers, Ordio for cafés, and a wholesale catalogue for SSC. Run by Pradyumna Tanksali. Founded 2024.`
 - JSON-LD: `Organization` without `legalName`, `subOrganization`, or locations;
   `email` = gmail; `founder` = Pradyumna Tanksali; `sameAs` = github.com/PradyumnaTanksali;
-  `ItemList` of the six products.
-- OG image: same composition, new H1 (`runs`, `Six` italic), bottom row
+  `ItemList` of the four projects.
+- OG image: same composition, new H1 (`runs`, `Four` italic), bottom row
   `CORSW · SEPTEMBER 2026` / `ONE PERSON · INDIA`.
 
 ## 4. `/demo` and the wildcard
 
-- `app/demo/page.tsx` — Modlio's showcase: eyebrow `CORSW · DEMO`, H1
+- `app/demo/page.tsx` — Modlio's showcase, listing only `operating` projects: eyebrow `CORSW · DEMO`, H1
   `Three platforms.` / `All of them in service.`, `Ask for a demo →` (mailto, subject
   `Demo request`), secondary `Everything Corsw builds →` to `/`, the platform cards,
   `See one running.` block, footer. Noindex, follow (duplicates the homepage section).
@@ -243,5 +248,5 @@ tenant data inside databases; `.env.example` placeholders.
 
 ## Out of scope
 
-Redesigning modlio or scene sites; removing their false "Pvt. Ltd." / team copy
+Lokey, Queue, Budgety, Second Brain on corsw.in; redesigning modlio or scene sites; removing their false "Pvt. Ltd." / team copy
 (flagged to owner); a third (light) theme; per-product pages; `/changelog`.
