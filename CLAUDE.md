@@ -1,104 +1,54 @@
 # CLAUDE.md — Operating Instructions for Corsw
 
-> Read `BRIEF.md` first. Then this file. Then `ASSETS.md`. Then ask which step we're on.
-
----
+> Read `PRODUCT.md` (what is true), then `BRIEF.md` (structure, copy, rules), then `DESIGN.md` (visual system). `BRIEF.md` is the source of truth for copy.
 
 ## What this is
 
-A single-page, monolithic, architectural-feeling site for **Corner Software (Corsw)** — the parent holding company. The full spec is in `BRIEF.md` and **it is the source of truth**.
+corsw.in — the single site of Corner Software (Corsw), a one-person company run by Pradyumna Tanksali. Four projects (Arogyam, StreamLine, Ordio, SSC), a `/demo` page that also serves every unassigned `*.corsw.in` subdomain, and two switchable themes: **Paper** (vermillion, Garamond italic) and **Schematic** (electric blue, mono).
 
-Corsw is the parent in a **family of three sites**:
-- **Corsw** (this one) — institutional + architectural.
-- **Modlio** — enterprise division. Built in a separate repo. Reference at `modlio.corsw.in`.
-- **Scene** — indie studio. Already deployed at `scene-studio-xi.vercel.app`.
+Modlio (`modlio.corsw.in`) and Scene (`scenestudio.corsw.in`) are archived sites in their own repos. They are not built here and are not divisions.
 
-You are not building Modlio or Scene in this repo. They are siblings only.
+## How we work
 
----
-
-## How we work together
-
-1. **Don't improvise the copy.** §4 of the brief is the entire copy bank — masthead, foundation, divisions, index, manifesto. Use it verbatim. The seven manifesto principles are locked.
-2. **Don't add dependencies.** §10 of the brief is final. No icon libraries.
-3. **Build sections in the order of §4** — Masthead first, Colophon last. Don't jump around.
-4. **Commit each section separately.** Conventional Commits: `feat: masthead`, `feat: divisions-card`, `feat: manifesto`.
-5. **Run `pnpm typecheck && pnpm lint && pnpm build` before saying done.** A green dev server is not done.
-6. **Re-read the triangulation table (BRIEF §3.7) every session.** It's the single most important rule for keeping Corsw distinct from its siblings.
-
----
+1. **Copy is banked.** Change it in the component and in `BRIEF.md` §4 together. Don't invent claims; if a fact isn't in `PRODUCT.md`, ask.
+2. **No new dependencies.**
+3. **Both themes, every change.** Toggle in the masthead, or set `localStorage["corsw-theme"]`.
+4. **Conventional Commits**, one concern per commit.
+5. **Done means** `pnpm typecheck && pnpm lint && pnpm test && pnpm build` green. A green dev server is not done.
 
 ## Code style
 
-- TypeScript strict mode. No `any`.
-- Server Components by default. `"use client"` only when a hook (`useReducedMotion`, `useState`, etc.) actually requires it.
-- All animations use the shared variants from `lib/motion.ts`. Don't define motion variants inline.
-- All colors come from CSS variables (`var(--ink)`, `var(--accent)`), never hex literals in JSX.
-- All typography uses the type scale from BRIEF §3.3. No one-off `text-[42px]` values.
-- Square edges everywhere. `rounded-*` is banned.
+- TypeScript strict. No `any`.
+- Server Components by default. `"use client"` only for hooks (`useReducedMotion`, `useSyncExternalStore`) or Framer motion components.
+- Section motion uses `lib/motion.ts` variants; diagrams use its `drawPath` / `fadeIn` / `fadeUpSm`.
+- Colours only via tokens (`text-accent`, `var(--ink-rule)`). Never hex in JSX, except brand marks and `app/opengraph-image.tsx`.
+- Emphasis and ordinals: `font-accent` and `<Ordinal />`. Never `font-serif italic` directly — Schematic would keep the serif.
+- Per-theme content: the `schematic:` variant.
+- Square edges. `rounded-*` is banned.
 
----
+## Never
 
-## Things to never do
+- Icons from a library; arrows are `→`.
+- Gradients, rounded corners, `font-bold`.
+- A contact form, nav menu or sticky header.
+- "Pvt. Ltd.", team or investor language, any project beyond the four.
+- Hinglish, exclamation marks, emoji.
+- "transform", "innovative", "cutting-edge", "world-class", "next-generation".
+- Translate more than 8px in a reveal.
 
-- Never add icons. Site is type-and-line driven.
-- Never use a gradient. Anywhere. (Gradients belong to Scene.)
-- Never use electric blue, schematic diagrams, or `tabular-nums`-heavy layouts. (Those belong to Modlio.)
-- Never use a font that isn't Inter, EB Garamond, or JetBrains Mono.
-- Never use `font-bold`. The heaviest weight is `font-medium` (500).
-- Never use rounded corners >0px on cards or borders.
-- Never add a hamburger menu, sticky nav, or a contact form.
-- Never use Hinglish. (Hinglish is Scene's voice.)
-- Never use the words "transform," "innovative," "cutting-edge," "world-class," "next-generation."
-- Never let vermillion `#D4452C` appear in more than the four places specified in BRIEF §3.2.
-- Never animate distances >8px.
-- Never write your own manifesto, division descriptions, or index data. Banks are banks.
+## Always
 
----
+- `text-balance` on headings, `tabular-nums` on figures.
+- `aria-hidden` on decorative ordinals, arrows and marks.
+- Check contrast in both themes when touching a token (text under 18px ≥ 4.5:1).
+- Keep `lib/host.test.mjs` passing when touching `lib/host.ts` or `proxy.ts`.
 
-## Things to always do
+## Commands
 
-- Always start with: "Reading `BRIEF.md`. Re-reading the triangulation table. We're at section X."
-- Always wrap motion components with `useReducedMotion()` checks.
-- Always use `text-balance` on headings.
-- Always render the column-grid overlay at the layout root.
-- Always use serif italic numerals (EB Garamond italic) for ordinals — `I.`, `II.`, `III.`, not `01.`, `02.`, `03.` (those belong to Modlio).
-- Always use `tabular-nums` on the Index and Ledger mono tables.
-- Always test the section in mobile Safari before moving on.
-- Always cross-check against `https://scene-studio-xi.vercel.app/` to confirm Corsw is *visually distinct*. If they look the same, redesign.
-
----
-
-## When in doubt
-
-- Triangulation question: re-read `BRIEF.md` §3.7. Are you using vermillion + serif italic + column-grid? If you're reaching for blue or gradients, stop.
-- Copy question: re-read `BRIEF.md` §4. Use what's there. Don't invent.
-- Animation question: re-read `BRIEF.md` §3.5. 8px max.
-- Style question: re-read this file.
-- Still stuck: ask. Don't guess on the brand-family.
-
----
-
-## First message template
-
-When the user says "let's build Corsw," your first response should be exactly this structure:
-
-> Reading `BRIEF.md`. Re-reading the triangulation table in §3.7. The plan:
->
-> 1. Bootstrap (Next.js + Tailwind + Framer + fonts via `next/font`)
-> 2. Tokens, fonts, column-grid overlay in `app/layout.tsx`
-> 3. `<VermillionLine>` + `<Numeral>` + `<SectionRule>` primitives
-> 4. Masthead
-> 5. Foundation
-> 6. Divisions (the centerpiece)
-> 7. Index
-> 8. Coordinates
-> 9. Manifesto
-> 10. Provenance
-> 11. Ledger
-> 12. Colophon
-> 13. Polish (a11y, perf, OG, monogram SVG)
->
-> Starting on step 1. Ready?
-
-Then wait for confirmation before running setup commands.
+```bash
+pnpm dev          # local dev server
+pnpm typecheck    # tsc --noEmit
+pnpm lint         # eslint
+pnpm test         # node --test (host routing)
+pnpm build        # production build
+```

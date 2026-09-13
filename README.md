@@ -1,16 +1,12 @@
 # Corsw
 
-The site for Corner Software — the parent holding company behind two
-software product divisions, Modlio (enterprise) and Scene Studio (indie).
-One page. Nine sections. No nav, no forms, no icons. A directory and a
-manifesto, set like a printed annual report.
+The site for Corner Software — one company, run by Pradyumna Tanksali, that builds and runs four projects: Arogyam, StreamLine, Ordio and SSC. One page with a system diagram per project, a `/demo` page, and two themes a visitor can switch between (Paper and Schematic).
 
-`BRIEF.md` is the source of truth for copy, tokens, and rules. `CLAUDE.md`
-holds the operating instructions. Read both before changing anything.
+`PRODUCT.md` holds what is true, `BRIEF.md` the structure, copy and rules, `DESIGN.md` the visual system. `CLAUDE.md` has the working rules.
 
 ## Stack
 
-- Next.js 16, App Router, TypeScript strict
+- Next.js 16 (App Router, `proxy.ts`), TypeScript strict
 - Tailwind CSS 4
 - framer-motion
 - Inter, EB Garamond, JetBrains Mono via `next/font`
@@ -21,13 +17,13 @@ holds the operating instructions. Read both before changing anything.
 pnpm dev          # local dev server
 pnpm typecheck    # tsc --noEmit
 pnpm lint         # eslint
+pnpm test         # host routing check (node --test)
 pnpm build        # production build
 pnpm start        # serve the build
 ```
 
 ## Deploy
 
-Deploys to [corsw.in](https://corsw.in). The divisions live on their own
-subdomains: `modlio.corsw.in` and `scenestudio.corsw.in`.
+Vercel project `corsw`, production branch `main`. Domains: `corsw.in` and the `*.corsw.in` wildcard — any subdomain not assigned to another project lands on `/demo`; `www.corsw.in` redirects to the apex.
 
-© Corner Software Pvt. Ltd.
+Contact: tanksalipradyumna@gmail.com
