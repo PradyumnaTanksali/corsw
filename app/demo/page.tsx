@@ -53,8 +53,9 @@ export default function DemoPage() {
             {operating.length === 3 ? "Three" : operating.length} platforms.
             <br />
             <span className="text-ink-muted">
-              All of them in{" "}
-              <span className="font-accent text-accent">service</span>.
+              All of them{" "}
+              <br className="sm:hidden" />
+              in <span className="font-accent text-accent">service</span>.
             </span>
           </h1>
 
