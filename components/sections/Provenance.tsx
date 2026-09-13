@@ -23,7 +23,7 @@ export function Provenance() {
           whileInView="whileInView"
           viewport={viewport}
           transition={revealTransition}
-          className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16"
+          className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12 lg:gap-16"
         >
           <div className="md:col-span-4">
             <SectionRule numeral="VI" label="Provenance" />

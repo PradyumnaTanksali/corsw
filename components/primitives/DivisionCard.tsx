@@ -38,9 +38,9 @@ export function DivisionCard({
         </span>
       </div>
 
-      <div className="mt-8 text-3xl font-medium uppercase tracking-normal md:text-4xl">
+      <h3 className="mt-8 text-3xl font-medium uppercase tracking-normal md:text-4xl">
         {wordmark}
-      </div>
+      </h3>
 
       <p className="mt-3 text-[15px] text-ink-muted md:text-base">{role}</p>
 

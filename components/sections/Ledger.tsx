@@ -40,16 +40,16 @@ export function Ledger() {
   return (
     <section className="py-32 md:py-40">
       <Container>
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12 lg:gap-16">
           <div className="md:col-span-4">
             <SectionRule numeral="VII" label="Ledger" />
-            <p className="mt-8 max-w-xs text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
+            <h2 className="mt-8 max-w-xs text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
               External{" "}
               <span className="font-serif italic font-normal text-accent">
                 lines
               </span>
               .
-            </p>
+            </h2>
           </div>
 
           <motion.ul

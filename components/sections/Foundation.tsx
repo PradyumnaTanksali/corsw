@@ -17,20 +17,20 @@ export function Foundation() {
           whileInView="whileInView"
           viewport={viewport}
           transition={revealTransition}
-          className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-16"
+          className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12 lg:gap-16"
         >
           <div className="md:col-span-4">
             <SectionRule numeral="I" label="Foundation" />
           </div>
 
           <div className="md:col-span-8 md:col-start-5">
-            <p className="text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
+            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
               Corner Software is a holding company for software product{" "}
               <span className="font-serif italic font-normal text-accent">
                 divisions
               </span>
               .
-            </p>
+            </h2>
 
             <div className="mt-10 max-w-prose space-y-6 text-[15px] leading-[1.6] text-ink-muted md:text-base">
               <p>
