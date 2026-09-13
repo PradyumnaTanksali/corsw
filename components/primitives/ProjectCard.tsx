@@ -61,7 +61,6 @@ export function ProjectCard({ project }: { project: Project }) {
           <DataTable
             caption={`${project.name} at a glance`}
             rows={project.table}
-            labelWidth="9rem"
           />
         </div>
 

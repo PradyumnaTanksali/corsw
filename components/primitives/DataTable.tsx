@@ -10,45 +10,30 @@ type Props = {
   caption?: string;
   rows: Row[];
   className?: string;
-  labelWidth?: string;
-  metaAlign?: "right" | "tag";
 };
 
-export function DataTable({
-  caption,
-  rows,
-  className,
-  labelWidth = "9rem",
-  metaAlign = "right",
-}: Props) {
+export function DataTable({ caption, rows, className }: Props) {
   return (
     <table
       className={cn(
-        "w-full font-mono text-[12.5px] tnum text-ink-muted",
-        "border-collapse",
+        "w-full border-collapse font-mono text-[12.5px] tabular-nums text-ink-muted",
         className,
       )}
     >
       {caption && <caption className="sr-only">{caption}</caption>}
       <tbody>
-        {rows.map((row, i) => (
-          <tr key={i} className="border-t border-ink-rule align-top last:border-b">
+        {rows.map((row) => (
+          <tr key={row.label} className="border-t border-ink-rule align-top last:border-b">
             <th
               scope="row"
-              style={{ width: labelWidth }}
-              className="text-left font-normal uppercase tracking-[0.12em] text-ink-faint py-2.5 pr-4"
+              className="w-28 py-2.5 pr-4 text-left font-normal uppercase tracking-[0.12em] text-ink-faint"
             >
               {row.label}
             </th>
             <td className="py-2.5 pr-4 text-ink">{row.value}</td>
+            {/* Reference codes are decoration; phones give their width to the value. */}
             {row.meta && (
-              <td
-                className={cn(
-                  "py-2.5 text-ink-faint whitespace-nowrap",
-                  metaAlign === "right" ? "text-right" : "text-left",
-                )}
-                style={{ width: "5rem" }}
-              >
+              <td className="hidden w-14 whitespace-nowrap py-2.5 text-right text-ink-faint sm:table-cell">
                 {row.meta}
               </td>
             )}

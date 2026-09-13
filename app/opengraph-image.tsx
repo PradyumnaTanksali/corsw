@@ -129,30 +129,15 @@ export default async function OpengraphImage() {
           }}
         >
           <span>Corner Software builds</span>
-          <span>
-            {"software, and "}
-            <span
-              style={{
-                fontFamily: "EB Garamond",
-                fontStyle: "italic",
-                fontWeight: 400,
-              }}
-            >
-              {"runs "}
-            </span>
-              it.
+          <span style={{ display: "flex", gap: 22 }}>
+            <span>software, and</span>
+            <span style={{ fontFamily: "EB Garamond", fontStyle: "italic", fontWeight: 400 }}>runs</span>
+            <span>it.</span>
           </span>
-          <span>
-            <span
-              style={{
-                fontFamily: "EB Garamond",
-                fontStyle: "italic",
-                fontWeight: 400,
-              }}
-            >
-              {"Four "}
-            </span>
-            so far.
+          {/* Satori drops whitespace at span edges, so word gaps are flex gaps. */}
+          <span style={{ display: "flex", gap: 22 }}>
+            <span style={{ fontFamily: "EB Garamond", fontStyle: "italic", fontWeight: 400 }}>Four</span>
+            <span>so far.</span>
           </span>
         </div>
 
