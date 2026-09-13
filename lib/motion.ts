@@ -53,3 +53,23 @@ export const staggerTransition = {
 };
 
 export const viewport = { once: true, margin: "-120px" } as const;
+
+// Schematic diagrams (components/primitives/SystemDiagram.tsx) use
+// hidden/visible keys, unlike the section reveals above.
+export const drawPath: Variants = {
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: { pathLength: 1, opacity: 1 },
+};
+
+export const fadeIn: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
+/** Subtle 4px lift for schematic diagram boxes. */
+export const fadeUpSm: Variants = {
+  hidden: { opacity: 0, y: 4 },
+  visible: { opacity: 1, y: 0 },
+};
+
+export const diagramViewport = { once: true, margin: "-80px" } as const;

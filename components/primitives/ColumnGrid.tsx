@@ -8,7 +8,8 @@ export function ColumnGrid() {
         <div
           className="h-full w-full"
           style={{
-            opacity: 0.04,
+            // 0.04 on Paper, 0 on Schematic (globals.css --grid-opacity).
+            opacity: "var(--grid-opacity)",
             backgroundImage:
               "repeating-linear-gradient(to right, var(--ink) 0 1px, transparent 1px calc(100% / 12))",
           }}

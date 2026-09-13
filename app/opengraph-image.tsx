@@ -1,13 +1,13 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Corner Software · A holding company for software product divisions.";
+export const alt = "Corner Software · Software, built and run.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const SANS_TEXT =
-  "Corner Software builds software so far. · Est. 2024";
-const SERIF_TEXT = "companies. Two ";
-const MONO_TEXT = "CORSW · MAY 2026 HYDERABAD / PUNE / SOLAPUR";
+  "Corner Software builds software, and it. so far. · Est. 2024";
+const SERIF_TEXT = "runs Four ";
+const MONO_TEXT = "CORSW · SEPTEMBER 2026 ONE PERSON · INDIA";
 
 async function loadGoogleFont(
   family: string,
@@ -130,7 +130,7 @@ export default async function OpengraphImage() {
         >
           <span>Corner Software builds</span>
           <span>
-            {"software "}
+            {"software, and "}
             <span
               style={{
                 fontFamily: "EB Garamond",
@@ -138,8 +138,9 @@ export default async function OpengraphImage() {
                 fontWeight: 400,
               }}
             >
-              companies.
+              {"runs "}
             </span>
+              it.
           </span>
           <span>
             <span
@@ -149,7 +150,7 @@ export default async function OpengraphImage() {
                 fontWeight: 400,
               }}
             >
-              {"Two "}
+              {"Four "}
             </span>
             so far.
           </span>
@@ -166,8 +167,8 @@ export default async function OpengraphImage() {
             color: "#A8A39A",
           }}
         >
-          <span>CORSW · MAY 2026</span>
-          <span style={{ paddingRight: 48 }}>HYDERABAD / PUNE / SOLAPUR</span>
+          <span>CORSW · SEPTEMBER 2026</span>
+          <span style={{ paddingRight: 48 }}>ONE PERSON · INDIA</span>
         </div>
       </div>
     ),

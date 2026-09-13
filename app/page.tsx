@@ -1,58 +1,38 @@
 import type { Metadata } from "next";
 import { Masthead } from "@/components/sections/Masthead";
 import { Foundation } from "@/components/sections/Foundation";
-import { Divisions } from "@/components/sections/Divisions";
+import { Projects } from "@/components/sections/Projects";
 import { IndexSection } from "@/components/sections/Index";
-import { Coordinates } from "@/components/sections/Coordinates";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { Provenance } from "@/components/sections/Provenance";
 import { Ledger } from "@/components/sections/Ledger";
 import { Colophon } from "@/components/sections/Colophon";
+import { DEMO_EMAIL, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Corner Software · A holding company for software product divisions.",
+  title: "Corner Software · Software, built and run.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
 };
 
-// Only facts stated on the page (Index, Coordinates, Divisions, Ledger).
+const ORG_ID = "https://corsw.in/#organization";
+
+// Only facts stated on the page (Masthead, Projects, Index, Provenance, Ledger).
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://corsw.in/#organization",
+      "@id": ORG_ID,
       name: "Corner Software",
       alternateName: "Corsw",
-      legalName: "Corner Software Pvt. Ltd.",
       url: "https://corsw.in",
       logo: "https://corsw.in/brand/monogram-dark.svg",
-      description: "A holding company for software product divisions.",
+      description: "Software, built and run.",
       foundingDate: "2024",
-      email: "hello@corsw.in",
-      location: ["Hyderabad", "Pune", "Solapur"].map((city) => ({
-        "@type": "Place",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: city,
-          addressCountry: "IN",
-        },
-      })),
-      subOrganization: [
-        {
-          "@type": "Organization",
-          name: "Modlio",
-          url: "https://modlio.corsw.in",
-          description: "Enterprise software division.",
-        },
-        {
-          "@type": "Organization",
-          name: "Scene Studio",
-          url: "https://scenestudio.corsw.in",
-          description: "Indie product studio.",
-        },
-      ],
-      sameAs: ["https://github.com/corsw"],
+      email: DEMO_EMAIL,
+      founder: { "@type": "Person", name: "Pradyumna Tanksali" },
+      sameAs: ["https://github.com/PradyumnaTanksali"],
     },
     {
       "@type": "WebSite",
@@ -60,7 +40,21 @@ const jsonLd = {
       name: "Corner Software",
       url: "https://corsw.in",
       inLanguage: "en",
-      publisher: { "@id": "https://corsw.in/#organization" },
+      publisher: { "@id": ORG_ID },
+    },
+    {
+      "@type": "ItemList",
+      itemListElement: projects.map((p) => ({
+        "@type": "ListItem",
+        position: p.n,
+        item: {
+          "@type": "CreativeWork",
+          name: p.name,
+          description: p.tagline,
+          url: p.link.href,
+          creator: { "@id": ORG_ID },
+        },
+      })),
     },
   ],
 };
@@ -76,9 +70,8 @@ export default function Home() {
       />
       <Masthead />
       <Foundation />
-      <Divisions />
+      <Projects />
       <IndexSection />
-      <Coordinates />
       <Manifesto />
       <Provenance />
       <Ledger />

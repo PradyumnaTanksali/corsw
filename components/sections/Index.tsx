@@ -17,44 +17,17 @@ const rows: Array<{
   sub: string;
   ref: string;
 }> = [
+  { label: "Entity", value: "Corner Software", sub: "Corsw", ref: "ent/01" },
+  { label: "Founded", value: "2024", sub: "India", ref: "fnd/01" },
+  { label: "People", value: "One.", sub: "Pradyumna Tanksali", ref: "peo/01" },
   {
-    label: "Entity",
-    value: "Corner Software Pvt. Ltd.",
-    sub: "Holding company",
-    ref: "ent/01",
+    label: "Projects",
+    value: "Four",
+    sub: "Arogyam · StreamLine · Ordio · SSC",
+    ref: "prj/04",
   },
-  { label: "Founded", value: "2024", sub: "Hyderabad", ref: "fnd/01" },
-  {
-    label: "Divisions",
-    value: "Two",
-    sub: "Modlio · Scene Studio",
-    ref: "dv/01,02",
-  },
-  {
-    label: "Locations",
-    value: "Three",
-    sub: "Hyderabad · Pune · Solapur",
-    ref: "loc/03",
-  },
-  { label: "People", value: "Small.", sub: "Intentionally.", ref: "peo/01" },
-  {
-    label: "External work",
-    value: "None.",
-    sub: "Not accepting.",
-    ref: "ext/00",
-  },
-  {
-    label: "Project count",
-    value: "Six",
-    sub: "Across both divisions",
-    ref: "prj/06",
-  },
-  {
-    label: "Public artifacts",
-    value: "Two",
-    sub: "Modlio · Scene Studio",
-    ref: "art/02",
-  },
+  { label: "Operating", value: "Three", sub: "One in build", ref: "ops/03" },
+  { label: "Archive", value: "Two sites", sub: "Modlio · Scene", ref: "arc/02" },
 ];
 
 export function IndexSection() {
@@ -65,13 +38,10 @@ export function IndexSection() {
       <Container>
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12 lg:gap-16">
           <div className="md:col-span-4">
-            <SectionRule numeral="III" label="Index" />
+            <SectionRule n={3} label="Index" />
             <h2 className="mt-8 max-w-xs text-[clamp(1.75rem,4vw,3rem)] font-medium leading-[1.05] tracking-[-0.015em] text-balance">
               The whole company in one{" "}
-              <span className="font-serif italic font-normal text-accent">
-                table
-              </span>
-              .
+              <span className="font-accent font-normal text-accent">table</span>.
             </h2>
           </div>
 
@@ -93,10 +63,8 @@ export function IndexSection() {
                 <dt className="col-span-12 uppercase tracking-[0.18em] text-ink-faint md:col-span-3">
                   {row.label}
                 </dt>
-                <dd className="col-span-6 text-ink md:col-span-4">
-                  {row.value}
-                </dd>
-                <dd className="col-span-6 text-ink-muted md:col-span-3">
+                <dd className="col-span-6 text-ink md:col-span-3">{row.value}</dd>
+                <dd className="col-span-6 text-ink-muted md:col-span-4">
                   {row.sub}
                 </dd>
                 <dd className="col-span-12 text-accent md:col-span-2 md:text-right">

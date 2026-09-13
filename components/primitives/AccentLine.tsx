@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ease } from "@/lib/motion";
 
-interface VermillionLineProps {
+interface AccentLineProps {
   className?: string;
   height?: string;
 }
@@ -16,10 +16,10 @@ interface VermillionLineProps {
  * does not patch inline-style mismatches on hydration — the line would stay
  * at 0px for reduced-motion users.
  */
-export function VermillionLine({
+export function AccentLine({
   className,
   height = "60vh",
-}: VermillionLineProps) {
+}: AccentLineProps) {
   return (
     <motion.span
       aria-hidden="true"

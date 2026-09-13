@@ -1,19 +1,20 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { inter, ebGaramond, ebGaramondPrint, jetbrainsMono } from "./fonts";
 import { ColumnGrid } from "@/components/primitives/ColumnGrid";
 import { MotionProvider } from "@/components/primitives/MotionProvider";
 
-// Title, canonical and robots live in app/page.tsx so the 404 page doesn't
+const shareDescription = "Software, built and run. Arogyam · StreamLine · Ordio · SSC.";
+
+// Title, canonical and robots live in each page so the 404 page doesn't
 // inherit a second <title> and an `index, follow` next to Next's `noindex`.
 export const metadata: Metadata = {
   description:
-    "Corner Software is a holding company for software product divisions. Modlio (enterprise) and Scene Studio (indie). Hyderabad · Pune · Solapur. Founded 2024.",
+    "Corner Software (Corsw) builds and runs software: Arogyam for clinics, StreamLine for manufacturers, Ordio for cafés, and a wholesale catalogue for SSC. Run by Pradyumna Tanksali. Founded 2024.",
   metadataBase: new URL("https://corsw.in"),
   openGraph: {
     title: "Corner Software",
-    description:
-      "A holding company for software product divisions. Modlio · Scene Studio.",
+    description: shareDescription,
     url: "https://corsw.in",
     siteName: "Corner Software",
     locale: "en_US",
@@ -22,12 +23,21 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Corner Software",
-    description:
-      "A holding company for software product divisions. Modlio · Scene Studio.",
+    description: shareDescription,
   },
   // Icons come from the app/icon.png + app/icon.svg file conventions; a manual
   // `icons` entry here would suppress those generated <link> tags.
 };
+
+// Both themes are dark; browser chrome follows Paper.
+export const viewport: Viewport = {
+  themeColor: "#0e0e0e",
+  colorScheme: "dark",
+};
+
+// Runs before first paint so a saved Schematic choice never flashes Paper.
+const THEME_BOOT =
+  'try{var t=localStorage.getItem("corsw-theme");if(t==="paper"||t==="schematic")document.documentElement.dataset.theme=t}catch(e){}';
 
 export default function RootLayout({
   children,
@@ -35,18 +45,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${ebGaramond.variable} ${ebGaramondPrint.variable} ${jetbrainsMono.variable}`}
+      data-theme="paper"
       suppressHydrationWarning
+      className={`${inter.variable} ${ebGaramond.variable} ${ebGaramondPrint.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT }} />
+      </head>
       <body className="relative min-h-screen bg-bg text-ink antialiased">
-        {/* Holds the masthead fade (≤3s) until Inter and Garamond italic are
-            in. They swap at different moments and the h1 re-wraps each time;
-            that must happen while it is still transparent or it is CLS. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(()=>{const d=document.documentElement;d.classList.add("fonts-pending");Promise.race([Promise.all(["500 1em Inter","italic 1em 'EB Garamond'"].map((f)=>document.fonts.load(f))),new Promise((r)=>setTimeout(r,3000))]).finally(()=>d.classList.remove("fonts-pending"))})()`,
-          }}
-        />
         <ColumnGrid />
         <div className="relative z-10">
           <MotionProvider>{children}</MotionProvider>

@@ -1,12 +1,13 @@
 import { cn } from "@/lib/utils";
+import { Ordinal } from "./Ordinal";
 
 interface SectionRuleProps {
-  numeral: string;
+  n: number;
   label: string;
   className?: string;
 }
 
-export function SectionRule({ numeral, label, className }: SectionRuleProps) {
+export function SectionRule({ n, label, className }: SectionRuleProps) {
   return (
     <div
       className={cn(
@@ -14,8 +15,11 @@ export function SectionRule({ numeral, label, className }: SectionRuleProps) {
         className,
       )}
     >
-      <span className="font-serif italic text-ink-muted normal-case tracking-[0.02em] text-base">
-        — {numeral} —
+      <span
+        aria-hidden="true"
+        className="font-accent text-ink-muted normal-case tracking-[0.02em] text-base"
+      >
+        — <Ordinal n={n} /> —
       </span>
       <span>{label}</span>
     </div>

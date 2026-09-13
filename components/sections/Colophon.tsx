@@ -19,15 +19,15 @@ export function Colophon() {
           className="flex flex-col items-center gap-6 border-t border-ink-rule pt-12 text-center"
         >
           <p className="font-mono text-[13px] leading-[1.7] text-ink-muted tabular-nums">
-            Set in Inter and EB Garamond.
+            Set in Inter, EB Garamond and JetBrains Mono.
             <br />
-            Built by Corsw.
+            Built and run by Pradyumna Tanksali.
             <br />
-            Version 1.0 · May 2026.
+            Version 2.0 · September 2026.
           </p>
 
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-faint">
-            © Corner Software Pvt. Ltd., 2024–2026.
+            © Corner Software, 2024–2026.
           </p>
 
           <span

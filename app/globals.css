@@ -1,13 +1,41 @@
 @import "tailwindcss";
 
+/* Two themes, one token set. The inline script in app/layout.tsx sets
+   html[data-theme] before first paint; with no saved choice the page is Paper.
+   Components only ever read these tokens. */
+@custom-variant schematic (&:where([data-theme="schematic"], [data-theme="schematic"] *));
+
+/* Paper: warm off-black, bone ink, vermillion, Garamond italic accents.
+   ink-faint and accent are lifted from the original #5c5852 / #d4452c so small
+   text clears 4.5:1 on --bg-card. */
 :root {
   --bg: #0e0e0e;
   --bg-card: #161513;
   --ink: #f5f1e8;
   --ink-muted: #a8a39a;
-  --ink-faint: #5c5852;
+  --ink-faint: #847f76;
   --ink-rule: #2a2825;
-  --accent: #d4452c;
+  --accent: #d7543d;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --font-accent: var(--font-eb-garamond);
+  --accent-style: italic;
+  --grid-opacity: 0.04;
+}
+
+/* Schematic: carbon, cool ink, electric blue, mono accents. Its texture is the
+   system diagrams, so the column grid goes. */
+[data-theme="schematic"] {
+  --bg: #0a0b0f;
+  --bg-card: #111317;
+  --ink: #e8eaed;
+  --ink-muted: #9ca3af;
+  --ink-faint: #767d8c;
+  --ink-rule: #1f2228;
+  --accent: #3b82f6;
+  --font-accent: var(--font-jetbrains-mono);
+  --accent-style: normal;
+  --grid-opacity: 0;
 }
 
 @theme inline {
@@ -18,15 +46,22 @@
   --color-ink-faint: var(--ink-faint);
   --color-ink-rule: var(--ink-rule);
   --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-eb-garamond);
   --font-mono: var(--font-jetbrains-mono);
   --default-font-family: var(--font-inter);
-  /* Masthead title fade (BRIEF §4.1): lib/motion.ts `reveal` values — 8px,
-     0.5s, `ease`, 0.2s delay — in CSS so the LCP heading paints before
-     hydration instead of waiting on Framer. */
+  /* Masthead title fade: lib/motion.ts `reveal` values (8px, 0.5s, `ease`,
+     0.2s delay) in CSS so the LCP heading paints before hydration. */
   --animate-masthead-rise: masthead-rise 0.5s cubic-bezier(0.32, 0.72, 0, 1)
     0.2s both;
+}
+
+/* Emphasis words and ordinals: Garamond italic on Paper, mono on Schematic. */
+@utility font-accent {
+  font-family: var(--font-accent);
+  font-style: var(--accent-style);
 }
 
 @keyframes masthead-rise {
@@ -60,6 +95,31 @@ a {
   text-decoration: none;
 }
 
+/* Hover draws a 1px accent underline left to right. */
+.link-draw {
+  position: relative;
+}
+
+.link-draw::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 200ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.link-draw:hover::after,
+.link-draw:focus-visible::after,
+a:hover > .link-draw::after,
+a:focus-visible > .link-draw::after {
+  transform: scaleX(1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -71,16 +131,21 @@ a {
   }
 }
 
-/* BRIEF §11 — print like a real document: white paper, dark ink, serif body.
-   The ColumnGrid overlay and VermillionLine carry `print:hidden`. */
+/* Print like a real document in either theme: white paper, dark ink, serif
+   body, Garamond numerals. ColumnGrid, AccentLine and ThemeToggle carry
+   `print:hidden`. */
 @media print {
-  :root {
+  :root,
+  :root[data-theme] {
     --bg: #ffffff;
     --bg-card: #ffffff;
     --ink: #141310;
     --ink-muted: #45423c;
     --ink-faint: #6e6a63;
     --ink-rule: #d8d4cb;
+    --accent: #b83a22;
+    --font-accent: var(--font-eb-garamond);
+    --accent-style: italic;
   }
 
   body {
