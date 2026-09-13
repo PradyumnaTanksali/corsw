@@ -11,7 +11,7 @@ export function Masthead() {
       </div>
 
       <Container>
-        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-muted">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted sm:tracking-[0.22em]">
           <p className="flex flex-wrap items-baseline gap-x-3">
             <span>Corner Software</span>
             <span className="whitespace-nowrap">
