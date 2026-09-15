@@ -72,8 +72,10 @@ export default function DemoPage() {
         </Container>
       </header>
 
-      <section aria-label="Platforms in service" className="pb-20 pt-16 md:pb-28 md:pt-24">
+      <section aria-labelledby="platforms" className="pb-20 pt-16 md:pb-28 md:pt-24">
         <Container>
+          {/* Card taglines are h3; this keeps the outline h1 → h2 → h3. */}
+          <h2 id="platforms" className="sr-only">Platforms in service</h2>
           {operating.map((project) => (
             <ProjectCard key={project.name} project={project} />
           ))}
