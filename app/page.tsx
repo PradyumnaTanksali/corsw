@@ -30,8 +30,12 @@ const jsonLd = {
       description: "Software, built and run.",
       foundingDate: "2024",
       email: DEMO_EMAIL,
-      founder: { "@type": "Person", name: "Pradyumna Tanksali" },
-      sameAs: ["https://github.com/PradyumnaTanksali"],
+      founder: {
+        "@type": "Person",
+        name: "Pradyumna Tanksali",
+        // A personal profile: it identifies the founder, not the company.
+        sameAs: ["https://github.com/PradyumnaTanksali"],
+      },
     },
     {
       "@type": "WebSite",

@@ -101,7 +101,7 @@ The shipped components are the copy bank. Change copy there, and keep this list 
 
 **/demo** — eyebrow `Corner Software · Demo`; H1 `Platforms in *service*.`; `Ask for a demo →`; `Everything Corsw builds →`; `See one running.` / *A walk through a live tenant: the operator's screens, not slides. Name the platform in the subject line, or describe what you would like built.*
 
-**Metadata** — title `Corner Software · Software, built and run.`; JSON-LD `Organization` (founder, email, sameAs GitHub) + `ItemList` of the projects. No `legalName`.
+**Metadata** — title `Corner Software · Software, built and run.`; JSON-LD `Organization` (founder with sameAs GitHub, email) + `ItemList` of the projects. No `legalName`.
 
 ## 5. Hard rules
 
