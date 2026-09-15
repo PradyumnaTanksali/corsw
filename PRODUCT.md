@@ -37,7 +37,7 @@ Corsw designs, builds and then operates the software — hosting, updates and su
 - Name: Corner Software · Corsw. "Software at every corner."
 - Founded by Pradyumna Tanksali. The site states no headcount (owner: don't say "People: 1"), no "Pvt. Ltd.", no team or investor claims.
 - Tone is professional (owner, 2026-09-13): no self-deprecating or cute framing, no "this is just the start" copy, no dates, issues or version strings, no project counts in prose.
-- Contact address everywhere: `tanksalipradyumna@gmail.com`. External links are removed; the email and `/demo` are the ways out.
+- Contact address everywhere: `hello@corsw.in`. External links are removed; the email and `/demo` are the ways out.
 - The owner keeps both incumbent looks as switchable themes: corsw's editorial world (warm off-black, bone ink, vermillion, EB Garamond italic) and Modlio's engineered world (carbon, cool ink, electric blue, mono numerals). Modlio's schematic system diagrams are drawn in both themes.
 - Voice: short sentences, periods over commas. No exclamation marks, no emoji, no Hinglish. Never "transform", "innovative", "cutting-edge", "world-class", "next-generation".
 - Square corners. No gradients. No icon library; arrows are `→`. No contact form.

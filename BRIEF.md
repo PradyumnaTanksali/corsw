@@ -11,7 +11,7 @@
 - **Name:** Corner Software · `corsw`. Etymology: *"Software at every corner."*
 - **Positioning:** software for businesses that depend on it every day — designed, built and kept running by Corsw.
 - **One-line:** *Corner Software builds software, and runs it.*
-- **Contact:** `tanksalipradyumna@gmail.com`. The only address, everywhere.
+- **Contact:** `hello@corsw.in`. The only address, everywhere.
 
 **Tone:**
 - Professional and plain. Short sentences. Periods over commas.

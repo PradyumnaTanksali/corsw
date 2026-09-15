@@ -26,4 +26,4 @@ pnpm start        # serve the build
 
 Vercel project `corsw`, production branch `main`. Domains: `corsw.in` and the `*.corsw.in` wildcard — any subdomain not assigned to another project lands on `/demo`; `www.corsw.in` redirects to the apex.
 
-Contact: tanksalipradyumna@gmail.com
+Contact: hello@corsw.in
