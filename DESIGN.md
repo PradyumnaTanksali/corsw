@@ -181,7 +181,7 @@ Two near-black palettes that share one set of role names. Paper is warm and almo
 - **Print Paper, Print Ink, Print Muted, Print Faint, Print Rule, Print Accent** (`print-*`): under `@media print`, both themes are overridden with these values and the accent font resets to Garamond italic. The grid, the masthead line and the theme toggle are `print:hidden`.
 
 ### Brand Mark
-- **Mark Vermillion** (`mark-vermillion`): the original brand red. It appears only in `app/icon.svg`, `app/apple-icon.svg`, the `public/brand` SVGs and the Open Graph image. It stays out of the UI because it measures 4.3:1, below the small-text floor.
+- **Mark Vermillion** (`mark-vermillion`): the original brand red. It appears only in `app/icon.svg`, `app/apple-icon.png`, the `public/brand` SVGs and the Open Graph image. It stays out of the UI because it measures 4.3:1, below the small-text floor.
 
 ### Named Rules
 **The Role-Name Rule.** A component reads color only through a role (`bg-bg`, `text-ink-muted`, `border-ink-rule`, `var(--accent)`), never through a theme name or a hex value. A component that is right in Paper is right in Schematic because it cannot tell the two apart.
