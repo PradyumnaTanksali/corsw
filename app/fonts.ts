@@ -1,18 +1,18 @@
-import { Inter, EB_Garamond, JetBrains_Mono } from "next/font/google";
+import { EB_Garamond, JetBrains_Mono, Schibsted_Grotesk } from "next/font/google";
 
-export const inter = Inter({
-  variable: "--font-inter",
+// Variable weight axis (400–900): headlines change weight on scroll and hover.
+export const schibsted = Schibsted_Grotesk({
+  variable: "--font-schibsted",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500"],
 });
 
-// On screen, Garamond is only ever set italic (numerals, emphasis words).
+// On screen, Garamond is only ever set italic (accent words, ordinals, hero).
 export const ebGaramond = EB_Garamond({
   variable: "--font-eb-garamond",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500"],
+  weight: ["400"],
   style: ["italic"],
 });
 
