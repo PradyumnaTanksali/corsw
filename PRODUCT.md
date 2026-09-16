@@ -23,11 +23,11 @@ Corsw designs, builds and then operates the software — hosting, updates and su
 
 - Unassigned `*.corsw.in` subdomains land on `/demo`. Product subdomains are separate deployments: `stream.corsw.in`, `ordio.corsw.in` (+ `*.ordio.corsw.in`), `arogyam.corsw.in` (+ `*.arogyam.corsw.in`, one subdomain per clinic), `ssc.corsw.in`, `lokey.corsw.in`, `modlio.corsw.in`, `scenestudio.corsw.in`.
 - Contact is email only. No forms, no accounts, no pricing.
-- Visitors can switch between two visual themes; the choice persists per browser.
+- The site scrolls through three chapters (bone, ink, carbon); there is no theme toggle.
 
 ## Capabilities and Constraints
 
-- Next.js 16.2.4 (App Router, `proxy.ts`), React 19.2.4, Tailwind CSS 4, framer-motion 12. No other runtime dependencies.
+- Next.js 16.2.4 (App Router, proxy.ts), React 19.2.4, Tailwind CSS 4, GSAP 3.15 (ScrollTrigger, SplitText, MotionPath), Lenis. No other runtime dependencies.
 - Work on the site (owner decision, 2026-09-13): **Arogyam** (operating), **StreamLine** (operating), **Ordio** (operating; PhonePe merchant KYC pending, so card copy does not claim live payments), **SSC** (in build; pre-launch placeholders). The list grows as client work ships.
 - Not listed on corsw.in, by owner decision: Lokey, Queue, Budgety, Second Brain.
 - Archive sites stay up: `modlio.corsw.in`, `scenestudio.corsw.in`. Products credit Corsw, not Modlio.
@@ -38,15 +38,16 @@ Corsw designs, builds and then operates the software — hosting, updates and su
 - Founded by Pradyumna Tanksali. The site states no headcount (owner: don't say "People: 1"), no "Pvt. Ltd.", no team or investor claims.
 - Tone is professional (owner, 2026-09-13): no self-deprecating or cute framing, no "this is just the start" copy, no dates, issues or version strings, no project counts in prose.
 - Contact address everywhere: `hello@corsw.in`. External links are removed; the email and `/demo` are the ways out.
-- The owner keeps both incumbent looks as switchable themes: corsw's editorial world (warm off-black, bone ink, vermillion, EB Garamond italic) and Modlio's engineered world (carbon, cool ink, electric blue, mono numerals). Modlio's schematic system diagrams are drawn in both themes.
+- The two incumbent looks survive as scroll chapters: corsw's editorial world (bone and ink, vermillion, EB Garamond italic) and Modlio's engineered world (carbon, mono, schematic diagrams). The owner chose one identity over the toggle on 2026-09-16.
 - Voice: short sentences, periods over commas. No exclamation marks, no emoji, no Hinglish. Never "transform", "innovative", "cutting-edge", "world-class", "next-generation".
-- Square corners. No gradients. No icon library; arrows are `→`. No contact form.
+- Square corners. No gradients except the column and dot grid textures. No icon library; arrows are `→`. No contact form.
 
 ## Evidence on Hand
 
 - Live: `drtanvis.arogyam.corsw.in/en` (Arogyam clinic #1; `drtanvis.corsw.in` retired 2026-09-16), `stream.corsw.in`, `ordio.corsw.in` with `sipsnbites.ordio.corsw.in`, `ssc.corsw.in`.
 - Verified product capabilities are in `/Users/apple/Personal/PROJECTS.md` (2026-09-03).
 - Absent, never to be fabricated: uptime measurements, testimonials, customer logos, revenue, compliance certification.
+- Product captures: SSC from its public site; Arogyam, StreamLine and Ordio only from local seeded demo data, pending.
 
 ## Product Principles
 

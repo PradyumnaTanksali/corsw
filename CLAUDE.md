@@ -4,44 +4,46 @@
 
 ## What this is
 
-corsw.in — the site of Corner Software (Corsw). Selected work (Arogyam, StreamLine, Ordio, SSC), a contact section, a `/demo` page that also serves every unassigned `*.corsw.in` subdomain, and two switchable themes: **Paper** (vermillion, Garamond italic) and **Schematic** (electric blue, mono).
+corsw.in — the site of Corner Software (Corsw). Selected work (Arogyam, StreamLine, Ordio, SSC), a contact section, a `/demo` page that also serves every unassigned `*.corsw.in` subdomain, and one identity in three scroll chapters: **bone** (paper, Garamond), **ink** (the work) and **carbon** (diagrams, dot grid). Case studies live at /work/<slug>.
 
 Modlio (`modlio.corsw.in`) and Scene (`scenestudio.corsw.in`) are archived sites in their own repos. They are not built here and are not divisions.
 
 ## How we work
 
 1. **Copy is banked.** Change it in the component and in `BRIEF.md` §4 together. Don't invent claims; if a fact isn't in `PRODUCT.md`, ask.
-2. **No new dependencies.**
-3. **Both themes, every change.** Toggle in the masthead, or set `localStorage["corsw-theme"]`.
+2. **Dependencies are fixed:** next, react, react-dom, gsap, @gsap/react, lenis. No others.
+3. **Every chapter, every change.** Check bone, ink and carbon, desktop and phone, and reduced motion (DevTools → Rendering).
 4. **Conventional Commits**, one concern per commit.
 5. **Done means** `pnpm typecheck && pnpm lint && pnpm test && pnpm build` green. A green dev server is not done.
 
 ## Code style
 
 - TypeScript strict. No `any`.
-- Server Components by default. `"use client"` only for hooks (`useReducedMotion`, `useSyncExternalStore`) or Framer motion components.
-- Section motion uses `lib/motion.ts` variants; diagrams use its `drawPath` / `fadeIn` / `fadeUpSm`.
+- Server Components by default. `"use client"` only where a hook runs.
+- Motion lives in `components/motion/*` and client sections, always inside `useGSAP` with `gsap.matchMedia()` gating (`prefers-reduced-motion: no-preference`). Import gsap only from `@/lib/gsap`.
 - Colours only via tokens (`text-accent`, `var(--ink-rule)`). Never hex in JSX, except brand marks and `app/opengraph-image.tsx`.
-- Emphasis and ordinals: `font-accent` and `<Ordinal />`. Never `font-serif italic` directly — Schematic would keep the serif.
-- Per-theme content: the `schematic:` variant.
+- Emphasis and ordinals: `font-accent` (Garamond italic) and `<Ordinal />`. Never `font-serif italic` directly.
+- Colours come from `lib/tones.ts` roles; a section declares `data-tone`, a page's `main` declares `data-tone-start`.
 - Square edges. `rounded-*` is banned.
 
 ## Never
 
 - Icons from a library; arrows are `→`.
-- Gradients, rounded corners, `font-bold`.
-- A contact form, nav menu or sticky header.
+- Gradients (except the column and dot grid textures), rounded corners, shadows or glows.
+- A contact form or a nav menu. The fixed bar holds the mark and one call to action only.
 - Headcount, "Pvt. Ltd.", team or investor language, dates/issues/versions, external links, or a project on the site that isn't shipped or in build.
 - Hinglish, exclamation marks, emoji.
 - "transform", "innovative", "cutting-edge", "world-class", "next-generation".
-- Translate more than 8px in a reveal.
+- Captures from production Arogyam, StreamLine or Ordio. Only public pages or seeded demo data.
 
 ## Always
 
 - `text-balance` on headings, `tabular-nums` on figures.
 - `aria-hidden` on decorative ordinals, arrows and marks.
-- Check contrast in both themes when touching a token (text under 18px ≥ 4.5:1).
+- Check contrast in every chapter when touching a token (text under 18px ≥ 4.5:1).
 - Keep `lib/host.test.mjs` passing when touching `lib/host.ts` or `proxy.ts`.
+- Hidden start states only in `gsap.from()` on hydration, never in CSS, so content survives without JS.
+- Keep `lib/tones.test.mjs`, `lib/diagrams.test.mjs` and `lib/projects.test.mjs` passing.
 
 ## Commands
 

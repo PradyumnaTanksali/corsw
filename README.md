@@ -1,6 +1,6 @@
 # Corsw
 
-The site for Corner Software — one company, run by Pradyumna Tanksali, that builds and runs four projects: Arogyam, StreamLine, Ordio and SSC. One page with a system diagram per project, a `/demo` page, and two themes a visitor can switch between (Paper and Schematic).
+The site for Corner Software — one company, run by Pradyumna Tanksali, that builds and runs four projects: Arogyam, StreamLine, Ordio and SSC. A scroll-driven home page plus a `/work/<slug>` case study per project, a `/demo` page, and one identity told in three scroll chapters (bone, ink, carbon) — there is no visitor-facing toggle.
 
 `PRODUCT.md` holds what is true, `BRIEF.md` the structure, copy and rules, `DESIGN.md` the visual system. `CLAUDE.md` has the working rules.
 
@@ -8,8 +8,8 @@ The site for Corner Software — one company, run by Pradyumna Tanksali, that bu
 
 - Next.js 16 (App Router, `proxy.ts`), TypeScript strict
 - Tailwind CSS 4
-- framer-motion
-- Inter, EB Garamond, JetBrains Mono via `next/font`
+- GSAP (ScrollTrigger, SplitText, MotionPath) + `@gsap/react`, Lenis
+- Schibsted Grotesk, EB Garamond, JetBrains Mono via `next/font`
 
 ## Commands
 
