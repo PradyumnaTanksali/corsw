@@ -134,6 +134,28 @@ a:focus-visible > .link-draw::after {
   inset: 0;
 }
 
+/* Walkthrough (components/work/Walkthrough.tsx): one sticky device swaps
+   screens while live; otherwise each step shows its own device inline. */
+[data-walk-stage] {
+  display: none;
+}
+
+[data-live] [data-walk-stage] {
+  display: block;
+}
+
+[data-live] [data-inline-device] {
+  display: none;
+}
+
+[data-step] {
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-live] [data-step]:not([data-active]) {
+  opacity: 0.35;
+}
+
 ::view-transition-group(*) {
   animation-duration: 650ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
