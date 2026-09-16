@@ -58,4 +58,4 @@ Corsw designs, builds and then operates the software — hosting, updates and su
 
 ## Accessibility & Inclusion
 
-WCAG 2.2 AA: text contrast ≥ 4.5:1 (≥ 3:1 at 18px+) in both themes, full keyboard use with a visible focus outline, `prefers-reduced-motion` honoured, diagrams carry `<title>`/`<desc>`.
+WCAG 2.2 AA: text contrast ≥ 4.5:1 (≥ 3:1 at 18px+) in every chapter, full keyboard use with a visible focus outline, `prefers-reduced-motion` honoured, diagrams carry `<title>`/`<desc>`.
