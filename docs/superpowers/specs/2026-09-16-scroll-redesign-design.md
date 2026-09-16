@@ -43,19 +43,21 @@ Replace corsw.in's quiet editorial site with a scroll-driven, award-grade site t
 
 ### Chapter tokens
 
-Every component reads `--ground`, `--ink`, `--ink-muted`, `--ink-faint`, `--rule`, `--accent`. A chapter sets these values; components never know which chapter they are in.
+Every component reads the existing role names (`--bg`, `--bg-card`, `--ink`, `--ink-muted`, `--ink-faint`, `--ink-rule`, `--accent`) plus `--grid-opacity` and `--dots-opacity`, so Tailwind classes such as `bg-bg` and `border-ink-rule` keep working. A chapter sets these values; components never know which chapter they are in. The values live once, in `lib/tones.ts`.
 
-| Token | B · bone | A · ink | C · carbon |
+| Token | bone (B) | ink (A) | carbon (C) |
 |---|---|---|---|
-| `--ground` | `#ece6da` | `#0e0e0e` | `#0a0b0f` |
+| `--bg` | `#ece6da` | `#0e0e0e` | `#0a0b0f` |
+| `--bg-card` | `#e3dccf` | `#161513` | `#111317` |
 | `--ink` | `#141310` | `#f5f1e8` | `#e8eaed` |
 | `--ink-muted` | `#45423c` | `#a8a39a` | `#9ca3af` |
-| `--ink-faint` | `#65615a` (4.95) | `#847f76` (4.85) | `#767d8c` |
-| `--rule` | `#1413102e` | `#2a2825` | `#1f2228` |
-| `--accent` | `#b83a22` (4.61) | `#d7543d` (4.80) | `#d7543d` (4.89) |
-| texture | 12-column hairline grid | none | 22px dot grid |
+| `--ink-faint` | `#5f5b54` | `#847f76` | `#767d8c` |
+| `--ink-rule` | `#d3cbbd` | `#2a2825` | `#1f2228` |
+| `--accent` | `#a8341e` | `#d7543d` | `#d7543d` |
+| `--grid-opacity` | `1` | `0` | `0` |
+| `--dots-opacity` | `0` | `0` | `1` |
 
-Measured contrast (text on ground): ink on bone 14.95, muted on bone 8.06, muted on ink 7.69, faint on ink 4.85, muted on carbon 7.75. Any token change is re-measured.
+Lowest small-text contrast (muted, faint and accent on `--bg` and `--bg-card`): bone 4.85 (accent on card), ink 4.54 (accent on card), carbon 4.50 (faint on card). `lib/tones.test.mjs` asserts every pair stays at or above 4.5:1.
 
 ### Type
 
@@ -68,7 +70,7 @@ Measured contrast (text on ground): ink on bone 14.95, muted on bone 8.06, muted
 
 ### Home `/`
 
-1. **Hero · B.** Bone ground and column grid. The corner mark stamps in (scale from top-left). H1 `Software at every corner.` in Garamond italic display, lines rising out of masks (SplitText lines + mask). Subline `Corner Software builds software, and runs it.`, `Start a project →`. On scroll the headline lifts and fades while the chapter scrubs bone → ink. Server-rendered; no preloader.
+1. **Hero · B.** Bone ground and column grid. The corner mark stamps in (scale from top-left). H1 `Software at every corner.` in Garamond italic display, lines rising out of masks (CSS animation, so the LCP heading needs no JS). Subline `Corner Software builds software, and runs it.`, `Start a project →`. On scroll the headline lifts and fades while the chapter scrubs bone → ink. Server-rendered; no preloader.
 2. **Foundation · B→A.** Lead paragraph from the copy bank; line opacity scrubs from faint to ink as it crosses the viewport. Sector marquee (Healthcare · Manufacturing · Food service · Distribution) whose speed follows scroll velocity.
 3. **Work · A.** Desktop: the section pins; the four projects play in sequence. Per project: the capture opens from an inset window to full width (`clip-path: inset()` scrub + counter-scale), the project name's weight scrubs 400 → 800, an i–iv rail marks progress, tagline and status appear. Each project links to `/work/[slug]`; the capture shares a view-transition name with the case study hero.
 4. **How it's built · C.** Chapter scrubs ink → carbon, dot grid fades in. One system diagram (Ordio) assembles: boxes fade up, connectors draw with scroll, then traffic pulses run along connectors. The four Approach principles sit beside it as numbered notes.
@@ -80,7 +82,7 @@ Static (`generateStaticParams` over `lib/projects.ts`), own metadata and canonic
 
 1. **Hero · A.** Ordinal, name, status, tagline; the capture (shared view-transition element from home).
 2. **The business · B.** What the customer runs and where it slowed down; two short paragraphs drafted from verified PROJECTS.md facts, owner-reviewed.
-3. **Walkthrough · A.** A device frame (phone or laptop) sticks while its screen swaps through 3–4 steps with captions. Example Ordio: scan the table QR → order → kitchen display → invoice.
+3. **Walkthrough · A.** A device frame (phone or laptop) sticks while its screen swaps through 3–4 steps with captions. Example Ordio: scan the table QR → cart → kitchen display → order status on the guest's phone (no payment step while PhonePe KYC is pending).
 4. **Architecture · C.** That project's diagram assembles with traffic pulses; the SECTOR / MODULES / DELIVERY table beside it.
 5. **Next · A.** Next project's name large, linking on; `Ask for a demo →` on operating projects only.
 
@@ -93,9 +95,9 @@ Restyled in the A chapter with reveal-only motion; content and noindex behavior 
 - **Dependencies:** add `gsap`, `@gsap/react`, `lenis`; remove `framer-motion`.
 - **`lib/gsap.ts`** (client): registers ScrollTrigger, SplitText and `useGSAP`; `ScrollTrigger.config({ ignoreMobileResize: true })`.
 - **`SmoothScroll`** (client, in root layout): Lenis driven by `gsap.ticker` (`lenis.raf(time * 1000)`), `gsap.ticker.lagSmoothing(0)`, `lenis.on("scroll", ScrollTrigger.update)`, no `autoRaf`. Disabled under `prefers-reduced-motion` and on `(pointer: coarse)`. Scrolls to top immediately on pathname change.
-- **`Chapter`** (client): wraps a section with `tone="bone" | "ink" | "carbon"`. A ScrollTrigger scrubs the token custom properties on `<html>` from the previous tone to this one as the section enters. Server default is the first chapter's tone so the first paint is correct.
+- **Tones:** sections carry `data-tone="bone" | "ink" | "carbon"` and `<main>` carries `data-tone-start`. `app/layout.tsx` injects CSS generated by `toneCss()` in `lib/tones.ts`: `:root` and `html:has(main[data-tone-start=…])` set the page's starting tone, and `html:not(.tones-live) [data-tone=…]` paints each section in its own tone (no JS, reduced motion). `ToneScroller` (client) adds `tones-live` to `<html>` and scrubs the variables on `<html>` from the previous section's tone to the next as each section enters.
 - **`SplitReveal`** (client): SplitText `type: "lines"`, `mask: "lines"`, `autoSplit`, run after `document.fonts.ready`; SplitText's aria handling keeps the full text readable.
-- **Motion gate:** content is visible without JS. A pre-paint inline script adds `html.motion-ok` when reduced motion is not requested; initial hidden states in CSS apply only under `.motion-ok`.
+- **No hidden content without JS:** there are no CSS hidden states. The hero headline rises with a pure CSS animation (no JS needed for the LCP element). Below-the-fold reveals are `gsap.from()` calls created on hydration, while those elements are still off screen.
 - **Cleanup:** every animation lives in `useGSAP({ scope })`; branches through `gsap.matchMedia()` (`(min-width: 768px) and (prefers-reduced-motion: no-preference)` for pins/scrubs).
 - **Diagrams:** schematic data moves from `components/primitives/SystemDiagram.tsx` to `lib/diagrams.ts` (boxes, connectors, annotations, mobile clients unchanged). `components/Diagram.tsx` renders the SVG and the mobile stack; draw is scroll-linked; pulses are CSS `offset-path` animations paused when off screen.
 - **Data:** `lib/projects.ts` gains `slug`, `business: string[]`, `walkthrough: { src: string; alt: string; caption: string; device: "phone" | "laptop" }[]`, `capture: { src: string; alt: string }`.
