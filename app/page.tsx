@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { Foundation } from "@/components/home/Foundation";
 import { Work } from "@/components/home/Work";
-import { IndexSection } from "@/components/sections/Index";
-import { Manifesto } from "@/components/sections/Manifesto";
-import { Contact } from "@/components/sections/Contact";
-import { Colophon } from "@/components/sections/Colophon";
+import { Built } from "@/components/home/Built";
+import { Contact } from "@/components/home/Contact";
+import { Footer } from "@/components/site/Footer";
 import { DEMO_EMAIL, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
 
 const ORG_ID = "https://corsw.in/#organization";
 
-// Only facts stated on the page (Masthead, Work, Company, Contact).
+// Only facts stated on the page (Hero, Work, Company, Contact).
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -54,6 +53,7 @@ const jsonLd = {
           "@type": "CreativeWork",
           name: p.name,
           description: p.tagline,
+          url: `https://corsw.in/work/${p.slug}`,
           creator: { "@id": ORG_ID },
         },
       })),
@@ -73,10 +73,9 @@ export default function Home() {
       <Hero />
       <Foundation />
       <Work projects={projects} />
-      <IndexSection />
-      <Manifesto />
+      <Built />
       <Contact />
-      <Colophon />
+      <Footer tone="carbon" />
     </main>
   );
 }

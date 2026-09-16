@@ -5,7 +5,6 @@ import { Bar } from "@/components/site/Bar";
 import { Textures } from "@/components/site/Textures";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { ToneScroller } from "@/components/motion/ToneScroller";
-import { MotionProvider } from "@/components/primitives/MotionProvider";
 import { toneCss } from "@/lib/tones";
 
 const shareDescription = "Software, built and run. Arogyam · StreamLine · Ordio · SSC.";
@@ -59,9 +58,7 @@ export default function RootLayout({
         </a>
         <Textures />
         <Bar />
-        <div className="relative z-10">
-          <MotionProvider>{children}</MotionProvider>
-        </div>
+        <div className="relative z-10">{children}</div>
         <SmoothScroll />
         <ToneScroller />
       </body>
