@@ -7,8 +7,10 @@ export type HostDecision =
 
 /**
  * corsw.in owns the *.corsw.in wildcard. Project subdomains (stream., ordio.,
- * drtanvis., ssc., …) are assigned to their own Vercel projects and never reach
- * this code; any other subdomain does, and its root shows the demo page.
+ * arogyam., ssc., …) are assigned to their own Vercel projects and never reach
+ * this code; any other subdomain does, and its root shows the demo page — which
+ * is where the retired drtanvis.corsw.in now lands (clinics moved to
+ * <slug>.arogyam.corsw.in).
  */
 export function decide(host: string, pathname: string, search: string): HostDecision {
   const name = host.toLowerCase();

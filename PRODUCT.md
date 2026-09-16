@@ -21,7 +21,7 @@ Corsw designs, builds and then operates the software — hosting, updates and su
 
 ## Operating Context
 
-- Unassigned `*.corsw.in` subdomains land on `/demo`. Product subdomains are separate deployments: `stream.corsw.in`, `ordio.corsw.in` (+ `*.ordio.corsw.in`), `drtanvis.corsw.in`, `ssc.corsw.in`, `lokey.corsw.in`, `modlio.corsw.in`, `scenestudio.corsw.in`.
+- Unassigned `*.corsw.in` subdomains land on `/demo`. Product subdomains are separate deployments: `stream.corsw.in`, `ordio.corsw.in` (+ `*.ordio.corsw.in`), `arogyam.corsw.in` (+ `*.arogyam.corsw.in`, one subdomain per clinic), `ssc.corsw.in`, `lokey.corsw.in`, `modlio.corsw.in`, `scenestudio.corsw.in`.
 - Contact is email only. No forms, no accounts, no pricing.
 - Visitors can switch between two visual themes; the choice persists per browser.
 
@@ -44,7 +44,7 @@ Corsw designs, builds and then operates the software — hosting, updates and su
 
 ## Evidence on Hand
 
-- Live: `drtanvis.corsw.in/en` (Arogyam tenant), `stream.corsw.in`, `ordio.corsw.in` with `sipsnbites.ordio.corsw.in`, `ssc.corsw.in`.
+- Live: `drtanvis.arogyam.corsw.in/en` (Arogyam clinic #1; `drtanvis.corsw.in` retired 2026-09-16), `stream.corsw.in`, `ordio.corsw.in` with `sipsnbites.ordio.corsw.in`, `ssc.corsw.in`.
 - Verified product capabilities are in `/Users/apple/Personal/PROJECTS.md` (2026-09-03).
 - Absent, never to be fabricated: uptime measurements, testimonials, customer logos, revenue, compliance certification.
 
