@@ -119,6 +119,26 @@ a:focus-visible > .link-draw::after {
   }
 }
 
+/* Work sequence (components/home/Work.tsx): the rail shows and the articles
+   stack only while the pinned timeline runs. Without it they sit in flow. */
+[data-rail] {
+  display: none;
+}
+
+[data-live] [data-rail] {
+  display: flex;
+}
+
+[data-live] [data-work-item] {
+  position: absolute;
+  inset: 0;
+}
+
+::view-transition-group(*) {
+  animation-duration: 650ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -128,6 +148,12 @@ a:focus-visible > .link-draw::after {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }
 

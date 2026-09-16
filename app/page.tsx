@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { Foundation } from "@/components/home/Foundation";
-import { Projects } from "@/components/sections/Projects";
+import { Work } from "@/components/home/Work";
 import { IndexSection } from "@/components/sections/Index";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { Contact } from "@/components/sections/Contact";
@@ -72,7 +72,7 @@ export default function Home() {
       />
       <Hero />
       <Foundation />
-      <Projects />
+      <Work projects={projects} />
       <IndexSection />
       <Manifesto />
       <Contact />
