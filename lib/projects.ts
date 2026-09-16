@@ -193,20 +193,23 @@ export const projects: Project[] = [
       { label: "MODULES", value: "Catalogue · Search and filters · Quote requests" },
       { label: "DELIVERY", value: "Website · Installable app" },
     ],
-    capture: { alt: "SSC catalogue with search and filters" },
+    capture: { src: "/work/ssc/catalogue.png", alt: "SSC catalogue with search and filters" },
     walkthrough: [
       {
         device: "laptop",
+        src: "/work/ssc/catalogue.png",
         alt: "SSC catalogue with filters",
         caption: "Search by name, brand or use, and filter by category and form.",
       },
       {
         device: "phone",
+        src: "/work/ssc/product.png",
         alt: "SSC product page on a phone",
         caption: "Each product page carries its brand, form and uses.",
       },
       {
         device: "phone",
+        src: "/work/ssc/quote.png",
         alt: "SSC quote request with the product filled in",
         caption: "A quote request starts with the product already filled in.",
       },

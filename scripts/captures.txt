@@ -1,0 +1,6 @@
+# slug  file           device  url
+# Only public pages or local instances running seeded demo data. Never production
+# Arogyam, StreamLine or Ordio (real patients and a real café).
+ssc     catalogue.png  laptop  https://ssc.corsw.in/catalogue
+ssc     product.png    phone   https://ssc.corsw.in/catalogue/yograj-guggulu
+ssc     quote.png      phone   https://ssc.corsw.in/contact?product=Yograj%20Guggulu
