@@ -135,7 +135,7 @@ export function Work({ projects }: { projects: Project[] }) {
                     <h3
                       id={`work-${p.slug}`}
                       data-name
-                      className="text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[0.9] tracking-[-0.04em]"
+                      className="text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-balance"
                     >
                       <Link href={`/work/${p.slug}`}>{p.name}</Link>
                     </h3>
