@@ -21,7 +21,7 @@
 - Square corners: no `rounded-*`. No shadows or glows. No icon library; arrows are the `→` character with `aria-hidden="true"`. No gradients except the column grid and dot grid in `Textures`.
 - Copy: no headcount, team or investor language, no "Pvt. Ltd.", no counts in prose, no dates, issues or version strings (exceptions already in BRIEF.md: the footer `© 2024–2026`, the `Est. 2024` eyebrow, the Company `Founded 2024` row, and the existing `diagramLabel` slugs), no exclamation marks, no emoji, no Hinglish. Never "transform", "innovative", "cutting-edge", "world-class", "next-generation". No external links: the email and `/demo` are the only ways out.
 - `text-balance` on headings, `tabular-nums` on figures and tables, `aria-hidden="true"` on decorative ordinals, marks and arrows.
-- Every animation is created inside `useGSAP` and gated by `gsap.matchMedia()` with `(prefers-reduced-motion: no-preference)`. Under reduced motion every element sits in its final visible state.
+- Every JS animation is created inside `useGSAP` and gated by `gsap.matchMedia()` with `(prefers-reduced-motion: no-preference)`. The only CSS entrances are `.line-rise` and `.mark-stamp` (LCP headings, no JS), which the global `prefers-reduced-motion: reduce` rule snaps. Under reduced motion every element sits in its final visible state.
 - Captures come only from public pages (SSC) or local instances running seeded demo data. Never production Arogyam, StreamLine or Ordio.
 - `lib/host.ts`, `proxy.ts` and `lib/host.test.mjs` are not modified.
 - Conventional Commits, one concern per commit, ending with the line `Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>`.
