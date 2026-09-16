@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Masthead } from "@/components/sections/Masthead";
-import { Foundation } from "@/components/sections/Foundation";
+import { Hero } from "@/components/home/Hero";
+import { Foundation } from "@/components/home/Foundation";
 import { Projects } from "@/components/sections/Projects";
 import { IndexSection } from "@/components/sections/Index";
 import { Manifesto } from "@/components/sections/Manifesto";
@@ -63,14 +63,14 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <main>
+    <main id="content" data-tone-start="bone">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <Masthead />
+      <Hero />
       <Foundation />
       <Projects />
       <IndexSection />
