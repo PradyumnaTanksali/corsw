@@ -191,16 +191,16 @@ The stack is GSAP (`ScrollTrigger`, `SplitText`, `MotionPathPlugin`, registered 
 
 ### The `data-live` Pattern
 
-`[data-rail]`, `[data-walk-stage]` and the absolute stacking of `[data-work-item]` are `display: none` (or in-flow) by default in `globals.css`; a section only gets `data-live` — and only then do the pinned rail, the sticky device stage and the absolute-stacked work items appear — once its `useGSAP` branch actually matches `(min-width: 768px) and (prefers-reduced-motion: no-preference)` and runs. The content itself (the work articles, the walkthrough steps and their inline devices) is never hidden by CSS: without JS or under reduced motion, everything sits in normal document flow.
+`[data-rail]`, `[data-walk-stage]` and the absolute stacking of `[data-work-item]` are `display: none` (or in-flow) by default in `globals.css`; a section only gets `data-live` — and only then do the pinned rail, the sticky device stage and the absolute-stacked work items appear — once its `useGSAP` branch actually matches `(min-width: 768px) and (prefers-reduced-motion: no-preference)` and runs. The `data-live` swaps — including `[data-live] [data-inline-device]`, which hides the walkthrough's inline device once the sticky stage takes over, and the 0.35 dim on non-active `[data-step]`s — are progressive-enhancement layout toggles that apply only while JS motion is actually running, not animation-hidden start states: without JS or under reduced motion, every caption and a device for every step sits visible in normal document flow.
 
 ### Rules
 
-Every animation is created inside `useGSAP` and gated by `gsap.matchMedia()` (`(prefers-reduced-motion: no-preference)`, extended to `(min-width: 768px)` for pins and sticky stages). Under reduced motion every element sits in its final visible state — nothing plays. There are no CSS hidden states: the only CSS-only entrances are `.line-rise` and `.mark-stamp`, both snapped to zero duration by the global `prefers-reduced-motion: reduce` rule. The hero headline is the one element that must animate without JS, so it animates in CSS.
+Every animation is created inside `useGSAP` and gated by `gsap.matchMedia()` (`(prefers-reduced-motion: no-preference)`, extended to `(min-width: 768px)` for pins and sticky stages). Under reduced motion every element sits in its final visible state — nothing plays. No CSS hides real content as an animation start state — entrance hidden states come only from `gsap.from()` once GSAP hydrates; the only CSS-only entrances are `.line-rise` and `.mark-stamp`, both snapped to zero duration by the global `prefers-reduced-motion: reduce` rule. The hero headline is the one element that must animate without JS, so it animates in CSS.
 
 ## Components
 
 - **Bar** (`components/site/Bar.tsx`) — fixed, 56px, `border-b border-ink-rule bg-bg`: the mark plus "Corner Software" (home link) on the left, `Start a project →` in the accent on the right. No menu.
-- **Section folio** (`SectionRule`) — a 1px `--ink-rule` top border above an inline row: the ordinal (`<Ordinal dot>`, accent) then the section name, both in Label (mono, 11px, 0.22em, uppercase).
+- **Section folio** (`SectionRule`) — a 1px `--ink-rule` top border above an inline row: the ordinal (`<Ordinal dot>`) sets in the accent face, EB Garamond italic (`font-accent`) at 16px, normal case, no tracking, in the accent colour; the section name follows in Label (mono, 11px, 0.22em, uppercase, muted ink).
 - **Buttons** — square, 1px accent border, Mono data text in the accent (`Ask for a demo`, the `/demo` CTA). Hover and focus fill the accent and reverse the text to `--bg` (150ms `transition-colors`). There is no secondary button; every other action is a link.
 - **Links** (`.link-draw`, `globals.css`) — mono text, `aria-hidden` `→`. Hover and focus draw a 1px accent underline left to right (`scaleX`, 200ms, `cubic-bezier(0.32, 0.72, 0, 1)`).
 - **Capture and Device** (`components/site/Capture.tsx`, `components/site/Device.tsx`) — `Capture` fills its positioned parent with a `next/image`; until `shot.src` exists it shows a labelled placeholder frame ("Capture pending · …") over a block grid, so pages build and review end to end before real captures land. `Device` frames a `Capture` as the screen it was taken on: `aspect-[390/844]` for a phone, `aspect-[16/10]` for a laptop.
@@ -213,6 +213,7 @@ Every animation is created inside `useGSAP` and gated by `gsap.matchMedia()` (`(
 
 ### Do:
 - **Do** read every color through a role token (`bg-bg`, `text-ink-faint`, `border-ink-rule`, `var(--accent)`). Hex belongs only in `lib/tones.ts`, the brand marks, the `globals.css` print block, the status-signal colors and `app/opengraph-image.tsx`.
+- **Do** keep `mark-vermillion` (`#D4452C`), the original brand red, out of UI text — it measures 4.3:1, below the small-text AA floor — and use it only in the brand marks (`app/icon.svg`, `components/primitives/Monogram.tsx`, `public/brand/*.svg`).
 - **Do** set emphasis with `font-accent` (bone/ink) or the carbon mono variant, and give each section headline exactly one accent word.
 - **Do** check bone, ink and carbon — and print — for every visual change, and re-run `lib/tones.test.mjs` when a token moves.
 - **Do** separate with 1px `--ink-rule` hairlines and keep every corner at 0px.
