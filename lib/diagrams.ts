@@ -1,16 +1,4 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
-import { useId } from "react";
-import {
-  diagramViewport,
-  drawPath,
-  ease,
-  fadeIn,
-  fadeUpSm,
-} from "@/lib/motion";
-
-type Box = {
+export type Box = {
   id: string;
   x: number;
   y: number;
@@ -21,15 +9,15 @@ type Box = {
   accent?: boolean;
 };
 
-type Connector = {
+export type Connector = {
   from: string;
   to: string;
   via?: { x: number; y: number }[];
 };
 
-type Annotation = { x: number; y: number; text: string };
+export type Annotation = { x: number; y: number; text: string };
 
-type Schematic = {
+export type Schematic = {
   title: string;
   desc: string;
   viewBox: { w: number; h: number };
@@ -39,6 +27,8 @@ type Schematic = {
   /** Parallel entry points, rendered side by side at the top of the mobile stack. */
   mobileClients: string[];
 };
+
+export type DiagramKey = "arogyam" | "streamline" | "ordio" | "ssc";
 
 const AROGYAM: Schematic = {
   title: "Arogyam architecture",
@@ -213,7 +203,21 @@ const SSC: Schematic = {
   mobileClients: ["buyer", "wa"],
 };
 
-function anchor(self: Box, other: Box) {
+export const SCHEMATICS: Record<DiagramKey, Schematic> = {
+  arogyam: AROGYAM,
+  streamline: STREAMLINE,
+  ordio: ORDIO,
+  ssc: SSC,
+};
+
+export function boxById(s: Schematic, id: string): Box {
+  const box = s.boxes.find((b) => b.id === id);
+  if (!box) throw new Error(`${s.title}: box ${id} missing`);
+  return box;
+}
+
+/** Where a connector leaves `self` towards `other`: the facing edge's midpoint. */
+export function anchor(self: Box, other: Box) {
   const sx = self.x + self.w / 2;
   const sy = self.y + self.h / 2;
   const ox = other.x + other.w / 2;
@@ -221,255 +225,43 @@ function anchor(self: Box, other: Box) {
   const dx = ox - sx;
   const dy = oy - sy;
   if (Math.abs(dx) >= Math.abs(dy)) {
-    return {
-      x: dx > 0 ? self.x + self.w : self.x,
-      y: self.y + self.h / 2,
-    };
+    return { x: dx > 0 ? self.x + self.w : self.x, y: self.y + self.h / 2 };
   }
-  return {
-    x: self.x + self.w / 2,
-    y: dy > 0 ? self.y + self.h : self.y,
-  };
+  return { x: self.x + self.w / 2, y: dy > 0 ? self.y + self.h : self.y };
 }
 
-export function ArogyamDiagram() {
-  return <SystemSchematic schematic={AROGYAM} />;
+export function pathFor(s: Schematic, c: Connector): string {
+  const from = boxById(s, c.from);
+  const to = boxById(s, c.to);
+  const points = [anchor(from, to), ...(c.via ?? []), anchor(to, from)];
+  return points.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ");
 }
 
-export function StreamlineDiagram() {
-  return <SystemSchematic schematic={STREAMLINE} />;
-}
-
-export function OrdioDiagram() {
-  return <SystemSchematic schematic={ORDIO} />;
-}
-
-export function SscDiagram() {
-  return <SystemSchematic schematic={SSC} />;
-}
-
-function SystemSchematic({ schematic }: { schematic: Schematic }) {
-  const reduced = useReducedMotion();
-  const titleId = useId();
-  const descId = useId();
-  const { boxes, connectors, annotations, viewBox } = schematic;
-
-  const boxById = (id: string) => {
-    const b = boxes.find((b) => b.id === id);
-    if (!b) throw new Error(`box ${id} missing`);
-    return b;
-  };
-
-  const pathFor = (c: Connector) => {
-    const from = boxById(c.from);
-    const to = boxById(c.to);
-    const pts = [anchor(from, to), ...(c.via ?? []), anchor(to, from)];
-    return pts
-      .map((p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `L ${p.x} ${p.y}`))
-      .join(" ");
-  };
-
-  return (
-    <div>
-      <svg
-        viewBox={`0 0 ${viewBox.w} ${viewBox.h}`}
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-labelledby={`${titleId} ${descId}`}
-        className="w-full h-auto hidden md:block font-mono"
-        preserveAspectRatio="xMidYMid meet"
-      >
-        <title id={titleId}>{schematic.title}</title>
-        <desc id={descId}>{schematic.desc}</desc>
-
-        {annotations.map((a, i) => (
-          <text
-            key={i}
-            x={a.x}
-            y={a.y}
-            textAnchor="middle"
-            className="fill-ink-faint"
-            style={{ fontSize: 9.5, letterSpacing: 0.4 }}
-          >
-            {a.text}
-          </text>
-        ))}
-
-        {connectors.map((c, i) => (
-          <motion.path
-            key={`${c.from}-${c.to}-${i}`}
-            d={pathFor(c)}
-            fill="none"
-            stroke="var(--accent)"
-            strokeWidth={1}
-            strokeLinecap="square"
-            strokeLinejoin="miter"
-            variants={drawPath}
-            initial={reduced ? false : "hidden"}
-            whileInView={reduced ? undefined : "visible"}
-            viewport={diagramViewport}
-            transition={{
-              duration: 1.0,
-              ease,
-              delay: 0.4 + i * 0.08,
-            }}
-          />
-        ))}
-
-        {connectors.map((c, i) => {
-          const tip = anchor(boxById(c.to), boxById(c.from));
-          return (
-            <motion.circle
-              key={`tip-${c.from}-${c.to}-${i}`}
-              cx={tip.x}
-              cy={tip.y}
-              r={1.6}
-              fill="var(--accent)"
-              variants={fadeIn}
-              initial={reduced ? false : "hidden"}
-              whileInView={reduced ? undefined : "visible"}
-              viewport={diagramViewport}
-              transition={{
-                duration: 0.3,
-                delay: 0.4 + i * 0.08 + 0.85,
-              }}
-            />
-          );
-        })}
-
-        {boxes.map((b, i) => (
-          <motion.g
-            key={b.id}
-            variants={fadeUpSm}
-            initial={reduced ? false : "hidden"}
-            whileInView={reduced ? undefined : "visible"}
-            viewport={diagramViewport}
-            transition={{ duration: 0.4, delay: i * 0.06, ease }}
-          >
-            <rect
-              x={b.x}
-              y={b.y}
-              width={b.w}
-              height={b.h}
-              fill="var(--bg-card)"
-              stroke={b.accent ? "var(--accent)" : "var(--ink-muted)"}
-              strokeWidth={b.accent ? 1 : 0.75}
-              strokeOpacity={b.accent ? 1 : 0.55}
-            />
-            <text
-              x={b.x + 12}
-              y={b.y + 22}
-              className="fill-ink"
-              style={{ fontSize: 12, fontWeight: 500 }}
-            >
-              {b.label}
-            </text>
-            {b.sub && (
-              <text
-                x={b.x + 12}
-                y={b.y + 38}
-                className="fill-ink-faint"
-                style={{ fontSize: 10, letterSpacing: 0.3 }}
-              >
-                {b.sub}
-              </text>
-            )}
-          </motion.g>
-        ))}
-      </svg>
-
-      <MobileStack schematic={schematic} boxById={boxById} />
-    </div>
-  );
-}
-
-function MobileBox({ box, note }: { box: Box; note?: string }) {
-  return (
-    <div
-      className={
-        box.accent
-          ? "border border-accent bg-bg-card p-3"
-          : "border border-ink-rule bg-bg-card p-3"
-      }
-    >
-      <div className="text-[13px] font-medium text-ink">{box.label}</div>
-      {box.sub && (
-        <div className="mt-1 text-[10.5px] tracking-[0.04em] text-ink-faint">
-          {box.sub}
-        </div>
-      )}
-      {note && (
-        <div className="mt-2 text-[10.5px] tracking-[0.04em] text-accent">{note}</div>
-      )}
-    </div>
-  );
-}
-
-function MobileConnector() {
-  return (
-    <div
-      aria-hidden
-      className="mx-auto my-1.5 h-5 w-px bg-accent"
-      style={{ opacity: 0.6 }}
-    />
-  );
+/** The dot at the connector's arrival end. */
+export function tipFor(s: Schematic, c: Connector) {
+  return anchor(boxById(s, c.to), boxById(s, c.from));
 }
 
 /**
- * Diagrams collapse on mobile without asserting an edge the system lacks: the
- * clients side by side, a line into the accented core, a line into the boxes
- * the core reaches directly, and anything reached second-hand labelled with
- * the box it goes through.
+ * Diagrams collapse on phones without asserting an edge the system lacks: the
+ * clients side by side, the core, the boxes the core reaches directly, and
+ * anything reached second-hand labelled with the box it goes through.
  */
-function MobileStack({
-  schematic,
-  boxById,
-}: {
-  schematic: Schematic;
-  boxById: (id: string) => Box;
-}) {
-  const { boxes, connectors, mobileClients: clients } = schematic;
-  const core = boxes.find((b) => b.accent);
-  if (!core) throw new Error(`${schematic.title} has no accent box`);
-
-  const direct = connectors
-    .filter((c) => c.from === core.id && !clients.includes(c.to))
-    .map((c) => boxById(c.to));
-  const placed = new Set([core.id, ...clients, ...direct.map((b) => b.id)]);
-  const rest = boxes.filter((b) => !placed.has(b.id));
-  const via = (id: string) => {
-    const c = connectors.find((c) => (c.to === id || c.from === id) && c.from !== core.id);
-    return c ? boxById(c.to === id ? c.from : c.to).label : core.label;
-  };
-
-  return (
-    <div className="md:hidden flex flex-col font-mono">
-      <div className="grid grid-cols-2 gap-2">
-        {clients.map((id) => (
-          <MobileBox key={id} box={boxById(id)} />
-        ))}
-      </div>
-      <MobileConnector />
-      <MobileBox box={core} />
-      <MobileConnector />
-      <div className="grid grid-cols-2 gap-2">
-        {direct.map((b) => (
-          <MobileBox key={b.id} box={b} />
-        ))}
-      </div>
-      {rest.length > 0 && (
-        <div className="mt-2 grid grid-cols-2 gap-2">
-          {rest.map((b) => (
-            <MobileBox key={b.id} box={b} note={`via ${via(b.id)}`} />
-          ))}
-        </div>
-      )}
-
-      <div className="mt-5 flex flex-wrap gap-x-4 gap-y-1 text-[10px] tracking-[0.04em] text-ink-faint">
-        {schematic.annotations.map((a) => (
-          <span key={a.text}>· {a.text}</span>
-        ))}
-      </div>
-    </div>
-  );
+export function mobileLayout(s: Schematic) {
+  const core = s.boxes.find((b) => b.accent);
+  if (!core) throw new Error(`${s.title} has no accent box`);
+  const clients = s.mobileClients.map((id) => boxById(s, id));
+  const direct = s.connectors
+    .filter((c) => c.from === core.id && !s.mobileClients.includes(c.to))
+    .map((c) => boxById(s, c.to));
+  const placed = new Set([core.id, ...s.mobileClients, ...direct.map((b) => b.id)]);
+  const rest = s.boxes
+    .filter((b) => !placed.has(b.id))
+    .map((box) => {
+      const c = s.connectors.find(
+        (c) => (c.to === box.id || c.from === box.id) && c.from !== core.id,
+      );
+      return { box, via: c ? boxById(s, c.to === box.id ? c.from : c.to).label : core.label };
+    });
+  return { clients, core, direct, rest };
 }
