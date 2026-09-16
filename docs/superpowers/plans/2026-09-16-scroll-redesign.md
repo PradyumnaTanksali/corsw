@@ -17,7 +17,7 @@
 - Done for every task: `pnpm typecheck && pnpm lint && pnpm test && pnpm build` all green.
 - Runtime dependencies after the redesign: `next`, `react`, `react-dom`, `gsap`, `@gsap/react`, `lenis`. `framer-motion` is removed in Task 5. No others.
 - TypeScript strict, no `any`. Server Components by default; `"use client"` only where a hook runs.
-- Colours only through role tokens (`bg-bg`, `text-ink-muted`, `border-ink-rule`, `text-accent`, `var(--accent)`). Hex only in `lib/tones.ts`, brand marks, `globals.css` print block and `app/opengraph-image.tsx`.
+- Colours only through role tokens (`bg-bg`, `text-ink-muted`, `border-ink-rule`, `text-accent`, `var(--accent)`). Hex only in `lib/tones.ts`, brand marks, the `globals.css` print block and status-signal colours (`--color-success`, `--color-warning`), and `app/opengraph-image.tsx`.
 - Square corners: no `rounded-*`. No shadows or glows. No icon library; arrows are the `→` character with `aria-hidden="true"`. No gradients except the column grid and dot grid in `Textures`.
 - Copy: no headcount, team or investor language, no "Pvt. Ltd.", no counts in prose, no dates, issues or version strings (the existing `diagramLabel` slugs stay), no exclamation marks, no emoji, no Hinglish. Never "transform", "innovative", "cutting-edge", "world-class", "next-generation". No external links: the email and `/demo` are the only ways out.
 - `text-balance` on headings, `tabular-nums` on figures and tables, `aria-hidden="true"` on decorative ordinals, marks and arrows.
