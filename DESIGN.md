@@ -134,7 +134,7 @@ Every component reads only the nine role names below; it never knows which chapt
 
 ## Typography
 
-Schibsted Grotesk (variable weight 400–900, `next/font/google`) is the only sans in the system: 600 for headlines, 400–500 for body copy, and a scrubbed weight jump (400 → 800) on the Work project names as the pinned stage scrolls and on the large Contact/Next-project links on hover. EB Garamond italic 400, always through the `font-accent` utility, sets the bone hero display and every accent word on bone and ink. JetBrains Mono 400/500 carries facts, tables, labels, the bar and — on carbon — the accent word itself, in place of the italic.
+Schibsted Grotesk (variable weight 400–900, `next/font/google`) is the only sans in the system: 600 for headlines, 400–500 for body copy, and a scrubbed weight jump (400 → 800) on the Products project names as the pinned stage scrolls and on the large Contact/Next-project links on hover. EB Garamond italic 400, always through the `font-accent` utility, sets the bone hero display and every accent word on bone and ink. JetBrains Mono 400/500 carries facts, tables, labels, the bar and — on carbon — the accent word itself, in place of the italic.
 
 ### Sizes in use
 
