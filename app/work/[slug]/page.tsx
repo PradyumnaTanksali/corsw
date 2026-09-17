@@ -20,11 +20,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
+  const title = `${project.name} · Corner Software`;
+  const { tagline: description } = project;
   return {
-    title: `${project.name} · Corner Software`,
-    description: project.tagline,
+    title,
+    description,
     alternates: { canonical: `/work/${project.slug}` },
     robots: { index: true, follow: true },
+    // Without these the case study shares with the root layout's home
+    // title/description and og:url, so every project's card collapses to one.
+    openGraph: {
+      title,
+      description,
+      url: `/work/${project.slug}`,
+      siteName: "Corner Software",
+      type: "article",
+      images: "/opengraph-image",
+    },
+    twitter: { card: "summary_large_image", title, description, images: "/opengraph-image" },
   };
 }
 
