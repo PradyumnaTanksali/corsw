@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type ElementType, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 
 /**
@@ -9,22 +9,15 @@ import { gsap, SplitText, useGSAP } from "@/lib/gsap";
  * the full text so the split lines read as one sentence.
  */
 export function SplitReveal({
-  as = "h2",
   id,
   className,
   children,
 }: {
-  as?: "h1" | "h2" | "h3" | "p";
   id?: string;
   className?: string;
   children: ReactNode;
 }) {
-  const ref = useRef<HTMLElement>(null);
-  // A JSX host element (not React.createElement) so eslint-plugin-react-hooks
-  // can see the ref is handled by the jsx-runtime, not read during render.
-  // `as` is narrowed to a union of tag names; widen it so TS resolves one
-  // generic ref/props shape instead of failing to unify the union.
-  const Tag = as as ElementType;
+  const ref = useRef<HTMLHeadingElement>(null);
 
   useGSAP(
     () => {
@@ -54,8 +47,8 @@ export function SplitReveal({
   );
 
   return (
-    <Tag ref={ref} id={id} className={className}>
+    <h2 ref={ref} id={id} className={className}>
       {children}
-    </Tag>
+    </h2>
   );
 }

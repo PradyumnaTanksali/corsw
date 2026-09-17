@@ -72,7 +72,16 @@ export default function Home() {
       />
       <Hero />
       <Foundation />
-      <Work projects={projects} />
+      <Work
+        projects={projects.map(({ slug, n, name, status, tagline, capture }) => ({
+          slug,
+          n,
+          name,
+          status,
+          tagline,
+          capture,
+        }))}
+      />
       <Built />
       <Contact />
       <Footer tone="carbon" />

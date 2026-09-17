@@ -51,6 +51,6 @@ Modlio (`modlio.corsw.in`) and Scene (`scenestudio.corsw.in`) are archived sites
 pnpm dev          # local dev server
 pnpm typecheck    # tsc --noEmit
 pnpm lint         # eslint
-pnpm test         # node --test (host routing)
+pnpm test         # node --test (host routing, tones, diagrams, projects)
 pnpm build        # production build
 ```

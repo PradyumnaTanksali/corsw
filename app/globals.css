@@ -122,47 +122,53 @@ a:focus-visible > .link-draw::after {
   }
 }
 
-/* Work sequence (components/home/Work.tsx): the rail shows and the articles
-   stack only while the pinned timeline runs. Without it they sit in flow. */
-[data-rail] {
-  display: none;
-}
+/* Layout toggles below apply only while JS motion is actually running
+   (screen media); printing always gets the plain in-flow document, never a
+   pinned rail, absolute-stacked project or dimmed step. */
+@media screen {
+  /* Work sequence (components/home/Work.tsx): the rail shows and the articles
+     stack only while the pinned timeline runs. Without it they sit in flow. */
+  [data-rail] {
+    display: none;
+  }
 
-[data-live] [data-rail] {
-  display: flex;
-}
+  [data-live] [data-rail] {
+    display: flex;
+  }
 
-/* Stacked below the fixed 3.5rem bar, so a centred project clears it. */
-[data-live] [data-work-item] {
-  position: absolute;
-  inset: 3.5rem 0 0;
-}
+  /* Stacked below the fixed 3.5rem bar, so a centred project clears it. */
+  [data-live] [data-work-item] {
+    position: absolute;
+    inset: 3.5rem 0 0;
+  }
 
-/* Invisible (opacity 0), stacked siblings must not swallow clicks. */
-[data-live] [data-work-item]:not([data-active]) {
-  pointer-events: none;
-}
+  /* Invisible (opacity 0), stacked siblings must not swallow clicks. */
+  [data-live] [data-work-item]:not([data-active]) {
+    pointer-events: none;
+  }
 
-/* Walkthrough (components/work/Walkthrough.tsx): one sticky device swaps
-   screens while live; otherwise each step shows its own device inline. */
-[data-walk-stage] {
-  display: none;
-}
+  /* Walkthrough (components/work/Walkthrough.tsx): one sticky device swaps
+     screens while live; otherwise each step shows its own device inline. */
+  [data-walk-stage] {
+    display: none;
+  }
 
-[data-live] [data-walk-stage] {
-  display: block;
-}
+  [data-live] [data-walk-stage] {
+    display: block;
+  }
 
-[data-live] [data-inline-device] {
-  display: none;
-}
+  [data-live] [data-inline-device] {
+    display: none;
+  }
 
-[data-step] {
-  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1);
-}
+  [data-step] {
+    transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
-[data-live] [data-step]:not([data-active]) {
-  opacity: 0.35;
+  /* 0.45, not 0.35: on ink an inactive caption still needs to clear 3:1. */
+  [data-live] [data-step]:not([data-active]) {
+    opacity: 0.45;
+  }
 }
 
 ::view-transition-group(*) {
@@ -213,5 +219,10 @@ a:focus-visible > .link-draw::after {
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
+  }
+
+  /* The diagram's looping MotionPath dots have no paused, printable position. */
+  [data-pulse] {
+    display: none !important;
   }
 }

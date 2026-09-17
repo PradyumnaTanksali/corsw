@@ -22,7 +22,7 @@ export function Walkthrough({ project }: { project: Project }) {
       const el = root.current;
       if (!el) return;
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+      mm.add("(min-width: 768px) and (pointer: fine) and (prefers-reduced-motion: no-preference)", () => {
         el.setAttribute("data-live", "");
         const screens = gsap.utils.toArray<HTMLElement>("[data-screen]", el);
         const steps = gsap.utils.toArray<HTMLElement>("[data-step]", el);

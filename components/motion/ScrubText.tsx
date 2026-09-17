@@ -1,24 +1,11 @@
 "use client";
 
-import { useRef, type ElementType, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import { gsap, SplitText, useGSAP } from "@/lib/gsap";
 
 /** Lines brighten from faint to full ink as the paragraph crosses the viewport. */
-export function ScrubText({
-  as = "p",
-  className,
-  children,
-}: {
-  as?: "p" | "h2";
-  className?: string;
-  children: ReactNode;
-}) {
-  const ref = useRef<HTMLElement>(null);
-  // A JSX host element (not React.createElement) so eslint-plugin-react-hooks
-  // can see the ref is handled by the jsx-runtime, not read during render.
-  // `as` is narrowed to a union of tag names; widen it so TS resolves one
-  // generic ref/props shape instead of failing to unify the union.
-  const Tag = as as ElementType;
+export function ScrubText({ className, children }: { className?: string; children: ReactNode }) {
+  const ref = useRef<HTMLParagraphElement>(null);
 
   useGSAP(
     () => {
@@ -52,8 +39,8 @@ export function ScrubText({
   );
 
   return (
-    <Tag ref={ref} className={className}>
+    <p ref={ref} className={className}>
       {children}
-    </Tag>
+    </p>
   );
 }

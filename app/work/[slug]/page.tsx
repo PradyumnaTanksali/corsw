@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Architecture } from "@/components/work/Architecture";
 import { Business } from "@/components/work/Business";
@@ -7,10 +7,16 @@ import { NextProject } from "@/components/work/NextProject";
 import { Walkthrough } from "@/components/work/Walkthrough";
 import { Footer } from "@/components/site/Footer";
 import { projects } from "@/lib/projects";
+import { TONES } from "@/lib/tones";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
+
+// This page opens in the ink chapter, not the root layout's bone default.
+export const viewport: Viewport = {
+  themeColor: TONES.ink["--bg"],
+};
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));

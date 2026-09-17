@@ -16,7 +16,9 @@ import type { Project } from "@/lib/projects";
  * turn (the capture opens, the name gains weight, the rail tracks progress).
  * Phones and reduced motion: the same articles in normal flow.
  */
-export function Work({ projects }: { projects: Project[] }) {
+type WorkProject = Pick<Project, "slug" | "n" | "name" | "status" | "tagline" | "capture">;
+
+export function Work({ projects }: { projects: WorkProject[] }) {
   const stage = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -25,7 +27,7 @@ export function Work({ projects }: { projects: Project[] }) {
       if (!el) return;
       const mm = gsap.matchMedia();
 
-      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+      mm.add("(min-width: 768px) and (pointer: fine) and (prefers-reduced-motion: no-preference)", () => {
         el.setAttribute("data-live", "");
         const items = gsap.utils.toArray<HTMLElement>("[data-work-item]", el);
         const rail = gsap.utils.toArray<HTMLElement>("[data-rail-item]", el);
@@ -88,7 +90,7 @@ export function Work({ projects }: { projects: Project[] }) {
         };
       });
 
-      mm.add("(max-width: 767px) and (prefers-reduced-motion: no-preference)", () => {
+      mm.add("(max-width: 767px) and (prefers-reduced-motion: no-preference), (pointer: coarse) and (prefers-reduced-motion: no-preference)", () => {
         for (const frame of gsap.utils.toArray<HTMLElement>("[data-frame]", el)) {
           gsap.fromTo(
             frame,

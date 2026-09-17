@@ -4,6 +4,9 @@ import { Container } from "@/components/primitives/Container";
 export default function NotFound() {
   return (
     <main id="content" data-tone-start="ink">
+      {/* Not-found has no `metadata` export (see layout.tsx), so it renders
+          its own <title>; React 19 hoists it into <head>. */}
+      <title>Not found · Corner Software</title>
       <section data-tone="ink" className="flex min-h-svh flex-col justify-center pt-14">
         <Container>
           <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-muted">Not found</p>

@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Container } from "@/components/primitives/Container";
 import { ProjectCard } from "@/components/primitives/ProjectCard";
 import { Footer } from "@/components/site/Footer";
 import { DEMO_EMAIL, projects } from "@/lib/projects";
+import { TONES } from "@/lib/tones";
 
 const title = "Corsw · Platforms in service";
 const description =
@@ -29,6 +30,11 @@ export const metadata: Metadata = {
     images: "/opengraph-image",
   },
   twitter: { card: "summary_large_image", title, description, images: "/opengraph-image" },
+};
+
+// This page opens in the ink chapter, not the root layout's bone default.
+export const viewport: Viewport = {
+  themeColor: TONES.ink["--bg"],
 };
 
 export default function DemoPage() {
