@@ -1,48 +1,8 @@
 @import "tailwindcss";
 
-/* Two themes, one token set. The inline script in app/layout.tsx sets
-   html[data-theme] before first paint; with no saved choice the page is Paper.
-   Components only ever read these tokens. */
-@custom-variant schematic (&:where([data-theme="schematic"], [data-theme="schematic"] *));
-
-/* Paper: warm off-black, bone ink, vermillion, Garamond italic accents.
-   ink-faint and accent are lifted from the original #5c5852 / #d4452c so small
-   text clears 4.5:1 on --bg-card. */
-:root {
-  --bg: #0e0e0e;
-  --bg-card: #161513;
-  --ink: #f5f1e8;
-  --ink-muted: #a8a39a;
-  --ink-faint: #847f76;
-  --ink-rule: #2a2825;
-  --accent: #d7543d;
-  --success: #10b981;
-  --warning: #f59e0b;
-  --font-accent: var(--font-eb-garamond);
-  --accent-style: italic;
-  --accent-weight: 400;
-  --accent-tracking: normal;
-  --grid-opacity: 0.04;
-}
-
-/* Schematic: carbon, cool ink, electric blue, mono accents. The system
-   diagrams (drawn in both themes) are its texture, so the column grid goes. */
-[data-theme="schematic"] {
-  --bg: #0a0b0f;
-  --bg-card: #111317;
-  --ink: #e8eaed;
-  --ink-muted: #9ca3af;
-  --ink-faint: #767d8c;
-  --ink-rule: #1f2228;
-  --accent: #3b82f6;
-  --font-accent: var(--font-jetbrains-mono);
-  --accent-style: normal;
-  /* Mono beside Inter 500 reads as a fallback at 400 and default spacing. */
-  --accent-weight: 500;
-  --accent-tracking: -0.04em;
-  --grid-opacity: 0;
-}
-
+/* Role tokens (--bg, --ink, --accent, …) come from lib/tones.ts, injected by
+   app/layout.tsx and scrubbed on <html> by ToneScroller. Components only ever
+   read roles. */
 @theme inline {
   --color-bg: var(--bg);
   --color-bg-card: var(--bg-card);
@@ -51,31 +11,24 @@
   --color-ink-faint: var(--ink-faint);
   --color-ink-rule: var(--ink-rule);
   --color-accent: var(--accent);
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --font-sans: var(--font-inter);
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --font-sans: var(--font-schibsted);
   --font-serif: var(--font-eb-garamond);
   --font-mono: var(--font-jetbrains-mono);
-  --default-font-family: var(--font-inter);
-  /* Masthead title fade: lib/motion.ts `reveal` values (8px, 0.5s, `ease`,
-     0.2s delay) in CSS so the LCP heading paints before hydration. */
-  --animate-masthead-rise: masthead-rise 0.5s cubic-bezier(0.32, 0.72, 0, 1)
-    0.2s both;
+  --default-font-family: var(--font-schibsted);
 }
 
-/* Emphasis words and ordinals: Garamond italic on Paper, mono on Schematic. */
+/* Emphasis is a face swap to Garamond italic, never a synthetic italic. */
 @utility font-accent {
-  font-family: var(--font-accent);
-  font-style: var(--accent-style);
-  font-weight: var(--accent-weight);
-  letter-spacing: var(--accent-tracking);
+  font-family: var(--font-eb-garamond);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
-@keyframes masthead-rise {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
+html {
+  scroll-padding-top: 3.5rem;
 }
 
 html,
@@ -85,16 +38,14 @@ body {
 }
 
 body {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  font-feature-settings: "ss01", "cv11";
+  font-family: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
 ::selection {
   background: var(--accent);
-  color: var(--ink);
+  color: var(--bg);
 }
 
 a {
@@ -102,11 +53,11 @@ a {
   text-decoration: none;
 }
 
-/* One keyboard focus style for every link and button, in the theme's accent. */
+/* One keyboard focus style for every link and button, in the chapter's accent. */
 a:focus-visible,
 button:focus-visible {
   outline: 1px solid var(--accent);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 /* Hover draws a 1px accent underline left to right. */
@@ -134,43 +85,145 @@ a:focus-visible > .link-draw::after {
   transform: scaleX(1);
 }
 
+/* Hero lines rise out of masks in CSS, so the LCP heading paints without JS.
+   Set --line on each .line-rise to stagger. The mask pads past the tight
+   line box (net zero layout) so descenders and italic overhangs aren't cut;
+   SplitReveal's line masks share this class. */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding: 0 0.1em 0.25em;
+  margin: 0 -0.1em -0.25em;
+}
+
+.line-rise {
+  display: block;
+  animation: line-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--line, 0) * 110ms + 150ms);
+}
+
+/* Far enough to clear the mask's bottom padding. */
+@keyframes line-rise {
+  from {
+    transform: translateY(135%);
+  }
+}
+
+/* The corner mark's inset square stamps in from its top-left corner. */
+.mark-stamp {
+  transform-box: fill-box;
+  transform-origin: 0 0;
+  animation: mark-stamp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+@keyframes mark-stamp {
+  from {
+    transform: scale(0);
+  }
+}
+
+/* Layout toggles below apply only while JS motion is actually running
+   (screen media); printing always gets the plain in-flow document, never an
+   absolute-stacked project or dimmed step. The rail and walkthrough stage
+   default to hidden in all media, including print. */
+[data-rail] {
+  display: none;
+}
+
+[data-walk-stage] {
+  display: none;
+}
+
+@media screen {
+  /* Work sequence (components/home/Work.tsx): the rail shows and the articles
+     stack only while the pinned timeline runs. Without it they sit in flow. */
+  [data-live] [data-rail] {
+    display: flex;
+  }
+
+  /* Stacked below the fixed 3.5rem bar, so a centred project clears it. */
+  [data-live] [data-work-item] {
+    position: absolute;
+    inset: 3.5rem 0 0;
+  }
+
+  /* Invisible (opacity 0), stacked siblings must not swallow clicks. */
+  [data-live] [data-work-item]:not([data-active]) {
+    pointer-events: none;
+  }
+
+  /* Walkthrough (components/work/Walkthrough.tsx): one sticky device swaps
+     screens while live; otherwise each step shows its own device inline. */
+  [data-live] [data-walk-stage] {
+    display: block;
+  }
+
+  [data-live] [data-inline-device] {
+    display: none;
+  }
+
+  [data-step] {
+    transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* 0.45, not 0.35: on ink an inactive caption still needs to clear 3:1. */
+  [data-live] [data-step]:not([data-active]) {
+    opacity: 0.45;
+  }
+}
+
+::view-transition-group(*) {
+  animation-duration: 650ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
+
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
 }
 
-/* Print like a real document in either theme: white paper, dark ink, serif
-   body, Garamond numerals. ColumnGrid, AccentLine and ThemeToggle carry
-   `print:hidden`. */
+/* Print like a document: white paper, dark ink, Garamond body, no motion
+   state left behind. */
 @media print {
-  :root,
-  :root[data-theme] {
-    --bg: #ffffff;
-    --bg-card: #ffffff;
-    --ink: #141310;
-    --ink-muted: #45423c;
-    --ink-faint: #6e6a63;
-    --ink-rule: #d8d4cb;
-    --accent: #b83a22;
-    --font-accent: var(--font-eb-garamond);
-    --accent-style: italic;
-    --accent-weight: 400;
-    --accent-tracking: normal;
+  html,
+  html [data-tone] {
+    --bg: #ffffff !important;
+    --bg-card: #ffffff !important;
+    --ink: #141310 !important;
+    --ink-muted: #45423c !important;
+    --ink-faint: #6e6a63 !important;
+    --ink-rule: #d8d4cb !important;
+    --accent: #b83a22 !important;
+    --grid-opacity: 0 !important;
+    --dots-opacity: 0 !important;
   }
 
   body {
     font-family: var(--font-eb-garamond-print), Georgia, "Times New Roman", serif;
   }
 
-  /* Sections below the fold still sit at Framer's pre-reveal inline state. */
-  main [style*="opacity"] {
+  main [style*="opacity"],
+  main [style*="transform"] {
     opacity: 1 !important;
+    visibility: visible !important;
     transform: none !important;
+  }
+
+  /* The diagram's looping MotionPath dots have no paused, printable position. */
+  [data-pulse] {
+    display: none !important;
   }
 }

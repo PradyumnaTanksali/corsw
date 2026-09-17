@@ -1,16 +1,19 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { inter, ebGaramond, ebGaramondPrint, jetbrainsMono } from "./fonts";
-import { ColumnGrid } from "@/components/primitives/ColumnGrid";
-import { MotionProvider } from "@/components/primitives/MotionProvider";
+import { ebGaramond, ebGaramondPrint, jetbrainsMono, schibsted } from "./fonts";
+import { Bar } from "@/components/site/Bar";
+import { Textures } from "@/components/site/Textures";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { ToneScroller } from "@/components/motion/ToneScroller";
+import { toneCss } from "@/lib/tones";
 
-const shareDescription = "Software, built and run. Arogyam · StreamLine · Ordio · SSC.";
+const shareDescription = "Industry platforms, built and run. Arogyam · StreamLine · Ordio.";
 
 // Title, canonical and robots live in each page so the 404 page doesn't
 // inherit a second <title> and an `index, follow` next to Next's `noindex`.
 export const metadata: Metadata = {
   description:
-    "Corner Software (Corsw) designs, builds and operates software for healthcare, manufacturing, food service and distribution businesses. Founded 2024, based in India.",
+    "Corner Software (Corsw) builds and operates industry platforms for healthcare practices, manufacturers and restaurants, and engineers custom platforms to the same standards. Founded 2024, based in India.",
   metadataBase: new URL("https://corsw.in"),
   openGraph: {
     title: "Corner Software",
@@ -29,15 +32,10 @@ export const metadata: Metadata = {
   // `icons` entry here would suppress those generated <link> tags.
 };
 
-// Both themes are dark; browser chrome follows Paper.
+// Browser chrome follows the home page's opening chapter.
 export const viewport: Viewport = {
-  themeColor: "#0e0e0e",
-  colorScheme: "dark",
+  themeColor: "#ece6da",
 };
-
-// Runs before first paint so a saved Schematic choice never flashes Paper.
-const THEME_BOOT =
-  'try{var t=localStorage.getItem("corsw-theme");if(t==="paper"||t==="schematic")document.documentElement.dataset.theme=t}catch(e){}';
 
 export default function RootLayout({
   children,
@@ -45,18 +43,24 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="paper"
       suppressHydrationWarning
-      className={`${inter.variable} ${ebGaramond.variable} ${ebGaramondPrint.variable} ${jetbrainsMono.variable}`}
+      className={`${schibsted.variable} ${ebGaramond.variable} ${ebGaramondPrint.variable} ${jetbrainsMono.variable}`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_BOOT }} />
+        <style dangerouslySetInnerHTML={{ __html: toneCss() }} />
       </head>
       <body className="relative min-h-screen bg-bg text-ink antialiased">
-        <ColumnGrid />
-        <div className="relative z-10">
-          <MotionProvider>{children}</MotionProvider>
-        </div>
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-16 focus:z-50 focus:bg-bg focus:px-3 focus:py-2 focus:font-mono focus:text-[13px]"
+        >
+          Skip to content
+        </a>
+        <Textures />
+        <Bar />
+        <div className="relative z-10">{children}</div>
+        <SmoothScroll />
+        <ToneScroller />
       </body>
     </html>
   );

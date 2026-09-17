@@ -1,24 +1,10 @@
 import { DEMO_EMAIL, type Project } from "@/lib/projects";
-import {
-  ArogyamDiagram,
-  OrdioDiagram,
-  SscDiagram,
-  StreamlineDiagram,
-} from "@/components/primitives/SystemDiagram";
+import { Diagram } from "@/components/site/Diagram";
 import { DataTable } from "@/components/primitives/DataTable";
 import { Ordinal } from "@/components/primitives/Ordinal";
 import { StatusBadge } from "@/components/primitives/StatusBadge";
 
-const diagrams = {
-  arogyam: ArogyamDiagram,
-  streamline: StreamlineDiagram,
-  ordio: OrdioDiagram,
-  ssc: SscDiagram,
-} as const;
-
 export function ProjectCard({ project }: { project: Project }) {
-  const Diagram = diagrams[project.diagram];
-
   return (
     <article className="grid grid-cols-1 gap-y-10 border-t border-ink-rule py-12 last:pb-0 md:py-16 md:last:pb-0 lg:grid-cols-12 lg:gap-x-10">
       <div className="order-2 lg:order-1 lg:col-span-7 lg:sticky lg:top-24 lg:self-start">
@@ -28,7 +14,7 @@ export function ProjectCard({ project }: { project: Project }) {
             <span className="tabular-nums">{project.diagramLabel}</span>
           </div>
           <div className="mt-4">
-            <Diagram />
+            <Diagram name={project.diagram} />
           </div>
         </div>
       </div>

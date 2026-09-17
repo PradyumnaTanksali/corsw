@@ -1,21 +1,28 @@
 ---
 name: Corner Software
-description: One dark company issue set in two visitor-switchable proofs, Paper and Schematic, over a single token set.
+description: One identity in three scroll chapters — bone paper, ink press, carbon drawing — over a single token set.
 colors:
-  paper-bg: "#0e0e0e"
-  paper-card: "#161513"
-  paper-ink: "#f5f1e8"
-  paper-ink-muted: "#a8a39a"
-  paper-ink-faint: "#847f76"
-  paper-rule: "#2a2825"
-  paper-vermillion: "#d7543d"
-  schematic-bg: "#0a0b0f"
-  schematic-card: "#111317"
-  schematic-ink: "#e8eaed"
-  schematic-ink-muted: "#9ca3af"
-  schematic-ink-faint: "#767d8c"
-  schematic-rule: "#1f2228"
-  schematic-blue: "#3b82f6"
+  bone-bg: "#ece6da"
+  bone-bg-card: "#e3dccf"
+  bone-ink: "#141310"
+  bone-ink-muted: "#45423c"
+  bone-ink-faint: "#5f5b54"
+  bone-ink-rule: "#d3cbbd"
+  bone-accent: "#a8341e"
+  ink-bg: "#0e0e0e"
+  ink-bg-card: "#161513"
+  ink-ink: "#f5f1e8"
+  ink-ink-muted: "#a8a39a"
+  ink-ink-faint: "#847f76"
+  ink-ink-rule: "#2a2825"
+  ink-accent: "#d7543d"
+  carbon-bg: "#0a0b0f"
+  carbon-bg-card: "#111317"
+  carbon-ink: "#e8eaed"
+  carbon-ink-muted: "#9ca3af"
+  carbon-ink-faint: "#767d8c"
+  carbon-ink-rule: "#1f2228"
+  carbon-accent: "#d7543d"
   signal-operating: "#10b981"
   signal-in-build: "#f59e0b"
   mark-vermillion: "#D4452C"
@@ -27,302 +34,198 @@ colors:
   print-accent: "#b83a22"
 typography:
   display:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.5rem, 7vw, 5.5rem)"
-    fontWeight: 500
-    lineHeight: 0.95
-    letterSpacing: "-0.02em"
-  headline:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(1.75rem, 4vw, 3rem)"
-    fontWeight: 500
-    lineHeight: 1.05
-    letterSpacing: "-0.015em"
+    fontFamily: "EB Garamond, Georgia, serif"
+    fontStyle: italic
+    fontSize: "clamp(3.25rem, 12.5vw, 12rem)"
+    fontWeight: 400
+    lineHeight: 0.84
+    letterSpacing: "-0.035em"
+  section-head:
+    fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(2.75rem, 8vw, 7.5rem)"
+    fontWeight: 600
+    lineHeight: 0.9
+    letterSpacing: "-0.04em"
+  case-hero:
+    fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(3.5rem, 13vw, 12rem)"
+    fontWeight: 800
+    lineHeight: 0.85
+    letterSpacing: "-0.05em"
   title:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(1.375rem, 2.4vw, 1.75rem)"
     fontWeight: 500
     lineHeight: 1.18
     letterSpacing: "-0.02em"
-  body-large:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.125rem"
-    fontWeight: 400
-    lineHeight: 1.45
   body:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "15px"
+    fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "17px"
+    fontSizeRange: "15px–17px"
     fontWeight: 400
     lineHeight: 1.6
-    fontFeature: "'ss01', 'cv11'"
   label:
-    fontFamily: "Inter, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "11px"
-    fontWeight: 500
-    letterSpacing: "0.22em"
-  mono-caps:
     fontFamily: "JetBrains Mono, ui-monospace, monospace"
     fontSize: "11px"
     fontWeight: 400
     letterSpacing: "0.22em"
   mono-data:
     fontFamily: "JetBrains Mono, ui-monospace, monospace"
-    fontSize: "13px"
+    fontSize: "12.5px"
+    fontSizeRange: "12px–13px"
     fontWeight: 400
-    lineHeight: 1.7
-    fontFeature: "'tnum'"
+    fontFeature: "tabular-nums"
   mono-tag:
     fontFamily: "JetBrains Mono, ui-monospace, monospace"
     fontSize: "10.5px"
+    fontSizeRange: "10.5px–12px"
     fontWeight: 400
     letterSpacing: "0.12em"
-  accent-paper:
-    fontFamily: "EB Garamond, Georgia, serif"
-    fontWeight: 400
-    letterSpacing: "normal"
-  accent-schematic:
-    fontFamily: "JetBrains Mono, ui-monospace, monospace"
-    fontWeight: 500
-    letterSpacing: "-0.04em"
 rounded:
   none: "0px"
-spacing:
-  gutter: "32px"
-  gutter-md: "64px"
-  container: "1200px"
-  section: "128px"
-  section-md: "160px"
-  column-gap: "40px"
-  column-gap-md: "48px"
-  column-gap-lg: "64px"
-components:
-  button-demo:
-    backgroundColor: "transparent"
-    textColor: "{colors.paper-vermillion}"
-    typography: "{typography.mono-data}"
-    rounded: "{rounded.none}"
-    padding: "12px 20px"
-  button-demo-hover:
-    backgroundColor: "{colors.paper-vermillion}"
-    textColor: "{colors.paper-bg}"
-  theme-toggle:
-    textColor: "{colors.paper-ink-faint}"
-    typography: "{typography.mono-caps}"
-    padding: "8px 4px"
-  theme-toggle-hover:
-    textColor: "{colors.paper-ink-muted}"
-  theme-toggle-active:
-    textColor: "{colors.paper-ink}"
-  section-rule:
-    textColor: "{colors.paper-ink-muted}"
-    typography: "{typography.label}"
-    padding: "24px 0 0"
-  link-mono:
-    textColor: "{colors.paper-ink-muted}"
-    typography: "{typography.mono-data}"
-  link-mono-hover:
-    textColor: "{colors.paper-vermillion}"
-  diagram-panel:
-    backgroundColor: "{colors.paper-card}"
-    rounded: "{rounded.none}"
-    padding: "20px"
-  diagram-panel-md:
-    padding: "28px"
-  data-row:
-    textColor: "{colors.paper-ink}"
-    typography: "{typography.mono-data}"
-    padding: "10px 16px 10px 0"
-  status-badge:
-    textColor: "{colors.paper-ink-muted}"
-    typography: "{typography.mono-tag}"
 ---
 
 # Design System: Corner Software
 
-Read `PRODUCT.md` for what is true and `BRIEF.md` for structure, copy and hard rules. This file owns the visual system only. Components reference the Paper tokens because Paper is the default. Every `paper-*` color has a `schematic-*` counterpart under the same CSS variable, so each component spec holds for both themes.
+Read `PRODUCT.md` for what is true and `BRIEF.md` for structure, copy and hard rules. This file owns the visual system only.
 
 ## Overview
 
-**Creative North Star: "The Issue and the Drawing"**
+**Creative North Star: "The Issue, the Press and the Drawing"**
 
-corsw.in is one company register, printed as a dark issue and offered in two proofs. **Paper** is the issue: warm off-black, bone ink, vermillion, EB Garamond italic slipping into Inter headlines, Roman numerals, and a faint twelve-column hairline grid behind everything. **Schematic** is the engineering drawing of the same pages: carbon, cool ink, electric blue, JetBrains Mono in place of the italic, zero-padded Arabic numerals, and no grid. Layout, copy, spacing and components are identical in both. Only the role tokens and the numeral form change, and the visitor chooses the proof. Neither world was invented for this site: both are incumbent looks the owner kept (`PRODUCT.md`, Brand Commitments).
+corsw.in is one identity, told in three chapters the page scrolls through in order: **bone**, the paper issue (warm off-white, near-black ink, vermillion, EB Garamond italic, a faint column grid); **ink**, the press proof of the same work (near-black ground, bone ink, the work itself, no grid); and **carbon**, the engineering drawing (cool near-black, a dot grid, system diagrams). The three chapters are one register in three states, not three brands: layout, copy and components carry through unchanged, and only the role tokens and the active texture change as the visitor scrolls. Motion is the proof of craft here — reveals, scrubs and pins carry the weight that used to sit in a visitor-controlled toggle.
 
-The page is sparse and editorial. Sections sit 128–160px apart on a 4/8 split: the section folio and headline on the left, the content on the right. Structure comes from 1px hairlines, not boxes. The one framed surface is the system-diagram panel, because the diagram is the evidence: the architecture as deployed. Anything that is a fact (a figure, a reference code, a stack, an address) is set in mono with tabular figures. Prose is set in Inter.
+The former Paper/Schematic switch is gone. There is no theme control anywhere on the site; both incumbent looks survive only as scroll chapters (`PRODUCT.md`, Brand Commitments), in a fixed order, driven by scroll position instead of a click.
 
-Motion is quiet. Content fades up at most 8px on one ease curve, diagram connectors draw once, and a 1px accent line grows once down the masthead. Under `prefers-reduced-motion`, all of it snaps. The owner has ruled out rounded corners, gradients, decorative shadows, icon libraries, bold weights, nav menus and sticky headers.
+The page is sparse and editorial. Sections sit on a 3/9 folio split: the section number and name in the first three columns, the content in the last nine. Structure comes from 1px hairlines, not boxes. Anything that is a fact (a figure, a table, a stack name, a status) is set in mono with tabular figures. Headlines are Schibsted Grotesk, weighted by hand for each role; the counterpoint face is Garamond italic on bone and ink.
 
 **Key Characteristics:**
-- Two dark themes, one token set: role variables under `:root` (Paper) and `[data-theme="schematic"]`.
-- One saturated accent per theme. It marks things and never fills surfaces at rest.
-- Inter 500 for everything large, JetBrains Mono for everything factual, and a face-swapped accent word through `font-accent`.
-- Roman ordinals on Paper and `01.` ordinals on Schematic, both rendered by `<Ordinal>`.
+- One token set, three chapters: role variables crossfaded on `<html>` as the page scrolls (`lib/tones.ts`).
+- One saturated accent per chapter. It marks things and never fills surfaces at rest, except a button's hover fill.
+- Schibsted Grotesk variable weight for everything large, JetBrains Mono for everything factual, and a face-swapped accent word through `font-accent` on bone and ink.
 - Square corners, 1px hairlines, flat surfaces, one tonal step for cards.
-- A print stylesheet that ignores both themes and sets a white Garamond document.
+- A print stylesheet that ignores all three chapters and sets a white Garamond document.
 
-## Colors
+## Chapters
 
-Two near-black palettes that share one set of role names. Paper is warm and almost chroma-free, Schematic is cool and faintly blue. Each has exactly one saturated accent.
+Every component reads only the nine role names below; it never knows which chapter it is in. The values live once, in `lib/tones.ts`, and are asserted equal in shape across chapters by `lib/tones.test.mjs`.
 
-### Primary
-- **Vermillion** (`paper-vermillion`, Paper's `--accent`) and **Electric Blue** (`schematic-blue`, Schematic's `--accent`): the accent role. It carries the masthead line, the ordinals on project cards and in the Approach list, one emphasis word per section headline, link hovers and the drawn underline, diagram connectors and the core diagram box, the bordered call-to-action buttons (Contact and `/demo`), the selection highlight, and the focus outline on every link and button.
-
-### Tertiary
-- **Signal Green** (`signal-operating`) and **Signal Amber** (`signal-in-build`): shared by both themes and used only as the 6px square in the status badge. They are never text, never borders, and never a second accent.
-
-### Neutral
-- **Ground** (`paper-bg` / `schematic-bg`, `--bg`): the page, and the browser chrome (`themeColor` follows Paper). The hover fill of the demo button reverses to Ground text.
-- **Card** (`paper-card` / `schematic-card`, `--bg-card`): the diagram panel and every diagram box. It is the only tonal step above Ground.
-- **Ink** (`paper-ink` / `schematic-ink`, `--ink`): headlines, principle lines, table values, the active toggle state, and the lead paragraphs in Foundation and Contact.
-- **Muted Ink** (`paper-ink-muted` / `schematic-ink-muted`, `--ink-muted`): body paragraphs, the nameplate row, section-folio labels and their ordinals, secondary link text.
-- **Faint Ink** (`paper-ink-faint` / `schematic-ink-faint`, `--ink-faint`): table row labels, reference metadata, diagram sub-labels and annotations, the `·` and `/` separators, inactive toggle buttons, the footer line.
-- **Rule** (`paper-rule` / `schematic-rule`, `--ink-rule`): every hairline, including section folios, card separators, table and list rows, the diagram panel border, the masthead action row and the footer.
-
-### Print
-- **Print Paper, Print Ink, Print Muted, Print Faint, Print Rule, Print Accent** (`print-*`): under `@media print`, both themes are overridden with these values and the accent font resets to Garamond italic. The grid, the masthead line and the theme toggle are `print:hidden`.
-
-### Brand Mark
-- **Mark Vermillion** (`mark-vermillion`): the original brand red. It appears only in `app/icon.svg`, `app/apple-icon.png`, the `public/brand` SVGs and the Open Graph image. It stays out of the UI because it measures 4.3:1, below the small-text floor.
+| Token | bone | ink | carbon |
+|---|---|---|---|
+| `--bg` | `#ece6da` | `#0e0e0e` | `#0a0b0f` |
+| `--bg-card` | `#e3dccf` | `#161513` | `#111317` |
+| `--ink` | `#141310` | `#f5f1e8` | `#e8eaed` |
+| `--ink-muted` | `#45423c` | `#a8a39a` | `#9ca3af` |
+| `--ink-faint` | `#5f5b54` | `#847f76` | `#767d8c` |
+| `--ink-rule` | `#d3cbbd` | `#2a2825` | `#1f2228` |
+| `--accent` | `#a8341e` | `#d7543d` | `#d7543d` |
+| `--grid-opacity` | `1` | `0` | `0` |
+| `--dots-opacity` | `0` | `0` | `1` |
 
 ### Named Rules
-**The Role-Name Rule.** A component reads color only through a role (`bg-bg`, `text-ink-muted`, `border-ink-rule`, `var(--accent)`), never through a theme name or a hex value. A component that is right in Paper is right in Schematic because it cannot tell the two apart.
 
-**The Accent Marks, Never Fills Rule.** The accent is a 1px line, a word, a numeral, a code or a border. The only accent area is a call-to-action button's hover fill.
+**The Role-Name Rule.** A component reads color only through a role (`bg-bg`, `text-ink-muted`, `border-ink-rule`, `var(--accent)`), never through a chapter name or a hex value. A component that is right in bone is right in ink and carbon because it cannot tell them apart.
 
-**The AA Floor Rule.** Faint Ink and the accent sit at the small-text floor on Card (Paper: faint 4.6:1, accent 4.5:1; Schematic: faint 4.5:1, accent 5.1:1, all measured 2026-09-13). Either may be lightened, never darkened. Any token change is re-measured in both themes.
+**The Mechanism.** A section carries `data-tone="bone" | "ink" | "carbon"`; a page's `<main>` carries `data-tone-start`. `app/layout.tsx` injects the CSS `toneCss()` (`lib/tones.ts`) builds: `:root` and `html:has(main[data-tone-start=…])` set the page's opening chapter, and — until JS adds `tones-live` — `html:not(.tones-live) [data-tone=…]` paints every section in its own chapter with no JS and no flash. `ToneScroller` (`components/motion/ToneScroller.tsx`) then adds `tones-live` to `<html>` and, when a section reaches 60% of the viewport (GSAP `scrollTrigger`, `start: "top 60%"`, `end: "bottom 60%"`), crossfades the role variables to that section's chapter over 0.6s (`power2.inOut`). The change is timed, not scrubbed: a scrub can come to rest halfway, where text and ground meet near 1:1 contrast. Reduced motion never adds `tones-live`, so the static per-section painting holds.
+
+**The Textures Rule.** `components/site/Textures.tsx` draws two fixed, `aria-hidden` layers behind the content: a twelve-column hairline grid at `--grid-opacity` (bone only) and a dot grid at `--dots-opacity * 0.45` (carbon only). Both opacities are chapter roles, so the textures cross-fade with the chapter instead of switching.
+
+**The AA Floor Rule.** Every foreground role (`--ink`, `--ink-muted`, `--ink-faint`, `--accent`) clears 4.5:1 against both `--bg` and `--bg-card`, in all three chapters. `lib/tones.test.mjs` asserts this on every build; the lowest pairs measured are bone 4.85 (accent on card), ink 4.54 (accent on card) and carbon 4.50 (faint on card). A token may be lightened, never darkened, without re-measuring.
 
 ## Typography
 
-**Display Font:** Inter 500 (with ui-sans-serif, system-ui)
-**Body Font:** Inter 400, with `ss01` and `cv11` set on `body`
-**Label/Mono Font:** JetBrains Mono 400
-**Accent Face:** EB Garamond italic 400 on Paper, JetBrains Mono 500 at -0.04em on Schematic, always through the `font-accent` utility
+Schibsted Grotesk (variable weight 400–900, `next/font/google`) is the only sans in the system: 600 for headlines, 400–500 for body copy, and a scrubbed weight jump (400 → 800) on the Products project names as the pinned stage scrolls and on the large Contact/Next-project links on hover. EB Garamond italic 400, always through the `font-accent` utility, sets the bone hero display and every accent word on bone and ink. JetBrains Mono 400/500 carries facts, tables, labels, the bar and — on carbon — the accent word itself, in place of the italic.
 
-**Character:** A plain, tightly tracked grotesque with a counterpoint word. On Paper the counterpoint is an old-style italic, which reads as a printed issue. On Schematic it is a heavier, condensed-tracking mono, which reads as a drawing annotation. The mono runs underneath both worlds as the voice of record.
+### Sizes in use
 
-### Hierarchy
-- **Display** (500, `clamp(2.5rem, 7vw, 5.5rem)`, 0.95, -0.02em): the page `<h1>` only. It sits in 24ch on home and 18ch on `/demo` and rises in with CSS before hydration. Its emphasis words take the accent face in Ink on home; on `/demo` the emphasis word is also accent-colored.
-- **Headline** (500, `clamp(1.75rem, 4vw, 3rem)`, 1.05, -0.015em): section `<h2>`. It sits in a `max-w-xs` column under the folio, or across the 8-column content side in Foundation. It carries exactly one accent word in accent color.
-- **Title** (500, `clamp(1.375rem, 2.4vw, 1.75rem)`, 1.18, -0.02em): the project card tagline.
-- **Body Large** (400, 18px, 1.45–1.5): Approach lines in Ink, with ordinals at 24px, or 30px from `md`; the lead paragraphs in Foundation and Contact.
-- **Body** (400, 15px, rising to 16px from `md`, line-height 1.6; 1.65 in project cards): paragraphs in Muted Ink, capped at `max-w-prose` (65ch), or 52ch in the `/demo` closer.
-- **Label** (Inter 500, 11px, 0.22em, uppercase): the section-folio label.
-- **Mono Caps** (400, 11px, 0.22em, uppercase; 0.16em below `sm` in the masthead): the nameplate row, theme toggle and the footer line on both pages.
-- **Mono Data** (400, 13px, 1.7, tabular): Company rows, the masthead action row, call-to-action links and the contact address. It drops to 12.5px for project data tables and the project name row, and to 12px for card links.
-- **Mono Tag** (400, 10.5–11px, 0.12em, uppercase): the diagram panel header and the status badge. The same 0.12em caps run at 12.5px for project data-table row labels and the project name, and the Company row labels use 13px at 0.18em.
+- **Hero display** (bone, `<h1>` only): `clamp(3.25rem, 12.5vw, 12rem)`, line-height 0.84, tracking -0.035em, `font-accent`. Its lines rise out of CSS masks (`.line-mask` / `.line-rise`) before hydration, so the LCP heading needs no JS.
+- **Section heads** (Products, Platform, Engineering, Walkthrough "In use", Architecture): `clamp(2.75rem, 8vw, 7.5rem)`, line-height 0.9, tracking -0.04em, weight 600. Contact's "Start a conversation." runs the same family larger, at `clamp(3rem, 7.5vw, 7rem)`. The `/demo` and 404 headlines sit nearby, at `clamp(3rem, 9vw, 8rem)` and `clamp(3rem, 10vw, 8rem)`.
+- **Case hero** (`/products/[slug]`, `/engineering/[slug]` project name): `clamp(3.5rem, 13vw, 12rem)`, line-height 0.85, tracking -0.05em, weight 800 — Schibsted, not Garamond; the case hero is carried by weight, the home hero by the face swap.
+- **Title** (project card tagline, `/demo`): `clamp(1.375rem, 2.4vw, 1.75rem)`, line-height 1.18, tracking -0.02em, weight 500.
+- **Body**: 17px, line-height 1.6, weight 400, used for the lead/intro/description paragraphs across Statement, Products, Platform, Engineering, Business, Architecture and Contact; drops to 15px, line-height 1.65, in the `/demo` project-card description. Capped at `max-w-prose` (65ch).
+- **Label**: JetBrains Mono, 11px, 0.22em, uppercase — the section folio, the bar wordmark, the footer and the 404/`/demo` eyebrows.
+- **Mono data**: JetBrains Mono, 12–13px, tabular — data-table values, the Company `<dl>`, call-to-action links (the bar's `Request a demo`, the Hero and Architecture CTAs, the Engineering `Start a project` link, the Contact `Start a project` link and email).
+- **Mono tag**: JetBrains Mono, 10.5–12px, 0.12–0.14em, uppercase — the status badge, diagram panel captions, case-hero and rail eyebrows.
 
 ### Named Rules
-**The Face-Swap Emphasis Rule.** Emphasis is a change of typeface through `font-accent`, never bold, never a plain italic, never `font-serif italic` (Schematic would keep the serif). Upright Garamond does not appear on screen; it is the print body only.
 
-**The Medium Ceiling Rule.** Inter, Garamond and Mono are loaded at 400 and 500 only. Nothing is heavier than 500.
+**The Face-Swap Emphasis Rule.** On bone and ink, emphasis is a change of typeface to Garamond italic through `font-accent` (Products "industries.", Walkthrough "runs."), never bold, never a plain italic. On carbon, the same emphasis role is a mono face at a tighter tracking (Platform "standard.", Engineering "standards.", Architecture "built.", Contact "conversation."), never Garamond. A third emphasis, distinct from both, is a pure weight jump on Schibsted itself (the Hero subline's "run", the scrubbed Products project names, the Contact/Next-project link hovers) — a weight change, not a face change.
 
-**The Two Numerals Rule.** Every ordinal is `<Ordinal n>`, which renders both a Roman and a zero-padded Arabic form and lets the `schematic:` variant show one. Ordinals are `aria-hidden`, so the adjacent label carries the meaning.
-
-**The Figures Are Mono Rule.** Figures, reference codes, stacks, hostnames and addresses are set in JetBrains Mono with `tabular-nums`. Mono enters a heading only as Schematic's accent word. Headings use `text-balance`.
+**The Balance and Figures Rule.** `text-balance` sits on every heading. `tabular-nums` sits on every table, data row and figure.
 
 ## Layout
 
-A single centered column: `max-width` 1200px with 32px side gutters, rising to 64px from `md` (the `Container` primitive). There is no navigation chrome. The page is a vertical sequence of sections, each padded 128px top and bottom (160px from `md`).
+A fixed 56px bar (`components/site/Bar.tsx`, `h-14`) holds only the mark (links home) on the left and `Request a demo →` on the right. There is no menu, hamburger or second row. `Container` (`components/primitives/Container.tsx`) centers content at `max-width` 1200px with 32px side gutters, rising to 64px from `md`.
 
-From `md`, each section is a 12-column grid with a 40/48/64px gap (base/`md`/`lg`). Columns 1–4 hold the section folio and, below it, the headline. Columns 5–12 hold the content. Below `md`, everything stacks in source order. Project cards use their own split from `lg`: the diagram panel spans 7 columns on the left and sticks at 96px from the top while the text column (5 columns) scrolls. Below `lg`, the text comes first and the diagram follows.
+From `md`, a section is a 12-column grid: the section folio (`SectionRule`) takes columns 1–3, the content takes columns 4–12 — a 3/9 split, not a 4/8 one. Below `md` everything stacks in source order. Sections are padded 128px top and bottom, rising to 176px from `md` (`py-32 md:py-44` and its `pt`/`pb` equivalents); the Hero and the product/engagement page hero are their own shapes and sit outside this rhythm.
 
-The masthead is a nameplate row, a display headline 64–96px below it, and an action row (`Start a project →`, `See a platform running →`) 64–96px further down behind a hairline. There is no dateline, issue number or version. A 1px accent line hangs at the right edge (16px in, 64px from `md`) and grows to 60vh.
+Two sections are staged rather than simply stacked: **Products** (`components/home/Products.tsx`) pins on desktop and plays its products through a single scroll region the height of the viewport times the product count, and **Walkthrough** (`components/work/Walkthrough.tsx`) sticks one device frame at `top-24` while the steps beside it scroll past and swap its screen. Both fall back to an ordinary stacked layout below `md` or under reduced motion.
 
-Paper draws a fixed twelve-column hairline grid at 4% Ink opacity from `md`, inside the same container and gutters as the content. Schematic sets its opacity to 0.
-
-Breakpoints are Tailwind defaults as used: `sm` 640px (masthead headline break, table reference column appears, wider nameplate tracking), `md` 768px (12-column grid, SVG diagrams replace the mobile stack, grid texture appears) and `lg` 1024px (project card split, sticky diagram).
+Breakpoints are Tailwind defaults as used: `md` 768px (the pin/sticky/SVG-diagram/grid-texture threshold throughout `matchMedia`) and `lg` 1024px (`Platform`/`Architecture` figure-plus-list grid).
 
 ### Named Rules
-**The 4/8 Folio Rule.** A section's identity (folio and headline) lives in the first four columns and its substance in the last eight. Content does not cross into the folio column.
 
-**The Hairline Rhythm Rule.** Separation is a 1px `--ink-rule` top border: folios, card boundaries, table rows, list rows, the masthead action row, the footer. Sections are never boxed, and the Approach list and data rows never alternate background colors.
+**The 3/9 Folio Rule.** A section's identity (folio number and name) lives in the first three columns; its substance lives in the last nine. Content does not cross into the folio column.
 
-## Elevation & Depth
+**The Hairline Rhythm Rule.** Separation is a 1px `--ink-rule` top border: folios, the bar, data rows, the diagram panel, the footer. Sections are never boxed.
 
-Flat. There are no shadows anywhere in the build. Depth is one tonal step (`--bg` to `--bg-card`) plus a 1px Rule border, used for the diagram panel and its boxes. The only stacking is the grid texture (z-0) under the content wrapper (z-10). The sticky diagram panel on `lg` is positional, not elevated.
+## Motion
 
-### Named Rules
-**The Flat Page Rule.** No `box-shadow`, `drop-shadow` or glow in either theme. If a surface needs to stand forward, it takes `--bg-card` and a Rule border, and that is the ceiling.
+The stack is GSAP (`ScrollTrigger`, `SplitText`, `MotionPathPlugin`, registered once in `lib/gsap.ts`) plus `@gsap/react`'s `useGSAP`, and Lenis smooth scroll (`components/motion/SmoothScroll.tsx`) — Lenis runs only `(pointer: fine) and (prefers-reduced-motion: no-preference)`; touch and reduced motion keep native scrolling. Lenis is driven by `gsap.ticker` so `ScrollTrigger` reads the same position every frame.
 
-## Shapes
+### Primitives
 
-Every corner is square (0px). `rounded-*` does not appear in the codebase. The form language is hairlines and small squares: 1px rules, 1px borders, a 6px status square. The brand mark is the same geometry, a squared corner with an inset vermillion square. Diagram connectors are straight 1px strokes with square caps and miter joins: diagonal for direct links, right-angled elbows for routed ones. Each ends at a 1.6-unit accent dot, the only round form, and small enough to read as a terminal rather than a curve. The Paper grid is a `repeating-linear-gradient` of 1px lines, the one gradient the system permits.
+- **`Reveal`** — descendants marked `data-reveal` rise 48px and fade in once, `expo.out`, as each crosses 88% of the viewport.
+- **`SplitReveal`** — a heading (`SplitText`, `type: "lines"`, `mask: "lines"`, `autoSplit`) whose lines rise out of masks once, `expo.out`, staggered 0.08s, at 85% of the viewport. `SplitText` re-splits on resize and font load and keeps an `aria-label` with the full sentence.
+- **`ScrubText`** — a paragraph's lines (`SplitText`, `type: "lines"`) brighten from 0.15 to full opacity as the paragraph crosses the viewport, `ease: "none"`, scrubbed between 80% and 50%.
+- **`Drift`** — moves its content by a given `y` (and optionally fades it to 0.15) over the first screen of scrolling, scrubbed, `ease: "none"`. Lifts the Hero mark and headline away as the page leaves bone.
+- **`Marquee`** — a duplicated word list drifting left on `gsap.ticker`, base 60px/s plus a factor of scroll velocity, paused via `ScrollTrigger` while off screen. Screen readers get the list once, `sr-only`.
+- **`Diagram`** (`components/site/Diagram.tsx`) — the SVG system diagram on `md`+: boxes fade up and connectors draw (`strokeDashoffset`) on one scrubbed timeline (80%–60%, `scrub: 1`), then accent dots loop along every connector (`MotionPathPlugin`) while the diagram stays in view, paused via `ScrollTrigger.onToggle` when it leaves. Below `md`, a stacked HTML version (`MobileStack`) replaces it and never shows an edge the desktop schematic lacks (`lib/diagrams.ts` `mobileLayout`, asserted by `lib/diagrams.test.mjs`).
+- **`Products`** (`components/home/Products.tsx`) — on desktop with motion, the stage pins and a scrubbed timeline opens each product's capture from an inset `clip-path` to full frame, scrubs its name's weight 400 → 800, and cross-fades to the next; a rail tracks progress. Below `md` with motion enabled, the same articles sit in normal flow with just the capture's `clip-path` reveal scrubbed per item as it enters. Under reduced motion, on any viewport, every article sits fully revealed in normal flow with no motion.
+- **`Walkthrough`** (`components/work/Walkthrough.tsx`) — on desktop with motion, one sticky device frame swaps screens (opacity) as each step's caption crosses the viewport's middle, tracked by per-step `ScrollTrigger`s. Otherwise every step renders its own inline device.
+- **`ToneScroller`** — see Chapters. Adds `tones-live` and crossfades the role variables on `<html>` between chapters; does nothing under reduced motion.
 
-### Named Rules
-**The Square Rule.** Corners are 0px in every theme, at every size, including focus outlines and the status indicator.
+### Eases
+
+`expo.out` for one-shot entrances (`Reveal`, `SplitReveal`). `ease: "none"` for every scrubbed or ticker-driven motion (`ScrubText`, `Drift`, `Marquee`, the `Diagram` and `Products` scroll timelines). `power2.inOut` for the `ToneScroller` chapter crossfade. CSS `cubic-bezier(0.16, 1, 0.3, 1)` for the two motions that must run without JS — the hero's `.line-rise` and `.mark-stamp` keyframes — and for `::view-transition-group` (the shared `capture-<slug>` element between a Products card and its product or engagement page hero).
+
+### The `data-live` Pattern
+
+`[data-rail]`, `[data-walk-stage]` and the absolute stacking of `[data-work-item]` are `display: none` (or in-flow) by default in `globals.css`; a section only gets `data-live` — and only then do the pinned rail, the sticky device stage and the absolute-stacked work items appear — once its `useGSAP` branch actually matches `(min-width: 768px) and (prefers-reduced-motion: no-preference)` and runs. The `data-live` swaps — including `[data-live] [data-inline-device]`, which hides the walkthrough's inline device once the sticky stage takes over, and the 0.45 dim on non-active `[data-step]`s — are progressive-enhancement layout toggles that apply only while JS motion is actually running, not animation-hidden start states: without JS or under reduced motion, every caption and a device for every step sits visible in normal document flow.
+
+### Rules
+
+Every animation is created inside `useGSAP` and gated by `gsap.matchMedia()` (`(prefers-reduced-motion: no-preference)`, extended to `(min-width: 768px)` for pins and sticky stages). Under reduced motion every element sits in its final visible state — nothing plays. No CSS hides real content as an animation start state — entrance hidden states come only from `gsap.from()` once GSAP hydrates; the only CSS-only entrances are `.line-rise` and `.mark-stamp`, both snapped to zero duration by the global `prefers-reduced-motion: reduce` rule. The hero headline is the one element that must animate without JS, so it animates in CSS.
 
 ## Components
 
-### Nameplate Row (page header)
-- **Character:** a publication nameplate, not navigation.
-- **Style:** Mono Caps in Muted Ink. The segments are brand, founding year and place (home), or brand and page (`/demo`), separated by `·` in Faint Ink with 12px of space. The theme toggle sits at the far right. It wraps on phones.
-- **Navigation:** none. No menu, hamburger or sticky header. On `/demo`, the brand segment links home and hovers to Ink.
-
-### Theme Toggle
-- **Character:** two words and a slash, the only control on the site.
-- **Style:** a `role="group"` labelled "Theme" containing two buttons (`paper`, `schematic`) in Mono Caps, 8px × 4px padding, Faint Ink, with a Faint Ink `/` between them.
-- **States:** hover shifts to Muted Ink (150ms). `aria-pressed="true"` shows Ink with an accent underline, offset 4px. Focus-visible shows a 1px accent outline offset 2px.
-- **Behavior:** sets `html[data-theme]` and `localStorage["corsw-theme"]`. A pre-paint script in `app/layout.tsx` restores the choice so Schematic never flashes Paper. It is hidden in print.
-
-### Section Folio
-- **Character:** the issue's running section number.
-- **Style:** a 1px Rule top border, 24px above an inline row: `— <Ordinal> —` in the accent face at 16px (Muted Ink, 0.02em), 16px gap, then the section name in Label, Muted Ink.
-- **Use:** once per numbered section, always in the folio column. The ordinal and the rule are what make it a folio: the label never appears above a heading without both.
-
-### Buttons
-- **Shape:** square (0px), 1px accent border.
-- **Primary (Contact `Start a project`, `/demo` `Ask for a demo`):** Mono Data at 13px in the accent, 12px × 20px padding, label followed by `→`.
-- **Hover / Focus:** hover fills with the accent and reverses the text to Ground (150ms). Focus-visible shows a 1px accent outline offset 2px.
-- **There is no secondary button.** Every other action is a link.
-
-### Links
-- **Style:** mono, 12–15px, in Ink or Muted Ink, followed by an `aria-hidden` `→`.
-- **Hover:** color moves to the accent (150ms), and the `.link-draw` span draws a 1px accent underline from left to right with `scaleX` (200ms, `cubic-bezier(0.32, 0.72, 0, 1)`). The underline also draws on `:focus-visible`.
-
-### Project Card (signature)
-- **Layout:** an `<article>` behind a 1px Rule top border, 48px vertical padding (64px from `md`, none below the last card), with the diagram panel and the text column per Layout.
-- **Text column:** a name row (the ordinal at 15px in the accent, a Faint `/`, the project name in 12.5px mono caps at 0.12em in Ink, and the status badge at the right), then the Title tagline, Body paragraphs in Muted Ink, a Data Table, and, on operating projects only, a right-aligned `Request a demo →` link in the accent. Cards carry no outbound links.
-- **Diagram panel:** Card background, 1px Rule border, 20px padding (28px from `md`), with a Mono Tag header row (`System diagram` on the left, a version slug on the right) in Faint Ink.
-
-### System Diagram (signature)
-- **Desktop (`md`+):** an SVG on a 620 × 360 grid, set in mono, with `<title>` and `<desc>`. Boxes are 156 × 52 in Card with a 0.75px Muted Ink stroke at 55% opacity; the one core box uses a full-strength 1px accent stroke. Each box has a label (12px, 500, Ink) and a sub-label (10px, Faint Ink). Annotations are 9.5px Faint Ink. Connectors are 1px accent strokes.
-- **Motion:** boxes fade up 4px (0.4s, staggered 60ms). Connectors draw with `pathLength` (1.0s, starting at 0.4s, staggered 80ms), and their tip dots fade in after the stroke lands. All of it runs once in view and is static under reduced motion.
-- **Mobile (below `md`):** a stacked HTML version. The two clients sit side by side, a 1px × 20px accent connector at 60% opacity leads to the core box (1px accent border), another connector leads to the boxes the core reaches directly, and second-hand boxes follow, each labelled `via <box>` in the accent. Boxes are Card with a 1px Rule border and 12px padding. Annotations follow as a `·` list. The stack never shows an edge the desktop schematic lacks.
-
-### Data Rows
-- **Data Table (project cards):** mono 12.5px, tabular. Each row has a 1px Rule top border, and the last row also has a bottom border. Row labels are uppercase 0.12em Faint Ink in a 112px column. Values are Ink. Rows are label and value only.
-- **Company:** a `<dl>` in Mono Data on the 8-column side. Rows have 12px vertical padding with a Rule top border (none on the first row): the label (uppercase 0.18em, Faint Ink) in 3 columns and the value in Ink across 9.
-
-### Status Badge (chip)
-- **Style:** Mono Tag at 11px in Muted Ink, uppercase, preceded by a 6px square: Signal Green for operating, Signal Amber for in build. No border and no fill behind the text.
-
-### Approach List
-- **Style:** an `<ol>` capped at `max-w-2xl`. Each item is a two-column grid (56px ordinal column, 64px from `md`) with 24px vertical padding and a Rule bottom border (none on the last item). The ordinal is `<Ordinal dot>` in the accent at 24–30px; the principle is Body Large in Ink.
-
-### Masthead Line and Footer
-- **Masthead line:** a 1px accent vertical line hanging from the top of the page. It grows from 0 to 60vh once on load (1.2s), is hidden in print, and is instant under reduced motion.
-- **Footer:** one row behind a Rule top border with 32px vertical padding: `Corner Software` at the left and `© 2024–2026` at the right, in Mono Caps, Faint Ink. No links, no mark.
-
-### Section Reveal
-- Sections and list rows enter with opacity 0→1 and an 8px rise over 0.5s on `cubic-bezier(0.32, 0.72, 0, 1)`, once, 120px inside the viewport. Lists stagger their children by 50ms. The display headline uses the same values in CSS with a 0.2s delay. Under reduced motion, every reveal has zero duration.
+- **Bar** (`components/site/Bar.tsx`) — fixed, 56px, `border-b border-ink-rule bg-bg`: the mark plus "Corner Software" (home link) on the left, `Request a demo →` in the accent on the right. No menu.
+- **Section folio** (`SectionRule`) — a 1px `--ink-rule` top border above an inline row: the ordinal (`<Ordinal dot>`) sets in the accent face, EB Garamond italic (`font-accent`) at 16px, normal case, no tracking, in the accent colour; the section name follows in Label (mono, 11px, 0.22em, uppercase, muted ink).
+- **Buttons** — square, 1px accent border, Mono data text in the accent (`Request a demo`, the `/demo` CTA and the product `Architecture` CTA; `Start a project`, the engagement `Architecture` CTA). Hover fills the accent and reverses the text to `--bg` (150ms `transition-colors`); focus keeps the shared `:focus-visible` outline, not a fill. There is no secondary button; every other action is a link.
+- **Links** (`.link-draw`, `globals.css`) — mono text, `aria-hidden` `→`. Hover and focus draw a 1px accent underline left to right (`scaleX`, 200ms, `cubic-bezier(0.32, 0.72, 0, 1)`).
+- **Capture and Device** (`components/site/Capture.tsx`, `components/site/Device.tsx`) — `Capture` fills its positioned parent with a `next/image`; until `shot.src` exists it shows a labelled placeholder frame ("Capture pending · …") over a block grid, so pages build and review end to end before real captures land. `Device` frames a `Capture` as the screen it was taken on: `aspect-[390/844]` for a phone, `aspect-[16/10]` for a laptop.
+- **System diagram** (`Diagram`) — desktop SVG plus mobile stack; see Motion. The mobile stack is generated from the same schematic data (`lib/diagrams.ts`) and can never show a connection the desktop version doesn't have.
+- **Platform pillars** (`components/home/Platform.tsx`) — a `<dl>` of paired mono accent labels (`dt`, 11px, 0.22em, uppercase) and copy (`dd`), each separated by a 1px `--ink-rule` top border, beside the platform system diagram.
+- **Engineering** (`components/home/Engineering.tsx`) — a mono services list, a `Start a project →` link, and a selected-engagement card below: a `Capture`, the engagement's name, `StatusBadge` and a `link-draw` CTA to its `/engineering/[slug]` page.
+- **Data rows** — `DataTable` (product and engagement data tables): mono 12.5px, tabular, a 1px rule top border per row, uppercase Faint-Ink labels in a 112px (`w-28`) column. The Company `<dl>` (`components/home/Contact.tsx`) follows the same pattern in the 3/9 grid.
+- **Status badge** (`StatusBadge`) — Mono tag, 11px, uppercase, 0.12em, preceded by a 6px (`size-1.5`) square: `bg-success` for operating, `bg-warning` for in build. No border, no fill behind the text.
+- **Footer** (`Footer`) — one row behind a rule top border: `Corner Software` and `© 2024–2026` in Label. It takes a `tone` prop from its page so the last chapter on screen closes the page in one color.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** read every color through a role token (`bg-bg`, `text-ink-faint`, `border-ink-rule`, `var(--accent)`). Hex belongs only in the brand marks and `app/opengraph-image.tsx`.
-- **Do** set emphasis words with `font-accent` and numerals with `<Ordinal>`, and give each section headline exactly one accent word.
-- **Do** check Paper, Schematic and print for every visual change, and re-measure contrast in both themes when a token moves (text under 18px at 4.5:1 or better on `--bg-card`).
+- **Do** read every color through a role token (`bg-bg`, `text-ink-faint`, `border-ink-rule`, `var(--accent)`). Hex belongs only in `lib/tones.ts`, the brand marks, the `globals.css` print block, the status-signal colors and `app/opengraph-image.tsx`.
+- **Do** keep `mark-vermillion` (`#D4452C`), the original brand red, out of UI text — it measures 4.3:1, below the small-text AA floor — and use it only in the brand marks (`app/icon.svg`, `components/primitives/Monogram.tsx`, `public/brand/*.svg`).
+- **Do** set emphasis with `font-accent` (bone/ink) or the carbon mono variant, and give each section headline exactly one accent word.
+- **Do** check bone, ink and carbon — and print — for every visual change, and re-run `lib/tones.test.mjs` when a token moves.
 - **Do** separate with 1px `--ink-rule` hairlines and keep every corner at 0px.
 - **Do** put `tabular-nums` on every figure and table and `text-balance` on every heading.
-- **Do** keep reveals to opacity plus at most 8px of rise on `cubic-bezier(0.32, 0.72, 0, 1)`, and make them snap under `prefers-reduced-motion`.
-- **Do** express per-theme content with the `schematic:` variant, rendering both forms in the DOM, so the pre-paint theme never causes a flash or a hydration mismatch.
-- **Do** keep a diagram's mobile stack to edges its desktop schematic actually has.
+- **Do** wrap every animation in `useGSAP` + `gsap.matchMedia()`, and make sure the page is correct with none of it running.
 
 ### Don't:
-- **Don't** use `rounded-*`, gradients (the Paper grid excepted), `box-shadow` or glows.
-- **Don't** set anything heavier than `font-medium`, and don't write `font-serif italic`: Schematic would keep the serif.
-- **Don't** set `mark-vermillion` (#D4452C) on UI text. At 4.3:1 it stays in the marks.
-- **Don't** fill a surface with the accent at rest, and don't turn the status green or amber into a second accent.
+- **Don't** use `rounded-*`, `box-shadow` or glows.
+- **Don't** add a gradient anywhere except the bone column grid and the carbon dot grid in `Textures`.
 - **Don't** add icons from a library. The arrow is the `→` character, `aria-hidden`, after its label.
-- **Don't** add header chrome: no nav menu, hamburger or sticky header. The nameplate row is the header.
-- **Don't** put a small uppercase label above a heading unless it is the page's nameplate row or a section folio with its ordinal and rule.
-- **Don't** add a texture to Schematic or a second texture to Paper. Paper's is the 4% column grid, and Schematic's surfaces stay bare.
+- **Don't** fill a surface with the accent at rest — the only exception is a button's hover fill — and don't turn the status green or amber into a second accent.
+- **Don't** add header chrome: no nav menu or hamburger. The bar is the mark and one call to action.
+- **Don't** publish a capture that shows a client's name, contact details, personal names, revenue or a payment screen. Captures come from public pages, demo accounts, or owner-supplied screenshots cropped and covered by `scripts/crop-captures.mjs`.

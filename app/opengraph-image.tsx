@@ -1,24 +1,17 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Corner Software · Software, built and run.";
+export const alt = "Corner Software · Industry platforms, built and run.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const SANS_TEXT =
-  "Corner Software builds software, and it. · Est. 2024";
-const SERIF_TEXT = "runs";
-const MONO_TEXT = "CORSW.IN INDIA";
+const SERIF_TEXT = "Software at every corner.";
+const SANS_TEXT = "Industry platforms, built and run by Corner Software.";
+const MONO_TEXT = "CORNER SOFTWARE · EST. 2024 · INDIA";
 
-async function loadGoogleFont(
-  family: string,
-  axes: string,
-  text: string,
-): Promise<ArrayBuffer> {
+async function loadGoogleFont(family: string, axes: string, text: string): Promise<ArrayBuffer> {
   const url = `https://fonts.googleapis.com/css2?family=${family.replace(/ /g, "+")}:${axes}&text=${encodeURIComponent(text)}`;
   const css = await (await fetch(url, { cache: "force-cache" })).text();
-  const resource = css.match(
-    /src: url\((.+?)\) format\('(?:opentype|truetype)'\)/,
-  );
+  const resource = css.match(/src: url\((.+?)\) format\('(?:opentype|truetype)'\)/);
   if (!resource) {
     throw new Error(`Could not resolve font face for ${family}`);
   }
@@ -30,9 +23,9 @@ async function loadGoogleFont(
 }
 
 export default async function OpengraphImage() {
-  const [inter, ebGaramondItalic, jetBrainsMono] = await Promise.all([
-    loadGoogleFont("Inter", "wght@500", SANS_TEXT + SANS_TEXT.toUpperCase()),
+  const [garamond, schibsted, mono] = await Promise.all([
     loadGoogleFont("EB Garamond", "ital,wght@1,400", SERIF_TEXT),
+    loadGoogleFont("Schibsted Grotesk", "wght@600", SANS_TEXT),
     loadGoogleFont("JetBrains Mono", "wght@400", MONO_TEXT),
   ]);
 
@@ -42,77 +35,21 @@ export default async function OpengraphImage() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#0E0E0E",
-          color: "#F5F1E8",
+          background: "#ECE6DA",
+          color: "#141310",
           display: "flex",
           flexDirection: "column",
-          padding: "72px",
-          position: "relative",
-          fontFamily: "Inter",
+          padding: "64px 72px",
+          fontFamily: "Schibsted Grotesk",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            right: 72,
-            width: 1,
-            height: "100%",
-            background: "#D4452C",
-          }}
-        />
-
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <div
-            style={{
-              width: 28,
-              height: 28,
-              background: "#0E0E0E",
-              position: "relative",
-              border: "1px solid #2A2825",
-              display: "flex",
-            }}
-          >
-            <div
-              style={{
-                width: 28,
-                height: 28,
-                background: "#F5F1E8",
-                position: "absolute",
-                top: 0,
-                left: 0,
-              }}
-            />
-            <div
-              style={{
-                width: 10,
-                height: 10,
-                background: "#0E0E0E",
-                position: "absolute",
-                top: 0,
-                right: 0,
-              }}
-            />
-            <div
-              style={{
-                width: 9,
-                height: 9,
-                background: "#D4452C",
-                position: "absolute",
-                top: 5,
-                left: 5,
-              }}
-            />
+        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+          <div style={{ width: 40, height: 40, background: "#141310", position: "relative", display: "flex" }}>
+            <div style={{ width: 20, height: 20, background: "#ECE6DA", position: "absolute", top: 5, left: 5 }} />
+            <div style={{ width: 10, height: 10, background: "#A8341E", position: "absolute", top: 10, left: 10 }} />
           </div>
-          <span
-            style={{
-              fontSize: 14,
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              color: "#A8A39A",
-            }}
-          >
-            Corner Software · Est. 2024
+          <span style={{ fontFamily: "JetBrains Mono", fontSize: 16, letterSpacing: "0.22em", color: "#45423C" }}>
+            CORNER SOFTWARE · EST. 2024 · INDIA
           </span>
         </div>
 
@@ -121,53 +58,41 @@ export default async function OpengraphImage() {
             marginTop: "auto",
             display: "flex",
             flexDirection: "column",
-            fontSize: 84,
-            fontWeight: 500,
-            lineHeight: 1.0,
-            letterSpacing: "-0.02em",
-            maxWidth: 1000,
+            fontFamily: "EB Garamond",
+            fontStyle: "italic",
+            fontSize: 132,
+            lineHeight: 0.86,
+            letterSpacing: "-0.03em",
           }}
         >
-          <span>Corner Software builds</span>
-          <span style={{ display: "flex", gap: 22 }}>
-            <span>software, and</span>
-            <span style={{ fontFamily: "EB Garamond", fontStyle: "italic", fontWeight: 400 }}>runs</span>
-            <span>it.</span>
+          <span>Software</span>
+          <span style={{ display: "flex", gap: 28 }}>
+            <span>at every</span>
+            <span style={{ color: "#A8341E" }}>corner.</span>
           </span>
         </div>
 
         <div
           style={{
-            marginTop: 64,
+            marginTop: 40,
+            paddingTop: 20,
+            borderTop: "1px solid #D3CBBD",
             display: "flex",
-            justifyContent: "space-between",
-            fontFamily: "JetBrains Mono",
-            fontSize: 16,
-            letterSpacing: "-0.01em",
-            color: "#A8A39A",
+            fontSize: 30,
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
           }}
         >
-          <span>CORSW.IN</span>
-          <span style={{ paddingRight: 48 }}>INDIA</span>
+          Industry platforms, built and run by Corner Software.
         </div>
       </div>
     ),
     {
       ...size,
       fonts: [
-        { name: "Inter", data: inter, weight: 500, style: "normal" },
-        {
-          name: "EB Garamond",
-          data: ebGaramondItalic,
-          weight: 400,
-          style: "italic",
-        },
-        {
-          name: "JetBrains Mono",
-          data: jetBrainsMono,
-          weight: 400,
-          style: "normal",
-        },
+        { name: "EB Garamond", data: garamond, weight: 400, style: "italic" },
+        { name: "Schibsted Grotesk", data: schibsted, weight: 600, style: "normal" },
+        { name: "JetBrains Mono", data: mono, weight: 400, style: "normal" },
       ],
     },
   );

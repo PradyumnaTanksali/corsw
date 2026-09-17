@@ -1,22 +1,33 @@
 import type { Metadata } from "next";
-import { Masthead } from "@/components/sections/Masthead";
-import { Foundation } from "@/components/sections/Foundation";
-import { Projects } from "@/components/sections/Projects";
-import { IndexSection } from "@/components/sections/Index";
-import { Manifesto } from "@/components/sections/Manifesto";
-import { Contact } from "@/components/sections/Contact";
-import { Colophon } from "@/components/sections/Colophon";
-import { DEMO_EMAIL, projects } from "@/lib/projects";
+import { Hero } from "@/components/home/Hero";
+import { Statement } from "@/components/home/Statement";
+import { Products } from "@/components/home/Products";
+import { Platform } from "@/components/home/Platform";
+import { Engineering } from "@/components/home/Engineering";
+import { Contact } from "@/components/home/Contact";
+import { Footer } from "@/components/site/Footer";
+import { DEMO_EMAIL, engagements, products, projectHref, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Corner Software · Software, built and run.",
+  title: "Corner Software · Industry platforms, built and run.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
 };
 
 const ORG_ID = "https://corsw.in/#organization";
 
-// Only facts stated on the page (Masthead, Work, Company, Contact).
+// Section components get only the fields they render.
+const pick = ({ kind, slug, n, name, status, tagline, capture }: (typeof projects)[number]) => ({
+  kind,
+  slug,
+  n,
+  name,
+  status,
+  tagline,
+  capture,
+});
+
+// Only facts stated on the page (Hero, Products, Company, Contact).
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -27,7 +38,7 @@ const jsonLd = {
       alternateName: "Corsw",
       url: "https://corsw.in",
       logo: "https://corsw.in/brand/monogram-dark.svg",
-      description: "Software, built and run.",
+      description: "Industry platforms, built and run.",
       foundingDate: "2024",
       email: DEMO_EMAIL,
       founder: {
@@ -47,14 +58,17 @@ const jsonLd = {
     },
     {
       "@type": "ItemList",
-      itemListElement: projects.map((p) => ({
+      itemListElement: products.map((p) => ({
         "@type": "ListItem",
         position: p.n,
         item: {
-          "@type": "CreativeWork",
+          "@type": "SoftwareApplication",
           name: p.name,
           description: p.tagline,
-          creator: { "@id": ORG_ID },
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Web",
+          url: `https://corsw.in${projectHref(p)}`,
+          publisher: { "@id": ORG_ID },
         },
       })),
     },
@@ -63,20 +77,20 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <main>
+    <main id="content" data-tone-start="bone">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
         }}
       />
-      <Masthead />
-      <Foundation />
-      <Projects />
-      <IndexSection />
-      <Manifesto />
+      <Hero />
+      <Statement />
+      <Products products={products.map(pick)} />
+      <Platform />
+      <Engineering engagements={engagements.map(pick)} />
       <Contact />
-      <Colophon />
+      <Footer tone="carbon" />
     </main>
   );
 }
