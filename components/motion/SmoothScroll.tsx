@@ -2,17 +2,19 @@
 
 import "lenis/dist/lenis.css";
 import Lenis from "lenis";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 
 /**
  * Lenis inertia scrolling on fine pointers, driven by GSAP's ticker so
  * ScrollTrigger reads the same position every frame. Touch and reduced motion
  * keep native scrolling.
+ *
+ * No mount/pathname effect forces scroll to top: Next's own scroll
+ * restoration handles push navigation and Back/Forward, and Lenis resyncs
+ * from the native scroll position it finds on hydration.
  */
 export function SmoothScroll() {
-  const pathname = usePathname();
   const lenis = useRef<Lenis | null>(null);
 
   useGSAP(() => {
@@ -34,10 +36,6 @@ export function SmoothScroll() {
     // Web fonts change line lengths after first layout; re-measure once they land.
     document.fonts.ready.then(() => ScrollTrigger.refresh());
   });
-
-  useEffect(() => {
-    lenis.current?.scrollTo(0, { immediate: true });
-  }, [pathname]);
 
   return null;
 }
