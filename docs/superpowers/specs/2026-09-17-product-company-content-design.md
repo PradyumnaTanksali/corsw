@@ -87,7 +87,7 @@ Chapter order: Hero (bone) → Statement (bone) → Products (ink, pinned) → P
 ### Site-wide
 - Bar CTA: `Request a demo →` (mailto, subject "Demo request").
 - Page title: `Corner Software · Industry platforms, built and run.`
-- Metadata description: `Corner Software (Corsw) builds and operates industry platforms for healthcare practices, manufacturers and restaurants, and engineers custom platforms on the same foundation. Founded 2024, based in India.`
+- Metadata description: `Corner Software (Corsw) builds and operates industry platforms for healthcare practices, manufacturers and restaurants, and engineers custom platforms to the same standards. Founded 2024, based in India.`
 - Share description: `Industry platforms, built and run. Arogyam · StreamLine · Ordio.`
 - OG image: H1 unchanged; subline `Industry platforms, built and run by Corner Software.`
 
