@@ -5,13 +5,14 @@ import { ScrubText } from "@/components/motion/ScrubText";
 import type { Project } from "@/lib/projects";
 
 export function Business({ project }: { project: Project }) {
+  const label = project.kind === "product" ? "What it solves" : "The engagement";
   const [problem, answer] = project.business;
 
   return (
-    <section data-tone="bone" aria-label="The business" className="py-32 md:py-44">
+    <section data-tone="bone" aria-label={label} className="py-32 md:py-44">
       <Container>
         <div className="grid gap-10 md:grid-cols-12">
-          <SectionRule n={1} label="The business" className="md:col-span-3" />
+          <SectionRule n={1} label={label} className="md:col-span-3" />
           <div className="md:col-span-9">
             <ScrubText className="text-[clamp(1.75rem,3.6vw,3.25rem)] font-medium leading-[1.08] tracking-[-0.025em] text-ink">
               {problem}

@@ -5,7 +5,7 @@ import { Work } from "@/components/home/Work";
 import { Built } from "@/components/home/Built";
 import { Contact } from "@/components/home/Contact";
 import { Footer } from "@/components/site/Footer";
-import { DEMO_EMAIL, projects } from "@/lib/projects";
+import { DEMO_EMAIL, projectHref, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Corner Software · Software, built and run.",
@@ -53,7 +53,7 @@ const jsonLd = {
           "@type": "CreativeWork",
           name: p.name,
           description: p.tagline,
-          url: `https://corsw.in/work/${p.slug}`,
+          url: `https://corsw.in${projectHref(p)}`,
           creator: { "@id": ORG_ID },
         },
       })),
@@ -73,7 +73,8 @@ export default function Home() {
       <Hero />
       <Foundation />
       <Work
-        projects={projects.map(({ slug, n, name, status, tagline, capture }) => ({
+        projects={projects.map(({ kind, slug, n, name, status, tagline, capture }) => ({
+          kind,
           slug,
           n,
           name,

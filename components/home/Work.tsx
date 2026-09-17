@@ -9,14 +9,14 @@ import { StatusBadge } from "@/components/primitives/StatusBadge";
 import { Capture } from "@/components/site/Capture";
 import { SplitReveal } from "@/components/motion/SplitReveal";
 import { gsap, useGSAP } from "@/lib/gsap";
-import type { Project } from "@/lib/projects";
+import { projectHref, type Project } from "@/lib/projects";
 
 /**
  * Chapter A. Desktop with motion: the stage pins and plays the projects in
  * turn (the capture opens, the name gains weight, the rail tracks progress).
  * Phones and reduced motion: the same articles in normal flow.
  */
-type WorkProject = Pick<Project, "slug" | "n" | "name" | "status" | "tagline" | "capture">;
+type WorkProject = Pick<Project, "kind" | "slug" | "n" | "name" | "status" | "tagline" | "capture">;
 
 export function Work({ projects }: { projects: WorkProject[] }) {
   const stage = useRef<HTMLDivElement>(null);
@@ -148,7 +148,7 @@ export function Work({ projects }: { projects: WorkProject[] }) {
                 <div className="md:col-span-9 md:col-start-4">
                   {/* Duplicates the name link below; kept out of tab order and the
                       accessibility tree so each project is one tab stop, not two. */}
-                  <Link href={`/work/${p.slug}`} tabIndex={-1} aria-hidden="true" className="block">
+                  <Link href={projectHref(p)} tabIndex={-1} aria-hidden="true" className="block">
                     <div
                       data-frame
                       className="relative aspect-[16/10] w-full overflow-hidden border border-ink-rule bg-bg-card md:max-w-[calc((100svh-19rem)*1.6)]"
@@ -167,7 +167,7 @@ export function Work({ projects }: { projects: WorkProject[] }) {
                       data-name
                       className="text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-balance"
                     >
-                      <Link href={`/work/${p.slug}`}>{p.name}</Link>
+                      <Link href={projectHref(p)}>{p.name}</Link>
                     </h3>
                     <div data-meta className="pb-2">
                       <StatusBadge status={p.status} />
@@ -178,7 +178,7 @@ export function Work({ projects }: { projects: WorkProject[] }) {
                   </p>
                   <Link
                     data-meta
-                    href={`/work/${p.slug}`}
+                    href={projectHref(p)}
                     className="mt-5 inline-flex items-center gap-2 font-mono text-[13px] text-accent"
                   >
                     <span className="link-draw">Read the case study</span>

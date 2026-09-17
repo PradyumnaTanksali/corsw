@@ -6,7 +6,8 @@ import { Capture } from "@/components/site/Capture";
 import type { Project } from "@/lib/projects";
 
 export function CaseHero({ project }: { project: Project }) {
-  const sector = project.table.find((row) => row.label === "SECTOR")?.value;
+  // Products lead with who they are built for; engagements with their sector.
+  const sector = project.table.find((row) => row.label === "BUILT FOR" || row.label === "SECTOR")?.value;
 
   return (
     <section data-tone="ink" className="pt-28 md:pt-36">

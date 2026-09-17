@@ -2,13 +2,12 @@ import type { Metadata, Viewport } from "next";
 import { Container } from "@/components/primitives/Container";
 import { ProjectCard } from "@/components/primitives/ProjectCard";
 import { Footer } from "@/components/site/Footer";
-import { DEMO_EMAIL, projects } from "@/lib/projects";
+import { DEMO_EMAIL, DEMO_HREF, projects } from "@/lib/projects";
 import { TONES } from "@/lib/tones";
 
 const title = "Corsw · Platforms in service";
 const description =
   "Arogyam for clinics, StreamLine for manufacturers, Ordio for café counters. Ask to see one running.";
-const demoHref = `mailto:${DEMO_EMAIL}?subject=${encodeURIComponent("Demo request")}`;
 
 // On a wildcard host "/" is rewritten back to this page, so links home are absolute.
 const HOME = "https://corsw.in";
@@ -38,7 +37,7 @@ export const viewport: Viewport = {
 };
 
 export default function DemoPage() {
-  const operating = projects.filter((p) => p.status === "operating");
+  const operating = projects.filter((p) => p.kind === "product" && p.status === "operating");
 
   return (
     <main id="content" data-tone-start="ink">
@@ -62,7 +61,7 @@ export default function DemoPage() {
 
           <div className="mt-12 flex flex-col gap-6 border-t border-ink-rule pt-8 sm:flex-row sm:items-center sm:gap-10 md:mt-16">
             <a
-              href={demoHref}
+              href={DEMO_HREF}
               className="inline-flex items-center justify-between gap-3 border border-accent px-5 py-3 font-mono text-[13px] text-accent transition-colors duration-150 hover:bg-accent hover:text-bg sm:justify-start"
             >
               Ask for a demo <span aria-hidden="true">→</span>
@@ -98,7 +97,7 @@ export default function DemoPage() {
             in the subject line, or describe what you would like built.
           </p>
           <a
-            href={demoHref}
+            href={DEMO_HREF}
             className="link-draw mt-10 inline-block break-words font-mono text-[15px] tabular-nums text-ink transition-colors duration-150 hover:text-accent"
           >
             {DEMO_EMAIL}

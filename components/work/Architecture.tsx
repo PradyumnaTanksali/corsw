@@ -42,12 +42,12 @@ export function Architecture({ project }: { project: Project }) {
             <div className="mt-8">
               <DataTable caption={`${project.name} at a glance`} rows={project.table} />
             </div>
-            {project.status === "operating" && (
+            {project.kind === "product" && project.status === "operating" && (
               <a
                 href={`mailto:${DEMO_EMAIL}?subject=${encodeURIComponent(`Demo request — ${project.name}`)}`}
                 className="mt-10 inline-flex items-center justify-between gap-3 border border-accent px-5 py-3 font-mono text-[13px] text-accent transition-colors duration-150 hover:bg-accent hover:text-bg"
               >
-                Ask for a demo <span aria-hidden="true">→</span>
+                Request a demo <span aria-hidden="true">→</span>
               </a>
             )}
           </div>
