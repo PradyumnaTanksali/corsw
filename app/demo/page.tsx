@@ -7,7 +7,7 @@ import { TONES } from "@/lib/tones";
 
 const title = "Corsw · Platforms in service";
 const description =
-  "Arogyam for clinics, StreamLine for manufacturers, Ordio for café counters. Ask to see one running.";
+  "Arogyam for outpatient clinics, StreamLine for manufacturers and trading businesses, Ordio for restaurants and cafés. Request a demo of any of them.";
 
 // On a wildcard host "/" is rewritten back to this page, so links home are absolute.
 const HOME = "https://corsw.in";
@@ -64,7 +64,7 @@ export default function DemoPage() {
               href={DEMO_HREF}
               className="inline-flex items-center justify-between gap-3 border border-accent px-5 py-3 font-mono text-[13px] text-accent transition-colors duration-150 hover:bg-accent hover:text-bg sm:justify-start"
             >
-              Ask for a demo <span aria-hidden="true">→</span>
+              Request a demo <span aria-hidden="true">→</span>
             </a>
             <a
               href={HOME}

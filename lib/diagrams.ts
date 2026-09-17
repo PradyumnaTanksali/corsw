@@ -37,10 +37,10 @@ const PLATFORM: Schematic = {
     "and customer surfaces (portals, sites and QR pages) reach a tenant-scoped " +
     "server that sets the organisation for every request. The server reads and " +
     "writes Postgres under row-level security, appends to audit logs and ledgers, " +
-    "and renders documents, which go out by email with sign-in codes.",
+    "renders documents, and sends documents and sign-in codes by email.",
   viewBox: { w: 620, h: 360 },
   boxes: [
-    { id: "staff", x: 24, y: 32, w: 156, h: 52, label: "Staff apps", sub: "web · installable" },
+    { id: "staff", x: 24, y: 32, w: 156, h: 52, label: "Staff apps", sub: "web" },
     { id: "surfaces", x: 24, y: 116, w: 156, h: 52, label: "Customer surfaces", sub: "portals · sites · QR" },
     { id: "server", x: 232, y: 76, w: 156, h: 52, label: "Tenant server", sub: "org scope per request", accent: true },
     { id: "docs", x: 232, y: 168, w: 156, h: 52, label: "Documents", sub: "PDF · invoices" },
@@ -54,11 +54,11 @@ const PLATFORM: Schematic = {
     { from: "server", to: "pg" },
     { from: "server", to: "records" },
     { from: "server", to: "docs", via: [{ x: 310, y: 128 }, { x: 310, y: 194 }] },
-    { from: "docs", to: "mail" },
+    { from: "server", to: "mail", via: [{ x: 310, y: 128 }, { x: 310, y: 278 }] },
   ],
   annotations: [
     { x: 310, y: 24, text: "one tenant per subdomain or domain" },
-    { x: 310, y: 332, text: "money in whole paise" },
+    { x: 310, y: 332, text: "money calculated in paise" },
     { x: 532, y: 332, text: "nothing overwritten" },
   ],
   mobileClients: ["staff", "surfaces"],
@@ -95,7 +95,7 @@ const AROGYAM: Schematic = {
   annotations: [
     { x: 310, y: 24, text: "each practice on its own domain" },
     { x: 310, y: 332, text: "casepapers never overwritten" },
-    { x: 532, y: 332, text: "consent tied to policy version" },
+    { x: 518, y: 332, text: "consent tied to policy version" },
   ],
   mobileClients: ["staff", "portal"],
 };
@@ -138,7 +138,7 @@ const STREAMLINE: Schematic = {
   ],
   annotations: [
     { x: 310, y: 24, text: "one org per tenant" },
-    { x: 310, y: 332, text: "money in integer paise" },
+    { x: 310, y: 332, text: "money calculated in paise" },
     { x: 532, y: 332, text: "stock = sum(movements)" },
   ],
   mobileClients: ["web", "auth"],
@@ -168,7 +168,7 @@ const ORDIO: Schematic = {
     },
     { id: "printer", x: 232, y: 168, w: 156, h: 52, label: "Kitchen printer", sub: "thermal KOT" },
     { id: "pdf", x: 232, y: 252, w: 156, h: 52, label: "Receipts", sub: "pdf-lib A5" },
-    { id: "pg", x: 440, y: 32, w: 156, h: 52, label: "Neon Postgres", sub: "RLS per café" },
+    { id: "pg", x: 440, y: 32, w: 156, h: 52, label: "Neon Postgres", sub: "RLS per outlet" },
     { id: "orders", x: 440, y: 116, w: 156, h: 52, label: "Orders", sub: "status timeline" },
     { id: "hand", x: 440, y: 252, w: 156, h: 52, label: "WhatsApp / SMS", sub: "share links" },
   ],
@@ -182,9 +182,9 @@ const ORDIO: Schematic = {
     { from: "pdf", to: "hand" },
   ],
   annotations: [
-    { x: 310, y: 24, text: "one café per subdomain" },
-    { x: 310, y: 332, text: "money in integer paise" },
-    { x: 532, y: 332, text: "tickets print on the kitchen line" },
+    { x: 310, y: 24, text: "one outlet per subdomain" },
+    { x: 310, y: 332, text: "money calculated in paise" },
+    { x: 518, y: 332, text: "tickets print on the kitchen line" },
   ],
   mobileClients: ["guest", "kds"],
 };

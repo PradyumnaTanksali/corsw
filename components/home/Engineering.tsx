@@ -5,13 +5,13 @@ import { StatusBadge } from "@/components/primitives/StatusBadge";
 import { Capture } from "@/components/site/Capture";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitReveal } from "@/components/motion/SplitReveal";
-import { projectHref, type Project } from "@/lib/projects";
+import { NEW_PROJECT_HREF, projectHref, type Project } from "@/lib/projects";
 
 const services = ["Product design", "Engineering", "Hosting and operations", "Ongoing support"];
 
 type Engagement = Pick<Project, "kind" | "slug" | "name" | "status" | "tagline" | "capture">;
 
-/** Chapter C. Custom platforms, and the engagements that show them. */
+/** Chapter C. Custom software, and the engagements that show them. */
 export function Engineering({ engagements }: { engagements: Engagement[] }) {
   return (
     <section
@@ -28,17 +28,17 @@ export function Engineering({ engagements }: { engagements: Engagement[] }) {
               id="engineering-title"
               className="text-[clamp(2.75rem,8vw,7.5rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-balance"
             >
-              Custom platforms. Same{" "}
+              Custom software. Same{" "}
               <span className="font-mono font-medium tracking-[-0.07em] text-accent">standards.</span>
             </SplitReveal>
 
             <Reveal>
               <p data-reveal className="mt-12 max-w-prose text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.4] text-ink text-balance">
-                When no product fits, Corsw designs and builds the platform, then hosts and runs it the way
+                When no product fits, Corsw designs and builds the software, then hosts and runs it the way
                 it runs its own products.
               </p>
               <p data-reveal className="mt-6 max-w-prose text-[17px] leading-[1.6] text-ink-muted">
-                From the first workshop to production support, one team owns the outcome.
+                From the first scoping call to production support, Corsw owns the outcome.
               </p>
               <ul
                 data-reveal
@@ -49,10 +49,18 @@ export function Engineering({ engagements }: { engagements: Engagement[] }) {
                   <li key={service}>{service}</li>
                 ))}
               </ul>
+              <a
+                data-reveal
+                href={NEW_PROJECT_HREF}
+                className="mt-8 inline-flex items-center gap-2 font-mono text-[13px] text-accent"
+              >
+                <span className="link-draw">Start a project</span>
+                <span aria-hidden="true">→</span>
+              </a>
             </Reveal>
 
             <div className="mt-20">
-              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-muted">Selected engagement</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-muted">Engagement</p>
               {engagements.map((e) => (
                 <article
                   key={e.slug}
@@ -78,6 +86,7 @@ export function Engineering({ engagements }: { engagements: Engagement[] }) {
                       className="mt-6 inline-flex items-center gap-2 font-mono text-[13px] text-accent"
                     >
                       <span className="link-draw">Read the engagement</span>
+                      <span className="sr-only"> {e.name}</span>
                       <span aria-hidden="true">→</span>
                     </Link>
                   </div>

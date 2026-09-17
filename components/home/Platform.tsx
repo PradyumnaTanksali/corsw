@@ -11,11 +11,11 @@ const pillars = [
   },
   {
     label: "History",
-    copy: "Critical records are append-only: audit logs, casepaper versions, stock movements and payments are added to, never overwritten.",
+    copy: "Critical records are append-only: audit logs, casepaper versions, stock movements and invoice payments are added to, never overwritten.",
   },
   {
     label: "Money",
-    copy: "Amounts are stored in whole paise and recalculated on the server, never trusted from the screen.",
+    copy: "Amounts are calculated in whole paise on the server, never trusted from the screen.",
   },
   {
     label: "Identity",
@@ -31,7 +31,7 @@ const pillars = [
   },
 ];
 
-/** Chapter C. The foundation every product shares, beside its diagram. */
+/** Chapter C. The standards every product shares, beside its diagram. */
 export function Platform() {
   return (
     <section data-tone="carbon" id="platform" aria-labelledby="platform-title" className="py-32 md:py-44">
@@ -43,11 +43,11 @@ export function Platform() {
               id="platform-title"
               className="text-[clamp(2.75rem,8vw,7.5rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-balance"
             >
-              Built on one <span className="font-mono font-medium tracking-[-0.07em] text-accent">foundation.</span>
+              Built to one <span className="font-mono font-medium tracking-[-0.07em] text-accent">standard.</span>
             </SplitReveal>
             <p className="mt-8 max-w-prose text-[17px] leading-[1.6] text-ink-muted">
-              Every Corsw product runs on the same engineering foundation. Work on security, reliability
-              and performance reaches every product and every customer.
+              Every Corsw product is built to the same engineering standards and runs as one hosted
+              platform. An improvement ships once and reaches every customer of that product.
             </p>
           </div>
         </div>

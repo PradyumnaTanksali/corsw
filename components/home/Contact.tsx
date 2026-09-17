@@ -10,7 +10,7 @@ const rows = [
   { label: "Based", value: "India" },
   { label: "Products", value: "Arogyam · StreamLine · Ordio" },
   { label: "Industries", value: "Healthcare · Manufacturing · Trading · Food service · Distribution" },
-  { label: "Services", value: "Product engineering · Hosting and operations · Support" },
+  { label: "Services", value: "Product design · Engineering · Hosting and operations · Ongoing support" },
 ];
 
 /** Chapter C, closing: the company at a glance, then the two ways to start. */
@@ -48,11 +48,11 @@ export function Contact() {
 
             <Reveal>
               <p data-reveal className="mt-12 max-w-prose text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.4] text-ink text-balance">
-                See a platform running against your own workflow, or scope one Corsw builds for you.
+                See a product running, or scope software Corsw builds for you.
               </p>
               <p data-reveal className="mt-6 max-w-prose text-[17px] leading-[1.6] text-ink-muted">
-                Share what you run today and where it slows you down. The reply sets out what the platform
-                covers, the timeline and the cost.
+                Share what you run today and where it slows you down. The reply sets out what Corsw would
+                build, the timeline and the cost.
               </p>
             </Reveal>
 

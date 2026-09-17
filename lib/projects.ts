@@ -155,7 +155,7 @@ export const projects: Project[] = [
     tagline: "Ordering, kitchen and guest platform for restaurants and cafés.",
     description: [
       "Guests order from the table on their own phone, with no app and no sign-in. Orders reach a kitchen display and thermal printer, and guests follow their ticket to the table.",
-      "Owners run menus, offers, tables, staff and analytics from one dashboard, with GST invoices and a branded website for every outlet.",
+      "Owners run menus, offers, tables, staff and analytics from one dashboard, with GST invoices and a branded website for each restaurant.",
     ],
     business: [
       "Service at a busy restaurant is limited by the counter: guests wait to order, and tickets reach the kitchen by hand.",

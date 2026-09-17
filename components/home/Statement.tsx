@@ -19,7 +19,7 @@ export function Statement() {
             <Reveal>
               <p data-reveal className="mt-10 max-w-prose text-[17px] leading-[1.6] text-ink-muted">
                 Arogyam, StreamLine and Ordio serve healthcare, manufacturing and food service. The same
-                engineering practice builds custom platforms for businesses no product fits yet.
+                engineering practice builds custom platforms for businesses no product fits.
               </p>
             </Reveal>
           </div>

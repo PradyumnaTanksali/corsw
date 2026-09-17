@@ -120,7 +120,7 @@ export function Products({ products }: { products: ProductItem[] }) {
               Built for whole <span className="font-accent text-accent">industries.</span>
             </SplitReveal>
             <p className="mt-8 max-w-prose text-[17px] leading-[1.6] text-ink-muted">
-              Each platform is designed around how an industry works, then configured for every business
+              Each product is designed around how an industry works, then configured for every business
               that runs on it.
             </p>
           </div>

@@ -4,7 +4,7 @@ import { SectionRule } from "@/components/primitives/SectionRule";
 import { Diagram } from "@/components/site/Diagram";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitReveal } from "@/components/motion/SplitReveal";
-import { DEMO_EMAIL, type Project } from "@/lib/projects";
+import { DEMO_EMAIL, NEW_PROJECT_HREF, type Project } from "@/lib/projects";
 
 export function Architecture({ project }: { project: Project }) {
   return (
@@ -48,6 +48,14 @@ export function Architecture({ project }: { project: Project }) {
                 className="mt-10 inline-flex items-center justify-between gap-3 border border-accent px-5 py-3 font-mono text-[13px] text-accent transition-colors duration-150 hover:bg-accent hover:text-bg"
               >
                 Request a demo <span aria-hidden="true">→</span>
+              </a>
+            )}
+            {project.kind === "engagement" && (
+              <a
+                href={NEW_PROJECT_HREF}
+                className="mt-10 inline-flex items-center justify-between gap-3 border border-accent px-5 py-3 font-mono text-[13px] text-accent transition-colors duration-150 hover:bg-accent hover:text-bg"
+              >
+                Start a project <span aria-hidden="true">→</span>
               </a>
             )}
           </div>
