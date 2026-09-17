@@ -15,7 +15,8 @@ export type ProjectKind = "product" | "engagement";
 /**
  * A product capture. `src` stays unset until the file exists in
  * public/work/<slug>/ (scripts/capture.sh); the site shows a placeholder frame
- * meanwhile. Captures come only from public pages or seeded demo data.
+ * meanwhile. Captures never show client names, contact details, personal names,
+ * revenue or payment screens (scripts/crop-captures.mjs).
  */
 export type Shot = { src?: string; alt: string };
 
@@ -72,27 +73,31 @@ export const projects: Project[] = [
       { label: "LANGUAGES", value: "English · Marathi" },
       { label: "DELIVERY", value: "Multi-tenant · Custom domains" },
     ],
-    capture: { alt: "Arogyam front desk with the day's agenda" },
+    capture: { src: "/work/arogyam/exercises.png", alt: "Arogyam exercise library in English and Marathi" },
     walkthrough: [
       {
         device: "laptop",
-        alt: "Arogyam daily agenda with patient search",
-        caption: "The day's agenda, with every patient one search away.",
+        src: "/work/arogyam/schedule.png",
+        alt: "Arogyam calendar in agenda view",
+        caption: "Appointments by agenda, week or month, confirmed from the front desk.",
       },
       {
         device: "laptop",
-        alt: "Arogyam casepaper with version history",
-        caption: "Casepapers are versioned. An edit adds a version and never overwrites the record.",
-      },
-      {
-        device: "phone",
-        alt: "Arogyam patient portal on a phone",
-        caption: "Patients complete intake, questionnaires and recovery programmes from one private link.",
+        src: "/work/arogyam/triage.png",
+        alt: "Arogyam patient record with a pre-visit link and triage result",
+        caption: "A pre-visit link collects consent, and triage answers are flagged before the visit.",
       },
       {
         device: "laptop",
-        alt: "Arogyam triage results with red flags",
-        caption: "Red-flag answers reach the clinician before the visit.",
+        src: "/work/arogyam/exercises.png",
+        alt: "Arogyam exercise library in English and Marathi",
+        caption: "An exercise library in English and Marathi, ready to build into home programmes.",
+      },
+      {
+        device: "laptop",
+        src: "/work/arogyam/questionnaires.png",
+        alt: "Arogyam triage questionnaires",
+        caption: "Triage questionnaires come built in, in English and Marathi, and practices can write their own.",
       },
     ],
   },
@@ -122,27 +127,31 @@ export const projects: Project[] = [
       { label: "CONTROLS", value: "Roles · Audit log · Module access per company" },
       { label: "DELIVERY", value: "Multi-tenant · Installable app" },
     ],
-    capture: { alt: "StreamLine production board" },
+    capture: { src: "/work/streamline/dashboard.png", alt: "StreamLine dashboard" },
     walkthrough: [
       {
         device: "laptop",
-        alt: "StreamLine quotation with revisions",
-        caption: "Customers review and accept quotations from a secure link, and every revision is kept.",
+        src: "/work/streamline/dashboard.png",
+        alt: "StreamLine dashboard with sales, quotes, production and payroll",
+        caption: "The month at a glance: sales, open quotes, production, payroll and low stock.",
       },
       {
         device: "laptop",
-        alt: "StreamLine production board",
-        caption: "The production board follows each job through stages the company defines.",
+        src: "/work/streamline/quotations.png",
+        alt: "StreamLine quotations by status",
+        caption: "Quotations move from draft to sent, accepted and converted, with every revision kept.",
       },
       {
         device: "laptop",
-        alt: "StreamLine stock ledger",
-        caption: "Stock on hand is derived from every movement, never typed in.",
+        src: "/work/streamline/attendance.png",
+        alt: "StreamLine attendance grid with absences and leave",
+        caption: "Attendance records only the exceptions, and absences flow into payroll as loss of pay.",
       },
       {
         device: "laptop",
-        alt: "StreamLine payroll run",
-        caption: "Payroll runs produce locked payslips, with PF and ESI calculated.",
+        src: "/work/streamline/public-site.png",
+        alt: "A StreamLine company public site with an order enquiry form",
+        caption: "Each company's public site sends order enquiries straight to the team.",
       },
     ],
   },
@@ -173,28 +182,32 @@ export const projects: Project[] = [
       { label: "ROLES", value: "Owner · Kitchen · Server · Staff" },
       { label: "DELIVERY", value: "Multi-tenant · Installable app" },
     ],
-    capture: { alt: "Ordio kitchen display" },
-    // No payment step: payments are not live (PRODUCT.md, Not claimable).
+    capture: { src: "/work/ordio/tables.png", alt: "Ordio floor plan with a QR code per table" },
+    // No payment screens: payments are not live (PRODUCT.md, Not claimable).
     walkthrough: [
       {
         device: "phone",
-        alt: "Ordio menu after scanning a table code",
-        caption: "Guests scan the table's code and order. No app, no sign-in.",
+        src: "/work/ordio/menu.png",
+        alt: "Ordio menu on a guest's phone",
+        caption: "Guests open the menu from the table's code. No app, no sign-in.",
       },
       {
         device: "phone",
-        alt: "Ordio cart with add-ons and a kitchen note",
-        caption: "Sizes, add-ons and kitchen notes, with GST calculated on the bill.",
+        src: "/work/ordio/item.png",
+        alt: "Ordio item options with sizes, extras and a kitchen note",
+        caption: "Sizes, extras and a note for the kitchen on every item.",
       },
       {
         device: "laptop",
-        alt: "Ordio kitchen display",
-        caption: "Every ticket moves across the kitchen display, and prints if needed.",
+        src: "/work/ordio/tables.png",
+        alt: "Ordio floor plan with a QR code per table",
+        caption: "Tables are laid out on a floor plan, each with its own printable QR code.",
       },
       {
         device: "laptop",
-        alt: "Ordio analytics",
-        caption: "Analytics break down items, peak hours, kitchen timing and coupons.",
+        src: "/work/ordio/summary.png",
+        alt: "Ordio daily summary by hour, item and table",
+        caption: "The daily summary shows orders by hour, item velocity and takings by table.",
       },
     ],
   },

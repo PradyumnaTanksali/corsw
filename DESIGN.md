@@ -228,4 +228,4 @@ Every animation is created inside `useGSAP` and gated by `gsap.matchMedia()` (`(
 - **Don't** add icons from a library. The arrow is the `→` character, `aria-hidden`, after its label.
 - **Don't** fill a surface with the accent at rest — the only exception is a button's hover fill — and don't turn the status green or amber into a second accent.
 - **Don't** add header chrome: no nav menu or hamburger. The bar is the mark and one call to action.
-- **Don't** capture a screen from production Arogyam, StreamLine or Ordio. Captures come only from public pages (SSC) or a local instance running seeded demo data.
+- **Don't** publish a capture that shows a client's name, contact details, personal names, revenue or a payment screen. Captures come from public pages, demo accounts, or owner-supplied screenshots cropped and covered by `scripts/crop-captures.mjs`.

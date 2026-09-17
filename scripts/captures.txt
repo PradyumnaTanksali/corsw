@@ -1,6 +1,6 @@
 # slug  file           device  url                                             [top]
-# Only public pages or local instances running seeded demo data. Never production
-# Arogyam, StreamLine or Ordio (real patients and a real café).
+# Only public pages or demo accounts. Screenshots from client accounts go through
+# scripts/crop-captures.mjs so names, contact details and takings are removed.
 ssc     catalogue.png  laptop  https://ssc.corsw.in/catalogue
 ssc     product.png    phone   https://ssc.corsw.in/catalogue/yograj-guggulu    550
 ssc     quote.png      phone   https://ssc.corsw.in/contact?product=Yograj%20Guggulu  1120

@@ -111,21 +111,21 @@ Metadata per page: title `<Name> · Corner Software`, description = tagline, can
 - Description: `Arogyam runs the clinical and front-desk work of a practice: scheduling, patient records, versioned casepapers, intake questionnaires and home-recovery programmes. Patients reach the practice through a private portal, in English or Marathi.` / `Every practice gets its own website and domain, with consent records and an append-only audit trail from the first visit.`
 - What it solves: `A practice runs on appointments, clinical notes and the care patients continue at home. Kept in diaries, paper files and chat threads, none of it can be searched, audited or followed up.` / `Arogyam keeps the practice in one system, from the first booking to the last session of a recovery programme.`
 - Table: `BUILT FOR` Physiotherapy · Rehabilitation · Outpatient clinics · `MODULES` Scheduling · Patient records · Casepapers · Questionnaires and triage · Recovery programmes · Patient portal · Practice website · `LANGUAGES` English · Marathi · `DELIVERY` Multi-tenant · Custom domains
-- In use: (laptop) `The day's agenda, with every patient one search away.` · (laptop) `Casepapers are versioned. An edit adds a version and never overwrites the record.` · (phone) `Patients complete intake, questionnaires and recovery programmes from one private link.` · (laptop) `Red-flag answers reach the clinician before the visit.`
+- In use: (laptop) `Appointments by agenda, week or month, confirmed from the front desk.` · (laptop) `A pre-visit link collects consent, and triage answers are flagged before the visit.` · (laptop) `An exercise library in English and Marathi, ready to build into home programmes.` · (laptop) `Triage questionnaires come built in, in English and Marathi, and practices can write their own.`
 
 ### StreamLine (product, operating)
 - Tagline: `Operations platform for manufacturers and trading businesses.`
 - Description: `StreamLine runs the order from quotation to dispatch: sales, purchasing, inventory, production and payroll on one set of records.` / `Each company works in an isolated workspace with its own roles, audit log and a public website that routes enquiries to sales.`
 - What it solves: `A manufacturer's margin is decided between the quotation and the dispatch note: a revised price, a late purchase order, stock no one counted.` / `StreamLine records every step of the order, so sales, stores, production and payroll work from the same numbers.`
 - Table: `BUILT FOR` Make-to-order manufacturing · Fabrication · Trading · `MODULES` Quotations · Invoicing · Purchasing · Inventory · Production · Payroll · Company website · `CONTROLS` Roles · Audit log · Module access per company · `DELIVERY` Multi-tenant · Installable app
-- In use: (laptop) `Customers review and accept quotations from a secure link, and every revision is kept.` · (laptop) `The production board follows each job through stages the company defines.` · (laptop) `Stock on hand is derived from every movement, never typed in.` · (laptop) `Payroll runs produce locked payslips, with PF and ESI calculated.`
+- In use: (laptop) `The month at a glance: sales, open quotes, production, payroll and low stock.` · (laptop) `Quotations move from draft to sent, accepted and converted, with every revision kept.` · (laptop) `Attendance records only the exceptions, and absences flow into payroll as loss of pay.` · (laptop) `Each company's public site sends order enquiries straight to the team.`
 
 ### Ordio (product, operating)
 - Tagline: `Ordering, kitchen and guest platform for restaurants and cafés.`
 - Description: `Guests order from the table on their own phone, with no app and no sign-in. Orders reach a kitchen display and thermal printer, and guests follow their ticket to the table.` / `Owners run menus, offers, tables, staff and analytics from one dashboard, with GST invoices and a branded website for each restaurant.`
 - What it solves: `Service at a busy restaurant is limited by the counter: guests wait to order, and tickets reach the kitchen by hand.` / `Ordio moves ordering to the guest's phone and every ticket onto the kitchen display, so the floor team serves instead of taking orders.`
 - Table: `BUILT FOR` Restaurants · Cafés · Quick service · `MODULES` QR ordering · Kitchen display · Order tracking · GST invoices · Offers and coupons · Analytics · Outlet website · Display board · `ROLES` Owner · Kitchen · Server · Staff · `DELIVERY` Multi-tenant · Installable app
-- In use: (phone) `Guests scan the table's code and order. No app, no sign-in.` · (phone) `Sizes, add-ons and kitchen notes, with GST calculated on the bill.` · (laptop) `Every ticket moves across the kitchen display, and prints if needed.` · (laptop) `Analytics break down items, peak hours, kitchen timing and coupons.`
+- In use: (phone) `Guests open the menu from the table's code. No app, no sign-in.` · (phone) `Sizes, extras and a note for the kitchen on every item.` · (laptop) `Tables are laid out on a floor plan, each with its own printable QR code.` · (laptop) `The daily summary shows orders by hour, item velocity and takings by table.`
 
 ### SSC (engagement, in build)
 - Tagline: `B2B catalogue and quoting for a wholesale distributor.`
@@ -156,6 +156,10 @@ Every box must exist in shipped code. The existing diagram tests apply to all sc
 - `lib/projects.test.mjs`: every entry has `kind` of `product` or `engagement`; slugs unique; the banned-word regex covers the extended list; existing capture and LAUNCH checks unchanged.
 - One screenshot pass, desktop 1440×900 and phone 390×844, on `/`, one product page and `/engineering/ssc`: the longer taglines fit the pinned Products stage and page heroes without clipping.
 
+## Captures (2026-09-17)
+
+Owner-supplied screenshots replace the placeholders for Arogyam, StreamLine and Ordio. `scripts/crop-captures.mjs` crops them to the app and covers client names, contact details, personal names and takings. Payment screens are not used. The walkthrough captions above describe the screens shown (owner approved).
+
 ## Out of scope
 
-Visual design changes, new captures, roadmap content, pricing, other products.
+Visual design changes, roadmap content, pricing, other products.

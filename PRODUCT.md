@@ -47,7 +47,7 @@ Corsw is a platform and engineering company. Its products are built for whole in
 - Live: `drtanvis.arogyam.corsw.in/en` (Arogyam clinic #1; `drtanvis.corsw.in` retired 2026-09-16), `stream.corsw.in`, `ordio.corsw.in` with `sipsnbites.ordio.corsw.in`, `ssc.corsw.in`.
 - Verified product capabilities are in `/Users/apple/Personal/PROJECTS.md` (2026-09-03).
 - Absent, never to be fabricated: uptime measurements, testimonials, customer logos, revenue, compliance certification.
-- Product captures: SSC from its public site; Arogyam, StreamLine and Ordio only from local seeded demo data, pending.
+- Product captures: SSC from its public site; StreamLine from the demo account; Arogyam and Ordio from owner-supplied screenshots (2026-09-17) with the clinic and café names, contact details, personal names and takings removed (`scripts/crop-captures.mjs`). No payment screens while payments are not live.
 - Not claimable (verified against the product repos, 2026-09-17):
   - Arogyam: WhatsApp messaging or automation (production provider is a mock), ABDM/ABHA integration, AI or RAG assistant, desktop app, Hindi, India data residency or DPDP compliance, payments or billing, multi-doctor scheduling, multi-location.
   - StreamLine: self-serve signup or subscription billing, POS or retail, multi-warehouse, TDS as current or certified, leave or TDS on by default, general notifications.

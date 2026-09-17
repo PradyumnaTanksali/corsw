@@ -156,7 +156,7 @@ Beside the pillars, the `platform` system diagram (`lib/diagrams.ts`) assembles 
 - Rounded corners, gradients (the column and dot grids excepted), shadows, an icon library.
 - A fabricated number or an unevidenced legal claim ("compliant"). Arogyam keeps consent and audit records; it is not certified.
 - Mobile diagrams that connect boxes the desktop schematic doesn't.
-- Captures from production systems.
+- Captures that show a client name, contact details, personal names, revenue or a payment screen.
 - Any capability on the PRODUCT.md Not claimable list.
 
 **Always**
