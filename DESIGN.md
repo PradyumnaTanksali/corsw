@@ -100,7 +100,7 @@ The former Paper/Schematic switch is gone. There is no theme control anywhere on
 The page is sparse and editorial. Sections sit on a 3/9 folio split: the section number and name in the first three columns, the content in the last nine. Structure comes from 1px hairlines, not boxes. Anything that is a fact (a figure, a table, a stack name, a status) is set in mono with tabular figures. Headlines are Schibsted Grotesk, weighted by hand for each role; the counterpoint face is Garamond italic on bone and ink.
 
 **Key Characteristics:**
-- One token set, three chapters: role variables scrubbed on `<html>` as the page scrolls (`lib/tones.ts`).
+- One token set, three chapters: role variables crossfaded on `<html>` as the page scrolls (`lib/tones.ts`).
 - One saturated accent per chapter. It marks things and never fills surfaces at rest, except a button's hover fill.
 - Schibsted Grotesk variable weight for everything large, JetBrains Mono for everything factual, and a face-swapped accent word through `font-accent` on bone and ink.
 - Square corners, 1px hairlines, flat surfaces, one tonal step for cards.
@@ -126,7 +126,7 @@ Every component reads only the nine role names below; it never knows which chapt
 
 **The Role-Name Rule.** A component reads color only through a role (`bg-bg`, `text-ink-muted`, `border-ink-rule`, `var(--accent)`), never through a chapter name or a hex value. A component that is right in bone is right in ink and carbon because it cannot tell them apart.
 
-**The Mechanism.** A section carries `data-tone="bone" | "ink" | "carbon"`; a page's `<main>` carries `data-tone-start`. `app/layout.tsx` injects the CSS `toneCss()` (`lib/tones.ts`) builds: `:root` and `html:has(main[data-tone-start=…])` set the page's opening chapter, and — until JS adds `tones-live` — `html:not(.tones-live) [data-tone=…]` paints every section in its own chapter with no JS and no flash. `ToneScroller` (`components/motion/ToneScroller.tsx`) then adds `tones-live` to `<html>` and scrubs the role variables from one section's chapter to the next as that section crosses the viewport (GSAP `scrollTrigger`, `start: "top 85%"`, `end: "top 35%"`, `scrub: true`). Reduced motion never adds `tones-live`, so the static per-section painting holds.
+**The Mechanism.** A section carries `data-tone="bone" | "ink" | "carbon"`; a page's `<main>` carries `data-tone-start`. `app/layout.tsx` injects the CSS `toneCss()` (`lib/tones.ts`) builds: `:root` and `html:has(main[data-tone-start=…])` set the page's opening chapter, and — until JS adds `tones-live` — `html:not(.tones-live) [data-tone=…]` paints every section in its own chapter with no JS and no flash. `ToneScroller` (`components/motion/ToneScroller.tsx`) then adds `tones-live` to `<html>` and, when a section reaches 60% of the viewport (GSAP `scrollTrigger`, `start: "top 60%"`, `end: "bottom 60%"`), crossfades the role variables to that section's chapter over 0.6s (`power2.inOut`). The change is timed, not scrubbed: a scrub can come to rest halfway, where text and ground meet near 1:1 contrast. Reduced motion never adds `tones-live`, so the static per-section painting holds.
 
 **The Textures Rule.** `components/site/Textures.tsx` draws two fixed, `aria-hidden` layers behind the content: a twelve-column hairline grid at `--grid-opacity` (bone only) and a dot grid at `--dots-opacity * 0.45` (carbon only). Both opacities are chapter roles, so the textures cross-fade with the chapter instead of switching.
 
@@ -183,11 +183,11 @@ The stack is GSAP (`ScrollTrigger`, `SplitText`, `MotionPathPlugin`, registered 
 - **`Diagram`** (`components/site/Diagram.tsx`) — the SVG system diagram on `md`+: boxes fade up and connectors draw (`strokeDashoffset`) on one scrubbed timeline (80%–60%, `scrub: 1`), then accent dots loop along every connector (`MotionPathPlugin`) while the diagram stays in view, paused via `ScrollTrigger.onToggle` when it leaves. Below `md`, a stacked HTML version (`MobileStack`) replaces it and never shows an edge the desktop schematic lacks (`lib/diagrams.ts` `mobileLayout`, asserted by `lib/diagrams.test.mjs`).
 - **`Work`** (`components/home/Work.tsx`) — on desktop with motion, the stage pins and a scrubbed timeline opens each project's capture from an inset `clip-path` to full frame, scrubs its name's weight 400 → 800, and cross-fades to the next; a rail tracks progress. Below `md` with motion enabled, the same articles sit in normal flow with just the capture's `clip-path` reveal scrubbed per item as it enters. Under reduced motion, on any viewport, every article sits fully revealed in normal flow with no motion.
 - **`Walkthrough`** (`components/work/Walkthrough.tsx`) — on desktop with motion, one sticky device frame swaps screens (opacity) as each step's caption crosses the viewport's middle, tracked by per-step `ScrollTrigger`s. Otherwise every step renders its own inline device.
-- **`ToneScroller`** — see Chapters. Adds `tones-live` and scrubs the role variables on `<html>` between chapters; does nothing under reduced motion.
+- **`ToneScroller`** — see Chapters. Adds `tones-live` and crossfades the role variables on `<html>` between chapters; does nothing under reduced motion.
 
 ### Eases
 
-`expo.out` for one-shot entrances (`Reveal`, `SplitReveal`). `ease: "none"` for every scrubbed or ticker-driven motion (`ScrubText`, `Drift`, `Marquee`, `ToneScroller`, the `Diagram` and `Work` scroll timelines). CSS `cubic-bezier(0.16, 1, 0.3, 1)` for the two motions that must run without JS — the hero's `.line-rise` and `.mark-stamp` keyframes — and for `::view-transition-group` (the shared `capture-<slug>` element between a Work card and its case-study hero).
+`expo.out` for one-shot entrances (`Reveal`, `SplitReveal`). `ease: "none"` for every scrubbed or ticker-driven motion (`ScrubText`, `Drift`, `Marquee`, the `Diagram` and `Work` scroll timelines). `power2.inOut` for the `ToneScroller` chapter crossfade. CSS `cubic-bezier(0.16, 1, 0.3, 1)` for the two motions that must run without JS — the hero's `.line-rise` and `.mark-stamp` keyframes — and for `::view-transition-group` (the shared `capture-<slug>` element between a Work card and its case-study hero).
 
 ### The `data-live` Pattern
 

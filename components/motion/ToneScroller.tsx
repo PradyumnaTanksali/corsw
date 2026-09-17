@@ -1,13 +1,15 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { gsap, useGSAP } from "@/lib/gsap";
+import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsap";
 import { TONES, type Tone } from "@/lib/tones";
 
 /**
  * Takes over from the static per-section tones: adds `tones-live` to <html>
- * and scrubs the role variables from one section's tone to the next as that
- * section scrolls in. Reduced motion keeps the static tones.
+ * and crossfades the role variables to a section's tone when that section
+ * reaches 60% of the viewport. Timed, not scrubbed: a scrub can stop halfway,
+ * where text and ground meet near 1:1 contrast. Reduced motion keeps the
+ * static tones.
  */
 export function ToneScroller() {
   const pathname = usePathname();
@@ -24,23 +26,22 @@ export function ToneScroller() {
         gsap.set(root, toneOf(sections[0]));
         root.classList.add("tones-live");
 
-        sections.slice(1).forEach((section, i) => {
-          const from = toneOf(sections[i]);
-          const to = toneOf(section);
-          if (from === to) return;
-          gsap.fromTo(
-            root,
-            { ...from },
-            {
-              ...to,
-              ease: "none",
-              immediateRender: false,
-              scrollTrigger: { trigger: section, start: "top 85%", end: "top 35%", scrub: true },
+        for (const section of sections) {
+          ScrollTrigger.create({
+            trigger: section,
+            start: "top 60%",
+            end: "bottom 60%",
+            onToggle: (self) => {
+              if (self.isActive) {
+                gsap.to(root, { ...toneOf(section), duration: 0.6, ease: "power2.inOut", overwrite: "auto" });
+              }
             },
-          );
-        });
+          });
+        }
 
         return () => {
+          // Crossfades start in callbacks, outside this context's cleanup.
+          gsap.killTweensOf(root);
           root.classList.remove("tones-live");
           for (const role of Object.keys(TONES.bone)) root.style.removeProperty(role);
         };

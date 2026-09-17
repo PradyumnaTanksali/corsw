@@ -83,7 +83,8 @@ export function Walkthrough({ project }: { project: Project }) {
             </div>
           </div>
 
-          <ol className="md:col-span-5">
+          {/* Stacked (no sticky stage): the steps take the folio's nine columns. */}
+          <ol className="md:col-span-9 md:col-start-4 md:in-data-live:col-span-5 md:in-data-live:col-start-auto">
             {project.walkthrough.map((step, i) => (
               <li
                 key={step.alt}

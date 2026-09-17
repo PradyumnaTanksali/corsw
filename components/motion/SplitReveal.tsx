@@ -35,10 +35,12 @@ export function SplitReveal({
         const split = SplitText.create(el, {
           type: "lines",
           mask: "lines",
+          // Masks get the `line-mask` class, whose padding keeps descenders.
+          linesClass: "line",
           autoSplit: true,
           onSplit: (self) =>
             gsap.from(self.lines, {
-              yPercent: 110,
+              yPercent: 135,
               duration: 1.2,
               ease: "expo.out",
               stagger: 0.08,

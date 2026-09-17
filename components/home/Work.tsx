@@ -54,7 +54,8 @@ export function Work({ projects }: { projects: Project[] }) {
             .fromTo(q("[data-media]"), { scale: 1.3 }, { scale: 1, duration: 0.55 }, i)
             .fromTo(q("[data-name]"), { fontWeight: 400 }, { fontWeight: 800, duration: 0.55 }, i)
             .fromTo(q("[data-meta]"), { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.25, stagger: 0.05 }, i + 0.3);
-          if (i < items.length - 1) tl.to(item, { autoAlpha: 0, duration: 0.12 }, i + 0.88);
+          // Out before the next fades in, so two projects never overlap.
+          if (i < items.length - 1) tl.to(item, { autoAlpha: 0, duration: 0.12 }, i + 0.76);
         });
         // Hold the last project open before the pin releases.
         tl.to({}, { duration: 0.45 });
@@ -99,7 +100,7 @@ export function Work({ projects }: { projects: Project[] }) {
         </div>
       </Container>
 
-      <div ref={stage} className="relative mt-20 md:mt-28 md:h-svh">
+      <div ref={stage} className="relative mt-20 md:mt-28 data-live:h-svh">
         <ol
           data-rail
           aria-hidden="true"
@@ -113,7 +114,7 @@ export function Work({ projects }: { projects: Project[] }) {
           ))}
         </ol>
 
-        <div className="flex flex-col gap-24 pb-8 md:gap-0 md:pb-0">
+        <div className="flex flex-col gap-24 pb-8 in-data-live:gap-0 in-data-live:pb-0">
           {projects.map((p, i) => (
             <article key={p.slug} data-work-item aria-labelledby={`work-${p.slug}`} className="flex items-center">
               <Container className="grid gap-6 md:grid-cols-12">
@@ -121,7 +122,7 @@ export function Work({ projects }: { projects: Project[] }) {
                   <Link href={`/work/${p.slug}`} aria-label={`${p.name} case study`} className="block">
                     <div
                       data-frame
-                      className="relative aspect-[16/10] w-full overflow-hidden border border-ink-rule bg-bg-card md:max-w-[calc((100svh-15rem)*1.6)]"
+                      className="relative aspect-[16/10] w-full overflow-hidden border border-ink-rule bg-bg-card md:max-w-[calc((100svh-19rem)*1.6)]"
                     >
                       <ViewTransition name={`capture-${p.slug}`}>
                         <div data-media className="absolute inset-0">

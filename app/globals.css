@@ -86,12 +86,14 @@ a:focus-visible > .link-draw::after {
 }
 
 /* Hero lines rise out of masks in CSS, so the LCP heading paints without JS.
-   Set --line on each .line-rise to stagger. */
+   Set --line on each .line-rise to stagger. The mask pads past the tight
+   line box (net zero layout) so descenders and italic overhangs aren't cut;
+   SplitReveal's line masks share this class. */
 .line-mask {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.1em;
-  margin-bottom: -0.1em;
+  padding: 0 0.1em 0.25em;
+  margin: 0 -0.1em -0.25em;
 }
 
 .line-rise {
@@ -100,9 +102,10 @@ a:focus-visible > .link-draw::after {
   animation-delay: calc(var(--line, 0) * 110ms + 150ms);
 }
 
+/* Far enough to clear the mask's bottom padding. */
 @keyframes line-rise {
   from {
-    transform: translateY(110%);
+    transform: translateY(135%);
   }
 }
 
@@ -129,9 +132,10 @@ a:focus-visible > .link-draw::after {
   display: flex;
 }
 
+/* Stacked below the fixed 3.5rem bar, so a centred project clears it. */
 [data-live] [data-work-item] {
   position: absolute;
-  inset: 0;
+  inset: 3.5rem 0 0;
 }
 
 /* Walkthrough (components/work/Walkthrough.tsx): one sticky device swaps

@@ -56,7 +56,7 @@ Links on the site: the email, `/demo`, `/work/<slug>`, and internal navigation o
 
 ## 3. Chapters
 
-One token set (`lib/tones.ts`), three chapters the page scrolls through in a fixed order — bone, ink, carbon. There is no visitor toggle: the chapter is set by scroll position (each section carries `data-tone`, scrubbed on `<html>` by `ToneScroller`) and, before any JS runs, by `data-tone-start` on the page's `<main>`. Details in `DESIGN.md`.
+One token set (`lib/tones.ts`), three chapters the page scrolls through in a fixed order — bone, ink, carbon. There is no visitor toggle: the chapter is set by scroll position (each section carries `data-tone`, crossfaded on `<html>` by `ToneScroller` as each section arrives) and, before any JS runs, by `data-tone-start` on the page's `<main>`. Details in `DESIGN.md`.
 
 | Token | bone | ink | carbon |
 |---|---|---|---|

@@ -51,6 +51,8 @@ export function Diagram({ name }: { name: DiagramKey }) {
             {
               duration: 1.6,
               ease: "none",
+              // Park each dot at its connector's start until its turn, not at the SVG origin.
+              immediateRender: true,
               motionPath: { path: edges[i], align: edges[i], alignOrigin: [0.5, 0.5] },
             },
             i * 0.3,
