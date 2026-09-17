@@ -1,25 +1,25 @@
-import Link from "next/link";
 import { Container } from "@/components/primitives/Container";
 import { SectionRule } from "@/components/primitives/SectionRule";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitReveal } from "@/components/motion/SplitReveal";
-import { DEMO_EMAIL, NEW_PROJECT_HREF } from "@/lib/projects";
+import { DEMO_EMAIL, DEMO_HREF, NEW_PROJECT_HREF } from "@/lib/projects";
 
 const rows = [
   { label: "Company", value: "Corner Software (Corsw)" },
   { label: "Founded", value: "2024" },
   { label: "Based", value: "India" },
-  { label: "Sectors", value: "Healthcare · Manufacturing · Food service · Distribution" },
-  { label: "Services", value: "Product design · Engineering · Hosting and support" },
+  { label: "Products", value: "Arogyam · StreamLine · Ordio" },
+  { label: "Industries", value: "Healthcare · Manufacturing · Trading · Food service · Distribution" },
+  { label: "Services", value: "Product engineering · Hosting and operations · Support" },
 ];
 
-/** Chapter C, closing: the company at a glance, then the one way to start. */
+/** Chapter C, closing: the company at a glance, then the two ways to start. */
 export function Contact() {
   return (
     <section data-tone="carbon" id="contact" aria-labelledby="contact-title" className="pb-24 pt-8 md:pb-32">
       <Container>
         <div className="grid gap-10 md:grid-cols-12">
-          <SectionRule n={4} label="Company" className="md:col-span-3" />
+          <SectionRule n={5} label="Company" className="md:col-span-3" />
           <Reveal className="md:col-span-9">
             <dl className="font-mono text-[13px] leading-[1.7] tabular-nums">
               {rows.map((row) => (
@@ -37,41 +37,41 @@ export function Contact() {
         </div>
 
         <div className="mt-32 grid gap-10 md:mt-44 md:grid-cols-12">
-          <SectionRule n={5} label="Contact" className="md:col-span-3" />
+          <SectionRule n={6} label="Contact" className="md:col-span-3" />
           <div className="md:col-span-9">
             <SplitReveal
               id="contact-title"
               className="text-[clamp(3rem,10vw,9rem)] font-semibold leading-[0.86] tracking-[-0.045em] text-balance"
             >
-              Start a <span className="font-mono font-medium tracking-[-0.08em] text-accent">project.</span>
+              Start a <span className="font-mono font-medium tracking-[-0.08em] text-accent">conversation.</span>
             </SplitReveal>
 
             <Reveal>
               <p data-reveal className="mt-12 max-w-prose text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.4] text-ink text-balance">
-                Corsw designs, builds and operates software for businesses that rely on it every day.
+                See a platform running against your own workflow, or scope one Corsw builds for you.
               </p>
               <p data-reveal className="mt-6 max-w-prose text-[17px] leading-[1.6] text-ink-muted">
-                Share what you run today and where it slows you down. The reply sets out what can be
-                built, the timeline and the cost.
+                Share what you run today and where it slows you down. The reply sets out what the platform
+                covers, the timeline and the cost.
               </p>
             </Reveal>
 
             <a
-              href={NEW_PROJECT_HREF}
+              href={DEMO_HREF}
               className="group mt-16 flex items-center justify-between gap-6 border-y border-ink-rule py-6 text-[clamp(2rem,5vw,4.25rem)] font-normal leading-none tracking-[-0.035em] transition-[font-weight,color] duration-500 hover:font-extrabold hover:text-accent focus-visible:font-extrabold focus-visible:text-accent"
             >
-              <span>Start a project</span>
+              <span>Request a demo</span>
               <span aria-hidden="true" className="transition-transform duration-500 group-hover:translate-x-3">→</span>
             </a>
 
             <div className="mt-8 flex flex-col gap-4 font-mono text-[13px] sm:flex-row sm:items-center sm:justify-between">
-              <Link
-                href="/demo"
+              <a
+                href={NEW_PROJECT_HREF}
                 className="inline-flex items-center gap-2 text-ink-muted transition-colors duration-150 hover:text-ink"
               >
-                <span className="link-draw">See a platform running</span>
+                <span className="link-draw">Start a project</span>
                 <span aria-hidden="true">→</span>
-              </Link>
+              </a>
               <a
                 href={`mailto:${DEMO_EMAIL}`}
                 className="link-draw break-words tabular-nums text-ink-muted transition-colors duration-150 hover:text-ink"

@@ -7,13 +7,13 @@ import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { ToneScroller } from "@/components/motion/ToneScroller";
 import { toneCss } from "@/lib/tones";
 
-const shareDescription = "Software, built and run. Arogyam · StreamLine · Ordio · SSC.";
+const shareDescription = "Industry platforms, built and run. Arogyam · StreamLine · Ordio.";
 
 // Title, canonical and robots live in each page so the 404 page doesn't
 // inherit a second <title> and an `index, follow` next to Next's `noindex`.
 export const metadata: Metadata = {
   description:
-    "Corner Software (Corsw) designs, builds and operates software for healthcare, manufacturing, food service and distribution businesses. Founded 2024, based in India.",
+    "Corner Software (Corsw) builds and operates industry platforms for healthcare practices, manufacturers and restaurants, and engineers custom platforms to the same standards. Founded 2024, based in India.",
   metadataBase: new URL("https://corsw.in"),
   openGraph: {
     title: "Corner Software",

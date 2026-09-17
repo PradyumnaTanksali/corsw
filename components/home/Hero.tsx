@@ -1,8 +1,7 @@
-import Link from "next/link";
 import type { CSSProperties } from "react";
 import { Container } from "@/components/primitives/Container";
 import { Drift } from "@/components/motion/Drift";
-import { NEW_PROJECT_HREF } from "@/lib/projects";
+import { DEMO_HREF } from "@/lib/projects";
 
 const line = (n: number) => ({ "--line": n }) as CSSProperties;
 
@@ -39,20 +38,21 @@ export function Hero() {
 
         <div className="mt-12 grid gap-8 border-t border-ink-rule pt-6 md:mt-16 md:grid-cols-12 md:items-start">
           <p className="text-[clamp(1.25rem,2.2vw,1.75rem)] font-medium leading-[1.2] tracking-[-0.02em] text-balance md:col-span-6">
-            Corner Software builds software, and <span className="font-extrabold">runs</span> it.
+            Industry platforms for healthcare, manufacturing and food service. Built, hosted and{" "}
+            <span className="font-extrabold">run</span> by Corner Software.
           </p>
           <div className="flex flex-wrap gap-x-8 gap-y-3 font-mono text-[13px] md:col-span-6 md:justify-end">
-            <a href={NEW_PROJECT_HREF} className="inline-flex items-center gap-2 text-accent">
-              <span className="link-draw">Start a project</span>
+            <a href={DEMO_HREF} className="inline-flex items-center gap-2 text-accent">
+              <span className="link-draw">Request a demo</span>
               <span aria-hidden="true">→</span>
             </a>
-            <Link
-              href="/demo"
+            <a
+              href="#engineering"
               className="inline-flex items-center gap-2 text-ink transition-colors duration-150 hover:text-accent"
             >
-              <span className="link-draw">See a platform running</span>
+              <span className="link-draw">Build with Corsw</span>
               <span aria-hidden="true">→</span>
-            </Link>
+            </a>
           </div>
         </div>
       </Container>

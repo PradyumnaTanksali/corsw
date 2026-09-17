@@ -1,11 +1,11 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Corner Software · Software at every corner.";
+export const alt = "Corner Software · Industry platforms, built and run.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const SERIF_TEXT = "Software at every corner.";
-const SANS_TEXT = "Corner Software builds software, and runs it.";
+const SANS_TEXT = "Industry platforms, built and run by Corner Software.";
 const MONO_TEXT = "CORNER SOFTWARE · EST. 2024 · INDIA";
 
 async function loadGoogleFont(family: string, axes: string, text: string): Promise<ArrayBuffer> {
@@ -83,7 +83,7 @@ export default async function OpengraphImage() {
             letterSpacing: "-0.02em",
           }}
         >
-          Corner Software builds software, and runs it.
+          Industry platforms, built and run by Corner Software.
         </div>
       </div>
     ),

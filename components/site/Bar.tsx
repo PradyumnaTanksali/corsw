@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Monogram } from "@/components/primitives/Monogram";
-import { NEW_PROJECT_HREF } from "@/lib/projects";
+import { DEMO_HREF } from "@/lib/projects";
 
 /** The fixed top bar: the mark home and one call to action. No menu. */
 export function Bar() {
@@ -16,10 +16,10 @@ export function Bar() {
           <span className="hidden sm:inline">Corner Software</span>
         </Link>
         <a
-          href={NEW_PROJECT_HREF}
+          href={DEMO_HREF}
           className="inline-flex items-center gap-2 font-mono text-[12px] text-accent"
         >
-          <span className="link-draw">Start a project</span>
+          <span className="link-draw">Request a demo</span>
           <span aria-hidden="true">→</span>
         </a>
       </div>

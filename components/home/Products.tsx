@@ -12,13 +12,13 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import { projectHref, type Project } from "@/lib/projects";
 
 /**
- * Chapter A. Desktop with motion: the stage pins and plays the projects in
+ * Chapter A. Desktop with motion: the stage pins and plays the products in
  * turn (the capture opens, the name gains weight, the rail tracks progress).
  * Phones and reduced motion: the same articles in normal flow.
  */
-type WorkProject = Pick<Project, "kind" | "slug" | "n" | "name" | "status" | "tagline" | "capture">;
+type ProductItem = Pick<Project, "kind" | "slug" | "n" | "name" | "status" | "tagline" | "capture">;
 
-export function Work({ projects }: { projects: WorkProject[] }) {
+export function Products({ products }: { products: ProductItem[] }) {
   const stage = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -108,20 +108,20 @@ export function Work({ projects }: { projects: WorkProject[] }) {
   );
 
   return (
-    <section data-tone="ink" id="work" aria-labelledby="work-title" className="pt-32 md:pt-44">
+    <section data-tone="ink" id="products" aria-labelledby="products-title" className="pt-32 md:pt-44">
       <Container>
         <div className="grid gap-10 md:grid-cols-12">
-          <SectionRule n={2} label="Work" className="md:col-span-3" />
+          <SectionRule n={2} label="Products" className="md:col-span-3" />
           <div className="md:col-span-9">
             <SplitReveal
-              id="work-title"
+              id="products-title"
               className="text-[clamp(2.75rem,8vw,7.5rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-balance"
             >
-              Selected <span className="font-accent text-accent">work.</span>
+              Built for whole <span className="font-accent text-accent">industries.</span>
             </SplitReveal>
             <p className="mt-8 max-w-prose text-[17px] leading-[1.6] text-ink-muted">
-              Software Corsw designs, builds and operates for businesses in healthcare,
-              manufacturing, food service and distribution.
+              Each platform is designed around how an industry works, then configured for every business
+              that runs on it.
             </p>
           </div>
         </div>
@@ -133,7 +133,7 @@ export function Work({ projects }: { projects: WorkProject[] }) {
           aria-hidden="true"
           className="absolute left-8 top-1/2 z-10 -translate-y-1/2 flex-col gap-3 font-mono text-[12px] uppercase tracking-[0.14em] text-ink-faint lg:left-16"
         >
-          {projects.map((p) => (
+          {products.map((p) => (
             <li key={p.slug} data-rail-item className="transition-colors duration-300 data-active:text-ink">
               <Ordinal n={p.n} dot className="mr-2 text-[15px] normal-case tracking-normal text-accent" />
               {p.name}
@@ -142,8 +142,8 @@ export function Work({ projects }: { projects: WorkProject[] }) {
         </ol>
 
         <div className="flex flex-col gap-24 pb-8 in-data-live:gap-0 in-data-live:pb-0">
-          {projects.map((p, i) => (
-            <article key={p.slug} data-work-item aria-labelledby={`work-${p.slug}`} className="flex items-center">
+          {products.map((p, i) => (
+            <article key={p.slug} data-work-item aria-labelledby={`product-${p.slug}`} className="flex items-center">
               <Container className="grid gap-6 md:grid-cols-12">
                 <div className="md:col-span-9 md:col-start-4">
                   {/* Duplicates the name link below; kept out of tab order and the
@@ -163,7 +163,7 @@ export function Work({ projects }: { projects: WorkProject[] }) {
 
                   <div className="mt-6 flex flex-wrap items-end justify-between gap-x-8 gap-y-3">
                     <h3
-                      id={`work-${p.slug}`}
+                      id={`product-${p.slug}`}
                       data-name
                       className="text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[0.9] tracking-[-0.04em] text-balance"
                     >
@@ -181,7 +181,7 @@ export function Work({ projects }: { projects: WorkProject[] }) {
                     href={projectHref(p)}
                     className="mt-5 inline-flex items-center gap-2 font-mono text-[13px] text-accent"
                   >
-                    <span className="link-draw">Read the case study</span>
+                    <span className="link-draw">Explore {p.name}</span>
                     <span aria-hidden="true">→</span>
                   </Link>
                 </div>
