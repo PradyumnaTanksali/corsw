@@ -244,3 +244,6 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+export const products = projects.filter((p) => p.kind === "product");
+export const engagements = projects.filter((p) => p.kind === "engagement");

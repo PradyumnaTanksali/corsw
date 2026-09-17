@@ -6,7 +6,7 @@ import { Platform } from "@/components/home/Platform";
 import { Engineering } from "@/components/home/Engineering";
 import { Contact } from "@/components/home/Contact";
 import { Footer } from "@/components/site/Footer";
-import { DEMO_EMAIL, projectHref, projects } from "@/lib/projects";
+import { DEMO_EMAIL, engagements, products, projectHref, projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Corner Software · Industry platforms, built and run.",
@@ -16,10 +16,7 @@ export const metadata: Metadata = {
 
 const ORG_ID = "https://corsw.in/#organization";
 
-const products = projects.filter((p) => p.kind === "product");
-const engagements = projects.filter((p) => p.kind === "engagement");
-
-// Client components get only the fields they render.
+// Section components get only the fields they render.
 const pick = ({ kind, slug, n, name, status, tagline, capture }: (typeof projects)[number]) => ({
   kind,
   slug,

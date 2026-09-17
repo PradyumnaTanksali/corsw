@@ -1,13 +1,16 @@
 import Link from "next/link";
 import { Container } from "@/components/primitives/Container";
-import { projectHref, type Project } from "@/lib/projects";
+import { products, projectHref, type Project } from "@/lib/projects";
+
+const productNames = products.map((p) => p.name);
+const allProductsLine = `${productNames.slice(0, -1).join(", ")} and ${productNames.at(-1)}.`;
 
 /** Products cycle to the next product; engagements point back to the products. */
 export function NextProject({ next }: { next: Project | null }) {
   const href = next ? projectHref(next) : "/#products";
   const label = next ? "Next product" : "All products";
   const title = next ? next.name : "Products";
-  const line = next ? next.tagline : "Arogyam, StreamLine and Ordio.";
+  const line = next ? next.tagline : allProductsLine;
 
   return (
     <section data-tone="ink" aria-label={label} className="border-t border-ink-rule">

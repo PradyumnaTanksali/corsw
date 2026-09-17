@@ -5,9 +5,14 @@ import { CaseHero } from "@/components/work/CaseHero";
 import { NextProject } from "@/components/work/NextProject";
 import { Walkthrough } from "@/components/work/Walkthrough";
 import { Footer } from "@/components/site/Footer";
-import { projectHref, projects, type Project } from "@/lib/projects";
+import { products, projectHref, type Project } from "@/lib/projects";
 
-const ORG = { "@id": "https://corsw.in/#organization" };
+const ORG = {
+  "@type": "Organization",
+  "@id": "https://corsw.in/#organization",
+  name: "Corner Software",
+  url: "https://corsw.in",
+};
 
 export function projectMetadata(project: Project): Metadata {
   const title = `${project.name} · Corner Software`;
@@ -25,7 +30,7 @@ export function projectMetadata(project: Project): Metadata {
       description,
       url,
       siteName: "Corner Software",
-      type: "article",
+      type: "website",
       images: "/opengraph-image",
     },
     twitter: { card: "summary_large_image", title, description, images: "/opengraph-image" },
@@ -34,7 +39,6 @@ export function projectMetadata(project: Project): Metadata {
 
 /** One detail page for products and engagements; labels differ by kind. */
 export function ProjectPage({ project }: { project: Project }) {
-  const products = projects.filter((p) => p.kind === "product");
   const next =
     project.kind === "product"
       ? products[(products.findIndex((p) => p.slug === project.slug) + 1) % products.length]

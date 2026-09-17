@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Container } from "@/components/primitives/Container";
 import { ProjectCard } from "@/components/primitives/ProjectCard";
 import { Footer } from "@/components/site/Footer";
-import { DEMO_EMAIL, DEMO_HREF, projects } from "@/lib/projects";
+import { DEMO_EMAIL, DEMO_HREF, products } from "@/lib/projects";
 import { TONES } from "@/lib/tones";
 
 const title = "Corsw · Platforms in service";
@@ -37,7 +37,7 @@ export const viewport: Viewport = {
 };
 
 export default function DemoPage() {
-  const operating = projects.filter((p) => p.kind === "product" && p.status === "operating");
+  const operating = products.filter((p) => p.status === "operating");
 
   return (
     <main id="content" data-tone-start="ink">

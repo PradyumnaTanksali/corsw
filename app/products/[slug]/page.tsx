@@ -1,12 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { ProjectPage, projectMetadata } from "@/components/work/ProjectPage";
-import { projects } from "@/lib/projects";
+import { products } from "@/lib/projects";
 import { TONES } from "@/lib/tones";
 
 type Props = { params: Promise<{ slug: string }> };
-
-const products = projects.filter((p) => p.kind === "product");
 
 export const dynamicParams = false;
 
