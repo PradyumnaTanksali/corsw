@@ -41,7 +41,7 @@ export function Contact() {
           <div className="md:col-span-9">
             <SplitReveal
               id="contact-title"
-              className="text-[clamp(3rem,10vw,9rem)] font-semibold leading-[0.86] tracking-[-0.045em] text-balance"
+              className="text-[clamp(3rem,7.5vw,7rem)] font-semibold leading-[0.86] tracking-[-0.045em] text-balance"
             >
               Start a <span className="font-mono font-medium tracking-[-0.08em] text-accent">conversation.</span>
             </SplitReveal>
