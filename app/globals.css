@@ -123,15 +123,20 @@ a:focus-visible > .link-draw::after {
 }
 
 /* Layout toggles below apply only while JS motion is actually running
-   (screen media); printing always gets the plain in-flow document, never a
-   pinned rail, absolute-stacked project or dimmed step. */
+   (screen media); printing always gets the plain in-flow document, never an
+   absolute-stacked project or dimmed step. The rail and walkthrough stage
+   default to hidden in all media, including print. */
+[data-rail] {
+  display: none;
+}
+
+[data-walk-stage] {
+  display: none;
+}
+
 @media screen {
   /* Work sequence (components/home/Work.tsx): the rail shows and the articles
      stack only while the pinned timeline runs. Without it they sit in flow. */
-  [data-rail] {
-    display: none;
-  }
-
   [data-live] [data-rail] {
     display: flex;
   }
@@ -149,10 +154,6 @@ a:focus-visible > .link-draw::after {
 
   /* Walkthrough (components/work/Walkthrough.tsx): one sticky device swaps
      screens while live; otherwise each step shows its own device inline. */
-  [data-walk-stage] {
-    display: none;
-  }
-
   [data-live] [data-walk-stage] {
     display: block;
   }
