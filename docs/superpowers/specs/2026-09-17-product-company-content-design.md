@@ -42,7 +42,7 @@ Chapter order: Hero (bone) → Statement (bone) → Products (ink, pinned) → P
 - Actions: `Request a demo →` (mailto, subject "Demo request") · `Build with Corsw →` (in-page link to `#engineering`)
 
 ### Statement (was Foundation)
-- Folio label: `Company`
+- Folio label: `Overview` (folio numbering on home: 1 Overview, 2 Products, 3 Platform, 4 Engineering, 5 Company, 6 Contact)
 - Lead (scrub-lit): `Every business runs on a handful of systems it cannot afford to lose: the front desk, the order book, the kitchen ticket. Corner Software builds those systems as platforms, operates them, and improves them for every customer at once.`
 - Follow-up: `Arogyam, StreamLine and Ordio serve healthcare, manufacturing and food service. The same engineering practice builds custom platforms for businesses no product fits yet.`
 - Marquee: `Healthcare practices · Manufacturing · Trading · Restaurants and cafés · Wholesale distribution`
