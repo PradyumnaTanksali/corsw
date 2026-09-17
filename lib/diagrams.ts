@@ -28,43 +28,76 @@ export type Schematic = {
   mobileClients: string[];
 };
 
-export type DiagramKey = "arogyam" | "streamline" | "ordio" | "ssc";
+export type DiagramKey = "platform" | "arogyam" | "streamline" | "ordio" | "ssc";
+
+const PLATFORM: Schematic = {
+  title: "Corsw platform architecture",
+  desc:
+    "A schematic system diagram of the foundation Corsw products share. Staff apps " +
+    "and customer surfaces (portals, sites and QR pages) reach a tenant-scoped " +
+    "server that sets the organisation for every request. The server reads and " +
+    "writes Postgres under row-level security, appends to audit logs and ledgers, " +
+    "and renders documents, which go out by email with sign-in codes.",
+  viewBox: { w: 620, h: 360 },
+  boxes: [
+    { id: "staff", x: 24, y: 32, w: 156, h: 52, label: "Staff apps", sub: "web · installable" },
+    { id: "surfaces", x: 24, y: 116, w: 156, h: 52, label: "Customer surfaces", sub: "portals · sites · QR" },
+    { id: "server", x: 232, y: 76, w: 156, h: 52, label: "Tenant server", sub: "org scope per request", accent: true },
+    { id: "docs", x: 232, y: 168, w: 156, h: 52, label: "Documents", sub: "PDF · invoices" },
+    { id: "mail", x: 232, y: 252, w: 156, h: 52, label: "Email", sub: "sign-in · documents" },
+    { id: "pg", x: 440, y: 32, w: 156, h: 52, label: "Postgres", sub: "row-level security" },
+    { id: "records", x: 440, y: 116, w: 156, h: 52, label: "Audit + ledgers", sub: "append-only" },
+  ],
+  connectors: [
+    { from: "staff", to: "server" },
+    { from: "surfaces", to: "server" },
+    { from: "server", to: "pg" },
+    { from: "server", to: "records" },
+    { from: "server", to: "docs", via: [{ x: 310, y: 128 }, { x: 310, y: 194 }] },
+    { from: "docs", to: "mail" },
+  ],
+  annotations: [
+    { x: 310, y: 24, text: "one tenant per subdomain or domain" },
+    { x: 310, y: 332, text: "money in whole paise" },
+    { x: 532, y: 332, text: "nothing overwritten" },
+  ],
+  mobileClients: ["staff", "surfaces"],
+};
 
 const AROGYAM: Schematic = {
   title: "Arogyam architecture",
   desc:
-    "A schematic system diagram of Arogyam. A Next.js web client and Gupshup " +
-    "WhatsApp gateway both reach a tRPC API. The API talks to Postgres with " +
-    "row-level security, pgvector embeddings, a Rust Axum WebSocket sidecar, " +
-    "and a Python LangGraph orchestrator. LangGraph reaches pgvector and the " +
-    "ABDM sandbox.",
+    "A schematic system diagram of Arogyam. Clinic staff on the web and patients " +
+    "on a private portal link both reach a tenant-scoped server. The server writes " +
+    "Postgres under row-level security per practice and an append-only audit log, " +
+    "renders casepaper PDFs in English and Marathi, serves each practice's website " +
+    "from content blocks, and signs staff in with one-time codes by email.",
   viewBox: { w: 620, h: 360 },
   boxes: [
-    { id: "web", x: 24, y: 32, w: 156, h: 52, label: "Web", sub: "Next.js" },
-    { id: "wa", x: 24, y: 116, w: 156, h: 52, label: "WhatsApp", sub: "Gupshup" },
-    { id: "api", x: 232, y: 76, w: 156, h: 52, label: "API", sub: "tRPC", accent: true },
-    { id: "ws", x: 232, y: 168, w: 156, h: 52, label: "Rust WS sidecar", sub: "Axum · Tokio" },
-    { id: "lg", x: 232, y: 252, w: 156, h: 52, label: "Python LangGraph", sub: "RAG · evals" },
-    { id: "pg", x: 440, y: 32, w: 156, h: 52, label: "Postgres", sub: "RLS · pgcrypto" },
-    { id: "pgv", x: 440, y: 116, w: 156, h: 52, label: "pgvector", sub: "embeddings" },
-    { id: "abdm", x: 440, y: 252, w: 156, h: 52, label: "ABDM", sub: "Sandbox · M2" },
+    { id: "staff", x: 24, y: 32, w: 156, h: 52, label: "Clinic staff", sub: "web · calendar" },
+    { id: "portal", x: 24, y: 116, w: 156, h: 52, label: "Patient portal", sub: "private link" },
+    { id: "server", x: 232, y: 76, w: 156, h: 52, label: "Server", sub: "tenant-scoped", accent: true },
+    { id: "pdf", x: 232, y: 168, w: 156, h: 52, label: "Casepaper PDFs", sub: "English · Marathi" },
+    { id: "site", x: 232, y: 252, w: 156, h: 52, label: "Practice site", sub: "block renderer" },
+    { id: "pg", x: 440, y: 32, w: 156, h: 52, label: "Postgres", sub: "RLS per practice" },
+    { id: "audit", x: 440, y: 116, w: 156, h: 52, label: "Audit log", sub: "append-only" },
+    { id: "mail", x: 440, y: 252, w: 156, h: 52, label: "Email sign-in", sub: "one-time code" },
   ],
   connectors: [
-    { from: "web", to: "api" },
-    { from: "wa", to: "api" },
-    { from: "api", to: "pg" },
-    { from: "api", to: "pgv" },
-    { from: "api", to: "ws", via: [{ x: 310, y: 102 }, { x: 310, y: 194 }] },
-    { from: "api", to: "lg", via: [{ x: 310, y: 102 }, { x: 310, y: 278 }] },
-    { from: "lg", to: "abdm" },
-    { from: "lg", to: "pgv", via: [{ x: 412, y: 278 }, { x: 412, y: 142 }] },
+    { from: "staff", to: "server" },
+    { from: "portal", to: "server" },
+    { from: "server", to: "pg" },
+    { from: "server", to: "audit" },
+    { from: "server", to: "pdf", via: [{ x: 310, y: 128 }, { x: 310, y: 194 }] },
+    { from: "server", to: "site", via: [{ x: 310, y: 128 }, { x: 310, y: 278 }] },
+    { from: "server", to: "mail", via: [{ x: 412, y: 102 }, { x: 412, y: 278 }] },
   ],
   annotations: [
-    { x: 310, y: 24, text: "multi-tenant via RLS" },
-    { x: 310, y: 332, text: "EN / MR" },
-    { x: 532, y: 332, text: "built for DPDP" },
+    { x: 310, y: 24, text: "each practice on its own domain" },
+    { x: 310, y: 332, text: "casepapers never overwritten" },
+    { x: 532, y: 332, text: "consent tied to policy version" },
   ],
-  mobileClients: ["web", "wa"],
+  mobileClients: ["staff", "portal"],
 };
 
 const STREAMLINE: Schematic = {
@@ -114,15 +147,15 @@ const STREAMLINE: Schematic = {
 const ORDIO: Schematic = {
   title: "Ordio architecture",
   desc:
-    "A schematic system diagram of Ordio. A guest phone reached by QR scan and " +
-    "a kitchen display both talk to org-scoped server actions. The actions " +
-    "write to Neon Postgres under row-level security and to the orders table, " +
-    "open a PhonePe checkout whose webhook releases the order to the kitchen, " +
-    "and render A5 PDF receipts handed off over WhatsApp or SMS deep links.",
+    "A schematic system diagram of Ordio. A guest phone reached by a table code " +
+    "and a kitchen display both talk to org-scoped server actions. The actions " +
+    "write to Neon Postgres under row-level security and to the orders table, and " +
+    "render A5 PDF receipts shared over WhatsApp or SMS links. The kitchen display " +
+    "prints tickets to a thermal printer.",
   viewBox: { w: 620, h: 360 },
   boxes: [
     { id: "guest", x: 24, y: 32, w: 156, h: 52, label: "Guest", sub: "QR scan · phone" },
-    { id: "kds", x: 24, y: 116, w: 156, h: 52, label: "Kitchen display", sub: "SWR polling" },
+    { id: "kds", x: 24, y: 116, w: 156, h: 52, label: "Kitchen display", sub: "live tickets" },
     {
       id: "act",
       x: 232,
@@ -133,26 +166,25 @@ const ORDIO: Schematic = {
       sub: "org-scoped",
       accent: true,
     },
-    { id: "pay", x: 232, y: 168, w: 156, h: 52, label: "PhonePe", sub: "pay before KOT" },
+    { id: "printer", x: 232, y: 168, w: 156, h: 52, label: "Kitchen printer", sub: "thermal KOT" },
     { id: "pdf", x: 232, y: 252, w: 156, h: 52, label: "Receipts", sub: "pdf-lib A5" },
     { id: "pg", x: 440, y: 32, w: 156, h: 52, label: "Neon Postgres", sub: "RLS per café" },
     { id: "orders", x: 440, y: 116, w: 156, h: 52, label: "Orders", sub: "status timeline" },
-    { id: "hand", x: 440, y: 252, w: 156, h: 52, label: "WhatsApp / SMS", sub: "deep links" },
+    { id: "hand", x: 440, y: 252, w: 156, h: 52, label: "WhatsApp / SMS", sub: "share links" },
   ],
   connectors: [
     { from: "guest", to: "act" },
     { from: "kds", to: "act" },
     { from: "act", to: "pg" },
     { from: "act", to: "orders" },
-    { from: "act", to: "pay", via: [{ x: 310, y: 128 }, { x: 310, y: 194 }] },
+    { from: "kds", to: "printer" },
     { from: "act", to: "pdf", via: [{ x: 310, y: 128 }, { x: 310, y: 278 }] },
-    { from: "pay", to: "orders", via: [{ x: 412, y: 194 }, { x: 412, y: 142 }] },
     { from: "pdf", to: "hand" },
   ],
   annotations: [
     { x: 310, y: 24, text: "one café per subdomain" },
     { x: 310, y: 332, text: "money in integer paise" },
-    { x: 532, y: 332, text: "no ticket before payment" },
+    { x: 532, y: 332, text: "tickets print on the kitchen line" },
   ],
   mobileClients: ["guest", "kds"],
 };
@@ -204,6 +236,7 @@ const SSC: Schematic = {
 };
 
 export const SCHEMATICS: Record<DiagramKey, Schematic> = {
+  platform: PLATFORM,
   arogyam: AROGYAM,
   streamline: STREAMLINE,
   ordio: ORDIO,

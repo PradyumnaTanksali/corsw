@@ -5,7 +5,12 @@ export const DEMO_EMAIL = "hello@corsw.in";
 
 export const NEW_PROJECT_HREF = `mailto:${DEMO_EMAIL}?subject=${encodeURIComponent("New project")}`;
 
+export const DEMO_HREF = `mailto:${DEMO_EMAIL}?subject=${encodeURIComponent("Demo request")}`;
+
 export type ProjectStatus = "operating" | "in-build";
+
+/** Products are Corsw's own platforms; engagements are platforms engineered for a client. */
+export type ProjectKind = "product" | "engagement";
 
 /**
  * A product capture. `src` stays unset until the file exists in
@@ -17,13 +22,14 @@ export type Shot = { src?: string; alt: string };
 export type Step = Shot & { caption: string; device: "phone" | "laptop" };
 
 export type Project = {
+  kind: ProjectKind;
   n: number;
   slug: string;
   name: string;
   status: ProjectStatus;
   tagline: string;
   description: string[];
-  /** Case study opener: what the customer runs, then what the software does about it. */
+  /** Detail page opener: what the business runs into, then what the software does about it. */
   business: [string, string];
   diagram: DiagramKey;
   /** Mono slug shown above the schematic, e.g. `arogyam.v2`. */
@@ -33,72 +39,87 @@ export type Project = {
   walkthrough: Step[];
 };
 
+/** Products live under /products, engineering engagements under /engineering. */
+export function projectHref(p: Pick<Project, "kind" | "slug">): string {
+  return `/${p.kind === "product" ? "products" : "engineering"}/${p.slug}`;
+}
+
 export const projects: Project[] = [
   {
+    kind: "product",
     n: 1,
     slug: "arogyam",
     name: "Arogyam",
     status: "operating",
-    tagline: "Practice management for clinics and physiotherapy practices.",
+    tagline: "Practice management and patient engagement for outpatient clinics.",
     description: [
-      "Scheduling, patient records, casepapers and home-recovery programmes in one system, with each practice on its own site and domain.",
-      "Patients are reached on WhatsApp, in English or Marathi. Consent and audit records are kept from the first visit.",
+      "Arogyam runs the clinical and front-desk work of a practice: scheduling, patient records, versioned casepapers, intake questionnaires and home-recovery programmes. Patients reach the practice through a private portal, in English or Marathi.",
+      "Every practice gets its own website and domain, with consent records and an append-only audit trail from the first visit.",
     ],
     business: [
-      "A physiotherapy practice runs on the day's appointments, each patient's casepaper and the exercises patients do between visits.",
-      "Arogyam keeps all of it in one system and reaches patients on WhatsApp, in English or Marathi.",
+      "A practice runs on appointments, clinical notes and the care patients continue at home. Kept in diaries, paper files and chat threads, none of it can be searched, audited or followed up.",
+      "Arogyam keeps the practice in one system, from the first booking to the last session of a recovery programme.",
     ],
     diagram: "arogyam",
     diagramLabel: "arogyam.v2",
     table: [
-      { label: "SECTOR", value: "Healthcare · Physiotherapy" },
-      { label: "MODULES", value: "Scheduling · Records · Casepapers · Recovery programmes · WhatsApp inbox" },
+      { label: "BUILT FOR", value: "Physiotherapy · Rehabilitation · Outpatient clinics" },
+      {
+        label: "MODULES",
+        value:
+          "Scheduling · Patient records · Casepapers · Questionnaires and triage · Recovery programmes · Patient portal · Practice website",
+      },
       { label: "LANGUAGES", value: "English · Marathi" },
       { label: "DELIVERY", value: "Multi-tenant · Custom domains" },
     ],
-    capture: { alt: "Arogyam front desk with the day's agenda and patient inbox" },
+    capture: { alt: "Arogyam front desk with the day's agenda" },
     walkthrough: [
       {
         device: "laptop",
-        alt: "Arogyam daily agenda",
-        caption: "The front desk starts from the day's agenda, with every patient conversation in one inbox.",
+        alt: "Arogyam daily agenda with patient search",
+        caption: "The day's agenda, with every patient one search away.",
       },
       {
         device: "laptop",
-        alt: "Arogyam casepaper",
-        caption: "Casepapers are versioned. An edit adds a version and never overwrites the last one.",
+        alt: "Arogyam casepaper with version history",
+        caption: "Casepapers are versioned. An edit adds a version and never overwrites the record.",
       },
       {
         device: "phone",
-        alt: "Arogyam recovery programme on a phone",
-        caption: "Patients follow their recovery programme from a private link, in English or Marathi.",
+        alt: "Arogyam patient portal on a phone",
+        caption: "Patients complete intake, questionnaires and recovery programmes from one private link.",
       },
       {
-        device: "phone",
-        alt: "Arogyam pre-visit consent on a phone",
-        caption: "Consent is recorded before the first visit, against the policy version it was given for.",
+        device: "laptop",
+        alt: "Arogyam triage results with red flags",
+        caption: "Red-flag answers reach the clinician before the visit.",
       },
     ],
   },
   {
+    kind: "product",
     n: 2,
     slug: "streamline",
     name: "StreamLine",
     status: "operating",
-    tagline: "Operations software for small manufacturers.",
+    tagline: "Operations platform for manufacturers and trading businesses.",
     description: [
-      "StreamLine runs the business from quotation to dispatch: sales, purchasing, stock, production and payroll in one place.",
-      "Every company works in its own secure workspace, with a public site that sends enquiries straight to the team.",
+      "StreamLine runs the order from quotation to dispatch: sales, purchasing, inventory, production and payroll on one set of records.",
+      "Each company works in an isolated workspace with its own roles, audit log and a public website that routes enquiries to sales.",
     ],
     business: [
-      "A fabrication shop takes every order from quotation to dispatch: pricing the job, buying material, building it and sending it out.",
-      "StreamLine follows the order the whole way, so sales, stock, production and payroll work from the same records.",
+      "A manufacturer's margin is decided between the quotation and the dispatch note: a revised price, a late purchase order, stock no one counted.",
+      "StreamLine records every step of the order, so sales, stores, production and payroll work from the same numbers.",
     ],
     diagram: "streamline",
     diagramLabel: "streamline.v1",
     table: [
-      { label: "SECTOR", value: "Manufacturing · Fabrication" },
-      { label: "MODULES", value: "Quotations · Invoices · Purchasing · Inventory · Production · Payroll" },
+      { label: "BUILT FOR", value: "Make-to-order manufacturing · Fabrication · Trading" },
+      {
+        label: "MODULES",
+        value: "Quotations · Invoicing · Purchasing · Inventory · Production · Payroll · Company website",
+      },
+      { label: "CONTROLS", value: "Roles · Audit log · Module access per company" },
       { label: "DELIVERY", value: "Multi-tenant · Installable app" },
     ],
     capture: { alt: "StreamLine production board" },
@@ -106,91 +127,98 @@ export const projects: Project[] = [
       {
         device: "laptop",
         alt: "StreamLine quotation with revisions",
-        caption: "Quotations keep every revision, and an accepted quote becomes a work order.",
+        caption: "Customers review and accept quotations from a secure link, and every revision is kept.",
       },
       {
         device: "laptop",
         alt: "StreamLine production board",
-        caption: "The production board moves each job from approved to dispatched.",
+        caption: "The production board follows each job through stages the company defines.",
       },
       {
         device: "laptop",
         alt: "StreamLine stock ledger",
-        caption: "Stock on hand is worked out from every movement, never typed in.",
+        caption: "Stock on hand is derived from every movement, never typed in.",
       },
       {
-        device: "phone",
-        alt: "StreamLine public site enquiry form on a phone",
-        caption: "Each company's public site sends enquiries straight to the team's inbox.",
+        device: "laptop",
+        alt: "StreamLine payroll run",
+        caption: "Payroll runs produce locked payslips, with PF and ESI calculated.",
       },
     ],
   },
   {
+    kind: "product",
     n: 3,
     slug: "ordio",
     name: "Ordio",
     status: "operating",
-    tagline: "QR ordering and kitchen display for cafés and restaurants.",
+    tagline: "Ordering, kitchen and guest platform for restaurants and cafés.",
     description: [
-      "Guests scan the table's QR code and order from their own phone, with no app to install and no sign-in. Each order reaches the kitchen display, and the guest can follow it to the table.",
-      "Owners manage menus, tables, offers and daily reports from one dashboard, with GST-ready invoices.",
+      "Guests order from the table on their own phone, with no app and no sign-in. Orders reach a kitchen display and thermal printer, and guests follow their ticket to the table.",
+      "Owners run menus, offers, tables, staff and analytics from one dashboard, with GST invoices and a branded website for every outlet.",
     ],
     business: [
-      "At a busy café the counter sets the pace. Guests queue to order, and each ticket has to reach the kitchen by hand.",
-      "Ordio moves the order onto the guest's own phone and straight onto the kitchen display.",
+      "Service at a busy restaurant is limited by the counter: guests wait to order, and tickets reach the kitchen by hand.",
+      "Ordio moves ordering to the guest's phone and every ticket onto the kitchen display, so the floor team serves instead of taking orders.",
     ],
     diagram: "ordio",
     diagramLabel: "ordio.v1",
     table: [
-      { label: "SECTOR", value: "Food service" },
-      { label: "MODULES", value: "Menu · Ordering · Kitchen display · Invoices · Reports" },
+      { label: "BUILT FOR", value: "Restaurants · Cafés · Quick service" },
+      {
+        label: "MODULES",
+        value:
+          "QR ordering · Kitchen display · Order tracking · GST invoices · Offers and coupons · Analytics · Outlet website · Display board",
+      },
+      { label: "ROLES", value: "Owner · Kitchen · Server · Staff" },
       { label: "DELIVERY", value: "Multi-tenant · Installable app" },
     ],
     capture: { alt: "Ordio kitchen display" },
-    // No payment step: PhonePe merchant KYC is pending (PRODUCT.md).
+    // No payment step: payments are not live (PRODUCT.md, Not claimable).
     walkthrough: [
       {
         device: "phone",
-        alt: "Ordio menu after scanning a table QR code",
-        caption: "Guests scan the table's QR code and order from the menu. No app, no sign-in.",
+        alt: "Ordio menu after scanning a table code",
+        caption: "Guests scan the table's code and order. No app, no sign-in.",
       },
       {
         device: "phone",
         alt: "Ordio cart with add-ons and a kitchen note",
-        caption: "Sizes, add-ons and kitchen notes, with GST worked out on the bill.",
+        caption: "Sizes, add-ons and kitchen notes, with GST calculated on the bill.",
       },
       {
         device: "laptop",
         alt: "Ordio kitchen display",
-        caption: "Each ticket moves across the kitchen display from preparing to ready.",
+        caption: "Every ticket moves across the kitchen display, and prints if needed.",
       },
       {
-        device: "phone",
-        alt: "Ordio order status on the guest's phone",
-        caption: "The guest follows the same ticket from the table.",
+        device: "laptop",
+        alt: "Ordio analytics",
+        caption: "Analytics break down items, peak hours, kitchen timing and coupons.",
       },
     ],
   },
   {
-    n: 4,
+    kind: "engagement",
+    n: 1,
     slug: "ssc",
     name: "SSC",
     // In build: phone, WhatsApp and licence placeholders still block launch (ssc README).
     status: "in-build",
-    tagline: "Catalogue and quote requests for a wholesale distributor.",
+    tagline: "B2B catalogue and quoting for a wholesale distributor.",
     description: [
-      "A product catalogue for an Ayurvedic medicine distributor, searchable by name, brand or use and filtered by category and form.",
-      "Buyers request a quote in a few steps, by email or on WhatsApp, with the product already filled in.",
+      "A product catalogue buyers search by name, brand or use, with faceted filters by category and form.",
+      "A quote request starts with the product filled in and reaches the sales desk by email or WhatsApp.",
     ],
     business: [
-      "A wholesale distributor's buyers look up products by name, brand or use, then ask for a price.",
-      "SSC turns the catalogue into a site they can search and filter, and turns any product into a quote request.",
+      "A wholesale distributor needed buyers to find products and ask for rates without a phone call for every line.",
+      "Corsw designed and built a catalogue and quoting site, with enquiries validated on the server and no lead dropped silently.",
     ],
     diagram: "ssc",
     diagramLabel: "ssc.v1",
     table: [
       { label: "SECTOR", value: "Wholesale distribution" },
-      { label: "MODULES", value: "Catalogue · Search and filters · Quote requests" },
+      { label: "SCOPE", value: "Catalogue · Search and filters · Quote requests · WhatsApp handoff" },
       { label: "DELIVERY", value: "Website · Installable app" },
     ],
     capture: { src: "/work/ssc/catalogue.png", alt: "SSC catalogue with search and filters" },
