@@ -17,7 +17,7 @@ corsw.in is the public home of Corner Software (Corsw), a software company that 
 
 ## Positioning
 
-Corsw is a platform and engineering company. Its products are built for whole industries, not for the customers they serve today: Arogyam for outpatient clinics, StreamLine for manufacturers and trading businesses, Ordio for restaurants and cafés. Corsw hosts, updates and supports every platform it builds. The system diagrams show the architecture as deployed.
+Corsw is a platform and engineering company. Its products are built for whole industries, not for the customers they serve today: Arogyam for outpatient clinics, StreamLine for manufacturers and trading businesses, Ordio for restaurants and cafés. Corsw hosts, updates and supports its products and the software it builds for clients. Product diagrams show each architecture as deployed; the platform diagram summarises what the products share.
 
 ## Operating Context
 
@@ -37,9 +37,9 @@ Corsw is a platform and engineering company. Its products are built for whole in
 - Name: Corner Software · Corsw. "Software at every corner."
 - Founded by Pradyumna Tanksali. The site states no headcount (owner: don't say "People: 1"), no "Pvt. Ltd.", no team or investor claims.
 - Tone is professional (owner, 2026-09-13): no self-deprecating or cute framing, no "this is just the start" copy, no dates, issues or version strings, no project counts in prose.
-- Contact address everywhere: `hello@corsw.in`. External links are removed; the email and `/demo` are the ways out.
+- Contact address everywhere: `hello@corsw.in`. External links are removed. Ways out: the email (Request a demo, Start a project). /demo serves unassigned subdomains and is not linked from the home page.
 - The two incumbent looks survive as scroll chapters: corsw's editorial world (bone and ink, vermillion, EB Garamond italic) and Modlio's engineered world (carbon, mono, schematic diagrams). The owner chose one identity over the toggle on 2026-09-16.
-- Voice: short sentences, periods over commas. No exclamation marks, no emoji, no Hinglish. Never "transform", "innovative", "cutting-edge", "world-class", "next-generation".
+- Voice: short sentences, periods over commas. No exclamation marks, no emoji, no Hinglish. Never "transform", "innovative", "cutting-edge", "world-class", "next-generation", "leading", "best-in-class", "seamless".
 - Square corners. No gradients except the column and dot grid textures. No icon library; arrows are `→`. No contact form.
 
 ## Evidence on Hand

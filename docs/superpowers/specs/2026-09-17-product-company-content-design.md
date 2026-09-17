@@ -16,6 +16,7 @@ Rewrite corsw.in's content so Corner Software reads as a professional software c
 | Claims | Shipped capabilities only, at market scope. No roadmap on the site |
 | Other projects | Lokey, Queue, Budgety, Second Brain stay off the site |
 | Structure | Platform-first home; `/products/<slug>` and `/engineering/<slug>` pages |
+| Final review (2026-09-17) | money pillar, standards wording, platform/product terminology, Engineering wording, /demo copy and engagement CTA revised; owner approved. |
 
 ## Voice
 
@@ -44,23 +45,23 @@ Chapter order: Hero (bone) → Statement (bone) → Products (ink, pinned) → P
 ### Statement (was Foundation)
 - Folio label: `Overview` (folio numbering on home: 1 Overview, 2 Products, 3 Platform, 4 Engineering, 5 Company, 6 Contact)
 - Lead (scrub-lit): `Every business runs on a handful of systems it cannot afford to lose: the front desk, the order book, the kitchen ticket. Corner Software builds those systems as platforms, operates them, and improves them for every customer at once.`
-- Follow-up: `Arogyam, StreamLine and Ordio serve healthcare, manufacturing and food service. The same engineering practice builds custom platforms for businesses no product fits yet.`
+- Follow-up: `Arogyam, StreamLine and Ordio serve healthcare, manufacturing and food service. The same engineering practice builds custom platforms for businesses no product fits.`
 - Marquee: `Healthcare practices · Manufacturing · Trading · Restaurants and cafés · Wholesale distribution`
 
 ### Products (was Work)
 - Folio label: `Products`
 - H2: `Built for whole *industries*.`
-- Intro: `Each platform is designed around how an industry works, then configured for every business that runs on it.`
+- Intro: `Each product is designed around how an industry works, then configured for every business that runs on it.`
 - One pinned item per product (kind `product`): capture, name, status, tagline, `Explore <Name> →` to `/products/<slug>`.
 
 ### Platform (was Approach)
 - Folio label: `Platform`
-- H2: `Built on one *foundation*.` (accent word in mono, carbon chapter)
-- Intro: `Every Corsw product runs on the same engineering foundation. Work on security, reliability and performance reaches every product and every customer.`
+- H2: `Built to one *standard*.` (accent word in mono, carbon chapter)
+- Intro: `Every Corsw product is built to the same engineering standards and runs as one hosted platform. An improvement ships once and reaches every customer of that product.`
 - Pillars (label · copy):
   1. `Isolation` · `Each customer's data is isolated in the database itself, with row-level security on every business table.`
-  2. `History` · `Critical records are append-only: audit logs, casepaper versions, stock movements and payments are added to, never overwritten.`
-  3. `Money` · `Amounts are stored in whole paise and recalculated on the server, never trusted from the screen.`
+  2. `History` · `Critical records are append-only: audit logs, casepaper versions, stock movements and invoice payments are added to, never overwritten.`
+  3. `Money` · `Amounts are calculated in whole paise on the server, never trusted from the screen.`
   4. `Identity` · `Every customer runs under its own address, branding and settings, on a subdomain or its own domain.`
   5. `India-ready` · `GST invoices, PF and ESI, English and Marathi, built into the products that need them.`
   6. `Operated` · `Hosted and updated by Corsw. One release reaches every customer.`
@@ -69,19 +70,19 @@ Chapter order: Hero (bone) → Statement (bone) → Products (ink, pinned) → P
 ### Engineering (new)
 - Anchor id: `engineering`
 - Folio label: `Engineering`
-- H2: `Custom platforms. Same *standards*.` (accent word in mono)
-- Copy: `When no product fits, Corsw designs and builds the platform, then hosts and runs it the way it runs its own products.` / `From the first workshop to production support, one team owns the outcome.`
-- Services list: `Product design` · `Engineering` · `Hosting and operations` · `Ongoing support`
-- Selected engagement card (kind `engagement`): name `SSC`, status `In build`, tagline, `Read the engagement →` to `/engineering/ssc`.
+- H2: `Custom software. Same *standards*.` (accent word in mono)
+- Copy: `When no product fits, Corsw designs and builds the software, then hosts and runs it the way it runs its own products.` / `From the first scoping call to production support, Corsw owns the outcome.`
+- Services list: `Product design` · `Engineering` · `Hosting and operations` · `Ongoing support`, then `Start a project →` (mailto, subject "New project").
+- Label `Engagement`, then a card (kind `engagement`): name `SSC`, status `In build`, tagline, `Read the engagement →` to `/engineering/ssc` (screen readers hear the engagement's name after "Read the engagement").
 
 ### Company
-- Rows: `Company` Corner Software (Corsw) · `Founded` 2024 · `Based` India · `Products` Arogyam · StreamLine · Ordio · `Industries` Healthcare · Manufacturing · Trading · Food service · Distribution · `Services` Product engineering · Hosting and operations · Support
+- Rows: `Company` Corner Software (Corsw) · `Founded` 2024 · `Based` India · `Products` Arogyam · StreamLine · Ordio · `Industries` Healthcare · Manufacturing · Trading · Food service · Distribution · `Services` Product design · Engineering · Hosting and operations · Ongoing support
 
 ### Contact
 - Folio label: `Contact`
 - H2: `Start a *conversation*.`
-- Lead: `See a platform running against your own workflow, or scope one Corsw builds for you.`
-- Follow-up: `Share what you run today and where it slows you down. The reply sets out what the platform covers, the timeline and the cost.`
+- Lead: `See a product running, or scope software Corsw builds for you.`
+- Follow-up: `Share what you run today and where it slows you down. The reply sets out what Corsw would build, the timeline and the cost.`
 - Actions: large `Request a demo →` (mailto, subject "Demo request") · `Start a project →` (mailto, subject "New project") · `hello@corsw.in`
 
 ### Site-wide
@@ -101,7 +102,7 @@ Routes: `/products/[slug]` renders kind `product` (arogyam, streamline, ordio); 
 | 2 | `In use` (H2 `How it *runs*.`) | same |
 | 3 | `Architecture` (H2 `How it is **built**.`) | same |
 | Next | `Next product →` (cycles products) | `All products →` to `/#products` |
-| Demo button | `Request a demo →` on operating products | none |
+| Demo button | `Request a demo →` on operating products | `Start a project →` |
 
 Metadata per page: title `<Name> · Corner Software`, description = tagline, canonical, Open Graph and Twitter with the page URL. JSON-LD: products `SoftwareApplication` (`name`, `description`, `applicationCategory: "BusinessApplication"`, `operatingSystem: "Web"`, `url`, `publisher` → organization id; no offers, no ratings); engagement `CreativeWork` (`creator` → organization id).
 
@@ -121,7 +122,7 @@ Metadata per page: title `<Name> · Corner Software`, description = tagline, can
 
 ### Ordio (product, operating)
 - Tagline: `Ordering, kitchen and guest platform for restaurants and cafés.`
-- Description: `Guests order from the table on their own phone, with no app and no sign-in. Orders reach a kitchen display and thermal printer, and guests follow their ticket to the table.` / `Owners run menus, offers, tables, staff and analytics from one dashboard, with GST invoices and a branded website for every outlet.`
+- Description: `Guests order from the table on their own phone, with no app and no sign-in. Orders reach a kitchen display and thermal printer, and guests follow their ticket to the table.` / `Owners run menus, offers, tables, staff and analytics from one dashboard, with GST invoices and a branded website for each restaurant.`
 - What it solves: `Service at a busy restaurant is limited by the counter: guests wait to order, and tickets reach the kitchen by hand.` / `Ordio moves ordering to the guest's phone and every ticket onto the kitchen display, so the floor team serves instead of taking orders.`
 - Table: `BUILT FOR` Restaurants · Cafés · Quick service · `MODULES` QR ordering · Kitchen display · Order tracking · GST invoices · Offers and coupons · Analytics · Outlet website · Display board · `ROLES` Owner · Kitchen · Server · Staff · `DELIVERY` Multi-tenant · Installable app
 - In use: (phone) `Guests scan the table's code and order. No app, no sign-in.` · (phone) `Sizes, add-ons and kitchen notes, with GST calculated on the bill.` · (laptop) `Every ticket moves across the kitchen display, and prints if needed.` · (laptop) `Analytics break down items, peak hours, kitchen timing and coupons.`
@@ -137,10 +138,10 @@ Metadata per page: title `<Name> · Corner Software`, description = tagline, can
 
 Every box must exist in shipped code. The existing diagram tests apply to all schematics.
 
-- `platform` (new): clients `Staff apps` (web · installable) and `Customer surfaces` (portals · sites · QR); core `Tenant-scoped server` (org context per request); direct `Postgres` (row-level security), `Append-only records` (audit · ledgers · versions), `Documents` (PDF · invoices); second-hand `Email` (sign-in · documents) via Documents. Annotations: `one tenant per subdomain or domain`, `money in whole paise`, `nothing overwritten`.
+- `platform` (new): clients `Staff apps` (web) and `Customer surfaces` (portals · sites · QR); core `Tenant-scoped server` (org context per request); direct `Postgres` (row-level security), `Append-only records` (audit · ledgers · versions), `Documents` (PDF · invoices) and `Email` (sign-in · documents, sent directly from the server). Annotations: `one tenant per subdomain or domain`, `money calculated in paise`, `nothing overwritten`.
 - `arogyam` (rebuilt): clients `Clinic staff` (web) and `Patient portal` (private link); core `Server` (tenant-scoped); direct `Postgres` (RLS per practice), `Audit log` (append-only), `Casepaper PDFs` (English · Marathi), `Practice site` (block renderer); second-hand `Email sign-in` (one-time code) via Server. Annotations: `each practice on its own domain`, `casepapers never overwritten`, `consent tied to policy version`.
-- `ordio` (corrected): remove the `PhonePe` box and its connectors and the `no ticket before payment` annotation; add `Kitchen printer` (thermal KOT) reached from the kitchen display path; keep receipts and WhatsApp/SMS share links. Annotation replacing the payment note: `tickets print on the kitchen line`.
-- `streamline`, `ssc`: unchanged.
+- `ordio` (corrected): remove the `PhonePe` box and its connectors and the `no ticket before payment` annotation; add `Kitchen printer` (thermal KOT) reached from the kitchen display path; keep receipts and WhatsApp/SMS share links. Boxes renamed from café to outlet scope (`RLS per outlet`, `one outlet per subdomain`) since a tenant may run more than one physical café or restaurant. Annotation replacing the payment note: `tickets print on the kitchen line`.
+- `streamline`, `ssc`: unchanged, except `streamline`'s money annotation reads `money calculated in paise` (it stores `numeric(12,2)` and calculates in paise).
 
 ## Documents
 

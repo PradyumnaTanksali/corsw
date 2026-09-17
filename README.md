@@ -17,7 +17,7 @@ The site for Corner Software, run by Pradyumna Tanksali: industry platforms (Aro
 pnpm dev          # local dev server
 pnpm typecheck    # tsc --noEmit
 pnpm lint         # eslint
-pnpm test         # host routing check (node --test)
+pnpm test         # node --test (host routing, tones, diagrams, projects)
 pnpm build        # production build
 pnpm start        # serve the build
 ```

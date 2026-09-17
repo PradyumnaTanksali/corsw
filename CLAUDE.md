@@ -33,7 +33,7 @@ Modlio (`modlio.corsw.in`) and Scene (`scenestudio.corsw.in`) are archived sites
 - A contact form or a nav menu. The fixed bar holds the mark and one call to action only.
 - Headcount, "Pvt. Ltd.", team or investor language, dates/issues/versions, external links, or a project on the site that isn't shipped or in build.
 - Hinglish, exclamation marks, emoji.
-- "transform", "innovative", "cutting-edge", "world-class", "next-generation".
+- "transform", "innovative", "cutting-edge", "world-class", "next-generation", "leading", "best-in-class", "seamless".
 - Captures from production Arogyam, StreamLine or Ordio. Only public pages or seeded demo data.
 
 ## Always

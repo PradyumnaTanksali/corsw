@@ -93,10 +93,10 @@ The shipped components are the copy bank. Change copy there, and keep this list 
 
 **1 Overview** — no H2.
 - (lead, scrub-lit) Every business runs on a handful of systems it cannot afford to lose: the front desk, the order book, the kitchen ticket. Corner Software builds those systems as platforms, operates them, and improves them for every customer at once.
-- Arogyam, StreamLine and Ordio serve healthcare, manufacturing and food service. The same engineering practice builds custom platforms for businesses no product fits yet.
+- Arogyam, StreamLine and Ordio serve healthcare, manufacturing and food service. The same engineering practice builds custom platforms for businesses no product fits.
 - Marquee: `Healthcare practices · Manufacturing · Trading · Restaurants and cafés · Wholesale distribution`.
 
-**2 Products** — H2 `Built for whole *industries*.` Intro: *Each platform is designed around how an industry works, then configured for every business that runs on it.* One pinned item per product (`kind: "product"`): the capture, the name, the status badge, the tagline and `Explore <Name> →`. No tenant names, client counts or live links on cards. The diagram, the description and the data table live on that product's `/products/<slug>` page (`lib/projects.ts`).
+**2 Products** — H2 `Built for whole *industries*.` Intro: *Each product is designed around how an industry works, then configured for every business that runs on it.* One pinned item per product (`kind: "product"`): the capture, the name, the status badge, the tagline and `Explore <Name> →`. No tenant names, client counts or live links on cards. The diagram, the description and the data table live on that product's `/products/<slug>` page (`lib/projects.ts`).
 
 | # | Product | Status |
 |---|---|---|
@@ -104,36 +104,36 @@ The shipped components are the copy bank. Change copy there, and keep this list 
 | 2 | StreamLine — operations platform for manufacturers and trading businesses | operating |
 | 3 | Ordio — ordering, kitchen and guest platform for restaurants and cafés | operating |
 
-**3 Platform** — H2 `Built on one **foundation**.` (accent word in mono, carbon chapter). Intro: *Every Corsw product runs on the same engineering foundation. Work on security, reliability and performance reaches every product and every customer.* Pillars (`dl`, mono accent `dt` labels):
+**3 Platform** — H2 `Built to one **standard**.` (accent word in mono, carbon chapter). Intro: *Every Corsw product is built to the same engineering standards and runs as one hosted platform. An improvement ships once and reaches every customer of that product.* Pillars (`dl`, mono accent `dt` labels):
 1. `Isolation` — Each customer's data is isolated in the database itself, with row-level security on every business table.
-2. `History` — Critical records are append-only: audit logs, casepaper versions, stock movements and payments are added to, never overwritten.
-3. `Money` — Amounts are stored in whole paise and recalculated on the server, never trusted from the screen.
+2. `History` — Critical records are append-only: audit logs, casepaper versions, stock movements and invoice payments are added to, never overwritten.
+3. `Money` — Amounts are calculated in whole paise on the server, never trusted from the screen.
 4. `Identity` — Every customer runs under its own address, branding and settings, on a subdomain or its own domain.
 5. `India-ready` — GST invoices, PF and ESI, English and Marathi, built into the products that need them.
 6. `Operated` — Hosted and updated by Corsw. One release reaches every customer.
 
 Beside the pillars, the `platform` system diagram (`lib/diagrams.ts`) assembles as evidence.
 
-**4 Engineering** — H2 `Custom platforms. Same **standards**.` (accent word in mono).
-- When no product fits, Corsw designs and builds the platform, then hosts and runs it the way it runs its own products.
-- From the first workshop to production support, one team owns the outcome.
-- Services list: `Product design` · `Engineering` · `Hosting and operations` · `Ongoing support`.
-- Selected engagement card (`kind: "engagement"`): the capture, the name, the status badge, the tagline and `Read the engagement →`.
+**4 Engineering** — H2 `Custom software. Same **standards**.` (accent word in mono).
+- When no product fits, Corsw designs and builds the software, then hosts and runs it the way it runs its own products.
+- From the first scoping call to production support, Corsw owns the outcome.
+- Services list: `Product design` · `Engineering` · `Hosting and operations` · `Ongoing support`, followed by a `Start a project →` link (mailto, subject "New project").
+- Label `Engagement`, then a card (`kind: "engagement"`): the capture, the name, the status badge, the tagline and `Read the engagement →` (screen readers hear the engagement's name after "Read the engagement").
 
 | # | Engagement | Status |
 |---|---|---|
 | 1 | SSC — B2B catalogue and quoting for a wholesale distributor | in build |
 
-**5 Company** — Rows: Company · Corner Software (Corsw); Founded · 2024; Based · India; Products · Arogyam · StreamLine · Ordio; Industries · Healthcare · Manufacturing · Trading · Food service · Distribution; Services · Product engineering · Hosting and operations · Support.
+**5 Company** — Rows: Company · Corner Software (Corsw); Founded · 2024; Based · India; Products · Arogyam · StreamLine · Ordio; Industries · Healthcare · Manufacturing · Trading · Food service · Distribution; Services · Product design · Engineering · Hosting and operations · Ongoing support.
 
 **6 Contact** — H2 `Start a **conversation**.`
-- (lead) See a platform running against your own workflow, or scope one Corsw builds for you.
-- Share what you run today and where it slows you down. The reply sets out what the platform covers, the timeline and the cost.
+- (lead) See a product running, or scope software Corsw builds for you.
+- Share what you run today and where it slows you down. The reply sets out what Corsw would build, the timeline and the cost.
 - `Request a demo →` (large, weight-shifts on hover, mailto, subject "Demo request") · `Start a project →` (mailto, subject "New project") · the email address.
 
 **Footer** — `Corner Software` · `© 2024–2026`.
 
-**Product and engagement pages (`/products/<slug>`, `/engineering/<slug>`, `components/work/ProjectPage.tsx`)** — Hero: the project's ordinal and sector (`BUILT FOR` on products, `SECTOR` on the engagement), its status badge, the name as H1, the tagline, the capture. **What it solves** (products) / **The engagement** (the engagement) — two paragraphs from `lib/projects.ts` (`business`): what the business runs into, then what Corsw's software does about it. **In use** — H2 `How it *runs*.` — 3–4 walkthrough steps (`lib/projects.ts` `walkthrough`), each a caption beside the screen it describes. **Architecture** — H2 `How it is **built**.` — that project's system diagram and its data table (`lib/projects.ts` `table`), plus `Request a demo →` on operating products only. **Next product** (products, cycles the product list) / **All products** (the engagement, links to `/#products`) — the next item's name and tagline, linking on. Tagline, description, business copy, table and walkthrough captions for every product and the engagement are set once in `lib/projects.ts`:
+**Product and engagement pages (`/products/<slug>`, `/engineering/<slug>`, `components/work/ProjectPage.tsx`)** — Hero: the project's ordinal and sector (`BUILT FOR` on products, `SECTOR` on the engagement), its status badge, the name as H1, the tagline, the capture. **What it solves** (products) / **The engagement** (the engagement) — two paragraphs from `lib/projects.ts` (`business`): what the business runs into, then what Corsw's software does about it. **In use** — H2 `How it *runs*.` — 3–4 walkthrough steps (`lib/projects.ts` `walkthrough`), each a caption beside the screen it describes. **Architecture** — H2 `How it is **built**.` — that project's system diagram and its data table (`lib/projects.ts` `table`), plus `Request a demo →` on operating products and `Start a project →` (mailto, subject "New project") on the engagement. **Next product** (products, cycles the product list) / **All products** (the engagement, links to `/#products`) — the next item's name and tagline, linking on. Tagline, description, business copy, table and walkthrough captions for every product and the engagement are set once in `lib/projects.ts`:
 - **Arogyam** (operating) — `Practice management and patient engagement for outpatient clinics.`
 - **StreamLine** (operating) — `Operations platform for manufacturers and trading businesses.`
 - **Ordio** (operating) — `Ordering, kitchen and guest platform for restaurants and cafés.`
@@ -141,7 +141,7 @@ Beside the pillars, the `platform` system diagram (`lib/diagrams.ts`) assembles 
 
 **404** — `Not found`; H1 `Nothing at this *corner*.`; `Back to Corner Software →`.
 
-**/demo** — eyebrow `Corner Software · Demo`; H1 `Platforms in *service*.`; `Ask for a demo →`; `Everything Corsw builds →`; `See one running.` / *A walk through a live tenant: the operator's screens, not slides. Name the platform in the subject line, or describe what you would like built.*
+**/demo** — eyebrow `Corner Software · Demo`; H1 `Platforms in *service*.`; `Request a demo →`; `Everything Corsw builds →`; `See one running.` / *A walk through a live tenant: the operator's screens, not slides. Name the platform in the subject line, or describe what you would like built.*
 
 **Site-wide** — Bar CTA `Request a demo →` (mailto, subject "Demo request"). Page title `Corner Software · Industry platforms, built and run.`. Metadata description `Corner Software (Corsw) builds and operates industry platforms for healthcare practices, manufacturers and restaurants, and engineers custom platforms to the same standards. Founded 2024, based in India.`. Share description `Industry platforms, built and run. Arogyam · StreamLine · Ordio.`. OG image: H1 unchanged; subline `Industry platforms, built and run by Corner Software.`. JSON-LD: home `Organization` (founder with sameAs GitHub, email) + `ItemList` of the products on `/`; each product page carries its own `SoftwareApplication`, the engagement page a `CreativeWork`. No `legalName`.
 
@@ -150,7 +150,7 @@ Beside the pillars, the `platform` system diagram (`lib/diagrams.ts`) assembles 
 **Never**
 - Headcount ("one person", "People: One"), "Pvt. Ltd.", team or investor claims, "just getting started" framing.
 - Counts, dates, issue numbers or version strings in visible copy (tables excepted for data).
-- External links (the email and `/demo` are the only ways out).
+- External links. Ways out: the email (Request a demo, Start a project). /demo serves unassigned subdomains and is not linked from the home page.
 - A project on the site that isn't shipped or in build; tenant or client names on cards.
 - A contact form or nav menu.
 - Rounded corners, gradients (the column and dot grids excepted), shadows, an icon library.
@@ -168,4 +168,4 @@ Beside the pillars, the `platform` system diagram (`lib/diagrams.ts`) assembles 
 
 1. Edit `lib/projects.ts` (set `kind: "product"` or `"engagement"`; add a schematic in `lib/diagrams.ts` if new).
 2. Update the Company rows in `components/home/Contact.tsx`, the Statement follow-up and the metadata descriptions if a product or industry changes.
-3. `/demo` lists `operating` projects automatically.
+3. `/demo` lists `operating` products automatically.
