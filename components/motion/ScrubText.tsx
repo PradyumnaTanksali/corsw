@@ -29,6 +29,10 @@ export function ScrubText({
         const split = SplitText.create(el, {
           type: "lines",
           autoSplit: true,
+          // "auto" (the default) sets aria-label on this <p> — invalid there,
+          // and ignored by screen readers — and aria-hidden on every line,
+          // which silences the paragraph entirely. Leave the real text alone.
+          aria: "none",
           onSplit: (self) =>
             gsap.fromTo(
               self.lines,
