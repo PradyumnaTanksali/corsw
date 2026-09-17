@@ -139,17 +139,17 @@ Schibsted Grotesk (variable weight 400–900, `next/font/google`) is the only sa
 ### Sizes in use
 
 - **Hero display** (bone, `<h1>` only): `clamp(3.25rem, 12.5vw, 12rem)`, line-height 0.84, tracking -0.035em, `font-accent`. Its lines rise out of CSS masks (`.line-mask` / `.line-rise`) before hydration, so the LCP heading needs no JS.
-- **Section heads** (Work, Approach, Walkthrough "In use", Architecture): `clamp(2.75rem, 8vw, 7.5rem)`, line-height 0.9, tracking -0.04em, weight 600. Contact's "Start a project." runs the same family larger, at `clamp(3rem, 10vw, 9rem)`. The `/demo` and 404 headlines sit nearby, at `clamp(3rem, 9vw, 8rem)` and `clamp(3rem, 10vw, 8rem)`.
-- **Case hero** (`/work/[slug]` project name): `clamp(3.5rem, 13vw, 12rem)`, line-height 0.85, tracking -0.05em, weight 800 — Schibsted, not Garamond; the case hero is carried by weight, the home hero by the face swap.
+- **Section heads** (Products, Platform, Engineering, Walkthrough "In use", Architecture): `clamp(2.75rem, 8vw, 7.5rem)`, line-height 0.9, tracking -0.04em, weight 600. Contact's "Start a conversation." runs the same family larger, at `clamp(3rem, 10vw, 9rem)`. The `/demo` and 404 headlines sit nearby, at `clamp(3rem, 9vw, 8rem)` and `clamp(3rem, 10vw, 8rem)`.
+- **Case hero** (`/products/[slug]`, `/engineering/[slug]` project name): `clamp(3.5rem, 13vw, 12rem)`, line-height 0.85, tracking -0.05em, weight 800 — Schibsted, not Garamond; the case hero is carried by weight, the home hero by the face swap.
 - **Title** (project card tagline, `/demo`): `clamp(1.375rem, 2.4vw, 1.75rem)`, line-height 1.18, tracking -0.02em, weight 500.
-- **Body**: 17px, line-height 1.6, weight 400, used for the lead/intro/description paragraphs across Foundation, Work, Business, Architecture and Contact; drops to 15px, line-height 1.65, in the `/demo` project-card description. Capped at `max-w-prose` (65ch).
+- **Body**: 17px, line-height 1.6, weight 400, used for the lead/intro/description paragraphs across Statement, Products, Platform, Engineering, Business, Architecture and Contact; drops to 15px, line-height 1.65, in the `/demo` project-card description. Capped at `max-w-prose` (65ch).
 - **Label**: JetBrains Mono, 11px, 0.22em, uppercase — the section folio, the bar wordmark, the footer and the 404/`/demo` eyebrows.
 - **Mono data**: JetBrains Mono, 12–13px, tabular — data-table values, the Company `<dl>`, call-to-action links (the bar's `Start a project`, the Hero and Architecture CTAs, the Contact `/demo` link and email).
 - **Mono tag**: JetBrains Mono, 10.5–12px, 0.12–0.14em, uppercase — the status badge, diagram panel captions, case-hero and rail eyebrows.
 
 ### Named Rules
 
-**The Face-Swap Emphasis Rule.** On bone and ink, emphasis is a change of typeface to Garamond italic through `font-accent` (Work "work.", Walkthrough "runs."), never bold, never a plain italic. On carbon, the same emphasis role is a mono face at a tighter tracking (Approach "works.", Architecture "built.", Contact "project."), never Garamond. A third emphasis, distinct from both, is a pure weight jump on Schibsted itself (the Hero subline's "runs", the scrubbed Work project names, the Contact/Next-project link hovers) — a weight change, not a face change.
+**The Face-Swap Emphasis Rule.** On bone and ink, emphasis is a change of typeface to Garamond italic through `font-accent` (Products "industries.", Walkthrough "runs."), never bold, never a plain italic. On carbon, the same emphasis role is a mono face at a tighter tracking (Platform "foundation.", Engineering "standards.", Architecture "built.", Contact "conversation."), never Garamond. A third emphasis, distinct from both, is a pure weight jump on Schibsted itself (the Hero subline's "run", the scrubbed Products project names, the Contact/Next-project link hovers) — a weight change, not a face change.
 
 **The Balance and Figures Rule.** `text-balance` sits on every heading. `tabular-nums` sits on every table, data row and figure.
 
@@ -157,11 +157,11 @@ Schibsted Grotesk (variable weight 400–900, `next/font/google`) is the only sa
 
 A fixed 56px bar (`components/site/Bar.tsx`, `h-14`) holds only the mark (links home) on the left and `Start a project →` on the right. There is no menu, hamburger or second row. `Container` (`components/primitives/Container.tsx`) centers content at `max-width` 1200px with 32px side gutters, rising to 64px from `md`.
 
-From `md`, a section is a 12-column grid: the section folio (`SectionRule`) takes columns 1–3, the content takes columns 4–12 — a 3/9 split, not a 4/8 one. Below `md` everything stacks in source order. Sections are padded 128px top and bottom, rising to 176px from `md` (`py-32 md:py-44` and its `pt`/`pb` equivalents); the Hero and case-study hero are their own shapes and sit outside this rhythm.
+From `md`, a section is a 12-column grid: the section folio (`SectionRule`) takes columns 1–3, the content takes columns 4–12 — a 3/9 split, not a 4/8 one. Below `md` everything stacks in source order. Sections are padded 128px top and bottom, rising to 176px from `md` (`py-32 md:py-44` and its `pt`/`pb` equivalents); the Hero and the product/engagement page hero are their own shapes and sit outside this rhythm.
 
-Two sections are staged rather than simply stacked: **Work** (`components/home/Work.tsx`) pins on desktop and plays its four projects through a single scroll region the height of the viewport times the project count, and **Walkthrough** (`components/work/Walkthrough.tsx`) sticks one device frame at `top-24` while the steps beside it scroll past and swap its screen. Both fall back to an ordinary stacked layout below `md` or under reduced motion.
+Two sections are staged rather than simply stacked: **Products** (`components/home/Products.tsx`) pins on desktop and plays its products through a single scroll region the height of the viewport times the product count, and **Walkthrough** (`components/work/Walkthrough.tsx`) sticks one device frame at `top-24` while the steps beside it scroll past and swap its screen. Both fall back to an ordinary stacked layout below `md` or under reduced motion.
 
-Breakpoints are Tailwind defaults as used: `md` 768px (the pin/sticky/SVG-diagram/grid-texture threshold throughout `matchMedia`) and `lg` 1024px (`Built`/`Architecture` figure-plus-list grid).
+Breakpoints are Tailwind defaults as used: `md` 768px (the pin/sticky/SVG-diagram/grid-texture threshold throughout `matchMedia`) and `lg` 1024px (`Platform`/`Architecture` figure-plus-list grid).
 
 ### Named Rules
 
@@ -181,13 +181,13 @@ The stack is GSAP (`ScrollTrigger`, `SplitText`, `MotionPathPlugin`, registered 
 - **`Drift`** — moves its content by a given `y` (and optionally fades it to 0.15) over the first screen of scrolling, scrubbed, `ease: "none"`. Lifts the Hero mark and headline away as the page leaves bone.
 - **`Marquee`** — a duplicated word list drifting left on `gsap.ticker`, base 60px/s plus a factor of scroll velocity, paused via `ScrollTrigger` while off screen. Screen readers get the list once, `sr-only`.
 - **`Diagram`** (`components/site/Diagram.tsx`) — the SVG system diagram on `md`+: boxes fade up and connectors draw (`strokeDashoffset`) on one scrubbed timeline (80%–60%, `scrub: 1`), then accent dots loop along every connector (`MotionPathPlugin`) while the diagram stays in view, paused via `ScrollTrigger.onToggle` when it leaves. Below `md`, a stacked HTML version (`MobileStack`) replaces it and never shows an edge the desktop schematic lacks (`lib/diagrams.ts` `mobileLayout`, asserted by `lib/diagrams.test.mjs`).
-- **`Work`** (`components/home/Work.tsx`) — on desktop with motion, the stage pins and a scrubbed timeline opens each project's capture from an inset `clip-path` to full frame, scrubs its name's weight 400 → 800, and cross-fades to the next; a rail tracks progress. Below `md` with motion enabled, the same articles sit in normal flow with just the capture's `clip-path` reveal scrubbed per item as it enters. Under reduced motion, on any viewport, every article sits fully revealed in normal flow with no motion.
+- **`Products`** (`components/home/Products.tsx`) — on desktop with motion, the stage pins and a scrubbed timeline opens each product's capture from an inset `clip-path` to full frame, scrubs its name's weight 400 → 800, and cross-fades to the next; a rail tracks progress. Below `md` with motion enabled, the same articles sit in normal flow with just the capture's `clip-path` reveal scrubbed per item as it enters. Under reduced motion, on any viewport, every article sits fully revealed in normal flow with no motion.
 - **`Walkthrough`** (`components/work/Walkthrough.tsx`) — on desktop with motion, one sticky device frame swaps screens (opacity) as each step's caption crosses the viewport's middle, tracked by per-step `ScrollTrigger`s. Otherwise every step renders its own inline device.
 - **`ToneScroller`** — see Chapters. Adds `tones-live` and crossfades the role variables on `<html>` between chapters; does nothing under reduced motion.
 
 ### Eases
 
-`expo.out` for one-shot entrances (`Reveal`, `SplitReveal`). `ease: "none"` for every scrubbed or ticker-driven motion (`ScrubText`, `Drift`, `Marquee`, the `Diagram` and `Work` scroll timelines). `power2.inOut` for the `ToneScroller` chapter crossfade. CSS `cubic-bezier(0.16, 1, 0.3, 1)` for the two motions that must run without JS — the hero's `.line-rise` and `.mark-stamp` keyframes — and for `::view-transition-group` (the shared `capture-<slug>` element between a Work card and its case-study hero).
+`expo.out` for one-shot entrances (`Reveal`, `SplitReveal`). `ease: "none"` for every scrubbed or ticker-driven motion (`ScrubText`, `Drift`, `Marquee`, the `Diagram` and `Products` scroll timelines). `power2.inOut` for the `ToneScroller` chapter crossfade. CSS `cubic-bezier(0.16, 1, 0.3, 1)` for the two motions that must run without JS — the hero's `.line-rise` and `.mark-stamp` keyframes — and for `::view-transition-group` (the shared `capture-<slug>` element between a Products card and its product or engagement page hero).
 
 ### The `data-live` Pattern
 
@@ -199,13 +199,15 @@ Every animation is created inside `useGSAP` and gated by `gsap.matchMedia()` (`(
 
 ## Components
 
-- **Bar** (`components/site/Bar.tsx`) — fixed, 56px, `border-b border-ink-rule bg-bg`: the mark plus "Corner Software" (home link) on the left, `Start a project →` in the accent on the right. No menu.
+- **Bar** (`components/site/Bar.tsx`) — fixed, 56px, `border-b border-ink-rule bg-bg`: the mark plus "Corner Software" (home link) on the left, `Request a demo →` in the accent on the right. No menu.
 - **Section folio** (`SectionRule`) — a 1px `--ink-rule` top border above an inline row: the ordinal (`<Ordinal dot>`) sets in the accent face, EB Garamond italic (`font-accent`) at 16px, normal case, no tracking, in the accent colour; the section name follows in Label (mono, 11px, 0.22em, uppercase, muted ink).
-- **Buttons** — square, 1px accent border, Mono data text in the accent (`Ask for a demo`, the `/demo` CTA). Hover fills the accent and reverses the text to `--bg` (150ms `transition-colors`); focus keeps the shared `:focus-visible` outline, not a fill. There is no secondary button; every other action is a link.
+- **Buttons** — square, 1px accent border, Mono data text in the accent (`Ask for a demo`, the `/demo` CTA; `Request a demo`, the product `Architecture` CTA). Hover fills the accent and reverses the text to `--bg` (150ms `transition-colors`); focus keeps the shared `:focus-visible` outline, not a fill. There is no secondary button; every other action is a link.
 - **Links** (`.link-draw`, `globals.css`) — mono text, `aria-hidden` `→`. Hover and focus draw a 1px accent underline left to right (`scaleX`, 200ms, `cubic-bezier(0.32, 0.72, 0, 1)`).
 - **Capture and Device** (`components/site/Capture.tsx`, `components/site/Device.tsx`) — `Capture` fills its positioned parent with a `next/image`; until `shot.src` exists it shows a labelled placeholder frame ("Capture pending · …") over a block grid, so pages build and review end to end before real captures land. `Device` frames a `Capture` as the screen it was taken on: `aspect-[390/844]` for a phone, `aspect-[16/10]` for a laptop.
 - **System diagram** (`Diagram`) — desktop SVG plus mobile stack; see Motion. The mobile stack is generated from the same schematic data (`lib/diagrams.ts`) and can never show a connection the desktop version doesn't have.
-- **Data rows** — `DataTable` (project SECTOR/MODULES/DELIVERY tables): mono 12.5px, tabular, a 1px rule top border per row, uppercase Faint-Ink labels in a 112px (`w-28`) column. The Company `<dl>` (`components/home/Contact.tsx`) follows the same pattern in the 3/9 grid.
+- **Platform pillars** (`components/home/Platform.tsx`) — a `<dl>` of paired mono accent labels (`dt`, 11px, 0.22em, uppercase) and copy (`dd`), each separated by a 1px `--ink-rule` top border, beside the platform system diagram.
+- **Engineering** (`components/home/Engineering.tsx`) — a mono services list above a selected-engagement card: a `Capture`, the engagement's name, `StatusBadge` and a `link-draw` CTA to its `/engineering/[slug]` page.
+- **Data rows** — `DataTable` (product and engagement data tables): mono 12.5px, tabular, a 1px rule top border per row, uppercase Faint-Ink labels in a 112px (`w-28`) column. The Company `<dl>` (`components/home/Contact.tsx`) follows the same pattern in the 3/9 grid.
 - **Status badge** (`StatusBadge`) — Mono tag, 11px, uppercase, 0.12em, preceded by a 6px (`size-1.5`) square: `bg-success` for operating, `bg-warning` for in build. No border, no fill behind the text.
 - **Footer** (`Footer`) — one row behind a rule top border: `Corner Software` and `© 2024–2026` in Label. It takes a `tone` prop from its page so the last chapter on screen closes the page in one color.
 

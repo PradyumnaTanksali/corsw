@@ -4,13 +4,13 @@
 
 ## What this is
 
-corsw.in — the site of Corner Software (Corsw). Selected work (Arogyam, StreamLine, Ordio, SSC), a contact section, a `/demo` page that also serves every unassigned `*.corsw.in` subdomain, and one identity in three scroll chapters: **bone** (paper, Garamond), **ink** (the work) and **carbon** (diagrams, dot grid). Case studies live at /work/<slug>.
+corsw.in — the site of Corner Software (Corsw), a software company with industry platforms (Arogyam, StreamLine, Ordio) and an engineering practice (SSC is an engagement). Product pages live at /products/<slug>, engagements at /engineering/<slug>. A /demo page also serves every unassigned *.corsw.in subdomain. One identity in three scroll chapters: **bone** (paper, Garamond), **ink** (the products) and **carbon** (platform, engineering, diagrams).
 
 Modlio (`modlio.corsw.in`) and Scene (`scenestudio.corsw.in`) are archived sites in their own repos. They are not built here and are not divisions.
 
 ## How we work
 
-1. **Copy is banked.** Change it in the component and in `BRIEF.md` §4 together. Don't invent claims; if a fact isn't in `PRODUCT.md`, ask.
+1. **Copy is banked.** Change it in the component and in `BRIEF.md` §4 together. Don't invent claims; if a fact isn't in `PRODUCT.md`, ask. Product copy names only shipped capabilities; check PRODUCT.md's Not claimable list.
 2. **Dependencies are fixed:** next, react, react-dom, gsap, @gsap/react, lenis. No others.
 3. **Every chapter, every change.** Check bone, ink and carbon, desktop and phone, and reduced motion (DevTools → Rendering).
 4. **Conventional Commits**, one concern per commit.

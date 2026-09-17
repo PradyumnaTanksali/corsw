@@ -9,15 +9,15 @@ web
 ## Users
 
 - Businesses looking for software they will depend on every day: clinics, manufacturers, cafés and restaurants, distributors. They arrive from a product subdomain, a shared link, or an unassigned `*.corsw.in` address, and want to know what Corsw builds and whether it runs.
-- Prospective clients deciding whether to start a project with Corsw. Corsw is actively taking on new clients and plans to expand (owner, 2026-09-13).
+- Businesses evaluating a Corsw product for their industry, or scoping a custom platform with Corsw. Corsw is actively taking on new clients and plans to expand (owner, 2026-09-13).
 
 ## Product Purpose
 
-corsw.in is the public home of Corner Software (Corsw). It shows selected work, how each system is put together, and two ways forward: start a project or see a platform running. Success: a visitor understands what Corsw builds and operates, and writes to start a project or ask for a demo.
+corsw.in is the public home of Corner Software (Corsw), a software company that builds and operates industry platforms (Arogyam, StreamLine, Ordio) on one engineering foundation, and engineers custom platforms to the same standards. Success: a visitor understands what each platform does and for which industry, and requests a demo or starts a project.
 
 ## Positioning
 
-Corsw designs, builds and then operates the software — hosting, updates and support stay with Corsw after launch. The system diagrams are the architecture as deployed, not illustration.
+Corsw is a platform and engineering company. Its products are built for whole industries, not for the customers they serve today: Arogyam for outpatient clinics, StreamLine for manufacturers and trading businesses, Ordio for restaurants and cafés. Corsw hosts, updates and supports every platform it builds. The system diagrams show the architecture as deployed.
 
 ## Operating Context
 
@@ -28,7 +28,7 @@ Corsw designs, builds and then operates the software — hosting, updates and su
 ## Capabilities and Constraints
 
 - Next.js 16.2.4 (App Router, proxy.ts), React 19.2.4, Tailwind CSS 4, GSAP 3.15 (ScrollTrigger, SplitText, MotionPath), Lenis. No other runtime dependencies.
-- Work on the site (owner decision, 2026-09-13): **Arogyam** (operating), **StreamLine** (operating), **Ordio** (operating; PhonePe merchant KYC pending, so card copy does not claim live payments), **SSC** (in build; pre-launch placeholders). The list grows as client work ships.
+- Products on the site: Arogyam, StreamLine, Ordio (all operating). Engineering engagements: SSC (in build; pre-launch placeholders). Product copy describes each product at market scope and names only shipped capabilities.
 - Not listed on corsw.in, by owner decision: Lokey, Queue, Budgety, Second Brain.
 - Archive sites stay up: `modlio.corsw.in`, `scenestudio.corsw.in`. Products credit Corsw, not Modlio.
 
@@ -48,6 +48,11 @@ Corsw designs, builds and then operates the software — hosting, updates and su
 - Verified product capabilities are in `/Users/apple/Personal/PROJECTS.md` (2026-09-03).
 - Absent, never to be fabricated: uptime measurements, testimonials, customer logos, revenue, compliance certification.
 - Product captures: SSC from its public site; Arogyam, StreamLine and Ordio only from local seeded demo data, pending.
+- Not claimable (verified against the product repos, 2026-09-17):
+  - Arogyam: WhatsApp messaging or automation (production provider is a mock), ABDM/ABHA integration, AI or RAG assistant, desktop app, Hindi, India data residency or DPDP compliance, payments or billing, multi-doctor scheduling, multi-location.
+  - StreamLine: self-serve signup or subscription billing, POS or retail, multi-warehouse, TDS as current or certified, leave or TDS on by default, general notifications.
+  - Ordio: payments being live (PhonePe and Razorpay are not processing), chains or multi-outlet, delivery or takeaway flows, reservations, loyalty, inventory.
+  - All: customer counts, testimonials, uptime, benchmarks, certifications.
 
 ## Product Principles
 
