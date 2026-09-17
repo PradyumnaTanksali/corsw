@@ -29,8 +29,12 @@ export function Work({ projects }: { projects: Project[] }) {
         el.setAttribute("data-live", "");
         const items = gsap.utils.toArray<HTMLElement>("[data-work-item]", el);
         const rail = gsap.utils.toArray<HTMLElement>("[data-rail-item]", el);
-        const setActive = (index: number) =>
+        const setActive = (index: number) => {
           rail.forEach((r, j) => r.toggleAttribute("data-active", j === index));
+          // Mirrors the rail's active state onto the items so CSS can turn off
+          // pointer-events on the stacked, invisible (opacity 0) siblings.
+          items.forEach((it, j) => it.toggleAttribute("data-active", j === index));
+        };
         setActive(0);
 
         const tl = gsap.timeline({
@@ -49,18 +53,39 @@ export function Work({ projects }: { projects: Project[] }) {
 
         items.forEach((item, i) => {
           const q = gsap.utils.selector(item);
-          if (i > 0) tl.fromTo(item, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.12 }, i - 0.12);
+          // Per project i: fades in at i-0.12, frame/media/name open over
+          // i..i+0.55, meta follows at i+0.3, fade-out runs i+0.76..i+0.88;
+          // the last project has no fade-out and holds through the tail tween.
+          if (i > 0) tl.fromTo(item, { opacity: 0 }, { opacity: 1, duration: 0.12 }, i - 0.12);
           tl.fromTo(q("[data-frame]"), { clipPath: "inset(20% 26% 20% 26%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.55 }, i)
             .fromTo(q("[data-media]"), { scale: 1.3 }, { scale: 1, duration: 0.55 }, i)
             .fromTo(q("[data-name]"), { fontWeight: 400 }, { fontWeight: 800, duration: 0.55 }, i)
-            .fromTo(q("[data-meta]"), { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.25, stagger: 0.05 }, i + 0.3);
+            .fromTo(q("[data-meta]"), { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.25, stagger: 0.05 }, i + 0.3);
           // Out before the next fades in, so two projects never overlap.
-          if (i < items.length - 1) tl.to(item, { autoAlpha: 0, duration: 0.12 }, i + 0.76);
+          if (i < items.length - 1) tl.to(item, { opacity: 0, duration: 0.12 }, i + 0.76);
         });
         // Hold the last project open before the pin releases.
         tl.to({}, { duration: 0.45 });
 
-        return () => el.removeAttribute("data-live");
+        // Tab into a stacked-but-invisible item (opacity 0, still in the tab
+        // order since we tween opacity and not autoAlpha): scroll so the
+        // pinned timeline opens it, using the same "open" position (i+0.55)
+        // the enter tween above targets.
+        const st = tl.scrollTrigger;
+        const onFocusIn = (event: FocusEvent) => {
+          const item = (event.target as HTMLElement).closest<HTMLElement>("[data-work-item]");
+          if (!item || !st) return;
+          const i = items.indexOf(item);
+          if (i === -1) return;
+          const top = st.start + ((i + 0.55) / tl.duration()) * (st.end - st.start);
+          window.scrollTo({ top, behavior: "instant" });
+        };
+        el.addEventListener("focusin", onFocusIn);
+
+        return () => {
+          el.removeAttribute("data-live");
+          el.removeEventListener("focusin", onFocusIn);
+        };
       });
 
       mm.add("(max-width: 767px) and (prefers-reduced-motion: no-preference)", () => {
@@ -119,7 +144,9 @@ export function Work({ projects }: { projects: Project[] }) {
             <article key={p.slug} data-work-item aria-labelledby={`work-${p.slug}`} className="flex items-center">
               <Container className="grid gap-6 md:grid-cols-12">
                 <div className="md:col-span-9 md:col-start-4">
-                  <Link href={`/work/${p.slug}`} aria-label={`${p.name} case study`} className="block">
+                  {/* Duplicates the name link below; kept out of tab order and the
+                      accessibility tree so each project is one tab stop, not two. */}
+                  <Link href={`/work/${p.slug}`} tabIndex={-1} aria-hidden="true" className="block">
                     <div
                       data-frame
                       className="relative aspect-[16/10] w-full overflow-hidden border border-ink-rule bg-bg-card md:max-w-[calc((100svh-19rem)*1.6)]"

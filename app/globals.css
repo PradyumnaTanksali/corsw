@@ -138,6 +138,11 @@ a:focus-visible > .link-draw::after {
   inset: 3.5rem 0 0;
 }
 
+/* Invisible (opacity 0), stacked siblings must not swallow clicks. */
+[data-live] [data-work-item]:not([data-active]) {
+  pointer-events: none;
+}
+
 /* Walkthrough (components/work/Walkthrough.tsx): one sticky device swaps
    screens while live; otherwise each step shows its own device inline. */
 [data-walk-stage] {
