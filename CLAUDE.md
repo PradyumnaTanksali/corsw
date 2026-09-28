@@ -30,8 +30,8 @@ Modlio (`modlio.corsw.in`) and Scene (`scenestudio.corsw.in`) are archived sites
 
 - Icons from a library; arrows are `→`.
 - Gradients (except the column and dot grid textures), rounded corners, shadows or glows.
-- A contact form or a nav menu. The fixed bar holds the mark and one call to action only.
-- Headcount, "Pvt. Ltd.", team or investor language, dates/issues/versions, external links, or a project on the site that isn't shipped or in build.
+- A contact form or a nav menu. The fixed bar holds the mark, `Portal →` and one call to action only.
+- Headcount, "Pvt. Ltd.", team or investor language, dates/issues/versions, external links (the bar's `Portal →` to portal.corsw.in is the one exception), or a project on the site that isn't shipped or in build.
 - Hinglish, exclamation marks, emoji.
 - "transform", "innovative", "cutting-edge", "world-class", "next-generation", "leading", "best-in-class", "seamless".
 - Captures that show a client's name, contact details, personal names, revenue or a payment screen. Captures come from public pages, demo accounts, or owner-supplied screenshots put through `scripts/crop-captures.mjs`.

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Monogram } from "@/components/primitives/Monogram";
 import { DEMO_HREF } from "@/lib/projects";
 
-/** The fixed top bar: the mark home and one call to action. No menu. */
+/** The fixed top bar: the mark home, the team portal and one call to action. No menu. */
 export function Bar() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 border-b border-ink-rule bg-bg print:hidden">
@@ -15,13 +15,22 @@ export function Bar() {
           <Monogram size={20} title="Corner Software, home" />
           <span className="hidden sm:inline">Corner Software</span>
         </Link>
-        <a
-          href={DEMO_HREF}
-          className="inline-flex items-center gap-2 font-mono text-[12px] text-accent"
-        >
-          <span className="link-draw">Request a demo</span>
-          <span aria-hidden="true">→</span>
-        </a>
+        <div className="flex items-center gap-6">
+          <a
+            href="https://portal.corsw.in"
+            className="inline-flex items-center gap-2 font-mono text-[12px] text-ink-muted transition-colors duration-150 hover:text-ink"
+          >
+            <span className="link-draw">Portal</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href={DEMO_HREF}
+            className="inline-flex items-center gap-2 font-mono text-[12px] text-accent"
+          >
+            <span className="link-draw">Request a demo</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </header>
   );

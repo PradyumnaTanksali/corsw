@@ -63,7 +63,7 @@ All products      ink — back to the products on /#products
 - any other `*.corsw.in` at `/` → rewrite to `/demo`.
 - every host except `corsw.in` → `X-Robots-Tag: noindex`.
 
-Links on the site: the email, `/demo`, `/products/<slug>`, `/engineering/<slug>`, and internal navigation only. No external links.
+Links on the site: the email, `/demo`, `/products/<slug>`, `/engineering/<slug>`, the bar's `Portal →` (portal.corsw.in, the team portal; owner decision 2026-09-28), and internal navigation only. No other external links.
 
 ## 3. Chapters
 
@@ -150,7 +150,7 @@ Beside the pillars, the `platform` system diagram (`lib/diagrams.ts`) assembles 
 **Never**
 - Headcount ("one person", "People: One"), "Pvt. Ltd.", team or investor claims, "just getting started" framing.
 - Counts, dates, issue numbers or version strings in visible copy (tables excepted for data).
-- External links. Ways out: the email (Request a demo, Start a project). /demo serves unassigned subdomains and is not linked from the home page.
+- External links. Ways out: the email (Request a demo, Start a project) and the bar's `Portal →` to portal.corsw.in. /demo serves unassigned subdomains and is not linked from the home page.
 - A project on the site that isn't shipped or in build; tenant or client names on cards.
 - A contact form or nav menu.
 - Rounded corners, gradients (the column and dot grids excepted), shadows, an icon library.

@@ -155,7 +155,7 @@ Schibsted Grotesk (variable weight 400–900, `next/font/google`) is the only sa
 
 ## Layout
 
-A fixed 56px bar (`components/site/Bar.tsx`, `h-14`) holds only the mark (links home) on the left and `Request a demo →` on the right. There is no menu, hamburger or second row. `Container` (`components/primitives/Container.tsx`) centers content at `max-width` 1200px with 32px side gutters, rising to 64px from `md`.
+A fixed 56px bar (`components/site/Bar.tsx`, `h-14`) holds only the mark (links home) on the left and, on the right, `Portal →` (portal.corsw.in, in muted ink) then `Request a demo →`. There is no menu, hamburger or second row. `Container` (`components/primitives/Container.tsx`) centers content at `max-width` 1200px with 32px side gutters, rising to 64px from `md`.
 
 From `md`, a section is a 12-column grid: the section folio (`SectionRule`) takes columns 1–3, the content takes columns 4–12 — a 3/9 split, not a 4/8 one. Below `md` everything stacks in source order. Sections are padded 128px top and bottom, rising to 176px from `md` (`py-32 md:py-44` and its `pt`/`pb` equivalents); the Hero and the product/engagement page hero are their own shapes and sit outside this rhythm.
 
@@ -199,7 +199,7 @@ Every animation is created inside `useGSAP` and gated by `gsap.matchMedia()` (`(
 
 ## Components
 
-- **Bar** (`components/site/Bar.tsx`) — fixed, 56px, `border-b border-ink-rule bg-bg`: the mark plus "Corner Software" (home link) on the left, `Request a demo →` in the accent on the right. No menu.
+- **Bar** (`components/site/Bar.tsx`) — fixed, 56px, `border-b border-ink-rule bg-bg`: the mark plus "Corner Software" (home link) on the left; on the right, `Portal →` (portal.corsw.in) in muted ink, then `Request a demo →` in the accent. No menu.
 - **Section folio** (`SectionRule`) — a 1px `--ink-rule` top border above an inline row: the ordinal (`<Ordinal dot>`) sets in the accent face, EB Garamond italic (`font-accent`) at 16px, normal case, no tracking, in the accent colour; the section name follows in Label (mono, 11px, 0.22em, uppercase, muted ink).
 - **Buttons** — square, 1px accent border, Mono data text in the accent (`Request a demo`, the `/demo` CTA and the product `Architecture` CTA; `Start a project`, the engagement `Architecture` CTA). Hover fills the accent and reverses the text to `--bg` (150ms `transition-colors`); focus keeps the shared `:focus-visible` outline, not a fill. There is no secondary button; every other action is a link.
 - **Links** (`.link-draw`, `globals.css`) — mono text, `aria-hidden` `→`. Hover and focus draw a 1px accent underline left to right (`scaleX`, 200ms, `cubic-bezier(0.32, 0.72, 0, 1)`).
@@ -227,5 +227,5 @@ Every animation is created inside `useGSAP` and gated by `gsap.matchMedia()` (`(
 - **Don't** add a gradient anywhere except the bone column grid and the carbon dot grid in `Textures`.
 - **Don't** add icons from a library. The arrow is the `→` character, `aria-hidden`, after its label.
 - **Don't** fill a surface with the accent at rest — the only exception is a button's hover fill — and don't turn the status green or amber into a second accent.
-- **Don't** add header chrome: no nav menu or hamburger. The bar is the mark and one call to action.
+- **Don't** add header chrome: no nav menu or hamburger. The bar is the mark, the portal link and one call to action.
 - **Don't** publish a capture that shows a client's name, contact details, personal names, revenue or a payment screen. Captures come from public pages, demo accounts, or owner-supplied screenshots cropped and covered by `scripts/crop-captures.mjs`.
