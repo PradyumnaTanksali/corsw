@@ -3,6 +3,7 @@ import { Container } from "@/components/primitives/Container";
 import { Ordinal } from "@/components/primitives/Ordinal";
 import { StatusBadge } from "@/components/primitives/StatusBadge";
 import { Capture } from "@/components/site/Capture";
+import { CaseVideo } from "@/components/work/CaseVideo";
 import type { Project } from "@/lib/projects";
 
 export function CaseHero({ project }: { project: Project }) {
@@ -33,7 +34,11 @@ export function CaseHero({ project }: { project: Project }) {
         <div className="relative mx-auto aspect-[16/10] max-w-[1440px] overflow-hidden border border-ink-rule bg-bg-card">
           <ViewTransition name={`capture-${project.slug}`}>
             <div className="absolute inset-0">
-              <Capture shot={project.capture} sizes="100vw" priority />
+              {project.video ? (
+                <CaseVideo clip={project.video} />
+              ) : (
+                <Capture shot={project.capture} sizes="100vw" priority />
+              )}
             </div>
           </ViewTransition>
         </div>

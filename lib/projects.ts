@@ -22,6 +22,9 @@ export type Shot = { src?: string; alt: string };
 
 export type Step = Shot & { caption: string; device: "phone" | "laptop" };
 
+/** A silent product loop for the case hero, in place of the capture. Same capture rules apply to every frame. */
+export type Clip = { mp4: string; webm: string; poster: string; label: string };
+
 export type Project = {
   kind: ProjectKind;
   n: number;
@@ -37,6 +40,7 @@ export type Project = {
   diagramLabel: string;
   table: { label: string; value: string }[];
   capture: Shot;
+  video?: Clip;
   walkthrough: Step[];
 };
 
@@ -182,7 +186,14 @@ export const projects: Project[] = [
       { label: "ROLES", value: "Owner · Kitchen · Server · Staff" },
       { label: "DELIVERY", value: "Multi-tenant · Installable app" },
     ],
-    capture: { src: "/work/ordio/tables.png", alt: "Ordio floor plan with a QR code per table" },
+    capture: { src: "/work/ordio/dashboard.png", alt: "Ordio owner dashboard with the day's takings and the orders in progress" },
+    video: {
+      mp4: "/work/ordio/ordio.mp4",
+      webm: "/work/ordio/ordio.webm",
+      poster: "/work/ordio/ordio-poster.jpg",
+      label:
+        "One order through Ordio: a guest orders from the table's phone menu, the ticket lands on the kitchen display, the kitchen marks it ready, and the guest's screen and the owner's dashboard update.",
+    },
     // No payment screens: payments are not live (PRODUCT.md, Not claimable).
     walkthrough: [
       {
@@ -206,8 +217,8 @@ export const projects: Project[] = [
       {
         device: "laptop",
         src: "/work/ordio/summary.png",
-        alt: "Ordio daily summary by hour, item and table",
-        caption: "The daily summary shows orders by hour, item velocity and takings by table.",
+        alt: "Ordio analytics with sales by day and a forecast for next week",
+        caption: "Analytics shows sales by day with next week's forecast, kitchen times and returning guests.",
       },
     ],
   },
