@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // built in corsw-figures and copied in as is
+    "public/figures/**",
   ]),
 ]);
 

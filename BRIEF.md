@@ -22,7 +22,7 @@
 
 ## 2. Information architecture
 
-**`/` — a fixed bar, then six chapters:**
+**`/` — a fixed bar, then seven chapters:**
 
 ```
 Bar            mark (home), Request a demo →
@@ -30,9 +30,10 @@ Hero           bone — eyebrow, H1, subline, action row
 1 Overview     bone — what Corsw builds, sector marquee
 2 Products     ink, pinned — the products in sequence
 3 Platform     carbon — one system diagram, six pillars
-4 Engineering  carbon — services list, a selected engagement
-5 Company      carbon — at a glance
-6 Contact      carbon — request a demo, start a project, email
+4 Drawings     carbon — working drawings: isolation, then one per product
+5 Engineering  carbon — services list, a selected engagement
+6 Company      carbon — at a glance
+7 Contact      carbon — request a demo, start a project, email
 Footer         one line
 ```
 
@@ -114,7 +115,9 @@ The shipped components are the copy bank. Change copy there, and keep this list 
 
 Beside the pillars, the `platform` system diagram (`lib/diagrams.ts`) assembles as evidence.
 
-**4 Engineering** — H2 `Custom software. Same **standards**.` (accent word in mono).
+**4 Drawings** — H2 `Drawn from the **code**.` (accent word in mono). Intro: *Working drawings of how the software behaves. Each is a small machine that moves by the same rules as the product: how one customer's data stays apart, how open slots are found, how stock adds up and how an order reaches the table. Hover, click or use the arrow keys.* Then the plates, stacked, each loaded as it nears the viewport from `public/figures/` (built in `~/Personal/corsw-figures`, never hand-edited here): `Fig 1 · Platform · Isolation` (a deposit cabinet: one organisation's drawer opens), `Fig 2 · Arogyam · Slots` (a segment timer: weekly hours, blackout, live slots), `Fig 3 · StreamLine · Stock` (a tally-roll adder: append-only lines, on hand is the sum), `Fig 4 · Ordio · Kitchen` (a ticket rail: the guest's flap turns on its next poll). Each plate's caption and legend carry its facts; readouts are live data. Drawn in the chapter roles, with the drawing's ground halo off (no shadows).
+
+**5 Engineering** — H2 `Custom software. Same **standards**.` (accent word in mono).
 - When no product fits, Corsw designs and builds the software, then hosts and runs it the way it runs its own products.
 - From the first scoping call to production support, Corsw owns the outcome.
 - Services list: `Product design` · `Engineering` · `Hosting and operations` · `Ongoing support`, followed by a `Start a project →` link (mailto, subject "New project").
@@ -124,9 +127,9 @@ Beside the pillars, the `platform` system diagram (`lib/diagrams.ts`) assembles 
 |---|---|---|
 | 1 | SSC — B2B catalogue and quoting for a wholesale distributor | in build |
 
-**5 Company** — Rows: Company · Corner Software (Corsw); Founded · 2024; Based · India; Products · Arogyam · StreamLine · Ordio; Industries · Healthcare · Manufacturing · Trading · Food service · Distribution; Services · Product design · Engineering · Hosting and operations · Ongoing support.
+**6 Company** — Rows: Company · Corner Software (Corsw); Founded · 2024; Based · India; Products · Arogyam · StreamLine · Ordio; Industries · Healthcare · Manufacturing · Trading · Food service · Distribution; Services · Product design · Engineering · Hosting and operations · Ongoing support.
 
-**6 Contact** — H2 `Start a **conversation**.`
+**7 Contact** — H2 `Start a **conversation**.`
 - (lead) See a product running, or scope software Corsw builds for you.
 - Share what you run today and where it slows you down. The reply sets out what Corsw would build, the timeline and the cost.
 - `Request a demo →` (large, weight-shifts on hover, mailto, subject "Demo request") · `Start a project →` (mailto, subject "New project") · the email address.

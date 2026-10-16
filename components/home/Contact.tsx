@@ -19,7 +19,7 @@ export function Contact() {
     <section data-tone="carbon" id="contact" aria-labelledby="contact-title" className="pb-24 pt-8 md:pb-32">
       <Container>
         <div className="grid gap-10 md:grid-cols-12">
-          <SectionRule n={5} label="Company" className="md:col-span-3" />
+          <SectionRule n={6} label="Company" className="md:col-span-3" />
           <Reveal className="md:col-span-9">
             <dl className="font-mono text-[13px] leading-[1.7] tabular-nums">
               {rows.map((row) => (
@@ -37,7 +37,7 @@ export function Contact() {
         </div>
 
         <div className="mt-32 grid gap-10 md:mt-44 md:grid-cols-12">
-          <SectionRule n={6} label="Contact" className="md:col-span-3" />
+          <SectionRule n={7} label="Contact" className="md:col-span-3" />
           <div className="md:col-span-9">
             <SplitReveal
               id="contact-title"
