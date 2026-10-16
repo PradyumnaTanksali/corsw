@@ -22,7 +22,7 @@ export function Engineering({ engagements }: { engagements: Engagement[] }) {
     >
       <Container>
         <div className="grid gap-10 md:grid-cols-12">
-          <SectionRule n={4} label="Engineering" className="md:col-span-3" />
+          <SectionRule n={5} label="Engineering" className="md:col-span-3" />
           <div className="md:col-span-9">
             <SplitReveal
               id="engineering-title"

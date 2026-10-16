@@ -3,6 +3,7 @@ import { Hero } from "@/components/home/Hero";
 import { Statement } from "@/components/home/Statement";
 import { Products } from "@/components/home/Products";
 import { Platform } from "@/components/home/Platform";
+import { Drawings } from "@/components/home/Drawings";
 import { Engineering } from "@/components/home/Engineering";
 import { Contact } from "@/components/home/Contact";
 import { Footer } from "@/components/site/Footer";
@@ -88,6 +89,7 @@ export default function Home() {
       <Statement />
       <Products products={products.map(pick)} />
       <Platform />
+      <Drawings />
       <Engineering engagements={engagements.map(pick)} />
       <Contact />
       <Footer tone="carbon" />
