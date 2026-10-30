@@ -27,7 +27,7 @@ Corsw is a platform and engineering company. Its products are built for whole in
 
 ## Capabilities and Constraints
 
-- Next.js 16.2.4 (App Router, proxy.ts), React 19.2.4, Tailwind CSS 4, GSAP 3.15 (ScrollTrigger, SplitText, MotionPath), Lenis. No other runtime dependencies.
+- Next.js 16.2.4 (App Router), React 19.2.4, Tailwind CSS 4, GSAP 3.15 (ScrollTrigger, SplitText, MotionPath), Lenis. No other runtime dependencies.
 - Products on the site: Arogyam, StreamLine, Ordio (all operating). Engineering engagements: SSC (in build; pre-launch placeholders). Product copy describes each product at market scope and names only shipped capabilities.
 - Not listed on corsw.in, by owner decision: Lokey, Queue, Budgety, Second Brain.
 - Archive sites stay up: `modlio.corsw.in`, `scenestudio.corsw.in`. Products credit Corsw, not Modlio.

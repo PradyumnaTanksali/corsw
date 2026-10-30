@@ -41,7 +41,7 @@ Modlio (`modlio.corsw.in`) and Scene (`scenestudio.corsw.in`) are archived sites
 - `text-balance` on headings, `tabular-nums` on figures.
 - `aria-hidden` on decorative ordinals, arrows and marks.
 - Check contrast in every chapter when touching a token (text under 18px ≥ 4.5:1).
-- Keep `lib/host.test.mjs` passing when touching `lib/host.ts` or `proxy.ts`.
+- Keep `lib/host.test.mjs` passing when touching host routing in `next.config.ts`. Do not add a `proxy.ts`: it runs a Node function on every request and Hobby meters that as Fluid Active CPU.
 - Hidden start states only in `gsap.from()` on hydration, never in CSS, so content survives without JS.
 - Keep `lib/tones.test.mjs`, `lib/diagrams.test.mjs` and `lib/projects.test.mjs` passing.
 

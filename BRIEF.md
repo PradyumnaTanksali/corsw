@@ -59,7 +59,7 @@ All products      ink — back to the products on /#products
 
 **`/demo`** — the operating products under a short header, a demo mailto and a closing "See one running." block. Noindex. Every unassigned `*.corsw.in` subdomain shows it at `/`.
 
-**`proxy.ts` → `lib/host.ts`** (`pnpm test` covers it):
+**Host routing in `next.config.ts`** (redirects / rewrites / headers with `has: host`, no function on the request path; `pnpm test` covers it):
 - `www.corsw.in` → 308 to `https://corsw.in` + path + query.
 - any other `*.corsw.in` at `/` → rewrite to `/demo`.
 - every host except `corsw.in` → `X-Robots-Tag: noindex`.
