@@ -6,7 +6,7 @@ The site for Corner Software, run by Pradyumna Tanksali: industry platforms (Aro
 
 ## Stack
 
-- Next.js 16 (App Router, `proxy.ts`), TypeScript strict
+- Next.js 16 (App Router), TypeScript strict
 - Tailwind CSS 4
 - GSAP (ScrollTrigger, SplitText, MotionPath) + `@gsap/react`, Lenis
 - Schibsted Grotesk, EB Garamond, JetBrains Mono via `next/font`
